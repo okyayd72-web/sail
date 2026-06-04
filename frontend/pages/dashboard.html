@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — SAIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:     #050d1a;
+      --navy-2:   #0c1829;
+      --navy-3:   #112236;
+      --teal:     #00c9a7;
+      --teal-dim: #009e84;
+      --teal-g:   rgba(0,201,167,0.12);
+      --gold:     #e8b84b;
+      --text-1:   #f0eee8;
+      --text-2:   #8fa0b8;
+      --text-3:   #4d6278;
+      --border:   rgba(0,201,167,0.12);
+      --border-s: rgba(255,255,255,0.07);
+      --card:     rgba(12,24,41,0.9);
+      --ease:     cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Lora',Georgia,serif;
+      background:var(--navy); color:var(--text-1);
+      min-height:100vh; overflow-x:hidden;
+    }
+    body::before {
+      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,201,167,0.06) 0%, transparent 55%);
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.85rem 2rem;
+      background:rgba(5,13,26,0.95);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);
+    }
+    .brand {
+      display:flex; align-items:center; gap:.55rem;
+      font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800;
+      color:var(--text-1); text-decoration:none;
+    }
+    .brand-icon {
+      width:30px; height:30px; border-radius:8px;
+      background:linear-gradient(135deg,var(--teal),#009e84);
+      display:flex; align-items:center; justify-content:center; font-size:.9rem;
+    }
+    .brand span { color:var(--teal); }
+    .nav-right { display:flex; align-items:center; gap:1rem; }
+    .nav-user {
+      display:flex; align-items:center; gap:.6rem;
+      font-family:'Syne',sans-serif; font-size:.82rem; font-weight:600; color:var(--text-2);
+    }
+    .user-av {
+      width:32px; height:32px; border-radius:8px;
+      background:linear-gradient(135deg,var(--teal),#009e84);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Syne',sans-serif; font-weight:700; font-size:.75rem; color:var(--navy);
+    }
+    .btn {
+      display:inline-flex; align-items:center; gap:.4rem;
+      font-family:'Syne',sans-serif; font-weight:600; font-size:.82rem;
+      padding:.55rem 1.1rem; border-radius:8px; border:none; cursor:pointer;
+      transition:all .2s var(--ease); text-decoration:none;
+    }
+    .btn-ghost  { background:transparent; color:var(--text-2); }
+    .btn-ghost:hover  { color:var(--teal); background:var(--teal-g); }
+    .btn-primary { background:var(--teal); color:var(--navy); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,201,167,0.3); color:var(--navy); }
+    .btn-outline { background:transparent; color:var(--text-1); border:1px solid var(--border-s); }
+    .btn-outline:hover { border-color:var(--teal); color:var(--teal); }
+    .btn:disabled { opacity:.45; cursor:not-allowed; transform:none !important; }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display:grid; grid-template-columns:220px 1fr;
+      min-height:100vh; padding-top:61px;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background:var(--navy-2); border-right:1px solid var(--border-s);
+      padding:1.5rem .75rem; position:sticky; top:61px;
+      height:calc(100vh - 61px); overflow-y:auto; z-index:10;
+    }
+    .sidebar-label {
+      font-family:'Syne',sans-serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.15em; text-transform:uppercase;
+      color:var(--text-3); padding:.4rem .75rem; margin-top:1rem;
+    }
+    .sidebar-link {
+      display:flex; align-items:center; gap:.65rem;
+      padding:.65rem .75rem; border-radius:8px;
+      color:var(--text-2); font-family:'Syne',sans-serif;
+      font-size:.82rem; font-weight:600;
+      text-decoration:none; cursor:pointer;
+      border:none; background:none; width:100%; text-align:left;
+      transition:all .15s;
+    }
+    .sidebar-link:hover  { color:var(--text-1); background:rgba(255,255,255,0.05); }
+    .sidebar-link.active { color:var(--teal); background:var(--teal-g); }
+    .sidebar-link .icon  { font-size:1rem; width:18px; text-align:center; flex-shrink:0; }
+
+    /* ── MAIN ── */
+    .main { padding:2rem; overflow:auto; position:relative; z-index:1; }
+    .main-inner { max-width:960px; margin:0 auto; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { margin-bottom:1.75rem; }
+    .page-title  { font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:800; }
+    .page-sub    { color:var(--text-2); font-size:.875rem; margin-top:.25rem; }
+
+    /* ── CARDS ── */
+    .card {
+      background:var(--card); border:1px solid var(--border-s);
+      border-radius:16px; padding:1.5rem;
+      backdrop-filter:blur(12px);
+      transition:border-color .2s;
+    }
+    .card:hover { border-color:var(--border); }
+    .card-title {
+      font-family:'Syne',sans-serif; font-size:.95rem; font-weight:700;
+      margin-bottom:1.25rem; display:flex; align-items:center; justify-content:space-between;
+    }
+
+    /* ── TOP ROW ── */
+    .top-row { display:grid; grid-template-columns:1fr 1.6fr; gap:1.25rem; margin-bottom:1.25rem; }
+
+    /* Profile card */
+    .profile-top { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; }
+    .profile-av  {
+      width:56px; height:56px; border-radius:14px; flex-shrink:0;
+      background:linear-gradient(135deg,var(--teal),#009e84);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Syne',sans-serif; font-weight:800; font-size:1.3rem; color:var(--navy);
+    }
+    .profile-name { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; }
+    .profile-meta { font-size:.78rem; color:var(--text-3); margin-top:.2rem; }
+
+    .progress-label {
+      display:flex; justify-content:space-between;
+      font-family:'Syne',sans-serif; font-size:.68rem; font-weight:700;
+      color:var(--text-3); margin-bottom:.4rem;
+    }
+    .progress-track { height:5px; background:rgba(255,255,255,0.07); border-radius:99px; overflow:hidden; margin-bottom:1.25rem; }
+    .progress-fill  { height:100%; border-radius:99px; background:linear-gradient(90deg,var(--teal),#00a88b); transition:width .6s var(--ease); }
+
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+    .info-item label {
+      display:block; font-family:'Syne',sans-serif; font-size:.62rem;
+      font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--text-3); margin-bottom:.2rem;
+    }
+    .info-item .val { font-size:.85rem; color:var(--text-1); }
+
+    /* Quick actions */
+    .actions-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-bottom:1.25rem; }
+    .action-btn {
+      display:flex; align-items:center; gap:.6rem;
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
+      border-radius:10px; padding:.85rem 1rem;
+      color:var(--text-2); font-family:'Syne',sans-serif;
+      font-size:.8rem; font-weight:600; cursor:pointer;
+      text-decoration:none; transition:all .15s;
+    }
+    .action-btn:hover { border-color:var(--border); color:var(--text-1); background:rgba(255,255,255,0.07); }
+    .action-icon { font-size:1.1rem; }
+
+    /* Stats row */
+    .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:1.25rem; }
+    .stat-card  { text-align:center; padding:1.25rem; }
+    .stat-num   { font-family:'Syne',sans-serif; font-size:1.75rem; font-weight:800; color:var(--teal); }
+    .stat-label { font-family:'Syne',sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-3); margin-top:.25rem; }
+
+    /* Matches */
+    .matches-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+    .matches-title  { font-family:'Syne',sans-serif; font-size:.95rem; font-weight:700; }
+    .match-item {
+      background:rgba(255,255,255,0.03); border:1px solid var(--border-s);
+      border-radius:10px; padding:1.1rem; margin-bottom:.75rem;
+      transition:border-color .2s, transform .2s;
+      animation:fadeUp .4s var(--ease) both;
+    }
+    .match-item:hover { border-color:var(--border); transform:translateY(-2px); }
+    .match-top  { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.6rem; }
+    .match-name { font-family:'Syne',sans-serif; font-weight:700; font-size:.9rem; }
+    .badge {
+      font-family:'Syne',sans-serif; font-size:.58rem; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase;
+      padding:.2rem .55rem; border-radius:99px;
+    }
+    .badge-d1   { background:rgba(232,184,75,0.12); color:var(--gold); border:1px solid rgba(232,184,75,0.25); }
+    .badge-d2   { background:rgba(0,201,167,0.1);   color:var(--teal); border:1px solid rgba(0,201,167,0.2); }
+    .badge-d3   { background:rgba(143,160,184,0.1); color:var(--text-2); border:1px solid var(--border-s); }
+    .badge-naia { background:rgba(59,130,246,0.1);  color:#60a5fa; border:1px solid rgba(59,130,246,0.2); }
+    .badge-juco { background:rgba(168,85,247,0.1);  color:#c084fc; border:1px solid rgba(168,85,247,0.2); }
+    .match-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.65rem; }
+    .meta-tag   { font-size:.68rem; padding:.15rem .5rem; border-radius:4px; background:rgba(255,255,255,0.05); color:var(--text-3); }
+    .score-row  { display:flex; align-items:center; gap:.6rem; }
+    .score-bar  { flex:1; height:5px; background:rgba(255,255,255,0.07); border-radius:99px; overflow:hidden; }
+    .score-fill { height:100%; border-radius:99px; }
+    .score-fill-high { background:linear-gradient(90deg,var(--teal),#00e5c0); }
+    .score-fill-mid  { background:linear-gradient(90deg,var(--gold),#f5d07a); }
+    .score-fill-low  { background:rgba(143,160,184,0.5); }
+    .score-pct  { font-family:'Syne',sans-serif; font-weight:800; font-size:.95rem; min-width:36px; text-align:right; }
+    .score-high { color:var(--teal); }
+    .score-mid  { color:var(--gold); }
+    .score-low  { color:var(--text-2); }
+    .match-reason { font-size:.78rem; color:var(--text-3); font-style:italic; margin-top:.5rem; line-height:1.5; }
+
+    /* Empty state */
+    .empty-state {
+      text-align:center; padding:2.5rem 1rem;
+      color:var(--text-3); font-size:.875rem;
+    }
+    .empty-icon { font-size:2.5rem; margin-bottom:.75rem; opacity:.5; }
+    .empty-title { font-family:'Syne',sans-serif; font-weight:700; color:var(--text-2); margin-bottom:.5rem; }
+
+    /* ── MODALS ── */
+    .modal-bg {
+      display:none; position:fixed; inset:0; z-index:500;
+      background:rgba(0,0,0,0.75); backdrop-filter:blur(4px);
+      align-items:center; justify-content:center; padding:1rem;
+    }
+    .modal-bg.open { display:flex; }
+    .modal {
+      background:var(--navy-2); border:1px solid var(--border-s);
+      border-radius:20px; padding:2rem; width:100%; max-width:520px;
+      max-height:90vh; overflow-y:auto;
+      animation:fadeUp .3s var(--ease) both;
+    }
+    .modal-head {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:1.5rem;
+    }
+    .modal-title { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; }
+    .modal-close {
+      background:none; border:none; color:var(--text-3);
+      font-size:1.2rem; cursor:pointer; padding:.25rem;
+      transition:color .15s;
+    }
+    .modal-close:hover { color:var(--text-1); }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+    .form-group { margin-bottom:1rem; }
+    .form-label {
+      display:block; font-family:'Syne',sans-serif; font-size:.65rem;
+      font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--text-2); margin-bottom:.4rem;
+    }
+    .form-control {
+      width:100%; background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.1); border-radius:10px;
+      color:var(--text-1); padding:.7rem .9rem;
+      font-family:'Lora',serif; font-size:.875rem; outline:none;
+      transition:border-color .15s; -webkit-appearance:none;
+    }
+    .form-control:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(0,201,167,0.1); }
+    select.form-control { cursor:pointer; }
+    select.form-control option { background:#112236; }
+
+    /* Toast */
+    #toasts { position:fixed; bottom:1.5rem; right:1.5rem; z-index:9999; display:flex; flex-direction:column; gap:.5rem; }
+    .toast {
+      padding:.8rem 1.1rem; border-radius:10px;
+      font-family:'Syne',sans-serif; font-size:.82rem; font-weight:600;
+      box-shadow:0 8px 24px rgba(0,0,0,0.4); max-width:280px;
+      animation:slideIn .3s var(--ease) both;
+    }
+    .toast.success { background:rgba(34,197,94,0.95); color:#fff; }
+    .toast.error   { background:rgba(239,68,68,0.95);  color:#fff; }
+    .toast.info    { background:var(--teal); color:var(--navy); }
+
+    /* Spinner */
+    .spinner {
+      width:18px; height:18px; border-radius:50%;
+      border:2px solid rgba(255,255,255,0.15);
+      border-top-color:var(--teal);
+      animation:spin .7s linear infinite; display:inline-block;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:99px; }
+
+    /* Animations */
+    @keyframes fadeUp  { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideIn { from { opacity:0; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes spin    { to { transform:rotate(360deg); } }
+
+    /* Responsive */
+    @media(max-width:860px) {
+      .layout { grid-template-columns:1fr; }
+      .sidebar { display:none; }
+      .top-row { grid-template-columns:1fr; }
+      .stats-row { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:480px) {
+      .main { padding:1rem; }
+      .stats-row { grid-template-columns:1fr 1fr; }
+      .actions-grid { grid-template-columns:1fr; }
+      .form-row { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <a href="/" class="brand">
+    <div class="brand-icon">⛵</div>
+    SAIL<span>.</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-user">
+      <div class="user-av" id="navInitials">?</div>
+      <span id="navName">Loading…</span>
+    </div>
+    <a href="/logout" class="btn btn-ghost">Log out</a>
+  </div>
+</nav>
+
+<!-- ── LAYOUT ── -->
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Main</div>
+    <a class="sidebar-link active" href="/dashboard"><span class="icon">🏠</span> Dashboard</a>
+    <a class="sidebar-link" href="/advisor"><span class="icon">🤖</span> AI Advisor</a>
+    <a class="sidebar-link" href="/schools"><span class="icon">🎓</span> Find Schools</a>
+
+    <div class="sidebar-label">Profile</div>
+    <button class="sidebar-link" onclick="openModal('profile-modal')"><span class="icon">✏️</span> Edit Profile</button>
+
+    <div class="sidebar-label">Account</div>
+    <a class="sidebar-link" href="/logout"><span class="icon">↩️</span> Log Out</a>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="main-inner">
+
+      <!-- Page header -->
+      <div class="page-header">
+        <h1 class="page-title">Welcome back, <span id="firstName" style="color:var(--teal)">Athlete</span> 👋</h1>
+        <p class="page-sub">Here's your recruiting overview. Keep your profile updated for better school matches.</p>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="card stat-card">
+          <div class="stat-num" id="statMatches">—</div>
+          <div class="stat-label">School Matches</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-num" id="statCompletion">—</div>
+          <div class="stat-label">Profile Complete</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-num" id="statDivision">—</div>
+          <div class="stat-label">Target Division</div>
+        </div>
+      </div>
+
+      <!-- Top row: Profile + Actions -->
+      <div class="top-row">
+
+        <!-- Profile card -->
+        <div class="card">
+          <div class="card-title">
+            My Profile
+            <button class="btn btn-outline" style="font-size:.72rem;padding:.35rem .8rem" onclick="openModal('profile-modal')">✏️ Edit</button>
+          </div>
+
+          <div class="profile-top">
+            <div class="profile-av" id="profileInitials">?</div>
+            <div>
+              <div class="profile-name" id="profileName">Loading…</div>
+              <div class="profile-meta" id="profileMeta">Complete your profile below</div>
+            </div>
+          </div>
+
+          <div class="progress-label">
+            <span>Profile completion</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressBar" style="width:0%"></div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item"><label>Sport</label><div class="val" id="info-sport">—</div></div>
+            <div class="info-item"><label>Division</label><div class="val" id="info-div">—</div></div>
+            <div class="info-item"><label>GPA</label><div class="val" id="info-gpa">—</div></div>
+            <div class="info-item"><label>Grad Year</label><div class="val" id="info-year">—</div></div>
+            <div class="info-item"><label>Nationality</label><div class="val" id="info-nat">—</div></div>
+            <div class="info-item"><label>Level</label><div class="val" id="info-level">—</div></div>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="card">
+          <div class="card-title">Quick Actions</div>
+          <div class="actions-grid">
+            <a href="/advisor" class="action-btn"><span class="action-icon">🤖</span> Ask AI Advisor</a>
+            <a href="/schools" class="action-btn"><span class="action-icon">🔍</span> Search Schools</a>
+            <button class="action-btn" onclick="openModal('email-modal')"><span class="action-icon">✉️</span> Draft Coach Email</button>
+            <button class="action-btn" onclick="refreshMatches()"><span class="action-icon">🎯</span> Refresh Matches</button>
+          </div>
+
+          <!-- Incomplete profile warning -->
+          <div id="profileWarning" style="display:none;margin-top:1rem;background:rgba(232,184,75,0.08);border:1px solid rgba(232,184,75,0.2);border-radius:10px;padding:1rem">
+            <p style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--gold);margin-bottom:.35rem">⚠️ Profile Incomplete</p>
+            <p style="font-size:.78rem;color:var(--text-2);line-height:1.6">Fill in your sport, GPA, and division preference to unlock AI school matching.</p>
+            <button class="btn btn-outline" style="margin-top:.75rem;font-size:.75rem" onclick="openModal('profile-modal')">Complete Profile →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- School Matches -->
+      <div class="card">
+        <div class="matches-header">
+          <div class="matches-title">🎯 AI-Recommended Schools</div>
+          <button class="btn btn-primary" id="refreshBtn" onclick="refreshMatches()" style="font-size:.78rem;padding:.5rem 1rem">
+            ↻ Refresh Matches
+          </button>
+        </div>
+        <div id="matchesContainer">
+          <div class="empty-state">
+            <div class="empty-icon">🎓</div>
+            <div class="empty-title">No matches yet</div>
+            <p>Complete your profile and click "Refresh Matches" to get AI-powered school recommendations.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ── EDIT PROFILE MODAL ── -->
+<div class="modal-bg" id="profile-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">✏️ Edit Athletic Profile</div>
+      <button class="modal-close" onclick="closeModal('profile-modal')">✕</button>
+    </div>
+    <form id="profileForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Sport</label>
+          <select class="form-control" id="f-sport">
+            <option value="">Select sport</option>
+            <option>Soccer</option><option>Basketball</option><option>Swimming</option>
+            <option>Tennis</option><option>Volleyball</option><option>Baseball</option>
+            <option>Softball</option><option>Track & Field</option><option>Golf</option>
+            <option>Lacrosse</option><option>Wrestling</option><option>Gymnastics</option>
+            <option>Cross Country</option><option>Rowing</option><option>Field Hockey</option>
+            <option>Ice Hockey</option><option>Football</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Position</label>
+          <input class="form-control" id="f-position" placeholder="e.g. Midfielder">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Graduation Year</label>
+          <input class="form-control" type="number" id="f-year" min="2024" max="2030" placeholder="2026">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Athletic Level</label>
+          <select class="form-control" id="f-level">
+            <option value="">Select level</option>
+            <option value="elite">Elite / National Level</option>
+            <option value="strong">Strong Varsity / State Level</option>
+            <option value="good">Solid Varsity Starter</option>
+            <option value="developing">Developing / JV Level</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">GPA (0.0 – 4.0)</label>
+          <input class="form-control" type="number" id="f-gpa" step="0.1" min="0" max="4.0" placeholder="3.5">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Division Preference</label>
+          <select class="form-control" id="f-div">
+            <option value="">Any Division</option>
+            <option value="Division I">Division I</option>
+            <option value="Division II">Division II</option>
+            <option value="Division III">Division III</option>
+            <option value="NAIA">NAIA</option>
+            <option value="JUCO">JUCO</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">SAT Score (optional)</label>
+          <input class="form-control" type="number" id="f-sat" min="400" max="1600" placeholder="1200">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ACT Score (optional)</label>
+          <input class="form-control" type="number" id="f-act" min="1" max="36" placeholder="26">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nationality</label>
+          <input class="form-control" id="f-nat" placeholder="e.g. Brazil">
+        </div>
+        <div class="form-group">
+          <label class="form-label">State / Province</label>
+          <input class="form-control" id="f-state" placeholder="e.g. São Paulo">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Highlight Video URL (optional)</label>
+        <input class="form-control" type="url" id="f-highlights" placeholder="https://youtube.com/...">
+      </div>
+      <div style="display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.25rem">
+        <button type="button" class="btn btn-outline" onclick="closeModal('profile-modal')">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="saveProfileBtn">Save Profile</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── EMAIL GENERATOR MODAL ── -->
+<div class="modal-bg" id="email-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">✉️ Generate Recruiting Email</div>
+      <button class="modal-close" onclick="closeModal('email-modal')">✕</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">College / University Name</label>
+      <input class="form-control" id="email-school" placeholder="e.g. University of Tampa">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Coach's Name (optional)</label>
+      <input class="form-control" id="email-coach" placeholder="e.g. Coach Johnson">
+    </div>
+    <button class="btn btn-primary" id="genEmailBtn" onclick="generateEmail()" style="width:100%;justify-content:center">
+      ✨ Generate Email
+    </button>
+    <div id="emailOutput" style="display:none;margin-top:1.25rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+        <label class="form-label" style="margin:0">Your Recruiting Email</label>
+        <button class="btn btn-ghost" style="font-size:.72rem" onclick="copyEmail()">📋 Copy</button>
+      </div>
+      <textarea class="form-control" id="emailText" rows="14"
+        style="font-size:.8rem;line-height:1.65;resize:vertical"></textarea>
+    </div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<script>
+// ── API helper ──
+const api = async (path, opts = {}) => {
+  const res = await fetch(path, {
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include', ...opts
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw { status: res.status, data };
+  return data;
+};
+
+// ── Toast ──
+function toast(msg, type = 'info') {
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.textContent = msg;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(() => { t.style.opacity='0'; t.style.transition='.3s'; setTimeout(()=>t.remove(),300); }, 4000);
+}
+
+// ── Modal helpers ──
+function openModal(id)  { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+// ── Division badge ──
+function divBadge(div) {
+  const map = {
+    'Division I':   ['D1','badge-d1'],
+    'Division II':  ['D2','badge-d2'],
+    'Division III': ['D3','badge-d3'],
+    'NAIA':         ['NAIA','badge-naia'],
+    'JUCO':         ['JUCO','badge-juco'],
+  };
+  const [label, cls] = map[div] || [div||'—','badge-d3'];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+// ── Render profile ──
+function renderProfile(user, profile) {
+  const initials = ((user.first_name||'?')[0] + (user.last_name||'?')[0]).toUpperCase();
+  document.getElementById('navInitials').textContent    = initials;
+  document.getElementById('navName').textContent        = user.first_name || '';
+  document.getElementById('firstName').textContent      = user.first_name || 'Athlete';
+  document.getElementById('profileInitials').textContent= initials;
+  document.getElementById('profileName').textContent    = user.full_name || user.first_name;
+
+  if (!profile) {
+    document.getElementById('profileWarning').style.display = 'block';
+    document.getElementById('statCompletion').textContent = '0%';
+    return;
+  }
+
+  const pct = profile.completion_pct || 0;
+  document.getElementById('progressBar').style.width  = pct + '%';
+  document.getElementById('progressPct').textContent  = pct + '%';
+  document.getElementById('statCompletion').textContent = pct + '%';
+  document.getElementById('statDivision').textContent = profile.division_preference
+    ? profile.division_preference.replace('Division ','D') : '—';
+
+  document.getElementById('profileMeta').textContent =
+    [profile.sport, profile.division_preference, profile.graduation_year && 'Class of '+profile.graduation_year]
+    .filter(Boolean).join(' · ') || 'Complete your profile';
+
+  document.getElementById('info-sport').textContent  = profile.sport || '—';
+  document.getElementById('info-div').textContent    = profile.division_preference || '—';
+  document.getElementById('info-gpa').textContent    = profile.gpa ? parseFloat(profile.gpa).toFixed(1) : '—';
+  document.getElementById('info-year').textContent   = profile.graduation_year || '—';
+  document.getElementById('info-nat').textContent    = profile.nationality || '—';
+  document.getElementById('info-level').textContent  = profile.athletic_level || '—';
+
+  if (pct < 60) document.getElementById('profileWarning').style.display = 'block';
+
+  // Pre-fill edit form
+  const fields = {
+    'f-sport':      profile.sport,
+    'f-position':   profile.position,
+    'f-year':       profile.graduation_year,
+    'f-level':      profile.athletic_level,
+    'f-gpa':        profile.gpa,
+    'f-div':        profile.division_preference,
+    'f-sat':        profile.sat_score,
+    'f-act':        profile.act_score,
+    'f-nat':        profile.nationality,
+    'f-state':      profile.state_province,
+    'f-highlights': profile.highlights_url,
+  };
+  Object.entries(fields).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el && val != null) el.value = val;
+  });
+}
+
+// ── Render matches ──
+function renderMatches(matches) {
+  const container = document.getElementById('matchesContainer');
+  document.getElementById('statMatches').textContent = matches ? matches.length : '0';
+
+  if (!matches || !matches.length) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">🎓</div>
+        <div class="empty-title">No matches yet</div>
+        <p>Click "Refresh Matches" above to get your AI-powered school recommendations.</p>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = matches.map((m, i) => {
+    const score = m.match_score || 75;
+    const isHigh = score >= 85, isMid = score >= 70;
+    const scoreCls = isHigh ? 'score-high' : isMid ? 'score-mid' : 'score-low';
+    const fillCls  = isHigh ? 'score-fill-high' : isMid ? 'score-fill-mid' : 'score-fill-low';
+    const name = m.name || (m.university && m.university.name) || 'School';
+    const div  = m.division || (m.university && m.university.division) || '';
+    const loc  = m.location || (m.university && `${m.university.city}, ${m.university.state}`) || '';
+    const rank = m.academic_rank || '';
+    const tags = (m.tags || []).slice(0, 3);
+
+    return `
+    <div class="match-item" style="animation-delay:${i*0.07}s">
+      <div class="match-top">
+        <div class="match-name">${name}</div>
+        ${divBadge(div)}
+      </div>
+      <div class="match-meta">
+        ${loc  ? `<span class="meta-tag">📍 ${loc}</span>` : ''}
+        ${rank ? `<span class="meta-tag">🎓 ${rank}</span>` : ''}
+        ${tags.map(t=>`<span class="meta-tag">${t}</span>`).join('')}
+      </div>
+      <div class="score-row">
+        <div class="score-bar">
+          <div class="score-fill ${fillCls}" style="width:${score}%"></div>
+        </div>
+        <span class="score-pct ${scoreCls}">${score}%</span>
+      </div>
+      ${m.match_reason ? `<div class="match-reason">"${m.match_reason}"</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ── Refresh matches ──
+async function refreshMatches() {
+  const btn = document.getElementById('refreshBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Finding…';
+  try {
+    const data = await api('/api/athlete/matches/refresh', { method: 'POST' });
+    renderMatches(data.matches);
+    toast('School matches updated! 🎯', 'success');
+  } catch (e) {
+    toast(e.data?.error || 'Please complete your profile first.', 'error');
+  }
+  btn.disabled = false;
+  btn.innerHTML = '↻ Refresh Matches';
+}
+
+// ── Save profile ──
+document.getElementById('profileForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('saveProfileBtn');
+  btn.disabled = true; btn.textContent = 'Saving…';
+
+  const body = {};
+  const raw = {
+    sport:               document.getElementById('f-sport').value,
+    position:            document.getElementById('f-position').value,
+    graduation_year:     document.getElementById('f-year').value,
+    athletic_level:      document.getElementById('f-level').value,
+    gpa:                 document.getElementById('f-gpa').value,
+    division_preference: document.getElementById('f-div').value,
+    sat_score:           document.getElementById('f-sat').value,
+    act_score:           document.getElementById('f-act').value,
+    nationality:         document.getElementById('f-nat').value,
+    state_province:      document.getElementById('f-state').value,
+    highlights_url:      document.getElementById('f-highlights').value,
+  };
+  Object.entries(raw).forEach(([k,v]) => {
+    if (v !== '' && v !== null && v !== undefined) {
+      body[k] = ['graduation_year','sat_score','act_score'].includes(k) ? parseInt(v) :
+                k === 'gpa' ? parseFloat(v) : v;
+    }
+  });
+
+  try {
+    const data = await api('/api/athlete/profile', { method: 'PUT', body: JSON.stringify(body) });
+    const { user } = await api('/api/auth/me');
+    renderProfile(user, data.profile);
+    closeModal('profile-modal');
+    toast('Profile saved! ✅', 'success');
+    document.getElementById('profileWarning').style.display = 'none';
+  } catch (e) {
+    toast('Error saving profile. Please try again.', 'error');
+  }
+  btn.disabled = false; btn.textContent = 'Save Profile';
+});
+
+// ── Generate recruiting email ──
+async function generateEmail() {
+  const school = document.getElementById('email-school').value.trim();
+  const coach  = document.getElementById('email-coach').value.trim();
+  if (!school) { toast('Please enter a school name.', 'error'); return; }
+
+  const btn = document.getElementById('genEmailBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Generating…';
+
+  try {
+    const data = await api('/api/ai/generate-email', {
+      method: 'POST',
+      body: JSON.stringify({ university_name: school, coach_name: coach })
+    });
+    document.getElementById('emailText').value = data.email;
+    document.getElementById('emailOutput').style.display = 'block';
+    toast('Email generated! ✉️', 'success');
+  } catch (e) {
+    toast('Could not generate email. Check your API key is set.', 'error');
+  }
+  btn.disabled = false; btn.textContent = '✨ Generate Email';
+}
+
+function copyEmail() {
+  navigator.clipboard.writeText(document.getElementById('emailText').value)
+    .then(() => toast('Copied to clipboard! 📋', 'success'));
+}
+
+// ── Page init ──
+async function init() {
+  try {
+    const { user } = await api('/api/auth/me');
+    if (!user) { window.location.href = '/login'; return; }
+
+    // Load profile
+    let profile = null;
+    try {
+      const pd = await api('/api/athlete/profile');
+      profile = pd.profile;
+    } catch(e) {}
+
+    renderProfile(user, profile);
+
+    // Load existing matches
+    try {
+      const md = await api('/api/athlete/matches');
+      if (md.matches && md.matches.length) renderMatches(md.matches);
+    } catch(e) {}
+
+  } catch (e) {
+    window.location.href = '/login';
+  }
+}
+
+init();
+</script>
+</body>
+</html>

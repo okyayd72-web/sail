@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Schools — SAIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:     #050d1a;
+      --navy-2:   #0c1829;
+      --navy-3:   #112236;
+      --teal:     #00c9a7;
+      --teal-g:   rgba(0,201,167,0.12);
+      --gold:     #e8b84b;
+      --text-1:   #f0eee8;
+      --text-2:   #8fa0b8;
+      --text-3:   #4d6278;
+      --border-s: rgba(255,255,255,0.07);
+      --border:   rgba(0,201,167,0.12);
+      --card:     rgba(12,24,41,0.9);
+      --ease:     cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Lora',Georgia,serif;
+      background:var(--navy); color:var(--text-1);
+      min-height:100vh; overflow-x:hidden;
+    }
+    body::before {
+      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background:radial-gradient(ellipse 70% 50% at 15% 10%, rgba(0,201,167,0.06) 0%, transparent 55%);
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.85rem 2rem;
+      background:rgba(5,13,26,0.95); backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);
+    }
+    .brand {
+      display:flex; align-items:center; gap:.55rem;
+      font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800;
+      color:var(--text-1); text-decoration:none;
+    }
+    .brand-icon {
+      width:30px; height:30px; border-radius:8px;
+      background:linear-gradient(135deg,var(--teal),#009e84);
+      display:flex; align-items:center; justify-content:center; font-size:.9rem;
+    }
+    .brand span { color:var(--teal); }
+    .nav-links { display:flex; gap:.25rem; }
+    .nav-link {
+      font-family:'Syne',sans-serif; font-size:.82rem; font-weight:600;
+      color:var(--text-2); padding:.5rem .85rem; border-radius:6px;
+      text-decoration:none; transition:all .15s;
+    }
+    .nav-link:hover { color:var(--text-1); background:rgba(255,255,255,0.05); }
+    .nav-link.active { color:var(--teal); }
+    .nav-actions { display:flex; gap:.75rem; }
+    .btn {
+      display:inline-flex; align-items:center; gap:.4rem;
+      font-family:'Syne',sans-serif; font-weight:600; font-size:.82rem;
+      padding:.55rem 1.1rem; border-radius:8px; border:none; cursor:pointer;
+      transition:all .2s var(--ease); text-decoration:none; white-space:nowrap;
+    }
+    .btn-ghost   { background:transparent; color:var(--text-2); }
+    .btn-ghost:hover { color:var(--teal); background:var(--teal-g); }
+    .btn-primary { background:var(--teal); color:var(--navy); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,201,167,0.3); color:var(--navy); }
+    .btn-outline { background:transparent; color:var(--text-1); border:1px solid var(--border-s); }
+    .btn-outline:hover { border-color:var(--teal); color:var(--teal); }
+    .btn:disabled { opacity:.4; cursor:not-allowed; transform:none !important; }
+
+    /* ── PAGE ── */
+    .page { padding:5.5rem 0 4rem; position:relative; z-index:1; }
+    .container { max-width:1140px; margin:0 auto; padding:0 1.5rem; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { padding:2rem 0 1.5rem; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:.5rem;
+      font-family:'Syne',sans-serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.2em; text-transform:uppercase; color:var(--teal);
+      margin-bottom:.6rem;
+    }
+    .eyebrow::before { content:''; display:inline-block; width:18px; height:2px; background:var(--teal); border-radius:2px; }
+    .page-title { font-family:'Syne',sans-serif; font-size:clamp(1.75rem,3vw,2.5rem); font-weight:800; margin-bottom:.5rem; }
+    .page-sub   { color:var(--text-2); font-size:.9rem; }
+
+    /* ── SEARCH & FILTERS ── */
+    .search-bar {
+      display:flex; gap:.75rem; align-items:center; margin-bottom:1.25rem;
+    }
+    .search-input-wrap {
+      flex:1; display:flex; align-items:center; gap:.75rem;
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
+      border-radius:12px; padding:.75rem 1rem;
+      transition:border-color .15s;
+    }
+    .search-input-wrap:focus-within { border-color:var(--border); }
+    .search-icon { font-size:1rem; color:var(--text-3); flex-shrink:0; }
+    .search-input {
+      flex:1; background:transparent; border:none; outline:none;
+      color:var(--text-1); font-family:'Lora',serif; font-size:.9rem;
+    }
+    .search-input::placeholder { color:var(--text-3); }
+
+    .filters-row {
+      display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:2rem;
+      align-items:center;
+    }
+    .filter-select {
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
+      border-radius:8px; color:var(--text-1); padding:.55rem .9rem;
+      font-family:'Syne',sans-serif; font-size:.78rem; font-weight:600;
+      outline:none; cursor:pointer; transition:border-color .15s;
+      -webkit-appearance:none; min-width:130px;
+    }
+    .filter-select:focus { border-color:var(--border); }
+    .filter-select option { background:#112236; }
+
+    .filter-chip {
+      padding:.4rem .9rem; border-radius:99px;
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
+      font-family:'Syne',sans-serif; font-size:.75rem; font-weight:700;
+      color:var(--text-2); cursor:pointer; transition:all .15s; white-space:nowrap;
+    }
+    .filter-chip:hover  { border-color:var(--border); color:var(--teal); }
+    .filter-chip.active { background:var(--teal-g); border-color:var(--border); color:var(--teal); }
+
+    .results-meta {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:1.25rem; flex-wrap:wrap; gap:.5rem;
+    }
+    .results-count {
+      font-family:'Syne',sans-serif; font-size:.82rem; font-weight:700; color:var(--text-2);
+    }
+    .results-count span { color:var(--teal); }
+
+    /* ── SCHOOL CARDS ── */
+    .schools-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+      gap:1.25rem;
+    }
+    .school-card {
+      background:var(--card); border:1px solid var(--border-s);
+      border-radius:16px; padding:1.5rem; position:relative; overflow:hidden;
+      transition:transform .2s var(--ease), border-color .2s;
+      animation:fadeUp .4s var(--ease) both;
+      display:flex; flex-direction:column;
+    }
+    .school-card:hover { transform:translateY(-3px); border-color:var(--border); }
+
+    .school-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:.85rem; }
+    .school-initial {
+      width:44px; height:44px; border-radius:10px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; color:var(--navy);
+      background:linear-gradient(135deg,var(--teal),#009e84);
+    }
+
+    .badge {
+      font-family:'Syne',sans-serif; font-size:.58rem; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase;
+      padding:.22rem .6rem; border-radius:99px;
+    }
+    .badge-d1   { background:rgba(232,184,75,0.12); color:var(--gold); border:1px solid rgba(232,184,75,0.25); }
+    .badge-d2   { background:rgba(0,201,167,0.1);   color:var(--teal); border:1px solid rgba(0,201,167,0.2); }
+    .badge-d3   { background:rgba(143,160,184,0.1); color:var(--text-2); border:1px solid var(--border-s); }
+    .badge-naia { background:rgba(59,130,246,0.1);  color:#60a5fa; border:1px solid rgba(59,130,246,0.2); }
+    .badge-juco { background:rgba(168,85,247,0.1);  color:#c084fc; border:1px solid rgba(168,85,247,0.2); }
+    .badge-schol { background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid rgba(34,197,94,0.2); }
+
+    .school-name {
+      font-family:'Syne',sans-serif; font-size:.95rem; font-weight:700;
+      margin-bottom:.3rem; line-height:1.3;
+    }
+    .school-location { font-size:.78rem; color:var(--text-3); margin-bottom:.85rem; }
+
+    .school-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem; }
+    .school-tag { font-size:.68rem; padding:.15rem .5rem; border-radius:4px; background:rgba(255,255,255,0.05); color:var(--text-3); }
+
+    .school-stats {
+      display:grid; grid-template-columns:1fr 1fr; gap:.5rem;
+      margin-bottom:1.1rem;
+    }
+    .school-stat { }
+    .school-stat-label { font-family:'Syne',sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3); }
+    .school-stat-val   { font-size:.82rem; color:var(--text-1); margin-top:.1rem; }
+
+    .school-desc { font-size:.8rem; color:var(--text-2); line-height:1.65; margin-bottom:1rem; flex:1; }
+
+    .school-footer { display:flex; gap:.5rem; margin-top:auto; }
+    .school-btn {
+      flex:1; padding:.6rem; border-radius:8px; text-align:center;
+      font-family:'Syne',sans-serif; font-size:.75rem; font-weight:700;
+      cursor:pointer; transition:all .15s; text-decoration:none;
+      display:flex; align-items:center; justify-content:center; gap:.35rem;
+    }
+    .school-btn-primary { background:var(--teal-g); border:1px solid var(--border); color:var(--teal); }
+    .school-btn-primary:hover { background:rgba(0,201,167,0.2); color:var(--teal); }
+    .school-btn-ghost   { background:rgba(255,255,255,0.04); border:1px solid var(--border-s); color:var(--text-2); }
+    .school-btn-ghost:hover { border-color:var(--border); color:var(--text-1); }
+
+    /* Empty / Loading states */
+    .state-box { text-align:center; padding:4rem 1rem; grid-column:1/-1; }
+    .state-icon  { font-size:3rem; margin-bottom:1rem; opacity:.4; }
+    .state-title { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text-2); margin-bottom:.5rem; }
+    .state-sub   { font-size:.875rem; color:var(--text-3); }
+
+    .spinner {
+      width:32px; height:32px; border-radius:50%;
+      border:3px solid rgba(0,201,167,0.15); border-top-color:var(--teal);
+      animation:spin .8s linear infinite; margin:0 auto 1rem;
+    }
+
+    /* AI match banner */
+    .ai-banner {
+      background:var(--teal-g); border:1px solid var(--border);
+      border-radius:14px; padding:1.25rem 1.5rem;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:1rem; flex-wrap:wrap; margin-bottom:1.75rem;
+    }
+    .ai-banner-text { display:flex; align-items:center; gap:.75rem; }
+    .ai-banner-icon { font-size:1.5rem; }
+    .ai-banner-title { font-family:'Syne',sans-serif; font-weight:700; font-size:.9rem; }
+    .ai-banner-sub   { font-size:.78rem; color:var(--text-2); margin-top:.15rem; }
+
+    /* Toast */
+    #toasts { position:fixed; bottom:1.5rem; right:1.5rem; z-index:9999; display:flex; flex-direction:column; gap:.5rem; }
+    .toast { padding:.8rem 1.1rem; border-radius:10px; font-family:'Syne',sans-serif; font-size:.82rem; font-weight:600; box-shadow:0 8px 24px rgba(0,0,0,.4); max-width:280px; animation:slideIn .3s var(--ease) both; }
+    .toast.info    { background:var(--teal); color:var(--navy); }
+    .toast.success { background:rgba(34,197,94,.95); color:#fff; }
+    .toast.error   { background:rgba(239,68,68,.95); color:#fff; }
+
+    @keyframes fadeUp  { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideIn { from { opacity:0; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes spin    { to { transform:rotate(360deg); } }
+
+    @media(max-width:768px) {
+      .nav-links { display:none; }
+      .filters-row { gap:.5rem; }
+      .ai-banner { flex-direction:column; align-items:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <a href="/" class="brand">
+    <div class="brand-icon">⛵</div>
+    SAIL<span>.</span>
+  </a>
+  <div class="nav-links">
+    <a href="/"        class="nav-link">Home</a>
+    <a href="/schools" class="nav-link active">Find Schools</a>
+    <a href="/advisor" class="nav-link">AI Advisor</a>
+    <a href="/pricing" class="nav-link">Pricing</a>
+  </div>
+  <div class="nav-actions" id="navActions">
+    <a href="/login"    class="btn btn-ghost">Log in</a>
+    <a href="/register" class="btn btn-primary">Get Started →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="container">
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div class="eyebrow">1,200+ Programs</div>
+      <h1 class="page-title">Find Your Perfect College</h1>
+      <p class="page-sub">Search and filter colleges by sport, division, location, and scholarship availability.</p>
+    </div>
+
+    <!-- AI match banner -->
+    <div class="ai-banner">
+      <div class="ai-banner-text">
+        <div class="ai-banner-icon">🤖</div>
+        <div>
+          <div class="ai-banner-title">Want AI-powered personalized matches?</div>
+          <div class="ai-banner-sub">Create a profile and our AI will rank schools specifically for you — based on your sport, GPA, and preferences.</div>
+        </div>
+      </div>
+      <a href="/register" class="btn btn-primary">Get My Matches →</a>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="searchInput" type="text" placeholder="Search by college name…" oninput="debounceSearch()">
+      </div>
+      <button class="btn btn-primary" onclick="runSearch()">Search</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-row">
+      <select class="filter-select" id="f-sport" onchange="runSearch()">
+        <option value="">All Sports</option>
+        <option>Soccer</option><option>Basketball</option><option>Swimming</option>
+        <option>Tennis</option><option>Volleyball</option><option>Baseball</option>
+        <option>Softball</option><option>Track & Field</option><option>Golf</option>
+        <option>Lacrosse</option><option>Wrestling</option><option>Gymnastics</option>
+        <option>Cross Country</option><option>Rowing</option><option>Football</option>
+        <option>Field Hockey</option><option>Ice Hockey</option>
+      </select>
+
+      <select class="filter-select" id="f-division" onchange="runSearch()">
+        <option value="">All Divisions</option>
+        <option value="Division I">NCAA Division I</option>
+        <option value="Division II">NCAA Division II</option>
+        <option value="Division III">NCAA Division III</option>
+        <option value="NAIA">NAIA</option>
+        <option value="JUCO">JUCO</option>
+      </select>
+
+      <select class="filter-select" id="f-state" onchange="runSearch()">
+        <option value="">All States</option>
+        <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+        <option>Arkansas</option><option>California</option><option>Colorado</option>
+        <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+        <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+        <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+        <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+        <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+        <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+        <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+        <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+        <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+        <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+        <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+        <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+        <option>Texas</option><option>Utah</option><option>Vermont</option>
+        <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+        <option>Wisconsin</option><option>Wyoming</option>
+      </select>
+
+      <button class="filter-chip" id="chip-schol" onclick="toggleScholarship()"></button>
+        💰 Scholarships Available
+      </button>
+
+      <button class="filter-chip" id="chip-clear" onclick="clearFilters()" style="margin-left:auto">
+        ✕ Clear Filters
+      </button>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta">
+      <div class="results-count" id="resultsCount">Showing <span>—</span> colleges</div>
+    </div>
+
+    <!-- Schools grid -->
+    <div class="schools-grid" id="schoolsGrid">
+      <div class="state-box">
+        <div class="spinner"></div>
+        <div class="state-title">Loading colleges…</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<!-- ── DATA: 30 real colleges ── -->
+<script>
+const COLLEGES = [
+  { name:"University of Florida",       state:"Florida",        city:"Gainesville",    division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Golf","Track & Field","Volleyball","Gymnastics"],  tuition:28658,  enrollment:52000, acceptance:31, gpa:4.1, scholarship:true,  rank:"Top 50",   climate:"Warm & Sunny",  desc:"Flagship state university with elite athletics across all major sports. SEC powerhouse with outstanding facilities." },
+  { name:"University of Tampa",          state:"Florida",        city:"Tampa",          division:"Division II",  sports:["Soccer","Basketball","Swimming","Baseball","Softball","Volleyball","Golf"],                   tuition:31420,  enrollment:9800,  acceptance:54, gpa:3.5, scholarship:true,  rank:"Regional", climate:"Warm & Sunny",  desc:"Consistently ranked among the top Division II programs. Beautiful waterfront campus in vibrant Tampa Bay." },
+  { name:"UCLA",                         state:"California",     city:"Los Angeles",    division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Volleyball","Track & Field","Golf","Gymnastics"],    tuition:44830,  enrollment:45500, acceptance:14, gpa:4.2, scholarship:true,  rank:"Top 25",   climate:"Mild Coastal",  desc:"One of the most decorated athletic programs in college sports history. Located in the heart of Los Angeles." },
+  { name:"University of North Carolina", state:"North Carolina", city:"Chapel Hill",    division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Lacrosse","Field Hockey","Track & Field"],           tuition:37026,  enrollment:30000, acceptance:23, gpa:4.3, scholarship:true,  rank:"Top 30",   climate:"Four Seasons",  desc:"Home to legendary soccer and basketball programs. Beautiful campus in the Research Triangle." },
+  { name:"Grand Canyon University",      state:"Arizona",        city:"Phoenix",        division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Volleyball","Baseball","Golf","Track & Field"],       tuition:17200,  enrollment:24000, acceptance:78, gpa:3.3, scholarship:true,  rank:"Regional", climate:"Dry/Desert",    desc:"Fast-growing Division I program with excellent facilities in sunny Phoenix. Strong scholarship opportunities." },
+  { name:"Lynn University",              state:"Florida",        city:"Boca Raton",     division:"Division II",  sports:["Soccer","Basketball","Tennis","Golf","Volleyball","Swimming"],                                  tuition:38250,  enrollment:3200,  acceptance:72, gpa:3.2, scholarship:true,  rank:"Regional", climate:"Warm & Sunny",  desc:"Small campus with big athletic ambitions. Known for tennis and golf programs with strong international student community." },
+  { name:"University of Michigan",       state:"Michigan",       city:"Ann Arbor",      division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Volleyball","Track & Field","Gymnastics","Wrestling"],tuition:47476,  enrollment:47000, acceptance:20, gpa:4.1, scholarship:true,  rank:"Top 25",   climate:"Four Seasons",  desc:"One of America's most prestigious universities with a storied Big Ten athletic tradition." },
+  { name:"Florida State University",     state:"Florida",        city:"Tallahassee",    division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Golf","Softball","Volleyball"],       tuition:21683,  enrollment:45000, acceptance:37, gpa:4.0, scholarship:true,  rank:"Top 75",   climate:"Warm & Sunny",  desc:"ACC powerhouse with outstanding facilities and strong programs across all sports." },
+  { name:"Rollins College",              state:"Florida",        city:"Winter Park",    division:"Division II",  sports:["Soccer","Tennis","Golf","Volleyball","Swimming","Lacrosse","Baseball"],                         tuition:52760,  enrollment:3200,  acceptance:69, gpa:3.6, scholarship:true,  rank:"Top 100",  climate:"Warm & Sunny",  desc:"Beautiful lakeside campus near Orlando. Liberal arts education with competitive Division II athletics." },
+  { name:"Colorado State University",    state:"Colorado",       city:"Fort Collins",   division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Volleyball","Golf"],                  tuition:31212,  enrollment:33000, acceptance:82, gpa:3.6, scholarship:true,  rank:"Top 150",  climate:"Four Seasons",  desc:"Mountain campus with outdoor lifestyle and strong Mountain West Conference athletic programs." },
+  { name:"Stanford University",          state:"California",     city:"Palo Alto",      division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Volleyball","Track & Field","Golf","Rowing"],         tuition:57693,  enrollment:17000, acceptance:4,  gpa:4.2, scholarship:true,  rank:"Top 5",    climate:"Mild Coastal",  desc:"The gold standard — top academics meets elite athletics. Most NCAA championships in history." },
+  { name:"University of Portland",       state:"Oregon",         city:"Portland",       division:"Division I",   sports:["Soccer","Basketball","Tennis","Cross Country","Track & Field","Volleyball"],                   tuition:47220,  enrollment:3800,  acceptance:77, gpa:3.7, scholarship:true,  rank:"Top 100",  climate:"Mild Coastal",  desc:"Small Jesuit university with an outstanding soccer tradition. Beautiful Pacific Northwest setting." },
+  { name:"Belmont University",           state:"Tennessee",      city:"Nashville",      division:"Division I",   sports:["Soccer","Basketball","Tennis","Golf","Cross Country","Track & Field","Volleyball"],             tuition:33840,  enrollment:8900,  acceptance:80, gpa:3.7, scholarship:true,  rank:"Regional", climate:"Four Seasons",  desc:"Rising Division I program in the heart of Nashville music scene. Strong academics and growing athletic profile." },
+  { name:"Drury University",             state:"Missouri",       city:"Springfield",    division:"Division II",  sports:["Soccer","Basketball","Swimming","Tennis","Golf","Track & Field","Volleyball"],                  tuition:27930,  enrollment:5800,  acceptance:66, gpa:3.6, scholarship:true,  rank:"Regional", climate:"Four Seasons",  desc:"Nationally competitive Division II athletic program. Excellent value with strong scholarship availability." },
+  { name:"Nova Southeastern University", state:"Florida",        city:"Fort Lauderdale",division:"Division II",  sports:["Soccer","Basketball","Swimming","Tennis","Baseball","Softball","Golf","Volleyball"],            tuition:32900,  enrollment:23000, acceptance:51, gpa:3.4, scholarship:true,  rank:"Regional", climate:"Warm & Sunny",  desc:"Large private university with thriving D2 athletics in sunny South Florida." },
+  { name:"Rice University",              state:"Texas",          city:"Houston",        division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Baseball","Volleyball"],              tuition:52210,  enrollment:4400,  acceptance:9,  gpa:4.1, scholarship:true,  rank:"Top 15",   climate:"Warm & Sunny",  desc:"Elite academics plus D1 athletics in Houston. One of the best academic-athletic combinations in America." },
+  { name:"Gonzaga University",           state:"Washington",     city:"Spokane",        division:"Division I",   sports:["Soccer","Basketball","Tennis","Golf","Cross Country","Track & Field","Volleyball"],             tuition:48200,  enrollment:7700,  acceptance:71, gpa:3.8, scholarship:true,  rank:"Top 75",   climate:"Four Seasons",  desc:"Basketball royalty with a strong all-around athletic program in the beautiful Pacific Northwest." },
+  { name:"University of San Diego",      state:"California",     city:"San Diego",      division:"Division I",   sports:["Soccer","Basketball","Tennis","Rowing","Cross Country","Track & Field","Golf"],                 tuition:53720,  enrollment:9000,  acceptance:52, gpa:3.8, scholarship:true,  rank:"Top 100",  climate:"Mild Coastal",  desc:"Stunning campus overlooking Mission Bay. West Coast Conference athletics with year-round sunshine." },
+  { name:"Merrimack College",            state:"Massachusetts",  city:"North Andover",  division:"Division I",   sports:["Soccer","Basketball","Tennis","Ice Hockey","Lacrosse","Cross Country","Volleyball"],           tuition:43640,  enrollment:4100,  acceptance:74, gpa:3.4, scholarship:true,  rank:"Regional", climate:"Four Seasons",  desc:"Newly transitioned D1 program near Boston. Strong hockey tradition and growing scholarship pool." },
+  { name:"Eckerd College",               state:"Florida",        city:"St. Petersburg", division:"Division II",  sports:["Soccer","Tennis","Golf","Swimming","Sailing","Volleyball","Lacrosse"],                          tuition:44888,  enrollment:1900,  acceptance:80, gpa:3.5, scholarship:true,  rank:"Regional", climate:"Warm & Sunny",  desc:"Unique waterfront liberal arts college. Only NCAA school with competitive sailing. Beautiful St. Pete location." },
+  { name:"Emory University",             state:"Georgia",        city:"Atlanta",        division:"Division III", sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Volleyball","Golf","Lacrosse"],       tuition:54166,  enrollment:15000, acceptance:19, gpa:4.0, scholarship:false, rank:"Top 25",   climate:"Four Seasons",  desc:"Top-ranked liberal arts university in Atlanta. Division III means academic-athletic balance without scholarship pressure." },
+  { name:"Williams College",             state:"Massachusetts",  city:"Williamstown",   division:"Division III", sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Rowing","Golf","Lacrosse"],          tuition:57230,  enrollment:2100,  acceptance:11, gpa:4.1, scholarship:false, rank:"Top 5",    climate:"Four Seasons",  desc:"#1 ranked liberal arts college. Division III athletics paired with a world-class education." },
+  { name:"Lewis & Clark College",        state:"Oregon",         city:"Portland",       division:"Division III", sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Cross Country","Volleyball"],        tuition:55390,  enrollment:3400,  acceptance:77, gpa:3.7, scholarship:false, rank:"Top 75",   climate:"Mild Coastal",  desc:"Progressive liberal arts college in Portland with strong academics and competitive D3 athletics." },
+  { name:"Azusa Pacific University",     state:"California",     city:"Azusa",          division:"NAIA",         sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Volleyball","Baseball","Golf"],       tuition:37090,  enrollment:10200, acceptance:68, gpa:3.3, scholarship:true,  rank:"Regional", climate:"Warm & Sunny",  desc:"Strong NAIA program with generous scholarship packages. Excellent soccer and track programs near Los Angeles." },
+  { name:"Indiana Wesleyan University",  state:"Indiana",        city:"Marion",         division:"NAIA",         sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Volleyball","Baseball","Golf"],       tuition:28730,  enrollment:13800, acceptance:62, gpa:3.2, scholarship:true,  rank:"Regional", climate:"Four Seasons",  desc:"Top NAIA athletic program with multiple national championships. Strong value with solid scholarship availability." },
+  { name:"College of Southern Nevada",   state:"Nevada",         city:"Las Vegas",      division:"JUCO",         sports:["Soccer","Basketball","Baseball","Softball","Cross Country","Track & Field","Tennis","Golf"],    tuition:3570,   enrollment:38000, acceptance:100,gpa:2.5, scholarship:true,  rank:"Community",climate:"Dry/Desert",    desc:"Affordable entry point to college athletics. Many athletes use JUCO as a springboard to D1/D2 programs." },
+  { name:"Santa Monica College",         state:"California",     city:"Santa Monica",   division:"JUCO",         sports:["Soccer","Basketball","Baseball","Softball","Swimming","Tennis","Track & Field","Volleyball"],   tuition:1380,   enrollment:30000, acceptance:100,gpa:2.0, scholarship:true,  rank:"Community",climate:"Mild Coastal",  desc:"Prime location near LA with transfer pathways to top California universities. Strong soccer and track programs." },
+  { name:"University of Georgia",        state:"Georgia",        city:"Athens",         division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Track & Field","Golf","Gymnastics","Volleyball"],     tuition:30220,  enrollment:40000, acceptance:45, gpa:4.0, scholarship:true,  rank:"Top 50",   climate:"Four Seasons",  desc:"SEC powerhouse in the charming college town of Athens. Strong athletics across every major sport." },
+  { name:"Pepperdine University",        state:"California",     city:"Malibu",         division:"Division I",   sports:["Soccer","Basketball","Tennis","Volleyball","Golf","Water Polo","Cross Country","Rowing"],       tuition:59270,  enrollment:9600,  acceptance:37, gpa:3.9, scholarship:true,  rank:"Top 50",   climate:"Mild Coastal",  desc:"Stunning Malibu campus overlooking the Pacific Ocean. Outstanding tennis and volleyball programs." },
+  { name:"University of Denver",         state:"Colorado",       city:"Denver",         division:"Division I",   sports:["Soccer","Basketball","Swimming","Tennis","Golf","Lacrosse","Gymnastics","Ice Hockey"],          tuition:55026,  enrollment:12000, acceptance:71, gpa:3.8, scholarship:true,  rank:"Top 75",   climate:"Four Seasons",  desc:"Urban campus with mountain lifestyle. Pioneer athletics features strong soccer, lacrosse, and ice hockey programs." },
+];
+
+// ── State ──
+let scholarshipOnly = false;
+let searchTimer = null;
+
+// ── Init ──
+async function init() {
+  await initNav();
+  runSearch();
+}
+
+async function initNav() {
+  try {
+    const res = await fetch('/api/auth/me', { credentials:'include' });
+    const { user } = await res.json();
+    if (user) {
+      document.getElementById('navActions').innerHTML = `
+        <a href="/dashboard" class="btn btn-ghost">Dashboard</a>
+        <a href="/logout" class="btn btn-outline">Log out</a>`;
+    }
+  } catch {}
+}
+
+// ── Search / filter ──
+function debounceSearch() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(runSearch, 300);
+}
+
+function runSearch() {
+  const query    = document.getElementById('searchInput').value.toLowerCase().trim();
+  const sport    = document.getElementById('f-sport').value;
+  const division = document.getElementById('f-division').value;
+  const state    = document.getElementById('f-state').value;
+
+  let results = COLLEGES.filter(c => {
+    if (query    && !c.name.toLowerCase().includes(query) && !c.city.toLowerCase().includes(query)) return false;
+    if (sport    && !c.sports.includes(sport)) return false;
+    if (division && c.division !== division)   return false;
+    if (state    && c.state !== state)         return false;
+    if (scholarshipOnly && !c.scholarship)     return false;
+    return true;
+  });
+
+  renderSchools(results);
+}
+
+function toggleScholarship() {
+  scholarshipOnly = !scholarshipOnly;
+  const chip = document.getElementById('chip-schol');
+  chip.classList.toggle('active', scholarshipOnly);
+  runSearch();
+}
+
+function clearFilters() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('f-sport').value     = '';
+  document.getElementById('f-division').value  = '';
+  document.getElementById('f-state').value     = '';
+  scholarshipOnly = false;
+  document.getElementById('chip-schol').classList.remove('active');
+  runSearch();
+}
+
+// ── Render ──
+function divisionBadge(div) {
+  const map = {
+    'Division I':   ['D1','badge-d1'],
+    'Division II':  ['D2','badge-d2'],
+    'Division III': ['D3','badge-d3'],
+    'NAIA':         ['NAIA','badge-naia'],
+    'JUCO':         ['JUCO','badge-juco'],
+  };
+  const [label,cls] = map[div] || [div,'badge-d3'];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function renderSchools(colleges) {
+  const grid = document.getElementById('schoolsGrid');
+  document.getElementById('resultsCount').innerHTML =
+    `Showing <span>${colleges.length}</span> college${colleges.length !== 1 ? 's' : ''}`;
+
+  if (!colleges.length) {
+    grid.innerHTML = `
+      <div class="state-box">
+        <div class="state-icon">🔍</div>
+        <div class="state-title">No colleges match your filters</div>
+        <p class="state-sub">Try removing some filters or clearing your search to see more results.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = colleges.map((c, i) => {
+    const initial = c.name.charAt(0).toUpperCase();
+    const sports  = c.sports.slice(0,4).map(s => `<span class="school-tag">${s}</span>`).join('');
+    const delay   = (i % 6) * 0.06;
+
+    return `
+    <div class="school-card" style="animation-delay:${delay}s">
+      <div class="school-header">
+        <div class="school-initial">${initial}</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.35rem">
+          ${divisionBadge(c.division)}
+          ${c.scholarship ? '<span class="badge badge-schol">Scholarship ✓</span>' : ''}
+        </div>
+      </div>
+      <div class="school-name">${c.name}</div>
+      <div class="school-location">📍 ${c.city}, ${c.state}</div>
+      <div class="school-tags">${sports}${c.sports.length > 4 ? `<span class="school-tag">+${c.sports.length-4} more</span>` : ''}</div>
+      <div class="school-stats">
+        <div class="school-stat">
+          <div class="school-stat-label">Tuition</div>
+          <div class="school-stat-val">$${c.tuition.toLocaleString()}/yr</div>
+        </div>
+        <div class="school-stat">
+          <div class="school-stat-label">Enrollment</div>
+          <div class="school-stat-val">${c.enrollment.toLocaleString()}</div>
+        </div>
+        <div class="school-stat">
+          <div class="school-stat-label">Acceptance</div>
+          <div class="school-stat-val">${c.acceptance}%</div>
+        </div>
+        <div class="school-stat">
+          <div class="school-stat-label">Avg GPA</div>
+          <div class="school-stat-val">${c.gpa.toFixed(1)}</div>
+        </div>
+      </div>
+      <p class="school-desc">${c.desc}</p>
+      <div class="school-footer">
+        <a href="/advisor" class="school-btn school-btn-primary">🤖 Ask AI About This</a>
+        <button class="school-btn school-btn-ghost" onclick="saveSchool('${c.name}')">🔖 Save</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function saveSchool(name) {
+  toast(`${name} saved to your list! Log in to access it.`, 'info');
+}
+
+function toast(msg, type = 'info') {
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.textContent = msg;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(() => { t.style.opacity='0'; t.style.transition='.3s'; setTimeout(()=>t.remove(),300); }, 4000);
+}
+
+init();
+</script>
+</body>
+</html>
