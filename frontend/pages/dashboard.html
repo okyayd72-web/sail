@@ -48,11 +48,6 @@
       font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800;
       color:var(--text-1); text-decoration:none;
     }
-    .brand-icon {
-      width:30px; height:30px; border-radius:8px;
-      background:linear-gradient(135deg,var(--teal),#009e84);
-      display:flex; align-items:center; justify-content:center; font-size:.9rem;
-    }
     .brand span { color:var(--teal); }
     .nav-right { display:flex; align-items:center; gap:1rem; }
     .nav-user {
@@ -215,6 +210,8 @@
     .score-mid  { color:var(--gold); }
     .score-low  { color:var(--text-2); }
     .match-reason { font-size:.78rem; color:var(--text-3); font-style:italic; margin-top:.5rem; line-height:1.5; }
+    .match-details { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+    .match-detail { font-size:.7rem; color:var(--text-2); background:rgba(255,255,255,0.04); padding:.2rem .5rem; border-radius:4px; }
 
     /* Empty state */
     .empty-state {
@@ -265,6 +262,13 @@
     .form-control:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(0,201,167,0.1); }
     select.form-control { cursor:pointer; }
     select.form-control option { background:#112236; }
+    .form-hint { font-size:.68rem; color:var(--text-3); margin-top:.3rem; }
+    .section-divider {
+      font-family:'Syne',sans-serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.15em; text-transform:uppercase; color:var(--teal);
+      padding:.75rem 0 .25rem; border-bottom:1px solid var(--border);
+      margin-bottom:1rem;
+    }
 
     /* Toast */
     #toasts { position:fixed; bottom:1.5rem; right:1.5rem; z-index:9999; display:flex; flex-direction:column; gap:.5rem; }
@@ -286,17 +290,14 @@
       animation:spin .7s linear infinite; display:inline-block;
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar { width:5px; }
     ::-webkit-scrollbar-track { background:transparent; }
     ::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:99px; }
 
-    /* Animations */
     @keyframes fadeUp  { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     @keyframes slideIn { from { opacity:0; transform:translateX(12px); } to { opacity:1; transform:translateX(0); } }
     @keyframes spin    { to { transform:rotate(360deg); } }
 
-    /* Responsive */
     @media(max-width:860px) {
       .layout { grid-template-columns:1fr; }
       .sidebar { display:none; }
@@ -335,7 +336,7 @@
     <div class="sidebar-label">Main</div>
     <a class="sidebar-link active" href="/dashboard"><span class="icon">🏠</span> Dashboard</a>
     <a class="sidebar-link" href="/advisor"><span class="icon">🤖</span> AI Advisor</a>
-    <a class="sidebar-link" href="/schools"><span class="icon">🎓</span> Find Schools</a>
+    <a class="sidebar-link" href="/schools"><span class="icon">🎾</span> Find Schools</a>
 
     <div class="sidebar-label">Profile</div>
     <button class="sidebar-link" onclick="openModal('profile-modal')"><span class="icon">✏️</span> Edit Profile</button>
@@ -348,10 +349,9 @@
   <main class="main">
     <div class="main-inner">
 
-      <!-- Page header -->
       <div class="page-header">
         <h1 class="page-title">Welcome back, <span id="firstName" style="color:var(--teal)">Athlete</span> 👋</h1>
-        <p class="page-sub">Here's your recruiting overview. Keep your profile updated for better school matches.</p>
+        <p class="page-sub">Here's your tennis recruiting overview. Keep your profile updated for better school matches.</p>
       </div>
 
       <!-- Stats row -->
@@ -365,8 +365,8 @@
           <div class="stat-label">Profile Complete</div>
         </div>
         <div class="card stat-card">
-          <div class="stat-num" id="statDivision">—</div>
-          <div class="stat-label">Target Division</div>
+          <div class="stat-num" id="statUTR">—</div>
+          <div class="stat-label">Your UTR Rating</div>
         </div>
       </div>
 
@@ -397,12 +397,12 @@
           </div>
 
           <div class="info-grid">
-            <div class="info-item"><label>Sport</label><div class="val" id="info-sport">—</div></div>
+            <div class="info-item"><label>UTR Rating</label><div class="val" id="info-utr">—</div></div>
             <div class="info-item"><label>Division</label><div class="val" id="info-div">—</div></div>
             <div class="info-item"><label>GPA</label><div class="val" id="info-gpa">—</div></div>
             <div class="info-item"><label>Grad Year</label><div class="val" id="info-year">—</div></div>
             <div class="info-item"><label>Nationality</label><div class="val" id="info-nat">—</div></div>
-            <div class="info-item"><label>Level</label><div class="val" id="info-level">—</div></div>
+            <div class="info-item"><label>Career Goal</label><div class="val" id="info-career">—</div></div>
           </div>
         </div>
 
@@ -416,10 +416,9 @@
             <button class="action-btn" onclick="refreshMatches()"><span class="action-icon">🎯</span> Refresh Matches</button>
           </div>
 
-          <!-- Incomplete profile warning -->
           <div id="profileWarning" style="display:none;margin-top:1rem;background:rgba(232,184,75,0.08);border:1px solid rgba(232,184,75,0.2);border-radius:10px;padding:1rem">
             <p style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--gold);margin-bottom:.35rem">⚠️ Profile Incomplete</p>
-            <p style="font-size:.78rem;color:var(--text-2);line-height:1.6">Fill in your sport, GPA, and division preference to unlock AI school matching.</p>
+            <p style="font-size:.78rem;color:var(--text-2);line-height:1.6">Fill in your UTR rating, GPA, gender, and division preference to unlock AI school matching.</p>
             <button class="btn btn-outline" style="margin-top:.75rem;font-size:.75rem" onclick="openModal('profile-modal')">Complete Profile →</button>
           </div>
         </div>
@@ -428,16 +427,16 @@
       <!-- School Matches -->
       <div class="card">
         <div class="matches-header">
-          <div class="matches-title">🎯 AI-Recommended Schools</div>
+          <div class="matches-title">🎯 AI-Recommended Tennis Schools</div>
           <button class="btn btn-primary" id="refreshBtn" onclick="refreshMatches()" style="font-size:.78rem;padding:.5rem 1rem">
             ↻ Refresh Matches
           </button>
         </div>
         <div id="matchesContainer">
           <div class="empty-state">
-            <div class="empty-icon">🎓</div>
+            <div class="empty-icon">🎾</div>
             <div class="empty-title">No matches yet</div>
-            <p>Complete your profile and click "Refresh Matches" to get AI-powered school recommendations.</p>
+            <p>Complete your profile and click "Refresh Matches" to get AI-powered tennis school recommendations.</p>
           </div>
         </div>
       </div>
@@ -454,55 +453,56 @@
       <button class="modal-close" onclick="closeModal('profile-modal')">✕</button>
     </div>
     <form id="profileForm">
+
+      <!-- TENNIS INFO -->
+      <div class="section-divider">🎾 Tennis Info</div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Sport</label>
-          <select class="form-control" id="f-sport">
-            <option value="">Select sport</option>
-            <option>Soccer</option><option>Basketball</option><option>Swimming</option>
-            <option>Tennis</option><option>Volleyball</option><option>Baseball</option>
-            <option>Softball</option><option>Track & Field</option><option>Golf</option>
-            <option>Lacrosse</option><option>Wrestling</option><option>Gymnastics</option>
-            <option>Cross Country</option><option>Rowing</option><option>Field Hockey</option>
-            <option>Ice Hockey</option><option>Football</option><option>Other</option>
+          <label class="form-label">Gender</label>
+          <select class="form-control" id="f-gender">
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Position</label>
-          <input class="form-control" id="f-position" placeholder="e.g. Midfielder">
+          <label class="form-label">UTR Rating</label>
+          <input class="form-control" type="number" id="f-utr" step="0.5" min="1" max="16" placeholder="e.g. 8.5">
+          <div class="form-hint">Universal Tennis Rating — scale of 1 to 16</div>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Graduation Year</label>
-          <input class="form-control" type="number" id="f-year" min="2024" max="2030" placeholder="2026">
+          <label class="form-label">Career Preference</label>
+          <select class="form-control" id="f-career">
+            <option value="">Not decided</option>
+            <option value="academic">Primarily Academic</option>
+            <option value="athletic">Primarily Athletic</option>
+            <option value="balanced">Balanced</option>
+          </select>
         </div>
         <div class="form-group">
           <label class="form-label">Athletic Level</label>
           <select class="form-control" id="f-level">
             <option value="">Select level</option>
             <option value="elite">Elite / National Level</option>
-            <option value="strong">Strong Varsity / State Level</option>
-            <option value="good">Solid Varsity Starter</option>
-            <option value="developing">Developing / JV Level</option>
+            <option value="strong">Strong / State Level</option>
+            <option value="good">Solid Varsity Level</option>
+            <option value="developing">Developing / Club Level</option>
           </select>
         </div>
       </div>
+
+      <!-- ACADEMIC INFO -->
+      <div class="section-divider">📚 Academic Info</div>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">GPA (0.0 – 4.0)</label>
           <input class="form-control" type="number" id="f-gpa" step="0.1" min="0" max="4.0" placeholder="3.5">
         </div>
         <div class="form-group">
-          <label class="form-label">Division Preference</label>
-          <select class="form-control" id="f-div">
-            <option value="">Any Division</option>
-            <option value="Division I">Division I</option>
-            <option value="Division II">Division II</option>
-            <option value="Division III">Division III</option>
-            <option value="NAIA">NAIA</option>
-            <option value="JUCO">JUCO</option>
-          </select>
+          <label class="form-label">Graduation Year</label>
+          <input class="form-control" type="number" id="f-year" min="2024" max="2030" placeholder="2026">
         </div>
       </div>
       <div class="form-row">
@@ -515,20 +515,37 @@
           <input class="form-control" type="number" id="f-act" min="1" max="36" placeholder="26">
         </div>
       </div>
+
+      <!-- PREFERENCES -->
+      <div class="section-divider">🎯 Recruiting Preferences</div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Nationality</label>
-          <input class="form-control" id="f-nat" placeholder="e.g. Brazil">
+          <label class="form-label">Division Preference</label>
+          <select class="form-control" id="f-div">
+            <option value="">Any Division</option>
+            <option value="Division I">Division I</option>
+            <option value="Division II">Division II</option>
+            <option value="Division III">Division III</option>
+            <option value="NAIA">NAIA</option>
+            <option value="JUCO">JUCO</option>
+          </select>
         </div>
         <div class="form-group">
-          <label class="form-label">State / Province</label>
-          <input class="form-control" id="f-state" placeholder="e.g. São Paulo">
+          <label class="form-label">Nationality</label>
+          <input class="form-control" id="f-nat" placeholder="e.g. Turkey">
         </div>
       </div>
-      <div class="form-group">
-        <label class="form-label">Highlight Video URL (optional)</label>
-        <input class="form-control" type="url" id="f-highlights" placeholder="https://youtube.com/...">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">State / Province</label>
+          <input class="form-control" id="f-state" placeholder="e.g. Virginia">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Highlight Video URL</label>
+          <input class="form-control" type="url" id="f-highlights" placeholder="https://youtube.com/...">
+        </div>
       </div>
+
       <div style="display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.25rem">
         <button type="button" class="btn btn-outline" onclick="closeModal('profile-modal')">Cancel</button>
         <button type="submit" class="btn btn-primary" id="saveProfileBtn">Save Profile</button>
@@ -560,8 +577,7 @@
         <label class="form-label" style="margin:0">Your Recruiting Email</label>
         <button class="btn btn-ghost" style="font-size:.72rem" onclick="copyEmail()">📋 Copy</button>
       </div>
-      <textarea class="form-control" id="emailText" rows="14"
-        style="font-size:.8rem;line-height:1.65;resize:vertical"></textarea>
+      <textarea class="form-control" id="emailText" rows="14" style="font-size:.8rem;line-height:1.65;resize:vertical"></textarea>
     </div>
   </div>
 </div>
@@ -569,7 +585,6 @@
 <div id="toasts"></div>
 
 <script>
-// ── API helper ──
 const api = async (path, opts = {}) => {
   const res = await fetch(path, {
     headers: { 'Content-Type': 'application/json' },
@@ -580,7 +595,6 @@ const api = async (path, opts = {}) => {
   return data;
 };
 
-// ── Toast ──
 function toast(msg, type = 'info') {
   const t = document.createElement('div');
   t.className = `toast ${type}`;
@@ -589,70 +603,71 @@ function toast(msg, type = 'info') {
   setTimeout(() => { t.style.opacity='0'; t.style.transition='.3s'; setTimeout(()=>t.remove(),300); }, 4000);
 }
 
-// ── Modal helpers ──
 function openModal(id)  { document.getElementById(id).classList.add('open'); }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
-// ── Division badge ──
 function divBadge(div) {
   const map = {
+    'NCAA I':    ['D1','badge-d1'],
+    'NCAA II':   ['D2','badge-d2'],
+    'NCAA III':  ['D3','badge-d3'],
     'Division I':   ['D1','badge-d1'],
     'Division II':  ['D2','badge-d2'],
     'Division III': ['D3','badge-d3'],
-    'NAIA':         ['NAIA','badge-naia'],
-    'JUCO':         ['JUCO','badge-juco'],
+    'NAIA':      ['NAIA','badge-naia'],
+    'JUCO':      ['JUCO','badge-juco'],
   };
   const [label, cls] = map[div] || [div||'—','badge-d3'];
   return `<span class="badge ${cls}">${label}</span>`;
 }
 
-// ── Render profile ──
 function renderProfile(user, profile) {
   const initials = ((user.first_name||'?')[0] + (user.last_name||'?')[0]).toUpperCase();
-  document.getElementById('navInitials').textContent    = initials;
-  document.getElementById('navName').textContent        = user.first_name || '';
-  document.getElementById('firstName').textContent      = user.first_name || 'Athlete';
-  document.getElementById('profileInitials').textContent= initials;
-  document.getElementById('profileName').textContent    = user.full_name || user.first_name;
+  document.getElementById('navInitials').textContent     = initials;
+  document.getElementById('navName').textContent         = user.first_name || '';
+  document.getElementById('firstName').textContent       = user.first_name || 'Athlete';
+  document.getElementById('profileInitials').textContent = initials;
+  document.getElementById('profileName').textContent     = user.full_name || user.first_name;
 
   if (!profile) {
     document.getElementById('profileWarning').style.display = 'block';
     document.getElementById('statCompletion').textContent = '0%';
+    document.getElementById('statUTR').textContent = '—';
     return;
   }
 
   const pct = profile.completion_pct || 0;
-  document.getElementById('progressBar').style.width  = pct + '%';
-  document.getElementById('progressPct').textContent  = pct + '%';
+  document.getElementById('progressBar').style.width    = pct + '%';
+  document.getElementById('progressPct').textContent    = pct + '%';
   document.getElementById('statCompletion').textContent = pct + '%';
-  document.getElementById('statDivision').textContent = profile.division_preference
-    ? profile.division_preference.replace('Division ','D') : '—';
+  document.getElementById('statUTR').textContent        = profile.utr_rating ? profile.utr_rating.toFixed(1) : '—';
 
   document.getElementById('profileMeta').textContent =
-    [profile.sport, profile.division_preference, profile.graduation_year && 'Class of '+profile.graduation_year]
+    ['Tennis', profile.division_preference, profile.graduation_year && 'Class of ' + profile.graduation_year]
     .filter(Boolean).join(' · ') || 'Complete your profile';
 
-  document.getElementById('info-sport').textContent  = profile.sport || '—';
+  document.getElementById('info-utr').textContent    = profile.utr_rating ? profile.utr_rating.toFixed(1) : '—';
   document.getElementById('info-div').textContent    = profile.division_preference || '—';
   document.getElementById('info-gpa').textContent    = profile.gpa ? parseFloat(profile.gpa).toFixed(1) : '—';
   document.getElementById('info-year').textContent   = profile.graduation_year || '—';
   document.getElementById('info-nat').textContent    = profile.nationality || '—';
-  document.getElementById('info-level').textContent  = profile.athletic_level || '—';
+  document.getElementById('info-career').textContent = profile.career_preference || '—';
 
   if (pct < 60) document.getElementById('profileWarning').style.display = 'block';
 
-  // Pre-fill edit form
+  // Pre-fill form
   const fields = {
-    'f-sport':      profile.sport,
-    'f-position':   profile.position,
-    'f-year':       profile.graduation_year,
-    'f-level':      profile.athletic_level,
-    'f-gpa':        profile.gpa,
-    'f-div':        profile.division_preference,
-    'f-sat':        profile.sat_score,
-    'f-act':        profile.act_score,
-    'f-nat':        profile.nationality,
-    'f-state':      profile.state_province,
+    'f-gender':   profile.gender,
+    'f-utr':      profile.utr_rating,
+    'f-career':   profile.career_preference,
+    'f-level':    profile.athletic_level,
+    'f-gpa':      profile.gpa,
+    'f-year':     profile.graduation_year,
+    'f-sat':      profile.sat_score,
+    'f-act':      profile.act_score,
+    'f-div':      profile.division_preference,
+    'f-nat':      profile.nationality,
+    'f-state':    profile.state_province,
     'f-highlights': profile.highlights_url,
   };
   Object.entries(fields).forEach(([id, val]) => {
@@ -661,7 +676,6 @@ function renderProfile(user, profile) {
   });
 }
 
-// ── Render matches ──
 function renderMatches(matches) {
   const container = document.getElementById('matchesContainer');
   document.getElementById('statMatches').textContent = matches ? matches.length : '0';
@@ -669,9 +683,9 @@ function renderMatches(matches) {
   if (!matches || !matches.length) {
     container.innerHTML = `
       <div class="empty-state">
-        <div class="empty-icon">🎓</div>
+        <div class="empty-icon">🎾</div>
         <div class="empty-title">No matches yet</div>
-        <p>Click "Refresh Matches" above to get your AI-powered school recommendations.</p>
+        <p>Click "Refresh Matches" above to get your AI-powered tennis school recommendations.</p>
       </div>`;
     return;
   }
@@ -681,22 +695,19 @@ function renderMatches(matches) {
     const isHigh = score >= 85, isMid = score >= 70;
     const scoreCls = isHigh ? 'score-high' : isMid ? 'score-mid' : 'score-low';
     const fillCls  = isHigh ? 'score-fill-high' : isMid ? 'score-fill-mid' : 'score-fill-low';
-    const name = m.name || (m.university && m.university.name) || 'School';
-    const div  = m.division || (m.university && m.university.division) || '';
-    const loc  = m.location || (m.university && `${m.university.city}, ${m.university.state}`) || '';
-    const rank = m.academic_rank || '';
     const tags = (m.tags || []).slice(0, 3);
 
     return `
     <div class="match-item" style="animation-delay:${i*0.07}s">
       <div class="match-top">
-        <div class="match-name">${name}</div>
-        ${divBadge(div)}
+        <div class="match-name">${m.name || '—'}</div>
+        ${divBadge(m.division)}
       </div>
       <div class="match-meta">
-        ${loc  ? `<span class="meta-tag">📍 ${loc}</span>` : ''}
-        ${rank ? `<span class="meta-tag">🎓 ${rank}</span>` : ''}
-        ${tags.map(t=>`<span class="meta-tag">${t}</span>`).join('')}
+        ${m.location ? `<span class="meta-tag">📍 ${m.location}</span>` : ''}
+        ${m.avg_scholarship ? `<span class="meta-tag">💰 Avg $${Number(m.avg_scholarship).toLocaleString()}</span>` : ''}
+        ${m.coach ? `<span class="meta-tag">🎾 ${m.coach}</span>` : ''}
+        ${tags.map(t => `<span class="meta-tag">${t}</span>`).join('')}
       </div>
       <div class="score-row">
         <div class="score-bar">
@@ -709,7 +720,6 @@ function renderMatches(matches) {
   }).join('');
 }
 
-// ── Refresh matches ──
 async function refreshMatches() {
   const btn = document.getElementById('refreshBtn');
   btn.disabled = true;
@@ -717,7 +727,7 @@ async function refreshMatches() {
   try {
     const data = await api('/api/athlete/matches/refresh', { method: 'POST' });
     renderMatches(data.matches);
-    toast('School matches updated! 🎯', 'success');
+    toast('Tennis school matches updated! 🎾', 'success');
   } catch (e) {
     toast(e.data?.error || 'Please complete your profile first.', 'error');
   }
@@ -725,30 +735,33 @@ async function refreshMatches() {
   btn.innerHTML = '↻ Refresh Matches';
 }
 
-// ── Save profile ──
 document.getElementById('profileForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('saveProfileBtn');
   btn.disabled = true; btn.textContent = 'Saving…';
 
-  const body = {};
   const raw = {
-    sport:               document.getElementById('f-sport').value,
-    position:            document.getElementById('f-position').value,
-    graduation_year:     document.getElementById('f-year').value,
+    sport:               'Tennis',
+    gender:              document.getElementById('f-gender').value,
+    utr_rating:          document.getElementById('f-utr').value,
+    career_preference:   document.getElementById('f-career').value,
     athletic_level:      document.getElementById('f-level').value,
     gpa:                 document.getElementById('f-gpa').value,
-    division_preference: document.getElementById('f-div').value,
+    graduation_year:     document.getElementById('f-year').value,
     sat_score:           document.getElementById('f-sat').value,
     act_score:           document.getElementById('f-act').value,
+    division_preference: document.getElementById('f-div').value,
     nationality:         document.getElementById('f-nat').value,
     state_province:      document.getElementById('f-state').value,
     highlights_url:      document.getElementById('f-highlights').value,
   };
-  Object.entries(raw).forEach(([k,v]) => {
+
+  const body = {};
+  Object.entries(raw).forEach(([k, v]) => {
     if (v !== '' && v !== null && v !== undefined) {
       body[k] = ['graduation_year','sat_score','act_score'].includes(k) ? parseInt(v) :
-                k === 'gpa' ? parseFloat(v) : v;
+                k === 'gpa' ? parseFloat(v) :
+                k === 'utr_rating' ? parseFloat(v) : v;
     }
   });
 
@@ -765,7 +778,6 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
   btn.disabled = false; btn.textContent = 'Save Profile';
 });
 
-// ── Generate recruiting email ──
 async function generateEmail() {
   const school = document.getElementById('email-school').value.trim();
   const coach  = document.getElementById('email-coach').value.trim();
@@ -783,7 +795,7 @@ async function generateEmail() {
     document.getElementById('emailOutput').style.display = 'block';
     toast('Email generated! ✉️', 'success');
   } catch (e) {
-    toast('Could not generate email. Check your API key is set.', 'error');
+    toast('Could not generate email.', 'error');
   }
   btn.disabled = false; btn.textContent = '✨ Generate Email';
 }
@@ -793,13 +805,11 @@ function copyEmail() {
     .then(() => toast('Copied to clipboard! 📋', 'success'));
 }
 
-// ── Page init ──
 async function init() {
   try {
     const { user } = await api('/api/auth/me');
     if (!user) { window.location.href = '/login'; return; }
 
-    // Load profile
     let profile = null;
     try {
       const pd = await api('/api/athlete/profile');
@@ -808,7 +818,6 @@ async function init() {
 
     renderProfile(user, profile);
 
-    // Load existing matches
     try {
       const md = await api('/api/athlete/matches');
       if (md.matches && md.matches.length) renderMatches(md.matches);
