@@ -1570,7 +1570,7 @@
     "avg_act": 24,
     "instate_tuition": 8935,
     "outstate_tuition": 27199,
-    "coach": "Coach Martin Stiegwardt",
+    "coach": "Ricky Rojas",
     "phone": null,
     "usnews_ranking": null
   },
@@ -1585,8 +1585,8 @@
     "avg_act": 22,
     "instate_tuition": 8159,
     "outstate_tuition": 23399,
-    "coach": "Ross Brown",
-    "phone": "221-6101",
+    "coach": "Eric Larue",
+    "phone": "931-221-7702",
     "usnews_ranking": null
   },
   {
@@ -1600,8 +1600,8 @@
     "avg_act": 24,
     "instate_tuition": 8731,
     "outstate_tuition": 24595,
-    "coach": "Kenny Doyle",
-    "phone": "931-854-0569",
+    "coach": "Mark Klysner",
+    "phone": "931-338-7518",
     "usnews_ranking": null
   },
   {
@@ -1615,8 +1615,8 @@
     "avg_act": 22,
     "instate_tuition": 22010,
     "outstate_tuition": 22010,
-    "coach": "Kristan Griffin",
-    "phone": null,
+    "coach": "Abraham Lascari",
+    "phone": "423-869-7080",
     "usnews_ranking": null
   },
   {
@@ -1645,8 +1645,8 @@
     "avg_act": 21,
     "instate_tuition": 16552,
     "outstate_tuition": 16552,
-    "coach": "Derrick Hubble",
-    "phone": "(731) 571-8116",
+    "coach": "Drew Fernelius",
+    "phone": "(651) 638-6353",
     "usnews_ranking": null
   },
   {
@@ -1660,8 +1660,8 @@
     "avg_act": null,
     "instate_tuition": 7128,
     "outstate_tuition": 20484,
-    "coach": "Todd Smith",
-    "phone": null,
+    "coach": "John Trondson",
+    "phone": "615-963-5042",
     "usnews_ranking": null
   },
   {
@@ -1675,7 +1675,7 @@
     "avg_act": 20,
     "instate_tuition": 9233,
     "outstate_tuition": 11183,
-    "coach": "Scott Linn",
+    "coach": "Luis Diaz",
     "phone": "397-4766",
     "usnews_ranking": 39
   },
@@ -1691,7 +1691,7 @@
     "instate_tuition": 8373,
     "outstate_tuition": 18333,
     "coach": "Scott Shankles",
-    "phone": null,
+    "phone": "409-880-8202",
     "usnews_ranking": null
   },
   {
@@ -1810,25 +1810,11 @@
     "avg_act": 25,
     "instate_tuition": 22584,
     "outstate_tuition": 22584,
-    "coach": null,
-    "phone": null,
+    "coach": "Nathan Thompson",
+    "phone": "443-570-4262",
     "usnews_ranking": null
   },
-  {
-    "school": "Radford University",
-    "city": "Radford",
-    "state": "VA",
-    "division": "NCAA I",
-    "mens_scholarship": 11680,
-    "womens_scholarship": 12683,
-    "avg_sat": null,
-    "avg_act": null,
-    "instate_tuition": 11210,
-    "outstate_tuition": 23292,
-    "coach": "J.D. Shade",
-    "phone": "831-7173",
-    "usnews_ranking": 25
-  },
+
   {
     "school": "Norfolk State University",
     "city": "Norfolk",
@@ -1841,7 +1827,7 @@
     "instate_tuition": 5752,
     "outstate_tuition": 16920,
     "coach": "Peter Banas",
-    "phone": null,
+    "phone": "281-848-8817",
     "usnews_ranking": null
   },
   {
@@ -1856,7 +1842,7 @@
     "instate_tuition": 12462,
     "outstate_tuition": 35922,
     "coach": "James Davis",
-    "phone": null,
+    "phone": "703-994-9761",
     "usnews_ranking": 56
   },
   {
@@ -1870,7 +1856,7 @@
     "avg_act": 20,
     "instate_tuition": 7323,
     "outstate_tuition": 24444,
-    "coach": "Jared Burnham",
+    "coach": "Dustin Hinson",
     "phone": null,
     "usnews_ranking": null
   },
@@ -1885,8 +1871,8 @@
     "avg_act": 27,
     "instate_tuition": 44610,
     "outstate_tuition": 44610,
-    "coach": "Kristina Hollander",
-    "phone": "(206) 220-8407",
+    "coach": "Joey Barnes",
+    "phone": "(206)220-8407",
     "usnews_ranking": null
   },
   {
@@ -1900,8 +1886,8 @@
     "avg_act": 21,
     "instate_tuition": 7514,
     "outstate_tuition": 16324,
-    "coach": null,
-    "phone": null,
+    "coach": "Terry Deremer",
+    "phone": "(304) 367-4951",
     "usnews_ranking": null
   },
   {
@@ -1915,8 +1901,8 @@
     "avg_act": null,
     "instate_tuition": 16700,
     "outstate_tuition": 16700,
-    "coach": null,
-    "phone": null,
+    "coach": "Dennis McNaboe",
+    "phone": "304-326-1482",
     "usnews_ranking": null
   },
   {
@@ -2680,8 +2666,8 @@
     "avg_act": null,
     "instate_tuition": 29470,
     "outstate_tuition": 29470,
-    "coach": null,
-    "phone": null,
+    "coach": "Shannon Gordon-Carney",
+    "phone": "818.388.3353",
     "usnews_ranking": null
   },
   {
@@ -2695,7 +2681,7 @@
     "avg_act": null,
     "instate_tuition": 28562,
     "outstate_tuition": 28562,
-    "coach": null,
+    "coach": "Zach Willing",
     "phone": null,
     "usnews_ranking": null
   },
@@ -2710,7 +2696,7 @@
     "avg_act": null,
     "instate_tuition": 29832,
     "outstate_tuition": 29832,
-    "coach": null,
+    "coach": "Dominic DeNardo",
     "phone": null,
     "usnews_ranking": null
   },
@@ -2740,8 +2726,8 @@
     "avg_act": null,
     "instate_tuition": 12132,
     "outstate_tuition": 12132,
-    "coach": null,
-    "phone": null,
+    "coach": "Adam Albertsen",
+    "phone": "618-650-5083",
     "usnews_ranking": null
   },
   {
@@ -2755,7 +2741,7 @@
     "avg_act": null,
     "instate_tuition": 58230,
     "outstate_tuition": 58230,
-    "coach": null,
+    "coach": "Matt Brisotti",
     "phone": null,
     "usnews_ranking": null
   },
@@ -2770,7 +2756,7 @@
     "avg_act": null,
     "instate_tuition": 15094,
     "outstate_tuition": 31664,
-    "coach": null,
+    "coach": "Brad Dancer",
     "phone": null,
     "usnews_ranking": null
   },
@@ -2785,7 +2771,7 @@
     "avg_act": null,
     "instate_tuition": 13764,
     "outstate_tuition": 26980,
-    "coach": null,
+    "coach": "Jovan Parlic",
     "phone": null,
     "usnews_ranking": null
   },
@@ -2800,8 +2786,8 @@
     "avg_act": null,
     "instate_tuition": 32320,
     "outstate_tuition": 32320,
-    "coach": null,
-    "phone": null,
+    "coach": "Mark Ortega",
+    "phone": "(815) 740-3464",
     "usnews_ranking": null
   },
   {
@@ -2830,8 +2816,8 @@
     "avg_act": null,
     "instate_tuition": 12951,
     "outstate_tuition": 12951,
-    "coach": null,
-    "phone": null,
+    "coach": "Chris Kane",
+    "phone": "(309) 298-1731",
     "usnews_ranking": null
   },
   {
@@ -2845,8 +2831,8 @@
     "avg_act": null,
     "instate_tuition": 36420,
     "outstate_tuition": 36420,
-    "coach": null,
-    "phone": null,
+    "coach": "Luis Platas Davila Galindo",
+    "phone": "786-520-9207",
     "usnews_ranking": null
   },
   {
@@ -2860,8 +2846,8 @@
     "avg_act": null,
     "instate_tuition": 30450,
     "outstate_tuition": 30450,
-    "coach": null,
-    "phone": null,
+    "coach": "Scott Greve",
+    "phone": "765-641-4490",
     "usnews_ranking": null
   },
   {
@@ -2875,8 +2861,8 @@
     "avg_act": null,
     "instate_tuition": 28590,
     "outstate_tuition": 28590,
-    "coach": null,
-    "phone": null,
+    "coach": "Gabe Johnson",
+    "phone": "316-284-5395",
     "usnews_ranking": null
   },
   {
@@ -2890,8 +2876,8 @@
     "avg_act": null,
     "instate_tuition": 41120,
     "outstate_tuition": 41120,
-    "coach": null,
-    "phone": null,
+    "coach": "Sam Miles",
+    "phone": "317-940-9253",
     "usnews_ranking": null
   },
   {
@@ -2905,8 +2891,8 @@
     "avg_act": null,
     "instate_tuition": 49704,
     "outstate_tuition": 49704,
-    "coach": null,
-    "phone": null,
+    "coach": "Scott Riggle",
+    "phone": "765-658-4935",
     "usnews_ranking": null
   },
   {
@@ -2920,8 +2906,8 @@
     "avg_act": null,
     "instate_tuition": 46450,
     "outstate_tuition": 46450,
-    "coach": null,
-    "phone": null,
+    "coach": "Jacob Freeland",
+    "phone": "740-516-3770",
     "usnews_ranking": null
   },
   {
@@ -2935,8 +2921,8 @@
     "avg_act": null,
     "instate_tuition": 32010,
     "outstate_tuition": 32010,
-    "coach": null,
-    "phone": null,
+    "coach": "Ryan Hammer",
+    "phone": "317-738-8121",
     "usnews_ranking": null
   },
   {
@@ -2950,8 +2936,8 @@
     "avg_act": null,
     "instate_tuition": 33700,
     "outstate_tuition": 33700,
-    "coach": null,
-    "phone": null,
+    "coach": "Jon Bemisderfer",
+    "phone": "574-535-7093",
     "usnews_ranking": null
   },
   {
@@ -2965,8 +2951,8 @@
     "avg_act": null,
     "instate_tuition": 24768,
     "outstate_tuition": 24768,
-    "coach": null,
-    "phone": null,
+    "coach": "Andy Lewis",
+    "phone": "574-372-5100",
     "usnews_ranking": null
   },
   {
@@ -2980,8 +2966,8 @@
     "avg_act": null,
     "instate_tuition": 37670,
     "outstate_tuition": 37670,
-    "coach": null,
-    "phone": null,
+    "coach": "Eric LaRue",
+    "phone": "(812) 866-7191",
     "usnews_ranking": null
   },
   {
@@ -2995,8 +2981,8 @@
     "avg_act": null,
     "instate_tuition": 30700,
     "outstate_tuition": 30700,
-    "coach": null,
-    "phone": null,
+    "coach": "Brad Walulak",
+    "phone": "508-793-2571",
     "usnews_ranking": null
   },
   {
@@ -15205,8 +15191,8 @@
     "avg_act": null,
     "instate_tuition": 1325,
     "outstate_tuition": 7261,
-    "coach": null,
-    "phone": null,
+    "coach": "Noel Dalton",
+    "phone": "661-395-4266",
     "usnews_ranking": null
   },
   {
@@ -15250,7 +15236,7 @@
     "avg_act": null,
     "instate_tuition": 9816,
     "outstate_tuition": 21696,
-    "coach": null,
+    "coach": "Nick Carless",
     "phone": null,
     "usnews_ranking": null
   },
@@ -15265,8 +15251,8 @@
     "avg_act": null,
     "instate_tuition": 6749,
     "outstate_tuition": 18629,
-    "coach": null,
-    "phone": null,
+    "coach": "Erik Garcia",
+    "phone": "323-343-5307",
     "usnews_ranking": null
   },
   {
@@ -15280,25 +15266,11 @@
     "avg_act": null,
     "instate_tuition": 6893,
     "outstate_tuition": 18773,
-    "coach": null,
+    "coach": "Gary Victor",
     "phone": null,
     "usnews_ranking": null
   },
-  {
-    "school": "Cal State Fullerton",
-    "city": "Fullerton",
-    "state": "CA",
-    "division": "NCAA I",
-    "mens_scholarship": null,
-    "womens_scholarship": null,
-    "avg_sat": 565,
-    "avg_act": null,
-    "instate_tuition": 6886,
-    "outstate_tuition": 18766,
-    "coach": null,
-    "phone": null,
-    "usnews_ranking": null
-  },
+
   {
     "school": "California Institute of Technology",
     "city": "Pasadena",
@@ -15310,8 +15282,8 @@
     "avg_act": null,
     "instate_tuition": 52362,
     "outstate_tuition": 52362,
-    "coach": null,
-    "phone": null,
+    "coach": "Adam Clark",
+    "phone": "(626) 395-3247",
     "usnews_ranking": null
   },
   {
@@ -15325,25 +15297,11 @@
     "avg_act": null,
     "instate_tuition": 42692,
     "outstate_tuition": 42692,
-    "coach": null,
-    "phone": null,
+    "coach": "Mike Gennette",
+    "phone": "(805) 493-3262",
     "usnews_ranking": null
   },
-  {
-    "school": "Cerritos College",
-    "city": "Norwalk",
-    "state": "CA",
-    "division": "CCCAA",
-    "mens_scholarship": null,
-    "womens_scholarship": null,
-    "avg_sat": null,
-    "avg_act": null,
-    "instate_tuition": 1346,
-    "outstate_tuition": 8710,
-    "coach": null,
-    "phone": null,
-    "usnews_ranking": null
-  },
+
   {
     "school": "Chabot College",
     "city": "Hayward",
@@ -15355,8 +15313,8 @@
     "avg_act": null,
     "instate_tuition": 1142,
     "outstate_tuition": 7742,
-    "coach": null,
-    "phone": null,
+    "coach": "Rick Morris",
+    "phone": "510-723-7259",
     "usnews_ranking": null
   },
   {
@@ -15370,8 +15328,8 @@
     "avg_act": null,
     "instate_tuition": 52724,
     "outstate_tuition": 52724,
-    "coach": null,
-    "phone": null,
+    "coach": "Evan Parry",
+    "phone": "(714) 997-6654",
     "usnews_ranking": null
   },
   {
@@ -15385,7 +15343,7 @@
     "avg_act": null,
     "instate_tuition": 1696,
     "outstate_tuition": 10372,
-    "coach": null,
+    "coach": "Peter Bartlett",
     "phone": null,
     "usnews_ranking": null
   },
@@ -15400,8 +15358,8 @@
     "avg_act": null,
     "instate_tuition": 54405,
     "outstate_tuition": 54405,
-    "coach": null,
-    "phone": null,
+    "coach": "Paul Settles",
+    "phone": "909-241-6162",
     "usnews_ranking": null
   },
   {
@@ -15520,8 +15478,8 @@
     "avg_act": null,
     "instate_tuition": 45850,
     "outstate_tuition": 45850,
-    "coach": null,
-    "phone": null,
+    "coach": "Troy Tonsil",
+    "phone": "488-5176",
     "usnews_ranking": null
   },
   {
@@ -15535,7 +15493,7 @@
     "avg_act": null,
     "instate_tuition": 1144,
     "outstate_tuition": 6520,
-    "coach": null,
+    "coach": "Sergiu Boerica",
     "phone": null,
     "usnews_ranking": null
   },
@@ -15550,8 +15508,8 @@
     "avg_act": null,
     "instate_tuition": 1104,
     "outstate_tuition": 8712,
-    "coach": null,
-    "phone": null,
+    "coach": "Patrick Rutz",
+    "phone": "916-862-3992",
     "usnews_ranking": null
   },
   {
@@ -15595,7 +15553,7 @@
     "avg_act": null,
     "instate_tuition": 6587,
     "outstate_tuition": 18467,
-    "coach": null,
+    "coach": "Luke Shields",
     "phone": null,
     "usnews_ranking": null
   },
@@ -17170,7 +17128,7 @@
     "avg_act": null,
     "instate_tuition": 49776,
     "outstate_tuition": 49776,
-    "coach": null,
+    "coach": "Matthew Simons",
     "phone": null,
     "usnews_ranking": null
   },
@@ -17185,7 +17143,7 @@
     "avg_act": null,
     "instate_tuition": 11207,
     "outstate_tuition": 36588,
-    "coach": null,
+    "coach": "Rahim Esmail",
     "phone": null,
     "usnews_ranking": null
   },

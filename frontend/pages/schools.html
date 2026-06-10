@@ -232,18 +232,47 @@ let searchTimeout;
 let currentUTR = 8.0;
 
 const utrDescriptions = {
-  1: 'Beginner', 2: 'Recreational', 3: 'Intermediate',
-  4: 'Strong recreational', 5: 'Club level', 6: 'Strong club level',
-  7: 'High school varsity', 8: 'Strong club / JV college level',
-  9: 'College starter level', 10: 'Strong college level',
-  11: 'D1 / D2 college level', 12: 'Strong D1 level',
-  13: 'Pro / top D1 level', 14: 'ATP/WTA level', 15: 'Top 500 pro', 16: 'Top 100 pro'
+  male: {
+    1:  'Beginner',
+    2:  'Recreational',
+    3:  'Intermediate',
+    4:  'Strong recreational',
+    5:  'Club level',
+    6:  'Strong club level',
+    7:  'High school varsity',
+    8:  'Strong club / JV college level',
+    9:  'College starter level',
+    10: 'Strong college level',
+    11: 'D1 / D2 college level',
+    12: 'Strong D1 level',
+    13: 'Pro / top D1 level',
+    14: 'ATP level',
+    15: 'Top 500 pro',
+    16: 'Top 100 pro'
+  },
+  female: {
+    1:  'Beginner',
+    2:  'Recreational',
+    3:  'Intermediate',
+    4:  'Strong recreational',
+    5:  'Club level',
+    6:  'Strong club level',
+    7:  'High school varsity',
+    8:  'Strong club / JV college level',
+    9:  'College starter level',
+    10: 'Strong D2 / D3 level',
+    10.5: 'Strong D1 level',
+    11: 'Strong D1 level',
+    12: 'Top D1 level',
+    13: 'Top 10 WTA / Elite D1'
+  }
 };
 
 function updateUTR(val) {
   currentUTR = parseFloat(val);
   document.getElementById('utr-display').textContent = currentUTR.toFixed(1);
-  const desc = utrDescriptions[Math.floor(currentUTR)] || '';
+  const descriptions = utrDescriptions[gender] || utrDescriptions.male;
+  const desc = descriptions[Math.floor(currentUTR)] || descriptions[Math.ceil(currentUTR)] || '';
   document.getElementById('utr-desc').textContent = desc;
 }
 
@@ -252,16 +281,17 @@ function setGender(g) {
   document.getElementById('btn-male').classList.toggle('active', g === 'male');
   document.getElementById('btn-female').classList.toggle('active', g === 'female');
 
-  // Women's UTR max is 13, men's is 16
   const slider = document.getElementById('utr-slider');
+  const current = parseFloat(slider.value);
+
   if (g === 'female') {
     slider.max = 13;
-    if (parseFloat(slider.value) > 13) {
-      slider.value = 13;
-      updateUTR(13);
-    }
+    const capped = Math.min(current, 13);
+    slider.value = capped;
+    updateUTR(capped);
   } else {
     slider.max = 16;
+    updateUTR(parseFloat(slider.value));
   }
   applyFilters();
 }
