@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAIL Admin — Beta Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#050d1a; --navy-2:#0c1829; --navy-3:#112236;
+      --teal:#00c9a7; --teal-g:rgba(0,201,167,0.12);
+      --gold:#e8b84b; --red:#ef4444; --green:#22c55e;
+      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
+      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
+      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(5,13,26,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-s);}
+    .brand{display:flex;align-items:center;gap:.55rem;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--text-1);text-decoration:none;}
+    .admin-badge{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#ef4444;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
+    .btn-ghost{background:transparent;color:var(--text-2);}
+    .btn-ghost:hover{color:var(--teal);background:var(--teal-g);}
+
+    .page{padding:80px 2rem 2rem;max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+    .page-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:.25rem;}
+    .page-sub{color:var(--text-2);font-size:.875rem;margin-bottom:2rem;}
+
+    /* STAT CARDS */
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem;}
+    .stat-card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:1.25rem;text-align:center;}
+    .stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--teal);}
+    .stat-label{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:.25rem;}
+    .stat-sub{font-size:.72rem;color:var(--text-2);margin-top:.2rem;}
+
+    /* GRID */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;}
+    .card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:1.5rem;}
+    .card-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:1.25rem;color:var(--text-1);}
+
+    /* SCHOOL LIST */
+    .school-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border-s);}
+    .school-row:last-child{border-bottom:none;}
+    .school-row-name{font-size:.85rem;color:var(--text-1);}
+    .school-row-count{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:var(--teal);}
+
+    /* USER TABLE */
+    .user-table{width:100%;border-collapse:collapse;}
+    .user-table th{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);padding:.5rem .75rem;text-align:left;border-bottom:1px solid var(--border-s);}
+    .user-table td{font-size:.8rem;padding:.65rem .75rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-2);}
+    .user-table tr:hover td{background:rgba(255,255,255,0.02);}
+    .pill{display:inline-block;font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;padding:.15rem .5rem;border-radius:99px;}
+    .pill-green{background:rgba(34,197,94,0.12);color:#22c55e;border:1px solid rgba(34,197,94,0.2);}
+    .pill-red{background:rgba(239,68,68,0.12);color:#ef4444;border:1px solid rgba(239,68,68,0.2);}
+    .pill-gold{background:rgba(232,184,75,0.12);color:var(--gold);border:1px solid rgba(232,184,75,0.2);}
+
+    /* ACTIVITY BARS */
+    .activity-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;}
+    .activity-label{font-family:'Syne',sans-serif;font-size:.68rem;color:var(--text-3);width:50px;text-align:right;flex-shrink:0;}
+    .activity-bar-wrap{flex:1;background:rgba(255,255,255,0.05);border-radius:99px;height:8px;overflow:hidden;}
+    .activity-bar{height:100%;background:linear-gradient(90deg,var(--teal),#00a88b);border-radius:99px;transition:width .6s var(--ease);}
+    .activity-count{font-family:'Syne',sans-serif;font-size:.68rem;color:var(--text-2);width:30px;flex-shrink:0;}
+
+    /* REFRESH */
+    .refresh-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
+    .last-updated{font-size:.75rem;color:var(--text-3);}
+    .spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,0.1);border-top-color:var(--teal);animation:spin .7s linear infinite;display:inline-block;}
+
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr);}.two-col{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <img src="/static/images/logo.png" alt="SAIL" style="height:32px;">
+    <span class="admin-badge">Admin</span>
+  </div>
+  <div style="display:flex;gap:1rem;align-items:center;">
+    <a href="/dashboard" class="btn btn-ghost">← Back to App</a>
+    <a href="/logout" class="btn btn-ghost">Log out</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="refresh-bar">
+    <div>
+      <div class="page-title">🎾 SAIL Beta Dashboard</div>
+      <div class="page-sub">Real-time analytics for your beta test. Refresh to update.</div>
+    </div>
+    <button class="btn btn-ghost" onclick="loadStats()" id="refreshBtn">↻ Refresh</button>
+  </div>
+
+  <!-- MAIN STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num" id="stat-users">—</div>
+      <div class="stat-label">Total Users</div>
+      <div class="stat-sub" id="stat-recent">— this week</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-profiles">—</div>
+      <div class="stat-label">Completed Profiles</div>
+      <div class="stat-sub" id="stat-profile-rate">—% completion rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-matches">—</div>
+      <div class="stat-label">Matches Generated</div>
+      <div class="stat-sub">AI school searches</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-emails">—</div>
+      <div class="stat-label">Emails Generated</div>
+      <div class="stat-sub">Coach outreach emails</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+
+    <!-- TOP SCHOOLS -->
+    <div class="card">
+      <div class="card-title">🏆 Most Matched Schools</div>
+      <div id="top-schools">
+        <div style="color:var(--text-3);font-size:.82rem;text-align:center;padding:1rem;">Loading…</div>
+      </div>
+    </div>
+
+    <!-- ACTIVITY BREAKDOWN -->
+    <div class="card">
+      <div class="card-title">📊 Feature Usage</div>
+      <div id="feature-usage">
+        <div style="color:var(--text-3);font-size:.82rem;text-align:center;padding:1rem;">Loading…</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- USER TABLE -->
+  <div class="card" style="margin-bottom:1.25rem;">
+    <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">
+      👥 Beta Users
+      <span id="user-count" style="font-family:'Syne',sans-serif;font-size:.75rem;color:var(--text-3);font-weight:400;"></span>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Nationality</th>
+            <th>UTR</th>
+            <th>Division</th>
+            <th>Profile</th>
+          </tr>
+        </thead>
+        <tbody id="user-table-body">
+          <tr><td colspan="6" style="text-align:center;color:var(--text-3);">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+async function loadStats() {
+  const btn = document.getElementById('refreshBtn');
+  btn.innerHTML = '<span class="spinner"></span>';
+
+  try {
+    const res  = await fetch('/admin/api/stats', { credentials: 'include' });
+    const data = await res.json();
+
+    if (data.error) {
+      alert('Access denied. Admin only.');
+      window.location.href = '/dashboard';
+      return;
+    }
+
+    // Main stats
+    document.getElementById('stat-users').textContent    = data.total_users;
+    document.getElementById('stat-profiles').textContent = data.completed_profiles;
+    document.getElementById('stat-matches').textContent  = data.matches_generated;
+    document.getElementById('stat-emails').textContent   = data.emails_generated;
+    document.getElementById('stat-recent').textContent   = `${data.recent_signups} this week`;
+    document.getElementById('stat-profile-rate').textContent = `${data.profile_completion_rate}% completion rate`;
+
+    // Top schools
+    const schoolsDiv = document.getElementById('top-schools');
+    if (data.top_schools && data.top_schools.length) {
+      const maxCount = data.top_schools[0].count;
+      schoolsDiv.innerHTML = data.top_schools.map((s, i) => `
+        <div class="school-row">
+          <span class="school-row-name">${i+1}. ${s.school}</span>
+          <span class="school-row-count">${s.count}x</span>
+        </div>`).join('');
+    } else {
+      schoolsDiv.innerHTML = '<div style="color:var(--text-3);font-size:.82rem;text-align:center;padding:1rem;">No match data yet</div>';
+    }
+
+    // Feature usage
+    const features = [
+      { label: 'Matches',  count: data.matches_generated },
+      { label: 'Emails',   count: data.emails_generated },
+      { label: 'Advisor',  count: data.advisor_uses },
+      { label: 'Schools',  count: data.school_page_views },
+    ];
+    const maxVal = Math.max(...features.map(f => f.count), 1);
+    document.getElementById('feature-usage').innerHTML = features.map(f => `
+      <div class="activity-row">
+        <div class="activity-label">${f.label}</div>
+        <div class="activity-bar-wrap">
+          <div class="activity-bar" style="width:${Math.round(f.count/maxVal*100)}%"></div>
+        </div>
+        <div class="activity-count">${f.count}</div>
+      </div>`).join('');
+
+  } catch(e) {
+    console.error(e);
+  }
+
+  btn.innerHTML = '↻ Refresh';
+}
+
+async function loadUsers() {
+  try {
+    const res  = await fetch('/admin/api/users', { credentials: 'include' });
+    const data = await res.json();
+
+    if (!data.users) return;
+
+    document.getElementById('user-count').textContent = `${data.users.length} users`;
+
+    const tbody = document.getElementById('user-table-body');
+    tbody.innerHTML = data.users.map(u => `
+      <tr>
+        <td style="color:var(--text-1);font-weight:500;">${u.name}</td>
+        <td>${u.email}</td>
+        <td>${u.nationality || '—'}</td>
+        <td style="color:var(--teal);font-family:'Syne',sans-serif;font-weight:700;">${u.utr ? u.utr.toFixed(1) : '—'}</td>
+        <td>${u.division || '—'}</td>
+        <td>
+          ${u.profile_complete
+            ? '<span class="pill pill-green">Complete</span>'
+            : u.has_profile
+              ? '<span class="pill pill-gold">Partial</span>'
+              : '<span class="pill pill-red">None</span>'}
+        </td>
+      </tr>`).join('');
+  } catch(e) {
+    console.error(e);
+  }
+}
+
+// Load on page init
+loadStats();
+loadUsers();
+
+// Auto-refresh every 60 seconds
+setInterval(() => { loadStats(); loadUsers(); }, 60000);
+</script>
+</body>
+</html>

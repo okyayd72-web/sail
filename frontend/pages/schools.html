@@ -251,6 +251,18 @@ function setGender(g) {
   gender = g;
   document.getElementById('btn-male').classList.toggle('active', g === 'male');
   document.getElementById('btn-female').classList.toggle('active', g === 'female');
+
+  // Women's UTR max is 13, men's is 16
+  const slider = document.getElementById('utr-slider');
+  if (g === 'female') {
+    slider.max = 13;
+    if (parseFloat(slider.value) > 13) {
+      slider.value = 13;
+      updateUTR(13);
+    }
+  } else {
+    slider.max = 16;
+  }
   applyFilters();
 }
 

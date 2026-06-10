@@ -24,3 +24,11 @@ def schools():
 @pages_bp.get('/pricing')
 def pricing():
     return render_template('pricing.html')
+
+@pages_bp.get('/admin')
+@login_required
+def admin_page():
+    ADMIN_EMAILS = ['okyayd72@gmail.com']
+    if current_user.email not in ADMIN_EMAILS:
+        return redirect('/dashboard')
+    return render_template('admin.html')
