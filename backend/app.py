@@ -42,7 +42,6 @@ def create_app():
     app.register_blueprint(analytics_bp)
 
     with app.app_context():
-        db.drop_all()
         db.create_all()
 
     return app
