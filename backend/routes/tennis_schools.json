@@ -175,8 +175,8 @@
     "avg_act": 29,
     "instate_tuition": 50556,
     "outstate_tuition": 50556,
-    "coach": null,
-    "phone": null,
+    "coach": "Drew Eberly",
+    "phone": "847-254-7001",
     "usnews_ranking": null
   },
   {
@@ -190,7 +190,7 @@
     "avg_act": 20,
     "instate_tuition": 7666,
     "outstate_tuition": 20847,
-    "coach": "Josh Graetz",
+    "coach": "Bruno Campos",
     "phone": null,
     "usnews_ranking": null
   },
@@ -1031,7 +1031,7 @@
     "instate_tuition": 9792,
     "outstate_tuition": 26040,
     "coach": "Megan Holdridge",
-    "phone": null,
+    "phone": 3145167016,
     "usnews_ranking": null
   },
   {
@@ -1105,8 +1105,8 @@
     "avg_act": 19,
     "instate_tuition": 8270,
     "outstate_tuition": 8270,
-    "coach": "Hernan Geria",
-    "phone": null,
+    "coach": "Stas Smirnov",
+    "phone": 6019792291,
     "usnews_ranking": null
   },
   {
@@ -10660,8 +10660,8 @@
     "avg_act": null,
     "instate_tuition": 12016,
     "outstate_tuition": 28416,
-    "coach": null,
-    "phone": null,
+    "coach": "Steve Secord",
+    "phone": "540-568-3950",
     "usnews_ranking": null
   },
   {
@@ -10675,8 +10675,8 @@
     "avg_act": null,
     "instate_tuition": 13340,
     "outstate_tuition": 29300,
-    "coach": null,
-    "phone": null,
+    "coach": "Charlotte Clarke",
+    "phone": "828-218-5917",
     "usnews_ranking": null
   },
   {
@@ -10720,8 +10720,8 @@
     "avg_act": null,
     "instate_tuition": 10560,
     "outstate_tuition": 29460,
-    "coach": null,
-    "phone": null,
+    "coach": "Dominik Mueller",
+    "phone": "(757) 683-3129",
     "usnews_ranking": null
   },
   {
@@ -13030,8 +13030,8 @@
     "avg_act": null,
     "instate_tuition": 18500,
     "outstate_tuition": 18500,
-    "coach": null,
-    "phone": null,
+    "coach": "Michael Salomon",
+    "phone": "7042153936",
     "usnews_ranking": null
   },
   {
@@ -13300,8 +13300,8 @@
     "avg_act": null,
     "instate_tuition": 33852,
     "outstate_tuition": 33852,
-    "coach": null,
-    "phone": null,
+    "coach": "Scott Handback",
+    "phone": "910-630-7147",
     "usnews_ranking": null
   },
   {
@@ -14688,15 +14688,15 @@
     "school": "Tarleton State University",
     "city": "Stephenville",
     "state": "TX",
-    "division": "NCAA II",
+    "division": "NCAA I",
     "mens_scholarship": null,
     "womens_scholarship": null,
     "avg_sat": 520,
     "avg_act": null,
     "instate_tuition": 7292,
     "outstate_tuition": 17252,
-    "coach": null,
-    "phone": null,
+    "coach": "Elianne Douglas-Miron",
+    "phone": "254-968-9370",
     "usnews_ranking": null
   },
   {
