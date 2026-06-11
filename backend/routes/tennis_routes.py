@@ -47,7 +47,6 @@ def estimate_scholarship(utr, gender, division, school):
 
 
 @tennis_bp.route('/api/tennis/schools', methods=['GET'])
-@login_required
 def get_schools():
     # ── Analytics: track school page view ──
     try:
@@ -131,7 +130,6 @@ def get_school_detail(school_name):
 
 
 @tennis_bp.route('/api/tennis/divisions', methods=['GET'])
-@login_required
 def get_divisions():
     schools = load_schools()
     divs   = sorted(set(s.get('division', '') for s in schools if s.get('division')))

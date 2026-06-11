@@ -1376,7 +1376,7 @@
     "instate_tuition": 6041,
     "outstate_tuition": 22507,
     "coach": "Carlos Vargas",
-    "phone": null,
+    "phone": "(575) 646-6117",
     "usnews_ranking": null
   },
   {
@@ -1391,7 +1391,7 @@
     "instate_tuition": 34400,
     "outstate_tuition": 34400,
     "coach": "Erick Garcia",
-    "phone": null,
+    "phone": "egarcia@niagara.edu",
     "usnews_ranking": null
   },
   {
@@ -1420,8 +1420,8 @@
     "avg_act": 25,
     "instate_tuition": 38530,
     "outstate_tuition": 38530,
-    "coach": "Doug Matthews",
-    "phone": "5137452840",
+    "coach": "Ryan Rasco",
+    "phone": "513-745-2840",
     "usnews_ranking": null
   },
   {
@@ -1435,8 +1435,8 @@
     "avg_act": 0,
     "instate_tuition": 6751,
     "outstate_tuition": 15391,
-    "coach": "Brian Nelson",
-    "phone": null,
+    "coach": "Cari Groce",
+    "phone": "580-745-3386",
     "usnews_ranking": null
   },
   {
@@ -1451,7 +1451,7 @@
     "instate_tuition": 9105,
     "outstate_tuition": 27437,
     "coach": "Vetu Mam",
-    "phone": null,
+    "phone": "vmam@pdx.edu",
     "usnews_ranking": null
   },
   {
@@ -1465,8 +1465,8 @@
     "avg_act": 28,
     "instate_tuition": 18454,
     "outstate_tuition": 34858,
-    "coach": null,
-    "phone": null,
+    "coach": "Bruce Lipka",
+    "phone": "Bruce.Lipka@psu.edu",
     "usnews_ranking": null
   },
   {
@@ -1481,7 +1481,7 @@
     "instate_tuition": 38178,
     "outstate_tuition": 38178,
     "coach": "Budi Susanto",
-    "phone": null,
+    "phone": "412-396-6565",
     "usnews_ranking": 55
   },
   {
@@ -1510,7 +1510,7 @@
     "avg_act": 20,
     "instate_tuition": 11976,
     "outstate_tuition": 22488,
-    "coach": "Jay Evans",
+    "coach": "Laszlo Leiter",
     "phone": "843-661-1185",
     "usnews_ranking": 48
   },
@@ -1526,7 +1526,7 @@
     "instate_tuition": 34934,
     "outstate_tuition": 34934,
     "coach": "Marc Kurtz",
-    "phone": null,
+    "phone": "605-521-9269",
     "usnews_ranking": null
   },
   {
@@ -1540,8 +1540,8 @@
     "avg_act": 21,
     "instate_tuition": 22891,
     "outstate_tuition": 22891,
-    "coach": "Thiago Lins",
-    "phone": "(620) 481-1161",
+    "coach": "Dell Pride",
+    "phone": null,
     "usnews_ranking": null
   },
   {
@@ -11066,8 +11066,8 @@
     "avg_act": null,
     "instate_tuition": 9744,
     "outstate_tuition": 18354,
-    "coach": null,
-    "phone": null,
+    "coach": "Willis Mbandi",
+    "phone": "(256) 372-5317",
     "usnews_ranking": null
   },
   {
