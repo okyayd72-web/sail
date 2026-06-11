@@ -353,6 +353,14 @@
       <span class="icon">📝</span> Give Feedback
     </a>
 
+    <!-- Admin link — only visible to you -->
+    <div id="adminLink" style="display:none;">
+      <div class="sidebar-label">Admin</div>
+      <a class="sidebar-link" href="/admin">
+        <span class="icon">⚙️</span> Admin Dashboard
+      </a>
+    </div>
+
     <div class="sidebar-label">Account</div>
     <a class="sidebar-link" href="/logout"><span class="icon">↩️</span> Log Out</a>
   </aside>
@@ -829,6 +837,10 @@ async function init() {
     } catch(e) {}
 
     renderProfile(user, profile);
+    // Show admin link only for admin email
+    if (user.email === 'okyayd72@gmail.com') {
+    document.getElementById('adminLink').style.display = 'block';
+    }
 
     try {
       const md = await api('/api/athlete/matches');
