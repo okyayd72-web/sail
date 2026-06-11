@@ -107,7 +107,7 @@ def get_schools():
     def sort_key(s):
         fit      = utr_fit_score(s.get('division', ''), utr)
         has_data = 0 if s.get('mens_scholarship') or s.get('womens_scholarship') else 1
-        return (round(fit, 1), has_data)
+        return (round(fit, 3), has_data)
 
     filtered.sort(key=sort_key)
 

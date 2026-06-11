@@ -524,10 +524,12 @@ function heroSetGender(g) {
   }
   heroSearch();
 }
-
+let utrSearchTimeout;
 function heroUpdateUTR(val) {
   heroUTR = parseFloat(val);
   document.getElementById('hero-utr-val').textContent = heroUTR.toFixed(1);
+  clearTimeout(utrSearchTimeout);
+  utrSearchTimeout = setTimeout(heroSearch, 500);
 }
 
 function divBadge(div) {
