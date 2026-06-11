@@ -20,7 +20,6 @@ def estimate_scholarship(utr, gender, division, school):
     if not base:
         return None, None
 
-    # Women's UTR max is ~13, men's is 16
     max_utr = 13.0 if gender == 'female' else 16.0
     utr = min(utr, max_utr)
 
@@ -38,7 +37,7 @@ def estimate_scholarship(utr, gender, division, school):
         low, high = 0.0, 0.10
 
     if division == 'NCAA III':
-        return None, None   # No athletic scholarships in D3
+        return None, None
     if division == 'NAIA':
         low *= 0.8
         high *= 0.9
@@ -46,15 +45,39 @@ def estimate_scholarship(utr, gender, division, school):
     return round(base * low), round(base * high)
 
 
+# UTR ranges per division — defined at module level so both functions can use it
+UTR_RANGES = {
+    'NCAA I':   (9.0, 16.0),
+    'NCAA II':  (7.0, 12.0),
+    'NCAA III': (5.0, 10.0),
+    'NAIA':     (5.0, 11.0),
+    'JUCO':     (3.0, 9.0),
+}
+
+
+def utr_fit_score(division, utr_val):
+    """Returns 0 for perfect fit, higher = worse fit"""
+    if not utr_val:
+        return 0
+    r = UTR_RANGES.get(division, (0, 16))
+    if r[0] <= utr_val <= r[1]:
+        center = (r[0] + r[1]) / 2
+        return abs(utr_val - center) / (r[1] - r[0])
+    elif utr_val < r[0]:
+        return 1 + (r[0] - utr_val)
+    else:
+        return 0.5
+
+
 @tennis_bp.route('/api/tennis/schools', methods=['GET'])
 def get_schools():
-    # ── Analytics: track school page view ──
+    # ── Analytics ──
     try:
         from backend.routes.analytics import track
         track('school_page_viewed', {
             'division': request.args.get('division', ''),
-            'state': request.args.get('state', ''),
-            'gender': request.args.get('gender', 'male'),
+            'state':    request.args.get('state', ''),
+            'gender':   request.args.get('gender', 'male'),
         })
     except Exception:
         pass
@@ -67,6 +90,7 @@ def get_schools():
     search   = request.args.get('search', '').lower()
     utr      = request.args.get('utr', type=float)
 
+    # ── Filter ──
     filtered = []
     for s in schools:
         if division and s.get('division', '') != division:
@@ -79,14 +103,15 @@ def get_schools():
             continue
         filtered.append(s)
 
-    div_order = {'NCAA I': 0, 'NCAA II': 1, 'NAIA': 2, 'JUCO': 3, 'NCAA III': 4}
+    # ── Sort by UTR fit ──
     def sort_key(s):
+        fit      = utr_fit_score(s.get('division', ''), utr)
         has_data = 0 if s.get('mens_scholarship') or s.get('womens_scholarship') else 1
-        div_score = div_order.get(s.get('division', ''), 5)
-        return (has_data, div_score)
+        return (round(fit, 1), has_data)
 
     filtered.sort(key=sort_key)
 
+    # ── Add scholarship estimates ──
     if utr:
         for s in filtered:
             low, high = estimate_scholarship(utr, gender, s.get('division', ''), s)
@@ -95,7 +120,7 @@ def get_schools():
 
     total = len(filtered)
 
-    # ── BETA MODE: show all schools, no paywall ──
+    # ── Beta mode: show all schools ──
     if BETA_MODE:
         visible      = filtered
         locked_count = 0
@@ -123,7 +148,7 @@ def get_schools():
 @login_required
 def get_school_detail(school_name):
     schools = load_schools()
-    school = next((s for s in schools if s['school'].lower() == school_name.lower()), None)
+    school  = next((s for s in schools if s['school'].lower() == school_name.lower()), None)
     if not school:
         return jsonify({'error': 'School not found'}), 404
     return jsonify({'school': school})
@@ -132,6 +157,6 @@ def get_school_detail(school_name):
 @tennis_bp.route('/api/tennis/divisions', methods=['GET'])
 def get_divisions():
     schools = load_schools()
-    divs   = sorted(set(s.get('division', '') for s in schools if s.get('division')))
-    states = sorted(set(s.get('state', '') for s in schools if s.get('state')))
+    divs    = sorted(set(s.get('division', '') for s in schools if s.get('division')))
+    states  = sorted(set(s.get('state', '')    for s in schools if s.get('state')))
     return jsonify({'divisions': divs, 'states': states})
