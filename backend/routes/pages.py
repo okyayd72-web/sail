@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template
-from flask_login import login_required
+from flask import Blueprint, render_template, redirect
+from flask_login import login_required, current_user
 
 pages_bp = Blueprint('pages', __name__)
 
