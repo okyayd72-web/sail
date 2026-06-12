@@ -4,3 +4,4 @@ flask-login
 anthropic
 python-dotenv
 gunicorn
+psycopg2-binary
