@@ -10,6 +10,11 @@ load_dotenv()
 db = SQLAlchemy()
 login_manager = LoginManager()
 
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+limiter = Limiter(key_func=get_remote_address)
+
 def create_app():
     app = Flask(__name__,
                 template_folder='../frontend/pages',
@@ -31,6 +36,7 @@ def create_app():
 
     db.init_app(app)
     login_manager.init_app(app)
+    limiter.init_app(app)
     login_manager.login_view = 'auth.login_page'
 
     from backend.routes.auth          import auth_bp

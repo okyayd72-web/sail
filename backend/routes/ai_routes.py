@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
+from backend.app import limiter  
 import anthropic
 import os
 
@@ -33,6 +34,7 @@ Always recommend verifying specific details directly with athletic departments."
 
 @ai_bp.post('/api/ai/chat')
 @login_required
+@limiter.limit("20 per minute")
 def chat():
     data = request.get_json() or {}
     messages = data.get('messages', [])
@@ -75,6 +77,7 @@ def chat():
 
 @ai_bp.post('/api/ai/generate-email')
 @login_required
+@limiter.limit("10 per minute")
 def generate_email():
     data   = request.get_json() or {}
     school = data.get('university_name', '').strip()
