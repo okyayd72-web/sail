@@ -21,6 +21,11 @@ def register():
     submitted_code = data.get('beta_code', '').strip().upper()
     if submitted_code != BETA_CODE.upper():
         return jsonify({'error': 'Invalid beta access code. Please check your invite email.'}), 403
+    
+  # ── Beta user cap ──  ← ADD THIS HERE
+    user_count = User.query.count()
+    if user_count >= 50:
+        return jsonify({'error': 'Beta is currently full. Check back soon!'}), 403 
 
     if User.query.filter_by(email=data['email'].lower()).first():
         return jsonify({'error': 'An account with this email already exists.'}), 409
