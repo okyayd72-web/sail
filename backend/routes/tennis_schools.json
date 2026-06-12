@@ -33,13 +33,13 @@
     "outstate_tuition": 16292,
     "coach": "Nick Brochu",
     "phone": "251-460-6873",
-    "usnews_ranking": null,
-    "avg_team_utr_men": null,
-    "avg_team_utr_women": null,
-    "top_lineup_utr_men": null,
-    "bottom_lineup_utr_men": null,
-    "top_lineup_utr_women": null,
-    "bottom_lineup_utr_women": null
+    "usnews_ranking": 363,
+    "avg_team_utr_men": 12.177,
+    "avg_team_utr_women": 8.97,
+    "top_lineup_utr_men": 12.55,
+    "bottom_lineup_utr_men": 11.86,
+    "top_lineup_utr_women": 9.23,
+    "bottom_lineup_utr_women": 8.05
   },
   {
     "school": "University of North Alabama",
