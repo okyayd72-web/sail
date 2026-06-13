@@ -26,10 +26,10 @@
     body {
       font-family:'Lora',Georgia,serif;
       background:var(--navy); color:var(--text-1);
-      height:100vh; overflow:hidden; display:flex; flex-direction:column;
+      height:100vh; height: -webkit-fill-available; overflow:hidden; display:flex; flex-direction:column;
     }
     body::before {
-      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+      content:''; position:fixed; top:0; left:0; right:0; bottom:0; z-index:0; pointer-events:none;
       background:radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,201,167,0.06) 0%, transparent 60%);
     }
 
@@ -39,6 +39,7 @@
       display:flex; align-items:center; justify-content:space-between;
       padding:.85rem 2rem; flex-shrink:0;
       background:rgba(5,13,26,0.95);
+      -webkit-backdrop-filter: blur(20px);
       backdrop-filter:blur(20px);
       border-bottom:1px solid var(--border-s);
     }

@@ -17,9 +17,9 @@
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
-    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+    body::before{content:'';position:fixed;top:0; left:0; right:0; bottom:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
 
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(5,13,26,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-s);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter: blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-s);}
     .brand{display:flex;align-items:center;gap:.55rem;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--text-1);text-decoration:none;}
     .admin-badge{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#ef4444;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;}
     .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
