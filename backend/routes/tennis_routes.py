@@ -68,6 +68,15 @@ def utr_fit_score(division, utr_val):
     else:
         return 0.5
 
+def get_avg_utrs(school):         
+    """Convert Power 6 totals to averages"""
+    power6_men   = school.get('power6_utr_men')
+    power6_women = school.get('power6_utr_women')
+    return {
+        'avg_utr_men':   round(power6_men   / 6, 2) if power6_men   else None,
+        'avg_utr_women': round(power6_women / 6, 2) if power6_women else None,
+    }
+
 
 @tennis_bp.route('/api/tennis/schools', methods=['GET'])
 def get_schools():
@@ -134,6 +143,11 @@ def get_schools():
         else:
             visible      = filtered[:FREE_LIMIT]
             locked_count = max(0, total - FREE_LIMIT)
+    
+    for s in visible:
+        utrs = get_avg_utrs(s)
+        s['avg_utr_men']   = utrs['avg_utr_men']
+        s['avg_utr_women'] = utrs['avg_utr_women']
 
     return jsonify({
         'schools':      visible,
