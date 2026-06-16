@@ -10,7 +10,7 @@
     :root { --navy:#050d1a; --teal:#00c9a7; --text-1:#f0eee8; --text-2:#8fa0b8; --border:rgba(255,255,255,0.08); --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1); }
     * { box-sizing:border-box; margin:0; padding:0; }
     body { font-family:'Lora',serif; background:var(--navy); color:var(--text-1); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem 1rem; }
-    body::before { content:''; position:fixed; top:0; left:0; right:0; bottom:0; z-index:0; pointer-events:none; 
+    body::before { content:''; position:fixed; top:0; left:0; right:0; bottom:0; z-index:0; pointer-events:none;
     background:radial-gradient(ellipse 80% 60% at 80% 80%, rgba(0,201,167,0.07) 0%, transparent 60%); }
     .box { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:2.5rem; width:100%; max-width:400px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.5); animation:fadeUp .5s var(--ease) both; }
     .box::before { content:''; position:absolute; top:-1px; left:15%; right:15%; height:2px; background:linear-gradient(90deg,transparent,var(--teal),transparent); }
@@ -24,17 +24,25 @@
     .btn { width:100%; background:var(--teal); color:var(--navy); border:none; padding:1rem; border-radius:10px; font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; cursor:pointer; margin-top:.5rem; transition:all .25s var(--ease); }
     .btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,201,167,0.35); }
     .btn:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+    .forgot { text-align:right; margin-top:.35rem; }
+    .forgot a { font-family:'Syne',sans-serif; font-size:.72rem; color:var(--text-2); text-decoration:none; transition:color .15s; }
+    .forgot a:hover { color:var(--teal); }
     .switch { text-align:center; margin-top:1.25rem; font-size:.85rem; color:var(--text-2); }
     .switch a { color:var(--teal); font-weight:600; }
     .error-box { background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.25); border-radius:8px; padding:.75rem 1rem; font-size:.85rem; color:#f87171; margin-bottom:1rem; display:none; }
+    .success-box { background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.25); border-radius:8px; padding:.75rem 1rem; font-size:.85rem; color:#4ade80; margin-bottom:1rem; display:none; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
   </style>
 </head>
 <body>
   <div class="box">
-    <img src="/static/images/logo.png" alt="SAIL" style="height:38px;">
+    <img src="/static/images/logo.png" alt="SAIL" style="height:38px; display:block; margin:0 auto .75rem;">
     <p class="subtitle">Welcome back — log in to your account</p>
-    <div class="error-box" id="errorBox"></div>
+
+    <div class="error-box"   id="errorBox"></div>
+    <div class="success-box" id="successBox"></div>
+
+    <!-- LOGIN FORM -->
     <form id="loginForm">
       <div class="form-group">
         <label>Email Address</label>
@@ -43,31 +51,102 @@
       <div class="form-group">
         <label>Password</label>
         <input type="password" id="password" placeholder="Your password" required>
+        <div class="forgot"><a href="#" id="forgotLink">Forgot password?</a></div>
       </div>
       <button type="submit" class="btn" id="submitBtn">Log In →</button>
     </form>
-    <p class="switch">Don't have an account? <a href="/register">Sign up free</a></p>
+
+    <!-- FORGOT PASSWORD FORM (hidden by default) -->
+    <form id="forgotForm" style="display:none;">
+      <p style="font-size:.85rem; color:var(--text-2); margin-bottom:1.25rem; line-height:1.6;">
+        Enter your email address and we'll send you a link to reset your password.
+      </p>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="forgotEmail" placeholder="you@email.com" required>
+      </div>
+      <button type="submit" class="btn" id="forgotBtn">Send Reset Link →</button>
+      <p style="text-align:center; margin-top:1rem;">
+        <a href="#" id="backToLogin" style="font-family:'Syne',sans-serif; font-size:.8rem; color:var(--text-2); text-decoration:none;">← Back to login</a>
+      </p>
+    </form>
+
+    <p class="switch" id="switchText">Don't have an account? <a href="/register">Sign up free</a></p>
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    const loginForm  = document.getElementById('loginForm');
+    const forgotForm = document.getElementById('forgotForm');
+    const errorBox   = document.getElementById('errorBox');
+    const successBox = document.getElementById('successBox');
+    const switchText = document.getElementById('switchText');
+
+    function showError(msg)   { errorBox.textContent = msg; errorBox.style.display = 'block'; successBox.style.display = 'none'; }
+    function showSuccess(msg) { successBox.textContent = msg; successBox.style.display = 'block'; errorBox.style.display = 'none'; }
+    function hideMessages()   { errorBox.style.display = 'none'; successBox.style.display = 'none'; }
+
+    // Toggle to forgot password form
+    document.getElementById('forgotLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      hideMessages();
+      loginForm.style.display  = 'none';
+      forgotForm.style.display = 'block';
+      switchText.style.display = 'none';
+    });
+
+    // Toggle back to login form
+    document.getElementById('backToLogin').addEventListener('click', (e) => {
+      e.preventDefault();
+      hideMessages();
+      forgotForm.style.display = 'none';
+      loginForm.style.display  = 'block';
+      switchText.style.display = 'block';
+    });
+
+    // Login submit
+    loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('submitBtn');
-      const err = document.getElementById('errorBox');
-      btn.disabled = true; btn.textContent = 'Logging in…'; err.style.display = 'none';
+      hideMessages();
+      btn.disabled = true; btn.textContent = 'Logging in…';
       try {
         const res = await fetch('/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
-          body: JSON.stringify({ email: document.getElementById('email').value, password: document.getElementById('password').value })
+          body: JSON.stringify({
+            email:    document.getElementById('email').value,
+            password: document.getElementById('password').value
+          })
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Login failed.');
         window.location.href = '/dashboard';
       } catch (error) {
-        err.textContent = error.message; err.style.display = 'block';
+        showError(error.message);
         btn.disabled = false; btn.textContent = 'Log In →';
+      }
+    });
+
+    // Forgot password submit
+    forgotForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('forgotBtn');
+      hideMessages();
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch('/api/auth/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: document.getElementById('forgotEmail').value })
+        });
+        const data = await res.json();
+        showSuccess(data.message || 'Check your email for a reset link!');
+        document.getElementById('forgotEmail').value = '';
+      } catch (error) {
+        showError('Something went wrong. Please try again.');
+      } finally {
+        btn.disabled = false; btn.textContent = 'Send Reset Link →';
       }
     });
   </script>

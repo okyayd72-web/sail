@@ -17,6 +17,8 @@ class User(UserMixin, db.Model):
     is_verified   = db.Column(db.Boolean, default=True)
     is_active     = db.Column(db.Boolean, default=True)
     created_at    = db.Column(db.DateTime, default=datetime.utcnow)
+    reset_token        = db.Column(db.String(100), nullable=True)
+    reset_token_expiry = db.Column(db.DateTime,    nullable=True)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
