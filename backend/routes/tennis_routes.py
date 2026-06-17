@@ -2,6 +2,7 @@ import json
 import os
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
+from backend.app import db
 
 tennis_bp = Blueprint('tennis', __name__)
 
@@ -77,6 +78,134 @@ def get_avg_utrs(school):
         'avg_utr_women': round(power6_women / 6, 2) if power6_women else None,
     }
 
+
+# ─────────────────────────────────────────────────────────────
+# FAVORITES
+# ─────────────────────────────────────────────────────────────
+
+class FavoriteSchool(db.Model):
+    __tablename__ = 'favorite_schools'
+    id          = db.Column(db.String(36), primary_key=True, default=lambda: str(__import__('uuid').uuid4()))
+    user_id     = db.Column(db.String(36), db.ForeignKey('users.id'), nullable=False)
+    school_name = db.Column(db.String(200), nullable=False)
+    created_at  = db.Column(db.DateTime, server_default=db.func.now())
+
+    __table_args__ = (
+        db.UniqueConstraint('user_id', 'school_name', name='uq_user_school'),
+    )
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'school_name': self.school_name,
+            'created_at': self.created_at.isoformat() if self.created_at else None,
+        }
+
+
+def can_use_favorites():
+    """Saving schools is a paid-tier feature. During beta, everyone has access."""
+    if BETA_MODE:
+        return True
+    return getattr(current_user, 'is_premium', False)
+
+
+@tennis_bp.route('/api/tennis/favorites', methods=['GET'])
+@login_required
+def list_favorites():
+    favs = (FavoriteSchool.query
+            .filter_by(user_id=current_user.id)
+            .order_by(FavoriteSchool.created_at.desc())
+            .all())
+    fav_names = [f.school_name for f in favs]
+
+    # Hydrate full school objects from the JSON so the frontend can render cards
+    schools = load_schools()
+    lookup = {s['school']: s for s in schools if s.get('school')}
+
+    hydrated = []
+    for f in favs:
+        base = lookup.get(f.school_name)
+        if not base:
+            continue  # school may have been removed from the JSON since it was saved
+        s = dict(base)  # copy so we never mutate the loaded list
+        utrs = get_avg_utrs(s)
+        s['avg_utr_men']   = utrs['avg_utr_men']
+        s['avg_utr_women'] = utrs['avg_utr_women']
+        s['favorited_at']  = f.created_at.isoformat() if f.created_at else None
+        hydrated.append(s)
+
+    return jsonify({
+        'favorites': fav_names,   # list of saved school names (for marking hearts)
+        'schools':   hydrated,    # full objects (for the "Saved" view)
+        'count':     len(fav_names),
+    })
+
+
+@tennis_bp.route('/api/tennis/favorites', methods=['POST'])
+@login_required
+def add_favorite():
+    if not can_use_favorites():
+        return jsonify({'error': 'Saving schools is a Premium feature.', 'upgrade': True}), 403
+
+    data = request.get_json() or {}
+    school_name = (data.get('school_name') or '').strip()
+    if not school_name:
+        return jsonify({'error': 'school_name is required.'}), 400
+
+    # Validate the school actually exists in our data
+    schools = load_schools()
+    if not any(s.get('school') == school_name for s in schools):
+        return jsonify({'error': 'School not found.'}), 404
+
+    existing = FavoriteSchool.query.filter_by(user_id=current_user.id, school_name=school_name).first()
+    if existing:
+        return jsonify({'favorited': True, 'school_name': school_name, 'message': 'Already saved.'}), 200
+
+    fav = FavoriteSchool(user_id=current_user.id, school_name=school_name)
+    try:
+        db.session.add(fav)
+        db.session.commit()
+    except Exception:
+        # Unique-constraint backstop in case of a race; treat as already saved
+        db.session.rollback()
+        return jsonify({'favorited': True, 'school_name': school_name, 'message': 'Already saved.'}), 200
+
+    # ── Analytics ──
+    try:
+        from backend.routes.analytics import track
+        track('school_favorited', {'school': school_name})
+    except Exception:
+        pass
+
+    return jsonify({'favorited': True, 'school_name': school_name}), 201
+
+
+@tennis_bp.route('/api/tennis/favorites/<path:school_name>', methods=['DELETE'])
+@login_required
+def remove_favorite(school_name):
+    if not can_use_favorites():
+        return jsonify({'error': 'Saving schools is a Premium feature.', 'upgrade': True}), 403
+
+    fav = FavoriteSchool.query.filter_by(user_id=current_user.id, school_name=school_name).first()
+    if not fav:
+        return jsonify({'favorited': False, 'school_name': school_name, 'message': 'Not in favorites.'}), 200
+
+    db.session.delete(fav)
+    db.session.commit()
+
+    # ── Analytics ──
+    try:
+        from backend.routes.analytics import track
+        track('school_unfavorited', {'school': school_name})
+    except Exception:
+        pass
+
+    return jsonify({'favorited': False, 'school_name': school_name}), 200
+
+
+# ─────────────────────────────────────────────────────────────
+# SCHOOLS
+# ─────────────────────────────────────────────────────────────
 
 @tennis_bp.route('/api/tennis/schools', methods=['GET'])
 def get_schools():

@@ -99,20 +99,22 @@ def generate_email():
         user    = User.query.filter_by(id=current_user.id).first()
 
         # Build profile context
-        full_name    = f"{user.first_name} {user.last_name}" if user else "the athlete"
-        first_name   = user.first_name if user else "the athlete"
-        utr          = profile.utr_rating if profile else None
-        gpa          = profile.gpa if profile else None
-        grad_year    = profile.graduation_year if profile else None
-        nationality  = profile.nationality if profile else None
-        division     = profile.division_preference if profile else None
-        gender       = profile.gender if profile else 'male'
-        sat          = profile.sat_score if profile else None
-        act          = profile.act_score if profile else None
-        highlights   = profile.highlights_url if profile else None
-        career_pref  = profile.career_preference if profile else None
-        state_prov   = profile.state_province if profile else None
-        athletic_lvl = profile.athletic_level if profile else None
+        full_name      = f"{user.first_name} {user.last_name}" if user else "the athlete"
+        first_name     = user.first_name if user else "the athlete"
+        utr            = profile.utr_rating if profile else None
+        gpa            = profile.gpa if profile else None
+        grad_year      = profile.graduation_year if profile else None
+        nationality    = profile.nationality if profile else None
+        division       = profile.division_preference if profile else None
+        gender         = profile.gender if profile else 'male'
+        sat            = profile.sat_score if profile else None
+        act            = profile.act_score if profile else None
+        highlights     = profile.highlights_url if profile else None
+        intended_major = profile.intended_major if profile else None
+        preferred_city = profile.preferred_city if profile else None
+        school_size    = profile.school_size_preference if profile else None
+        state_prov     = profile.state_province if profile else None
+        athletic_lvl   = profile.athletic_level if profile else None
 
     except Exception:
         # If profile fetch fails, still generate a basic email
@@ -120,7 +122,8 @@ def generate_email():
         first_name = "the athlete"
         utr = gpa = grad_year = nationality = division = None
         gender = 'male'
-        sat = act = highlights = career_pref = state_prov = athletic_lvl = None
+        sat = act = highlights = state_prov = athletic_lvl = None
+        intended_major = preferred_city = school_size = None
 
     # ── Build coach salutation ──
     if coach:
@@ -146,6 +149,8 @@ def generate_email():
         profile_lines.append(f"ACT: {act}")
     if utr:
         profile_lines.append(f"UTR: {utr:.1f}")
+    if intended_major:
+        profile_lines.append(f"Intended Major: {intended_major}")
     if highlights:
         profile_lines.append(f"Highlight Video: {highlights}")
     profile_section = "\n".join(f"• {l}" for l in profile_lines) if profile_lines else "• Profile details to be filled in"
@@ -154,13 +159,19 @@ def generate_email():
     location_parts = [p for p in [state_prov, nationality] if p]
     location = ", ".join(location_parts) if location_parts else "my home country"
 
-    # ── Build academic/career interest ──
-    if career_pref == 'academic':
-        career_note = "strong academic programs and research opportunities"
-    elif career_pref == 'athletic':
-        career_note = "the competitive tennis program and coaching staff"
+    # ── Build academic interest note (driven by intended major) ──
+    if intended_major and intended_major not in ('Undecided', 'Other'):
+        career_note = f"strong academic programs — especially for my intended major in {intended_major}"
     else:
         career_note = "the balance of academic excellence and competitive tennis"
+
+    # ── Optional school-size note (only if the athlete expressed a preference) ──
+    size_map = {
+        'Small':  "I am especially drawn to the close-knit environment of a smaller school.",
+        'Medium': "I am drawn to the balance a mid-sized university offers.",
+        'Large':  "I am excited by the opportunities a large university environment provides.",
+    }
+    size_note = size_map.get(school_size, "")
 
     # ── Prompt ──
     prompt = f"""Write a professional tennis recruiting email using EXACTLY this template structure.
@@ -177,7 +188,8 @@ ATHLETE DATA:
 - ACT: {act or 'Not provided'}
 - Gender: {gender}
 - Athletic level: {athletic_lvl or 'competitive'}
-- Career preference: {career_pref or 'balanced'}
+- Intended major: {intended_major or 'Undecided'}
+- School size preference: {school_size or 'No preference'}
 - Highlight video: {highlights or '[Highlight Video Link]'}
 - Target school: {school}
 - Coach name/salutation: {coach_salutation}
@@ -191,7 +203,7 @@ My name is {full_name}, and I am a {grad_year or '[Graduation Year]'} student-at
 I currently have a UTR of {utr or '[UTR Rating]'} and have achieved the following:
 • [Write 3-4 realistic achievements based on the athlete's UTR level and athletic level. For UTR {utr}, these should be appropriate competition results, rankings, or tournament wins.]
 
-I am particularly interested in {school} because of its {career_note} and the culture of excellence within the tennis program. After researching the university and team, I believe it would be an excellent fit for both my academic and athletic goals.
+I am particularly interested in {school} because of its {career_note} and the culture of excellence within the tennis program. {size_note} After researching the university and team, I believe it would be an excellent fit for both my academic and athletic goals.
 
 Here is some additional information about me:
 {profile_section}

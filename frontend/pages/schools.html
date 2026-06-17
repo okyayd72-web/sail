@@ -60,10 +60,13 @@
     .page-header{margin-bottom:1.5rem;}
     .page-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;}
     .page-sub{color:var(--text-2);font-size:.875rem;margin-top:.25rem;}
-    .results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+    .results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;gap:.75rem;flex-wrap:wrap;}
     .results-count{font-family:'Syne',sans-serif;font-size:.8rem;color:var(--text-3);}
+    .results-actions{display:flex;align-items:center;gap:.6rem;}
     .search-box{background:rgba(255,255,255,0.04);border:1px solid var(--border-s);border-radius:8px;color:var(--text-1);padding:.55rem .9rem;font-family:'Lora',serif;font-size:.85rem;outline:none;width:220px;transition:border-color .15s;}
     .search-box:focus{border-color:var(--teal);}
+    .saved-toggle{border:1px solid var(--border-s);}
+    .saved-toggle.active{background:rgba(232,184,75,0.1);border-color:rgba(232,184,75,0.4);color:var(--gold);}
 
     /* SCHOOL CARD */
     .school-card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:1.25rem;margin-bottom:.85rem;transition:border-color .2s,transform .2s;animation:fadeUp .3s var(--ease) both;}
@@ -71,12 +74,19 @@
     .school-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;}
     .school-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;}
     .school-loc{font-size:.75rem;color:var(--text-3);margin-top:.15rem;}
+    .school-top-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0;}
     .badge{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:99px;}
     .badge-d1{background:rgba(232,184,75,0.12);color:var(--gold);border:1px solid rgba(232,184,75,0.25);}
     .badge-d2{background:rgba(0,201,167,0.1);color:var(--teal);border:1px solid rgba(0,201,167,0.2);}
     .badge-d3{background:rgba(143,160,184,0.1);color:var(--text-2);border:1px solid var(--border-s);}
     .badge-naia{background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.2);}
     .badge-juco{background:rgba(168,85,247,0.1);color:#c084fc;border:1px solid rgba(168,85,247,0.2);}
+
+    /* FAVORITE (SAVE) BUTTON */
+    .fav-btn{background:transparent;border:1px solid var(--border-s);color:var(--text-3);width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:1.05rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;}
+    .fav-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .fav-btn.active{color:var(--gold);border-color:rgba(232,184,75,0.45);background:rgba(232,184,75,0.1);}
+    .fav-btn:disabled{opacity:.5;cursor:wait;}
 
     .school-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:.85rem;}
     .stat{background:rgba(255,255,255,0.03);border-radius:8px;padding:.6rem .75rem;}
@@ -164,16 +174,6 @@
     </div>
 
     <div class="filter-group">
-      <label class="filter-label">Career Preference</label>
-      <select class="filter-control" id="filter-career" onchange="applyFilters()">
-        <option value="">Not decided</option>
-        <option value="academic">Primarily Academic</option>
-        <option value="athletic">Primarily Athletic</option>
-        <option value="balanced">Balanced</option>
-      </select>
-    </div>
-
-    <div class="filter-group">
       <label class="filter-label">Division</label>
       <select class="filter-control" id="filter-div" onchange="applyFilters()">
         <option value="">All Divisions</option>
@@ -213,7 +213,10 @@
 
       <div class="results-bar">
         <span class="results-count" id="results-label">Loading schools…</span>
-        <input type="text" class="search-box" placeholder="🔍 Search school name…" id="search-input" oninput="debounceSearch()">
+        <div class="results-actions">
+          <button class="btn btn-ghost saved-toggle" id="saved-toggle" onclick="toggleSavedView()">♡ Saved</button>
+          <input type="text" class="search-box" placeholder="🔍 Search school name…" id="search-input" oninput="debounceSearch()">
+        </div>
       </div>
 
       <!-- Schools list -->
@@ -231,6 +234,11 @@
 let gender = 'male';
 let searchTimeout;
 let currentUTR = 8.0;
+
+// ── Favorites state ──
+let favoriteSet = new Set();   // names of saved schools
+let loadedSchools = [];        // schools currently rendered (search or saved view)
+let viewMode = 'search';       // 'search' | 'saved'
 
 const utrDescriptions = {
   male: {
@@ -330,6 +338,7 @@ function fmt(n, prefix='$') {
 function renderSchool(s, idx) {
   const scholarship = gender === 'male' ? s.mens_scholarship : s.womens_scholarship;
   const hasEst = s.estimated_scholarship_low != null;
+  const isFav = favoriteSet.has(s.school);
 
   const estBanner = hasEst && s.estimated_scholarship_low > 0 ? `
     <div class="est-banner">
@@ -345,7 +354,10 @@ function renderSchool(s, idx) {
         <div class="school-name">${s.school}</div>
         <div class="school-loc">${[s.city, s.state].filter(Boolean).join(', ') || '—'}</div>
       </div>
-      ${divBadge(s.division)}
+      <div class="school-top-right">
+        <button class="fav-btn ${isFav?'active':''}" onclick="toggleFav(${idx}, this)" title="${isFav?'Remove from saved':'Save school'}" aria-label="${isFav?'Remove from saved':'Save school'}">${isFav?'♥':'♡'}</button>
+        ${divBadge(s.division)}
+      </div>
     </div>
 
     ${estBanner}
@@ -396,7 +408,112 @@ function renderLockedCard(count) {
   </div>`;
 }
 
+// ── Toggle a school's saved state (called from the heart button) ──
+async function toggleFav(idx, btn) {
+  const s = loadedSchools[idx];
+  if (!s || !s.school) return;
+  const name = s.school;
+  const currentlyFav = favoriteSet.has(name);
+
+  btn.disabled = true;
+  try {
+    let res;
+    if (currentlyFav) {
+      res = await fetch(`/api/tennis/favorites/${encodeURIComponent(name)}`, {
+        method: 'DELETE', credentials: 'include'
+      });
+    } else {
+      res = await fetch('/api/tennis/favorites', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ school_name: name })
+      });
+    }
+
+    if (res.status === 401) { toast('Please log in to save schools.', 'error'); btn.disabled = false; return; }
+    if (res.status === 403) {
+      const d = await res.json().catch(() => ({}));
+      toast(d.error || 'Saving schools is a Premium feature.', 'error');
+      btn.disabled = false;
+      return;
+    }
+    if (!res.ok) { toast('Could not update saved schools.', 'error'); btn.disabled = false; return; }
+
+    if (currentlyFav) {
+      favoriteSet.delete(name);
+      btn.classList.remove('active');
+      btn.textContent = '♡';
+      btn.title = 'Save school';
+      toast('Removed from saved', 'info');
+      if (viewMode === 'saved') { showSaved(); return; }  // re-render to drop the card
+    } else {
+      favoriteSet.add(name);
+      btn.classList.add('active');
+      btn.textContent = '♥';
+      btn.title = 'Remove from saved';
+      toast('Saved! ♥', 'success');
+    }
+  } catch (e) {
+    toast('Could not update saved schools.', 'error');
+  }
+  btn.disabled = false;
+}
+
+function updateSavedToggleUI() {
+  const t = document.getElementById('saved-toggle');
+  const on = viewMode === 'saved';
+  t.classList.toggle('active', on);
+  t.textContent = on ? '♥ Saved' : '♡ Saved';
+}
+
+async function toggleSavedView() {
+  if (viewMode === 'saved') {
+    viewMode = 'search';
+    updateSavedToggleUI();
+    applyFilters();
+  } else {
+    showSaved();
+  }
+}
+
+// ── Render the "Saved" view ──
+async function showSaved() {
+  viewMode = 'saved';
+  updateSavedToggleUI();
+  document.getElementById('schools-container').innerHTML = '<div class="spinner-wrap"><div class="spinner"></div></div>';
+
+  try {
+    const res = await fetch('/api/tennis/favorites', { credentials: 'include' });
+    if (res.status === 401) {
+      toast('Please log in to view saved schools.', 'error');
+      viewMode = 'search'; updateSavedToggleUI(); applyFilters();
+      return;
+    }
+    const data = await res.json();
+    favoriteSet = new Set(data.favorites || []);
+    loadedSchools = data.schools || [];
+
+    document.getElementById('results-label').textContent =
+      `${loadedSchools.length} saved ${loadedSchools.length === 1 ? 'school' : 'schools'}`;
+
+    let html;
+    if (!loadedSchools.length) {
+      html = `<div class="empty"><div class="empty-icon">♡</div><div class="empty-title">No saved schools yet</div><p>Tap the heart on any school to save it here.</p></div>`;
+    } else {
+      html = loadedSchools.map((s, i) => renderSchool(s, i)).join('');
+    }
+    document.getElementById('schools-container').innerHTML = html;
+  } catch (e) {
+    toast('Error loading saved schools.', 'error');
+    viewMode = 'search'; updateSavedToggleUI(); applyFilters();
+  }
+}
+
 async function applyFilters() {
+  viewMode = 'search';
+  updateSavedToggleUI();
+
   const div = document.getElementById('filter-div').value;
   const state = document.getElementById('filter-state').value;
   const search = document.getElementById('search-input').value;
@@ -414,6 +531,8 @@ async function applyFilters() {
   try {
     const res = await fetch(`/api/tennis/schools?${params}`, { credentials: 'include' });
     const data = await res.json();
+
+    loadedSchools = data.schools || [];
 
     document.getElementById('total-count').textContent = data.total.toLocaleString();
     document.getElementById('results-label').textContent =
@@ -457,9 +576,23 @@ async function loadStates() {
   } catch(e) {}
 }
 
+// ── Pre-load which schools are already saved, so hearts render filled ──
+async function loadFavorites() {
+  try {
+    const res = await fetch('/api/tennis/favorites', { credentials: 'include' });
+    if (!res.ok) return;  // not logged in or error — leave favoriteSet empty
+    const data = await res.json();
+    favoriteSet = new Set(data.favorites || []);
+  } catch(e) {}
+}
+
 // Init
-loadStates();
-applyFilters();
+async function init() {
+  loadStates();
+  await loadFavorites();   // populate hearts before first render
+  applyFilters();
+}
+init();
 </script>
 </body>
 </html>

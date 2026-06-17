@@ -423,7 +423,7 @@
             <div class="info-item"><label>GPA</label><div class="val" id="info-gpa">—</div></div>
             <div class="info-item"><label>Grad Year</label><div class="val" id="info-year">—</div></div>
             <div class="info-item"><label>Nationality</label><div class="val" id="info-nat">—</div></div>
-            <div class="info-item"><label>Career Goal</label><div class="val" id="info-career">—</div></div>
+            <div class="info-item"><label>Intended Major</label><div class="val" id="info-major">—</div></div>
           </div>
         </div>
 
@@ -494,12 +494,21 @@
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Career Preference</label>
-          <select class="form-control" id="f-career">
-            <option value="">Not decided</option>
-            <option value="academic">Primarily Academic</option>
-            <option value="athletic">Primarily Athletic</option>
-            <option value="balanced">Balanced</option>
+          <label class="form-label">Intended Major</label>
+          <select class="form-control" id="f-major">
+            <option value="">Select major</option>
+            <option value="Undecided">Undecided</option>
+            <option value="Business">Business</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Biology / Pre-Med">Biology / Pre-Med</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Economics">Economics</option>
+            <option value="Communications">Communications</option>
+            <option value="Political Science">Political Science</option>
+            <option value="Education">Education</option>
+            <option value="Kinesiology / Sports Science">Kinesiology / Sports Science</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <div class="form-group">
@@ -564,6 +573,22 @@
         <div class="form-group">
           <label class="form-label">Highlight Video URL</label>
           <input class="form-control" type="url" id="f-highlights" placeholder="https://youtube.com/...">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Preferred Nearby City</label>
+          <input class="form-control" id="f-city" placeholder="e.g. Los Angeles">
+          <div class="form-hint">Optional — we'll use this for location matching soon.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">School Size Preference</label>
+          <select class="form-control" id="f-size">
+            <option value="">No Preference</option>
+            <option value="Small">Small (under 5,000)</option>
+            <option value="Medium">Medium (5,000–15,000)</option>
+            <option value="Large">Large (15,000+)</option>
+          </select>
         </div>
       </div>
 
@@ -672,7 +697,7 @@ function renderProfile(user, profile) {
   document.getElementById('info-gpa').textContent    = profile.gpa ? parseFloat(profile.gpa).toFixed(1) : '—';
   document.getElementById('info-year').textContent   = profile.graduation_year || '—';
   document.getElementById('info-nat').textContent    = profile.nationality || '—';
-  document.getElementById('info-career').textContent = profile.career_preference || '—';
+  document.getElementById('info-major').textContent  = profile.intended_major || '—';
 
   if (pct < 60) document.getElementById('profileWarning').style.display = 'block';
 
@@ -680,7 +705,7 @@ function renderProfile(user, profile) {
   const fields = {
     'f-gender':   profile.gender,
     'f-utr':      profile.utr_rating,
-    'f-career':   profile.career_preference,
+    'f-major':    profile.intended_major,
     'f-level':    profile.athletic_level,
     'f-gpa':      profile.gpa,
     'f-year':     profile.graduation_year,
@@ -690,6 +715,8 @@ function renderProfile(user, profile) {
     'f-nat':      profile.nationality,
     'f-state':    profile.state_province,
     'f-highlights': profile.highlights_url,
+    'f-city':     profile.preferred_city,
+    'f-size':     profile.school_size_preference,
   };
   Object.entries(fields).forEach(([id, val]) => {
     const el = document.getElementById(id);
@@ -762,19 +789,21 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
   btn.disabled = true; btn.textContent = 'Saving…';
 
   const raw = {
-    sport:               'Tennis',
-    gender:              document.getElementById('f-gender').value,
-    utr_rating:          document.getElementById('f-utr').value,
-    career_preference:   document.getElementById('f-career').value,
-    athletic_level:      document.getElementById('f-level').value,
-    gpa:                 document.getElementById('f-gpa').value,
-    graduation_year:     document.getElementById('f-year').value,
-    sat_score:           document.getElementById('f-sat').value,
-    act_score:           document.getElementById('f-act').value,
-    division_preference: document.getElementById('f-div').value,
-    nationality:         document.getElementById('f-nat').value,
-    state_province:      document.getElementById('f-state').value,
-    highlights_url:      document.getElementById('f-highlights').value,
+    sport:                  'Tennis',
+    gender:                 document.getElementById('f-gender').value,
+    utr_rating:             document.getElementById('f-utr').value,
+    intended_major:         document.getElementById('f-major').value,
+    athletic_level:         document.getElementById('f-level').value,
+    gpa:                    document.getElementById('f-gpa').value,
+    graduation_year:        document.getElementById('f-year').value,
+    sat_score:              document.getElementById('f-sat').value,
+    act_score:              document.getElementById('f-act').value,
+    division_preference:    document.getElementById('f-div').value,
+    nationality:            document.getElementById('f-nat').value,
+    state_province:         document.getElementById('f-state').value,
+    highlights_url:         document.getElementById('f-highlights').value,
+    preferred_city:         document.getElementById('f-city').value,
+    school_size_preference: document.getElementById('f-size').value,
   };
 
   const body = {};

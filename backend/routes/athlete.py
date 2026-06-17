@@ -14,7 +14,7 @@ def load_schools():
         return json.load(f)
 
 
-def smart_filter(schools, utr, gpa, division_pref, gender, career_pref):
+def smart_filter(schools, utr, gpa, division_pref, gender):
     div_map = {
         'Division I':   'NCAA I',
         'Division II':  'NCAA II',
@@ -74,18 +74,6 @@ def smart_filter(schools, utr, gpa, division_pref, gender, career_pref):
             elif avg_sat >= 1200 and gpa < 2.5:
                 score -= 10
 
-        if career_pref == 'academic':
-            if avg_sat and avg_sat >= 1200:
-                score += 15
-            elif avg_sat and avg_sat >= 1000:
-                score += 8
-        elif career_pref == 'athletic':
-            if div in ('NCAA I', 'NCAA II') and scholarship:
-                score += 15
-        elif career_pref == 'balanced':
-            if avg_sat and avg_sat >= 1000 and scholarship:
-                score += 10
-
         if s.get('coach'):
             score += 5
 
@@ -97,22 +85,24 @@ def smart_filter(schools, utr, gpa, division_pref, gender, career_pref):
 
 class AthleteProfile(db.Model):
     __tablename__ = 'athlete_profiles'
-    id                  = db.Column(db.String(36), primary_key=True, default=lambda: str(__import__('uuid').uuid4()))
-    user_id             = db.Column(db.String(36), db.ForeignKey('users.id'), nullable=False, unique=True)
-    sport               = db.Column(db.String(100))
-    utr_rating          = db.Column(db.Float)
-    gender              = db.Column(db.String(10))
-    career_preference   = db.Column(db.String(50))
-    graduation_year     = db.Column(db.Integer)
-    athletic_level      = db.Column(db.String(50))
-    division_preference = db.Column(db.String(50))
-    gpa                 = db.Column(db.Float)
-    sat_score           = db.Column(db.Integer)
-    act_score           = db.Column(db.Integer)
-    nationality         = db.Column(db.String(100))
-    state_province      = db.Column(db.String(100))
-    highlights_url      = db.Column(db.Text)
-    profile_complete    = db.Column(db.Boolean, default=False)
+    id                     = db.Column(db.String(36), primary_key=True, default=lambda: str(__import__('uuid').uuid4()))
+    user_id                = db.Column(db.String(36), db.ForeignKey('users.id'), nullable=False, unique=True)
+    sport                  = db.Column(db.String(100))
+    utr_rating             = db.Column(db.Float)
+    gender                 = db.Column(db.String(10))
+    intended_major         = db.Column(db.String(100))
+    preferred_city         = db.Column(db.String(100))
+    school_size_preference = db.Column(db.String(20))
+    graduation_year        = db.Column(db.Integer)
+    athletic_level         = db.Column(db.String(50))
+    division_preference    = db.Column(db.String(50))
+    gpa                    = db.Column(db.Float)
+    sat_score              = db.Column(db.Integer)
+    act_score              = db.Column(db.Integer)
+    nationality            = db.Column(db.String(100))
+    state_province         = db.Column(db.String(100))
+    highlights_url         = db.Column(db.Text)
+    profile_complete       = db.Column(db.Boolean, default=False)
 
     def completion_pct(self):
         fields = [self.sport, self.graduation_year, self.athletic_level,
@@ -125,7 +115,9 @@ class AthleteProfile(db.Model):
         return {
             'id': self.id, 'sport': self.sport,
             'utr_rating': self.utr_rating, 'gender': self.gender,
-            'career_preference': self.career_preference,
+            'intended_major': self.intended_major,
+            'preferred_city': self.preferred_city,
+            'school_size_preference': self.school_size_preference,
             'graduation_year': self.graduation_year,
             'athletic_level': self.athletic_level,
             'division_preference': self.division_preference,
@@ -178,7 +170,7 @@ def update_profile():
                 'division': p.division_preference,
                 'utr': p.utr_rating,
                 'nationality': p.nationality,
-                'career_pref': p.career_preference,
+                'intended_major': p.intended_major,
             })
     except Exception:
         pass
@@ -204,11 +196,12 @@ def refresh_matches():
     gpa            = p.gpa or 0
     division_pref  = p.division_preference or ''
     nationality    = p.nationality or 'Unknown'
-    career_pref    = p.career_preference or 'undecided'
+    intended_major = p.intended_major or 'Undecided'
+    school_size    = p.school_size_preference or 'No Preference'
     athletic_level = p.athletic_level or 'developing'
 
     all_schools = load_schools()
-    candidates = smart_filter(all_schools, utr, gpa, division_pref, gender, career_pref)
+    candidates = smart_filter(all_schools, utr, gpa, division_pref, gender)
 
     if not candidates:
         return jsonify({'error': 'No schools found matching your preferences. Try a different division.'}), 400
@@ -236,7 +229,8 @@ ATHLETE PROFILE:
 - GPA: {gpa}
 - Division Preference: {division_pref or 'No preference'}
 - Nationality: {nationality}
-- Career Preference: {career_pref}
+- Intended Major: {intended_major}
+- School Size Preference: {school_size}
 - Athletic Level: {athletic_level}
 
 CANDIDATE SCHOOLS:
@@ -251,7 +245,7 @@ Each object must have:
 - "tags": 2-3 short tags array
 
 Example:
-[{{"name":"University of Tampa","division":"NCAA II","match_score":91,"match_reason":"UTR 9.5 matches Tampa well and strong academics suit your balanced career preference.","tags":["Balanced Program","Good Aid"]}}]"""
+[{{"name":"University of Tampa","division":"NCAA II","match_score":91,"match_reason":"UTR 9.5 matches Tampa well and a Business major fits their strong academic programs.","tags":["Strong Academics","Good Aid"]}}]"""
 
     try:
         client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
@@ -289,7 +283,7 @@ Example:
                 'gender': gender,
                 'division': division_pref,
                 'nationality': nationality,
-                'career_pref': career_pref,
+                'intended_major': intended_major,
                 'schools': [m['name'] for m in matches],
             })
         except Exception:
