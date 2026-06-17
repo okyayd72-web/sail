@@ -82,6 +82,10 @@
     .badge-naia{background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.2);}
     .badge-juco{background:rgba(168,85,247,0.1);color:#c084fc;border:1px solid rgba(168,85,247,0.2);}
 
+    /* NICHE GRADE PILL */
+    .niche-pill{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.04em;padding:.2rem .55rem;border-radius:99px;background:rgba(0,201,167,0.1);color:var(--teal);border:1px solid rgba(0,201,167,0.2);white-space:nowrap;}
+    .footer-tags{display:flex;align-items:center;gap:.5rem;flex-shrink:0;}
+
     /* FAVORITE (SAVE) BUTTON */
     .fav-btn{background:transparent;border:1px solid var(--border-s);color:var(--text-3);width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:1.05rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;}
     .fav-btn:hover{border-color:var(--gold);color:var(--gold);}
@@ -189,6 +193,21 @@
       <label class="filter-label">State</label>
       <select class="filter-control" id="filter-state" onchange="applyFilters()">
         <option value="">All States</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label class="filter-label">Niche Grade (minimum)</label>
+      <select class="filter-control" id="filter-niche" onchange="applyFilters()">
+        <option value="">Any Grade</option>
+        <option value="A+">A+ only</option>
+        <option value="A">A or better</option>
+        <option value="A-">A- or better</option>
+        <option value="B+">B+ or better</option>
+        <option value="B">B or better</option>
+        <option value="B-">B- or better</option>
+        <option value="C+">C+ or better</option>
+        <option value="C">C or better</option>
       </select>
     </div>
 
@@ -386,7 +405,10 @@ function renderSchool(s, idx) {
         ${s.coach ? `🎾 <strong>${s.coach}</strong>` : '<span style="color:var(--text-3)">Coach info not available</span>'}
         ${s.phone ? `<span>📞 ${s.phone}</span>` : ''}
       </div>
-      ${s.usnews_ranking ? `<span style="font-family:'Syne',sans-serif;font-size:.72rem;color:var(--text-3)">US News #${s.usnews_ranking}</span>` : ''}
+      ${s.usnews_ranking || s.niche_grade ? `<div class="footer-tags">
+        ${s.niche_grade ? `<span class="niche-pill" title="Niche.com overall grade">Niche ${s.niche_grade}</span>` : ''}
+        ${s.usnews_ranking ? `<span style="font-family:'Syne',sans-serif;font-size:.72rem;color:var(--text-3)">US News #${s.usnews_ranking}</span>` : ''}
+      </div>` : ''}
     </div>
   </div>`;
 }
@@ -516,6 +538,7 @@ async function applyFilters() {
 
   const div = document.getElementById('filter-div').value;
   const state = document.getElementById('filter-state').value;
+  const niche = document.getElementById('filter-niche').value;
   const search = document.getElementById('search-input').value;
 
   const params = new URLSearchParams({
@@ -523,6 +546,7 @@ async function applyFilters() {
     utr: currentUTR,
     ...(div && { division: div }),
     ...(state && { state }),
+    ...(niche && { niche_min: niche }),
     ...(search && { search }),
   });
 

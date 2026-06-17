@@ -55,6 +55,16 @@ UTR_RANGES = {
     'JUCO':     (3.0, 9.0),
 }
 
+# Niche letter grades ranked best → worst, for the "minimum grade" filter.
+# JSON values must match these keys exactly (capital letter, ASCII hyphen): "A+", "A", "A-", ...
+GRADE_RANK = {
+    'A+': 13, 'A': 12, 'A-': 11,
+    'B+': 10, 'B': 9,  'B-': 8,
+    'C+': 7,  'C': 6,  'C-': 5,
+    'D+': 4,  'D': 3,  'D-': 2,
+    'F':  1,
+}
+
 
 def utr_fit_score(division, utr_val):
     """Returns 0 for perfect fit, higher = worse fit"""
@@ -227,6 +237,7 @@ def get_schools():
     gender   = request.args.get('gender', 'male')
     search   = request.args.get('search', '').lower()
     utr      = request.args.get('utr', type=float)
+    niche_min = request.args.get('niche_min', '').strip()
 
     # ── Filter ──
     filtered = []
@@ -237,6 +248,10 @@ def get_schools():
             continue
         if search and search not in s.get('school', '').lower():
             continue
+        if niche_min:
+            g = (s.get('niche_grade') or '').strip()
+            if not g or GRADE_RANK.get(g, 0) < GRADE_RANK.get(niche_min, 0):
+                continue
         if not s.get('school'):
             continue
         filtered.append(s)
