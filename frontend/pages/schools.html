@@ -141,7 +141,36 @@
     ::-webkit-scrollbar{width:5px;}
     ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:99px;}
 
-    @media(max-width:860px){.layout{grid-template-columns:1fr;}.sidebar{display:none;}.school-stats{grid-template-columns:repeat(2,1fr);}}
+    /* Mobile "Filters" toggle button — hidden on desktop */
+    .filters-toggle{
+      display:none;
+      width:100%; align-items:center; justify-content:space-between;
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
+      border-radius:10px; padding:.7rem 1rem; margin-bottom:1rem;
+      color:var(--text-1); font-family:'Syne',sans-serif; font-weight:700;
+      font-size:.85rem; cursor:pointer; transition:all .15s;
+    }
+    .filters-toggle:hover{ border-color:var(--teal); color:var(--teal); }
+    .filters-toggle .chev{ transition:transform .2s var(--ease); color:var(--text-3); }
+    .filters-toggle.open .chev{ transform:rotate(180deg); }
+    .filters-count{
+      background:var(--teal); color:var(--navy); font-size:.7rem; font-weight:800;
+      border-radius:99px; padding:.05rem .5rem; margin-left:.4rem;
+    }
+
+    @media(max-width:860px){
+      .layout{ grid-template-columns:1fr; }
+      .school-stats{ grid-template-columns:repeat(2,1fr); }
+      /* Sidebar becomes a collapsible panel that pushes content down (no overlay) */
+      .sidebar{
+        position:static; height:auto; max-height:0; overflow:hidden;
+        padding-top:0; padding-bottom:0; border-right:none;
+        border-bottom:1px solid var(--border-s);
+        transition:max-height .28s var(--ease), padding .28s var(--ease);
+      }
+      .sidebar.open{ max-height:1200px; padding-top:1.5rem; padding-bottom:1.5rem; }
+      .filters-toggle{ display:flex; }
+    }
   </style>
 </head>
 <body>
@@ -159,7 +188,7 @@
 <div class="layout">
 
   <!-- SIDEBAR FILTERS -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="filterSidebar">
     <h3>🎾 Tennis Filters</h3>
 
     <div class="filter-group">
@@ -224,6 +253,12 @@
   <!-- MAIN CONTENT -->
   <main class="main">
     <div class="main-inner">
+
+      <!-- Mobile-only filters toggle (hidden on desktop via CSS) -->
+      <button class="filters-toggle" id="filtersToggle" onclick="toggleFilters()" aria-expanded="false">
+        <span>🎾 Filters<span class="filters-count" id="filtersCount" style="display:none">0</span></span>
+        <span class="chev">▾</span>
+      </button>
 
       <div class="page-header">
         <h1 class="page-title">🎾 Find Tennis Schools</h1>
@@ -532,6 +567,25 @@ async function showSaved() {
   }
 }
 
+// Mobile: open/close the filter panel
+function toggleFilters() {
+  const sb = document.getElementById('filterSidebar');
+  const btn = document.getElementById('filtersToggle');
+  const open = sb.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+// Update the little count badge on the Filters button.
+// Gender and UTR always have a value, so they don't count as "active filters";
+// we count the optional refinements the user has chosen.
+function updateFiltersCount(div, state, niche, search) {
+  const n = [div, state, niche, search].filter(v => v && v.trim()).length;
+  const badge = document.getElementById('filtersCount');
+  if (n > 0) { badge.textContent = n; badge.style.display = 'inline-block'; }
+  else { badge.style.display = 'none'; }
+}
+
 async function applyFilters() {
   viewMode = 'search';
   updateSavedToggleUI();
@@ -540,6 +594,8 @@ async function applyFilters() {
   const state = document.getElementById('filter-state').value;
   const niche = document.getElementById('filter-niche').value;
   const search = document.getElementById('search-input').value;
+
+  updateFiltersCount(div, state, niche, search);
 
   const params = new URLSearchParams({
     gender,
