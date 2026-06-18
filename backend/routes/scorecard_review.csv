@@ -1,0 +1,273 @@
+﻿school,state,scorecard_suggestion,suggested_enrollment,suggested_lat,suggested_lon,note
+Sacramento State,CA,,,,,NO MATCH FOUND
+Univ of the District of Columbia,DC,University of the District of Columbia,3351,38.943819,-77.066247,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Embry-Riddle Aeronautical Univ,FL,,,,,NO MATCH FOUND
+University of Illinois at Springfield,IL,University of Illinois Springfield,2263,39.729524,-89.616796,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Indiana University,IN,,,,,NO MATCH FOUND
+Indiana-Purdue Univ- Indianapolis,IN,,,,,NO MATCH FOUND
+Indiana Wesleyan University,IN,Indiana Wesleyan University-Marion,1974,40.517937,-85.667503,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Ottawa University,KS,,,,,NO MATCH FOUND
+Northwest Missouri State Univ,MO,Northwest Missouri State University,4378,40.351692,-94.883339,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of North Carolina at Asheville,NC,,,,,NO MATCH FOUND
+Univ of North Carolina at Greensboro,NC,University of North Carolina at Greensboro,14062,36.068236,-79.809414,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of North Carolina Wilmington,NC,University of North Carolina Wilmington,14922,34.225223,-77.875527,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of Nebraska,NE,,,,,NO MATCH FOUND
+Southeastern Oklahoma State Univ,OK,Southeastern Oklahoma State University,3018,34.006808,-96.376864,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Tennessee Tech University,TN,Tennessee State University,4848,36.166321,-86.828275,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Salem International University,WV,,,,,NO MATCH FOUND
+Iowa Central CC,IA,,,,,NO MATCH FOUND
+Morningside College,IA,,,,,NO MATCH FOUND
+Elgin CC,IL,,,,,NO MATCH FOUND
+Elmhurst College,IL,,,,,NO MATCH FOUND
+Illinois Valley CC,IL,,,,,NO MATCH FOUND
+Lewis and Clark CC,IL,,,,,NO MATCH FOUND
+Moraine Valley CC,IL,,,,,NO MATCH FOUND
+Oakton CC,IL,,,,,NO MATCH FOUND
+Sauk Valley CC,IL,,,,,NO MATCH FOUND
+Southern Illinois Univ- Edwardsville,IL,Southern Illinois University Edwardsville,8750,38.793949,-89.997779,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of Illinois,IL,,,,,NO MATCH FOUND
+University of Illinois at Chicago,IL,University of Illinois Chicago,22170,41.871837,-87.650503,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Waubonsee CC,IL,,,,,NO MATCH FOUND
+Bethel College,IN,,,,,NO MATCH FOUND
+Grace College,IN,,,,,NO MATCH FOUND
+University of Saint Francis,IN,,,,,NO MATCH FOUND
+Barton County CC,KS,,,,,NO MATCH FOUND
+Cowley College,KS,,,,,NO MATCH FOUND
+Seward County CC,KS,,,,,NO MATCH FOUND
+Lindsey Wilson College,KY,,,,,NO MATCH FOUND
+Thomas More College,KY,,,,,NO MATCH FOUND
+Union College,KY,,,,,NO MATCH FOUND
+Calvin College,MI,,,,,NO MATCH FOUND
+Olivet College,MI,,,,,NO MATCH FOUND
+University of Michigan,MI,University of Michigan-Flint,4411,43.01875,-83.690276,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Saint John's University,MN,Saint Johns University,1395,45.580075,-94.393621,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Southwest Minnesota State Univ,MN,Southwest Minnesota State University,2315,44.45373,-95.759548,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of Minnesota,MN,,,,,NO MATCH FOUND
+University of Northwestern,MN,,,,,NO MATCH FOUND
+Fontbonne University,MO,,,,,NO MATCH FOUND
+Missouri State University,MO,,,,,NO MATCH FOUND
+St Louis College of Pharmacy,MO,,,,,NO MATCH FOUND
+University of Missouri,MO,,,,,NO MATCH FOUND
+Miami University,OH,,,,,NO MATCH FOUND
+Mount Saint Joseph University,OH,Mount St. Joseph University,1129,39.095893,-84.639453,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Notre Dame College,OH,,,,,NO MATCH FOUND
+Univ of Northwestern Ohio,OH,University of Northwestern Ohio,2494,40.762917,-84.157004,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Mount Marty College,SD,,,,,NO MATCH FOUND
+AlvernoCollege,WI,Alverno College,631,42.982842,-87.965174,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Bryant & Stratton College,WI,,,,,NO MATCH FOUND
+Cardinal Stritch University,WI,,,,,NO MATCH FOUND
+Edgewood College,WI,,,,,NO MATCH FOUND
+Milwaukee Area Tech College,WI,,,,,NO MATCH FOUND
+Univ of Wisconsin- Eau Claire,WI,University of Wisconsin-Eau Claire,8895,44.798284,-91.501906,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin- Whitewater,WI,University of Wisconsin-Whitewater,9405,42.835563,-88.742368,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin-La Crosse,WI,University of Wisconsin-La Crosse,9277,43.81568,-91.23186,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin-Milwaukee,WI,University of Wisconsin-Milwaukee,16758,43.076848,-87.880488,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin-Oshkosh,WI,University of Wisconsin-Oshkosh,6877,44.026206,-88.549369,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin-River Falls,WI,University of Wisconsin-River Falls,4205,44.8534,-92.622641,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin-Stevens Point,WI,University of Wisconsin-Stevens Point,7306,44.529582,-89.570934,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin-Stout,WI,University of Wisconsin-Stout,5842,44.873187,-91.926653,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Wisconsin-Superior,WI,University of Wisconsin-Superior,1807,46.717629,-92.091007,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of Wisconsin,WI,University of Wisconsin-Stout,5842,44.873187,-91.926653,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Bluefield State College,WV,,,,,NO MATCH FOUND
+U.S. Coast Guard Academy,CT,,,,,NO MATCH FOUND
+Western Connecticut State Univ,CT,Western Connecticut State University,3511,41.400365,-73.444264,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Catholic University,DC,,,,,NO MATCH FOUND
+Assumption College,MA,,,,,NO MATCH FOUND
+Eastern Nazarene College,MA,,,,,NO MATCH FOUND
+Holy Cross,MA,,,,,NO MATCH FOUND
+MountHolyokeCollege,MA,Mount Holyoke College,2169,42.25489,-72.573916,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+SimmonsCollege,MA,,,,,NO MATCH FOUND
+SmithCollege,MA,Smith College,2544,42.318111,-72.638097,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Massachusetts-Boston,MA,University of Massachusetts-Boston,11512,42.312881,-71.036865,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of Massachusetts-Dartmouth,MA,University of Massachusetts-Dartmouth,5221,41.62869,-71.004552,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of Massachusetts,MA,University of Massachusetts-Lowell,11434,42.652864,-71.326809,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+WellesleyCollege,MA,Wellesley College,2300,42.291554,-71.306605,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Harford CC,MD,,,,,NO MATCH FOUND
+U.S. Naval Academy,MD,,,,,NO MATCH FOUND
+University of Maryland,MD,,,,,NO MATCH FOUND
+Southern New Hampshire Univ,NH,Southern New Hampshire University,163164,43.038922,-71.451842,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+College of Saint Elizabeth,NJ,,,,,NO MATCH FOUND
+Fairleigh Dickinson Univ - Florham,NJ,Fairleigh Dickinson University-Florham Campus,1990,40.774498,-74.432121,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Fairleigh Dickinson University,NJ,Fairleigh Dickinson University-Florham Campus,1990,40.774498,-74.432121,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Mercer County CC,NJ,,,,,NO MATCH FOUND
+Ramapo College,NJ,,,,,NO MATCH FOUND
+Rowan College - Gloucester,NJ,,,,,NO MATCH FOUND
+Rutgers University,NJ,,,,,NO MATCH FOUND
+William Paterson University,NJ,,,,,NO MATCH FOUND
+ASA College,NY,Vassar College,2444,41.686895,-73.895088,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Barnard (Columbia Univ),NY,,,,,NO MATCH FOUND
+Baruch College,NY,,,,,NO MATCH FOUND
+Brooklyn College,NY,,,,,NO MATCH FOUND
+College of Staten Island,NY,College of Staten Island CUNY,9657,40.601831,-74.14849,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Columbia University,NY,,,,,NO MATCH FOUND
+Concordia College-New York,NY,,,,,NO MATCH FOUND
+Daemen College,NY,,,,,NO MATCH FOUND
+Dominican College,NY,,,,,NO MATCH FOUND
+D'Youville College,NY,,,,,NO MATCH FOUND
+Herkimer College,NY,,,,,NO MATCH FOUND
+Houghton College,NY,,,,,NO MATCH FOUND
+Hudson Valley CC,NY,,,,,NO MATCH FOUND
+Hunter College,NY,,,,,NO MATCH FOUND
+John Jay College of Criminal Justice,NY,CUNY John Jay College of Criminal Justice,11590,40.770351,-73.98841,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Kingsborough Community College,NY,CUNY Kingsborough Community College,7670,40.577222,-73.935812,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Lehman College,NY,,,,,NO MATCH FOUND
+Manhattanville College,NY,,,,,NO MATCH FOUND
+Marist College,NY,,,,,NO MATCH FOUND
+Medaille College,NY,,,,,NO MATCH FOUND
+Mohawk Valley CC,NY,,,,,NO MATCH FOUND
+Molloy College,NY,,,,,NO MATCH FOUND
+Nazareth College,NY,,,,,NO MATCH FOUND
+Pratt Institute,NY,,,,,NO MATCH FOUND
+Queens College,NY,,,,,NO MATCH FOUND
+Roberts Wesleyan College,NY,,,,,NO MATCH FOUND
+Sage Colleges,NY,,,,,NO MATCH FOUND
+Saint John Fisher College,NY,,,,,NO MATCH FOUND
+Saint Joseph's College- Brooklyn,NY,,,,,NO MATCH FOUND
+Saint Joseph's College-Long Island,NY,,,,,NO MATCH FOUND
+Siena College,NY,,,,,NO MATCH FOUND
+St John's University,NY,St. John Fisher University,2565,43.116259,-77.513056,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Suffolk County CC,NY,,,,,NO MATCH FOUND
+SUNY at New Paltz,NY,,,,,NO MATCH FOUND
+SUNY Broome CC,NY,,,,,NO MATCH FOUND
+SUNY College at Brockport,NY,,,,,NO MATCH FOUND
+SUNY College at Cortland,NY,,,,,NO MATCH FOUND
+SUNY College at Delhi,NY,,,,,NO MATCH FOUND
+SUNY College at Oswego,NY,,,,,NO MATCH FOUND
+SUNY College at Plattsburgh,NY,,,,,NO MATCH FOUND
+U.S. Military Academy,NY,,,,,NO MATCH FOUND
+US Merchant Marine Academy,NY,,,,,NO MATCH FOUND
+Utica College,NY,,,,,NO MATCH FOUND
+Vaughn College of Aeronautics & Tech,NY,,,,,NO MATCH FOUND
+York College,NY,,,,,NO MATCH FOUND
+Bloomsburg University,PA,,,,,NO MATCH FOUND
+Bryn Athyn College,PA,,,,,NO MATCH FOUND
+BrynMawrCollege,PA,Bryn Mawr College,1359,40.02736,-75.313223,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Cabrini University,PA,,,,,NO MATCH FOUND
+Cairn University,PA,,,,,NO MATCH FOUND
+California University of PA,PA,,,,,NO MATCH FOUND
+Clarion University,PA,,,,,NO MATCH FOUND
+Clarks Summit University,PA,,,,,NO MATCH FOUND
+East Stroudsburg University,PA,,,,,NO MATCH FOUND
+Edinboro University,PA,,,,,NO MATCH FOUND
+Franklin & Marshall College,PA,Franklin and Marshall College,1799,40.048045,-76.319037,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Kutztown University,PA,,,,,NO MATCH FOUND
+La Roche College,PA,,,,,NO MATCH FOUND
+Lock Haven University,PA,,,,,NO MATCH FOUND
+Messiah College,PA,,,,,NO MATCH FOUND
+Millersville University,PA,,,,,NO MATCH FOUND
+Moravian College,PA,,,,,NO MATCH FOUND
+Northampton County CC,PA,,,,,NO MATCH FOUND
+Penn State - Abington,PA,,,,,NO MATCH FOUND
+Penn State - Altoona,PA,,,,,NO MATCH FOUND
+Penn State - Berks,PA,,,,,NO MATCH FOUND
+Penn State - Brandywine,PA,,,,,NO MATCH FOUND
+Penn State - Erie-Behrend College,PA,,,,,NO MATCH FOUND
+Penn State - Harrisburg,PA,,,,,NO MATCH FOUND
+Saint Joseph's University,PA,,,,,NO MATCH FOUND
+Shippensburg University,PA,,,,,NO MATCH FOUND
+Slippery Rock University,PA,,,,,NO MATCH FOUND
+University of the Sciences,PA,,,,,NO MATCH FOUND
+West Chester University,PA,,,,,NO MATCH FOUND
+York College Pennsylvania,PA,York College of Pennsylvania,3265,39.94614,-76.727984,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Johnson & Wales University,RI,,,,,NO MATCH FOUND
+Bluefield College,VA,,,,,NO MATCH FOUND
+College of William & Mary,VA,,,,,NO MATCH FOUND
+Emory & Henry College,VA,,,,,NO MATCH FOUND
+HollinsUniversity,VA,Hollins University,665,37.354201,-79.943277,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+SweetBriarCollege,VA,Sweet Briar College,443,37.556725,-79.081014,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of Virginia - Wise,VA,University of Virginia-Main Campus,17597,38.035665,-78.503428,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Virginia Tech,VA,,,,,NO MATCH FOUND
+Virginia Wesleyan College,VA,,,,,NO MATCH FOUND
+Washington & Lee University,VA,Washington and Lee University,1881,37.788939,-79.443018,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Castleton University,VT,,,,,NO MATCH FOUND
+Northern Vermont Univ - Johnson,VT,,,,,NO MATCH FOUND
+Northern Vermont Univ - Lyndon,VT,,,,,NO MATCH FOUND
+Birmingham Southern College,AL,,,,,NO MATCH FOUND
+Central Alabama CC,AL,,,,,NO MATCH FOUND
+Coastal Alabama CC,AL,,,,,NO MATCH FOUND
+Gadsden State CC,AL,,,,,NO MATCH FOUND
+Snead State CC,AL,,,,,NO MATCH FOUND
+Wallace State CC - Hanceville,AL,,,,,NO MATCH FOUND
+Florida A & M University,FL,,,,,NO MATCH FOUND
+Hillsborough CC,FL,,,,,NO MATCH FOUND
+Keiser University,FL,,,,,NO MATCH FOUND
+State College of Florida-Manatee,FL,,,,,NO MATCH FOUND
+AgnesScottCollege,GA,Agnes Scott College,836,33.769268,-84.295459,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Emmanuel College,GA,,,,,NO MATCH FOUND
+Emory Oxford,GA,,,,,NO MATCH FOUND
+Georgia College,GA,,,,,NO MATCH FOUND
+Georgia Southwestern State Univ,GA,Georgia Southwestern State University,2424,32.054662,-84.217738,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Piedmont College,GA,,,,,NO MATCH FOUND
+Savannah College of Art & Design,GA,Savannah College of Art and Design,15243,32.072964,-81.09395,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+WesleyanCollege,GA,Wesleyan College,400,32.876037,-83.715417,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Louisiana College,LA,,,,,NO MATCH FOUND
+Louisiana State Univ- Alexandria,LA,,,,,NO MATCH FOUND
+Louisiana State Univ- Shreveport,LA,Louisiana State University-Shreveport,2153,32.428465,-93.70561,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Louisiana State University,LA,,,,,NO MATCH FOUND
+Northwestern State University,LA,,,,,NO MATCH FOUND
+Southern University,LA,,,,,NO MATCH FOUND
+Tulane University,LA,,,,,NO MATCH FOUND
+Blue Mountain College,MS,,,,,NO MATCH FOUND
+Copiah-Lincoln CC,MS,,,,,NO MATCH FOUND
+East Central CC,MS,,,,,NO MATCH FOUND
+Jones College,MS,,,,,NO MATCH FOUND
+Mississippi College,MS,,,,,NO MATCH FOUND
+Mississippi Gulf Coast CC,MS,,,,,NO MATCH FOUND
+Southwest Mississippi CC,MS,,,,,NO MATCH FOUND
+MeredithCollege,NC,Meredith College,1188,35.799351,-78.689995,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+North Carolina State University,NC,North Carolina A & T State University,12182,36.07282,-79.773375,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+North Carolina Wesleyan College,NC,,,,,NO MATCH FOUND
+Univ of North Carolina at Charlotte,NC,University of North Carolina at Charlotte,24453,35.306022,-80.730919,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of North Carolina,NC,,,,,NO MATCH FOUND
+University of Oklahoma,OK,,,,,NO MATCH FOUND
+Citadel Military College,SC,,,,,NO MATCH FOUND
+Coker College,SC,,,,,NO MATCH FOUND
+ConverseCollege,SC,,,,,NO MATCH FOUND
+Limestone College,SC,,,,,NO MATCH FOUND
+Univ of South Carolina - Upstate,SC,University of South Carolina-Upstate,4038,34.996403,-81.970583,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Univ of South Carolina-Sumter,SC,University of South Carolina-Sumter,716,33.934698,-80.373459,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of South Carolina,SC,University of South Carolina-Union,270,34.717771,-81.621042,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Martin Methodist College,TN,,,,,NO MATCH FOUND
+Middle Tennessee State Univ,TN,Middle Tennessee State University,16301,35.848005,-86.360618,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Milligan College,TN,,,,,NO MATCH FOUND
+Sewanee-The University of the South,TN,,,,,NO MATCH FOUND
+Tennessee Wesleyan College,TN,,,,,NO MATCH FOUND
+Tusculum College,TN,,,,,NO MATCH FOUND
+University of Tennessee,TN,,,,,NO MATCH FOUND
+Collin College,TX,,,,,NO MATCH FOUND
+Texas A & M - Corpus Christi,TX,,,,,NO MATCH FOUND
+Texas A & M - Kingsville,TX,,,,,NO MATCH FOUND
+Texas A & M - Texarkana,TX,,,,,NO MATCH FOUND
+Texas A & M University,TX,West Texas A & M University,6917,34.982789,-101.914736,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+University of Texas,TX,,,,,NO MATCH FOUND
+Arizona State University,AZ,Arizona State University - Yuma,,,,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Glendale CC,AZ,,,,,NO MATCH FOUND
+Ottawa University - Arizona,AZ,,,,,NO MATCH FOUND
+Paradise Valley CC,AZ,,,,,NO MATCH FOUND
+Antelope Valley College,CA,,,,,NO MATCH FOUND
+Cal Poly - San Luis Obispo,CA,,,,,NO MATCH FOUND
+Cal State - Los Angeles,CA,,,,,NO MATCH FOUND
+Cal State - Northridge,CA,,,,,NO MATCH FOUND
+Claremont McKenna (CMS),CA,,,,,NO MATCH FOUND
+El Camino College,CA,,,,,NO MATCH FOUND
+Fresno State,CA,,,,,NO MATCH FOUND
+Harvey Mudd College (CMS),CA,Harvey Mudd College,921,34.106515,-117.709837,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Holy Names University,CA,,,,,NO MATCH FOUND
+Long Beach State,CA,,,,,NO MATCH FOUND
+Marymount California University,CA,,,,,NO MATCH FOUND
+MillsCollege,CA,,,,,NO MATCH FOUND
+Mt San Jacinto College,CA,,,,,NO MATCH FOUND
+Pitzer College (Pomona-Pitzer),CA,,,,,NO MATCH FOUND
+Pomona College Pomona - Pitzer),CA,,,,,NO MATCH FOUND
+Scripps College (CMS),CA,Scripps College,1113,34.104147,-117.711294,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Stanislaus State (CSU),CA,,,,,NO MATCH FOUND
+University of Saint Katherine,CA,,,,,NO MATCH FOUND
+Colorado State University,CO,,,,,NO MATCH FOUND
+U.S. Air Force Academy,CO,,,,,NO MATCH FOUND
+University of Colorado,CO,,,,,NO MATCH FOUND
+Chaminade University,HI,,,,,NO MATCH FOUND
+University of Nevada,NV,University of Nevada-Reno,15599,39.543642,-119.815377,"CLOSE MATCH — verify, then fix the name in tennis_schools.json if correct"
+Linfield College,OR,,,,,NO MATCH FOUND
+Treasure Valley CC,OR,,,,,NO MATCH FOUND
+Dixie State University,UT,,,,,NO MATCH FOUND
+University of Washington,WA,,,,,NO MATCH FOUND
