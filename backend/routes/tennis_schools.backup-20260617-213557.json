@@ -60,8 +60,7 @@
     "top_lineup_utr_women": 9.52,
     "bottom_lineup_utr_women": 8.73,
     "power6_utr_men": 73.68,
-    "power6_utr_women": 54.97,
-    "niche_grade": "B"
+    "power6_utr_women": 54.97
   },
   {
     "school": "Troy University",
@@ -82,8 +81,7 @@
     "top_lineup_utr_women": 9.37,
     "bottom_lineup_utr_women": 8.05,
     "power6_utr_men": 73.09,
-    "power6_utr_women": 54.96,
-    "niche_grade": "B+"
+    "power6_utr_women": 54.96
   },
   {
     "school": "University of Arkansas-Fort Smith",
@@ -208,7 +206,7 @@
     "bottom_lineup_utr_men": 11.59,
     "top_lineup_utr_women": 9.63,
     "bottom_lineup_utr_women": 8.95,
-    "power6_utr_men": 69.9,
+    "power6_utr_men": 69.90,
     "power6_utr_women": 56.13
   },
   {
@@ -229,7 +227,7 @@
     "bottom_lineup_utr_men": 9.33,
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
-    "power6_utr_men": 64.3,
+    "power6_utr_men": 64.30,
     "power6_utr_women": null
   },
   {
@@ -376,7 +374,7 @@
     "bottom_lineup_utr_men": 9.9,
     "top_lineup_utr_women": 8.52,
     "bottom_lineup_utr_women": 7.56,
-    "power6_utr_men": 64.6,
+    "power6_utr_men": 64.60,
     "power6_utr_women": 48.11
   },
   {
@@ -15476,8 +15474,7 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null,
-    "niche_grade": "C+"
+    "power6_utr_women": null
   },
   {
     "school": "Alabama State University",
@@ -15498,8 +15495,7 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null,
-    "niche_grade": "C"
+    "power6_utr_women": null
   },
   {
     "school": "Auburn University",
@@ -15520,8 +15516,7 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null,
-    "niche_grade": "A"
+    "power6_utr_women": null
   },
   {
     "school": "Auburn University at Montgomery",
@@ -15668,8 +15663,7 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null,
-    "niche_grade": "B"
+    "power6_utr_women": null
   },
   {
     "school": "Marion Military Institute",
@@ -15711,8 +15705,7 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null,
-    "niche_grade": "A-"
+    "power6_utr_women": null
   },
   {
     "school": "Snead State CC",
@@ -15796,8 +15789,7 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null,
-    "niche_grade": "A"
+    "power6_utr_women": null
   },
   {
     "school": "University of Alabama at Birmingham",
@@ -15818,8 +15810,7 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null,
-    "niche_grade": "A"
+    "power6_utr_women": null
   },
   {
     "school": "University of Alabama in Huntsville",
