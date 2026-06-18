@@ -265,6 +265,23 @@
     select.form-control { cursor:pointer; }
     select.form-control option { background:#112236; }
     .form-hint { font-size:.68rem; color:var(--text-3); margin-top:.3rem; }
+
+    /* City autocomplete */
+    .autocomplete-wrap { position:relative; }
+    .autocomplete-list {
+      position:absolute; top:calc(100% + 4px); left:0; right:0; z-index:20;
+      background:var(--navy-3); border:1px solid var(--border-s); border-radius:10px;
+      max-height:200px; overflow-y:auto; display:none;
+      box-shadow:0 12px 28px rgba(0,0,0,0.45);
+    }
+    .autocomplete-list.open { display:block; }
+    .autocomplete-item {
+      padding:.55rem .9rem; font-family:'Lora',serif; font-size:.85rem;
+      color:var(--text-1); cursor:pointer; transition:background .12s;
+    }
+    .autocomplete-item:hover, .autocomplete-item.active { background:var(--teal-g); color:var(--teal); }
+    .autocomplete-empty { padding:.55rem .9rem; font-size:.78rem; color:var(--text-3); }
+
     .section-divider {
       font-family:'Syne',sans-serif; font-size:.62rem; font-weight:700;
       letter-spacing:.15em; text-transform:uppercase; color:var(--teal);
@@ -578,8 +595,11 @@
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Preferred Nearby City</label>
-          <input class="form-control" id="f-city" placeholder="e.g. Los Angeles">
-          <div class="form-hint">Optional — we'll use this for location matching soon.</div>
+          <div class="autocomplete-wrap">
+            <input class="form-control" id="f-city" placeholder="Start typing, e.g. Bo…" autocomplete="off">
+            <div class="autocomplete-list" id="city-list"></div>
+          </div>
+          <div class="form-hint">Type to search major U.S. cities — used for distance-based matching.</div>
         </div>
         <div class="form-group">
           <label class="form-label">School Size Preference</label>
@@ -783,6 +803,80 @@ async function refreshMatches() {
   btn.innerHTML = '↻ Refresh Matches';
 }
 
+// ─────────────────────────────────────────────
+// CITY AUTOCOMPLETE
+// ─────────────────────────────────────────────
+let metroList = [];        // all supported "City, ST" strings (from backend)
+let cityActiveIdx = -1;     // keyboard-highlighted item
+
+async function loadMetros() {
+  try {
+    const data = await api('/api/athlete/metros');
+    metroList = data.metros || [];
+  } catch (e) { metroList = []; }
+}
+
+function renderCitySuggestions(query) {
+  const list = document.getElementById('city-list');
+  const q = query.trim().toLowerCase();
+  cityActiveIdx = -1;
+
+  if (!q) { list.classList.remove('open'); list.innerHTML = ''; return; }
+
+  // Prefer matches that START with the query, then fall back to "contains".
+  const starts = metroList.filter(c => c.toLowerCase().startsWith(q));
+  const contains = metroList.filter(c => !c.toLowerCase().startsWith(q) && c.toLowerCase().includes(q));
+  const matches = [...starts, ...contains].slice(0, 8);
+
+  if (!matches.length) {
+    list.innerHTML = `<div class="autocomplete-empty">No matching city — your match will skip distance.</div>`;
+    list.classList.add('open');
+    return;
+  }
+
+  list.innerHTML = matches.map((c, i) =>
+    `<div class="autocomplete-item" data-val="${c}" onmousedown="pickCity('${c.replace(/'/g, "\\'")}')">${c}</div>`
+  ).join('');
+  list.classList.add('open');
+}
+
+function pickCity(val) {
+  document.getElementById('f-city').value = val;
+  const list = document.getElementById('city-list');
+  list.classList.remove('open');
+  list.innerHTML = '';
+}
+
+function initCityAutocomplete() {
+  const input = document.getElementById('f-city');
+  const list = document.getElementById('city-list');
+
+  input.addEventListener('input', () => renderCitySuggestions(input.value));
+  input.addEventListener('focus', () => { if (input.value.trim()) renderCitySuggestions(input.value); });
+
+  input.addEventListener('keydown', (e) => {
+    const items = Array.from(list.querySelectorAll('.autocomplete-item'));
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      cityActiveIdx = Math.min(cityActiveIdx + 1, items.length - 1);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      cityActiveIdx = Math.max(cityActiveIdx - 1, 0);
+    } else if (e.key === 'Enter') {
+      if (cityActiveIdx >= 0) { e.preventDefault(); pickCity(items[cityActiveIdx].dataset.val); return; }
+    } else if (e.key === 'Escape') {
+      list.classList.remove('open'); return;
+    } else { return; }
+    items.forEach((it, i) => it.classList.toggle('active', i === cityActiveIdx));
+  });
+
+  // Close the dropdown when clicking elsewhere.
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.autocomplete-wrap')) list.classList.remove('open');
+  });
+}
+
 document.getElementById('profileForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('saveProfileBtn');
@@ -867,6 +961,8 @@ async function init() {
     } catch(e) {}
 
     renderProfile(user, profile);
+    loadMetros();            // load city list for autocomplete
+    initCityAutocomplete();  // wire up the city field
     // Show admin link only for admin email
     if (user.email === 'okyayd72@gmail.com') {
     document.getElementById('adminLink').style.display = 'block';
