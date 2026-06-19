@@ -900,14 +900,24 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
     school_size_preference: document.getElementById('f-size').value,
   };
 
+  // Send EVERY field — including empty ones — so clearing a field actually
+  // clears it on the backend (which treats '' as "set to null"). Numeric fields
+  // are parsed when present; left as '' when blank.
+  const numInt   = ['graduation_year','sat_score','act_score'];
+  const numFloat = ['gpa','utr_rating'];
   const body = {};
   Object.entries(raw).forEach(([k, v]) => {
-    if (v !== '' && v !== null && v !== undefined) {
-      body[k] = ['graduation_year','sat_score','act_score'].includes(k) ? parseInt(v) :
-                k === 'gpa' ? parseFloat(v) :
-                k === 'utr_rating' ? parseFloat(v) : v;
+    if (v === '' || v === null || v === undefined) {
+      body[k] = '';                       // explicit blank => clear it
+    } else if (numInt.includes(k)) {
+      body[k] = parseInt(v);
+    } else if (numFloat.includes(k)) {
+      body[k] = parseFloat(v);
+    } else {
+      body[k] = v;
     }
   });
+  body.sport = 'Tennis';                   // always set; never blank
 
   try {
     const data = await api('/api/athlete/profile', { method: 'PUT', body: JSON.stringify(body) });
