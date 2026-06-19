@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, redirect, render_template
+from flask import Blueprint, request, jsonify, redirect, render_template, session
 from flask_login import login_user, logout_user, login_required, current_user
 from backend.app import db
 from backend.models.user import User
@@ -48,7 +48,8 @@ def register():
     except Exception:
         pass
 
-    login_user(user, remember=True)
+    session.permanent = True
+    login_user(user)
     return jsonify({'message': 'Account created!', 'user': user.to_dict()}), 201
 
 
@@ -64,7 +65,8 @@ def login():
     if not user or not user.check_password(data['password']):
         return jsonify({'error': 'Invalid email or password.'}), 401
 
-    login_user(user, remember=True)
+    session.permanent = True
+    login_user(user)
     return jsonify({'message': 'Logged in!', 'user': user.to_dict()}), 200
 
 

@@ -4,6 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from dotenv import load_dotenv
+from datetime import timedelta
 
 load_dotenv()
 
@@ -35,6 +36,13 @@ def create_app():
     app.config['SESSION_COOKIE_HTTPONLY'] = True
     app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
     app.config['SESSION_COOKIE_SECURE']   = os.getenv('FLASK_ENV') == 'production'
+
+    # ── Session timeout ──
+    # Idle timeout: the session cookie lives 30 minutes, and the timer resets on
+    # every request (SESSION_REFRESH_EACH_REQUEST). So a user who keeps using the
+    # site stays logged in, but one who walks away for 30 minutes is logged out.
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
+    app.config['SESSION_REFRESH_EACH_REQUEST'] = True
 
     db.init_app(app)
     login_manager.init_app(app)
