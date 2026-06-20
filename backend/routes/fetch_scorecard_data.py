@@ -42,7 +42,7 @@ JSON_PATH = os.path.join(HERE, "tennis_schools.json")
 REVIEW_PATH = os.path.join(HERE, "scorecard_review.csv")
 
 API_BASE = "https://api.data.gov/ed/collegescorecard/v1/schools"
-FIELDS = "id,school.name,school.city,school.state,latest.student.size,location.lat,location.lon"
+FIELDS = "id,school.name,school.city,school.state,latest.student.size,location.lat,location.lon,latest.cost.tuition.in_state,latest.cost.tuition.out_of_state"
 PER_PAGE = 100
 
 # Light name cleanup so "The University of Tampa" == "University of Tampa".
@@ -177,6 +177,14 @@ def main(fetch_fn=fetch_state):
             s["enrollment"] = size
             s["latitude"] = lat
             s["longitude"] = lon
+            # Overwrite tuition with the federal figure, but ONLY when Scorecard
+            # actually has a value — never blank out an existing number.
+            in_state = rec.get("latest.cost.tuition.in_state")
+            out_state = rec.get("latest.cost.tuition.out_of_state")
+            if in_state is not None:
+                s["instate_tuition"] = in_state
+            if out_state is not None:
+                s["outstate_tuition"] = out_state
             matched += 1
         else:
             # No exact match — find the closest name in the same state as a suggestion.
