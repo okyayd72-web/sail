@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>About — SAIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-g:rgba(0,201,167,0.12);
+      --gold:#e8b84b; --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278; --border-s:rgba(255,255,255,0.07);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);line-height:1.75;min-height:100vh;}
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+        padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+        border-bottom:1px solid var(--border-s);}
+    .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+         padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;text-decoration:none;color:var(--text-2);transition:all .2s;}
+    .btn:hover{color:var(--teal);background:var(--teal-g);}
+    .btn-primary{background:var(--teal);color:var(--navy);}
+    .btn-primary:hover{color:var(--navy);}
+    .wrap{max-width:740px;margin:0 auto;padding:3.5rem 1.5rem 5rem;}
+    h1{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:1.25rem;}
+    h1 .accent{color:var(--teal);}
+    h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--teal);margin:2.5rem 0 .75rem;}
+    p{color:var(--text-2);margin-bottom:1.1rem;font-size:1rem;}
+    strong{color:var(--text-1);font-weight:600;}
+    a{color:var(--teal);}
+    .lead{font-size:1.15rem;color:var(--text-1);line-height:1.8;margin-bottom:1.5rem;}
+    .cta{margin-top:3rem;padding:2rem;background:var(--navy-2);border:1px solid var(--border-s);border-radius:16px;text-align:center;}
+    .cta h3{font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:.75rem;}
+    .cta p{margin-bottom:1.5rem;}
+    footer{border-top:1px solid var(--border-s);padding:2rem 1.5rem;text-align:center;color:var(--text-3);font-size:.8rem;font-family:'Syne',sans-serif;}
+    footer a{color:var(--text-3);}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:36px;"></a>
+  <a href="/" class="btn">← Home</a>
+</nav>
+
+<div class="wrap">
+  <h1>About <span class="accent">SAIL</span></h1>
+
+  <p class="lead">SAIL — Student-Athlete AI Locator — helps tennis players find college scholarship opportunities in the United States, with a focus on international athletes navigating an unfamiliar and often overwhelming recruiting process.</p>
+
+  <h2>Why SAIL Exists</h2>
+  <p>The US college tennis recruiting process is confusing — especially if you're coming from outside the country. There are hundreds of programs across NCAA Divisions I, II, and III, plus NAIA and JUCO, each with different levels of play, scholarship structures, and academic requirements. Figuring out which schools fit your UTR and your goals, how much aid to expect, and how to even contact a coach can feel impossible from abroad.</p>
+  <p>SAIL brings that information into one place and uses your UTR rating, academics, and preferences to point you toward programs that actually fit — alongside an AI advisor to answer the questions that usually go unanswered.</p>
+
+  <h2>What SAIL Does</h2>
+  <p>SAIL combines a curated database of over 1,150 college tennis programs with school data drawn from public sources, UTR-based matching, an AI recruiting advisor, and tools to help you reach out to coaches. It's designed to give student-athletes — and the parents helping them — a clearer, more honest picture of where they fit.</p>
+
+  <h2>Honest About the Stage We're At</h2>
+  <p>SAIL is in <strong>active beta</strong>. It's built and run by a solo developer who cares about getting this right, which means the product is improving constantly and your feedback genuinely shapes it. Scholarship figures and match scores are <strong>estimates</strong> meant to guide your research, not guarantees — always confirm important details directly with coaches and schools.</p>
+
+  <div class="cta">
+    <h3>Have a question or some feedback?</h3>
+    <p>We'd love to hear from you — it directly shapes what SAIL becomes.</p>
+    <a href="mailto:denizo@sailscholarship.com" class="btn btn-primary">Get in touch →</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 SAIL · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="mailto:denizo@sailscholarship.com">Contact</a>
+</footer>
+</body>
+</html>

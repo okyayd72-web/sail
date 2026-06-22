@@ -25,6 +25,20 @@ def schools():
 def pricing():
     return render_template('pricing.html')
 
+@pages_bp.get('/privacy')
+def privacy():
+    return render_template('privacy.html')
+ 
+ 
+@pages_bp.get('/terms')
+def terms():
+    return render_template('terms.html')
+ 
+ 
+@pages_bp.get('/about')
+def about():
+    return render_template('about.html')
+
 @pages_bp.get('/admin')
 @login_required
 def admin_page():
