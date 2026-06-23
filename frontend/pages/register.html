@@ -137,6 +137,15 @@
           <option value="coach">Coach / Advisor</option>
         </select>
       </div>
+      <div class="form-group" style="display:flex;align-items:flex-start;gap:.6rem;">
+        <input type="checkbox" id="ageConfirm" required
+               style="width:auto;margin-top:.25rem;flex-shrink:0;accent-color:var(--teal);">
+        <label for="ageConfirm" style="text-transform:none;letter-spacing:normal;font-family:'Lora',serif;font-size:.8rem;font-weight:400;color:var(--text-2);margin-bottom:0;line-height:1.5;cursor:pointer;">
+          I am 13 or older, and if under 18 I have my parent or guardian's permission to use SAIL. I agree to the
+          <a href="/terms" target="_blank" style="color:var(--teal);">Terms</a> and
+          <a href="/privacy" target="_blank" style="color:var(--teal);">Privacy Policy</a>.
+        </label>
+      </div>
       <button type="submit" class="btn" id="submitBtn">Create Free Account →</button>
     </form>
     <p class="switch">Already have an account? <a href="/login">Log in</a></p>
@@ -161,8 +170,9 @@
             last_name:  document.getElementById('lastName').value,
             email:      document.getElementById('email').value,
             password:   document.getElementById('password').value,
-            role:       document.getElementById('role').value,
-            beta_code:  document.getElementById('betaCode').value.trim().toUpperCase(),
+            role:        document.getElementById('role').value,
+            beta_code:   document.getElementById('betaCode').value.trim().toUpperCase(),
+            age_confirm: document.getElementById('ageConfirm').checked,
           })
         });
         const data = await res.json();
