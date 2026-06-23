@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>Athletic Résumé — SAIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-dim:#009e84;
+      --teal-g:rgba(0,201,167,0.12); --gold:#e8b84b;
+      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
+      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
+      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,201,167,0.06) 0%, transparent 55%);}
+
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);}
+    .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+      padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s var(--ease);text-decoration:none;}
+    .btn-ghost{background:transparent;color:var(--text-2);}
+    .btn-ghost:hover{color:var(--teal);background:var(--teal-g);}
+    .btn-primary{background:var(--teal);color:var(--navy);}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,201,167,0.3);color:var(--navy);}
+    .btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;}
+
+    .wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 5rem;position:relative;z-index:1;}
+    .page-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.4rem;}
+    .page-sub{color:var(--text-2);font-size:.9rem;margin-bottom:2rem;line-height:1.7;}
+
+    .card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;}
+    .section-divider{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;
+      text-transform:uppercase;color:var(--teal);padding-bottom:.5rem;border-bottom:1px solid var(--border);margin-bottom:1.25rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+    .form-group{margin-bottom:1rem;}
+    .form-label{display:block;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;
+      text-transform:uppercase;color:var(--text-2);margin-bottom:.4rem;}
+    .form-control{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+      border-radius:10px;color:var(--text-1);padding:.7rem .9rem;font-family:'Lora',serif;font-size:.875rem;
+      outline:none;transition:border-color .15s;-webkit-appearance:none;}
+    .form-control:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,201,167,0.1);}
+    textarea.form-control{resize:vertical;min-height:80px;line-height:1.6;}
+    .form-hint{font-size:.68rem;color:var(--text-3);margin-top:.3rem;line-height:1.5;}
+
+    .save-row{display:flex;justify-content:flex-end;gap:.75rem;margin-top:.5rem;}
+
+    #toasts{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:.5rem;}
+    .toast{padding:.8rem 1.1rem;border-radius:10px;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;
+      box-shadow:0 8px 24px rgba(0,0,0,0.4);max-width:280px;animation:slideIn .3s var(--ease) both;}
+    .toast.success{background:rgba(34,197,94,0.95);color:#fff;}
+    .toast.error{background:rgba(239,68,68,0.95);color:#fff;}
+    .spinner{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);
+      border-top-color:var(--teal);animation:spin .7s linear infinite;display:inline-block;}
+    @keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes spin{to{transform:rotate(360deg);}}
+
+    @media(max-width:600px){ .form-row{grid-template-columns:1fr;} .wrap{padding:1.5rem 1rem 4rem;} }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/dashboard" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:36px;"></a>
+  <a href="/dashboard" class="btn btn-ghost">← Dashboard</a>
+</nav>
+
+<div class="wrap">
+  <h1 class="page-title">🏅 Athletic Résumé</h1>
+  <p class="page-sub">Add your competitive results and achievements. These help make your coach outreach emails specific and credible — every field is optional, so fill in what applies to you.</p>
+
+  <form id="achievementsForm">
+
+    <!-- ITF JUNIORS -->
+    <div class="card">
+      <div class="section-divider">🌍 ITF Juniors</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">ITF Juniors Rank — Singles</label>
+          <input class="form-control" type="number" id="a-itf-singles" min="1" placeholder="e.g. 320">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ITF Juniors Rank — Doubles</label>
+          <input class="form-control" type="number" id="a-itf-doubles" min="1" placeholder="e.g. 410">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">ITF Juniors Titles</label>
+        <input class="form-control" type="number" id="a-itf-titles" min="0" placeholder="e.g. 2">
+        <div class="form-hint">Number of ITF Junior tournament titles won.</div>
+      </div>
+    </div>
+
+    <!-- PRO RANKINGS -->
+    <div class="card">
+      <div class="section-divider">🎾 Professional Rankings</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">ATP / WTA Rank — Singles</label>
+          <input class="form-control" type="number" id="a-pro-singles" min="1" placeholder="e.g. 850">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ATP / WTA Rank — Doubles</label>
+          <input class="form-control" type="number" id="a-pro-doubles" min="1" placeholder="e.g. 720">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Total Career Titles</label>
+        <input class="form-control" type="number" id="a-total-titles" min="0" placeholder="e.g. 5">
+        <div class="form-hint">Total titles across all levels (junior, ITF, college, etc.).</div>
+      </div>
+    </div>
+
+    <!-- NOTABLE RESULTS -->
+    <div class="card">
+      <div class="section-divider">⭐ Notable Results</div>
+      <div class="form-group">
+        <label class="form-label">3 Best Wins</label>
+        <textarea class="form-control" id="a-best-wins" rows="4"
+          placeholder="e.g. Beat John Smith (UTR 12.1) 6-4 6-2 at Eddie Herr 2025&#10;Def. Maria Lopez (ITF #280) in R16 of ..."></textarea>
+        <div class="form-hint">List up to three of your best wins — opponent, their level (UTR or ranking), score, and event if you have it.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">National Achievements</label>
+        <textarea class="form-control" id="a-national" rows="4"
+          placeholder="e.g. National U18 Champion 2024; represented Turkey at European Junior Championships"></textarea>
+        <div class="form-hint">National titles, team selections, or other notable accomplishments.</div>
+      </div>
+    </div>
+
+    <div class="save-row">
+      <a href="/dashboard" class="btn btn-ghost">Cancel</a>
+      <button type="submit" class="btn btn-primary" id="saveBtn">Save Résumé</button>
+    </div>
+  </form>
+</div>
+
+<div id="toasts"></div>
+
+<script>
+const api = async (path, opts = {}) => {
+  const res = await fetch(path, {
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include', ...opts
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw { status: res.status, data };
+  return data;
+};
+
+function toast(msg, type = 'success') {
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.textContent = msg;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(() => { t.style.opacity='0'; t.style.transition='.3s'; setTimeout(()=>t.remove(),300); }, 4000);
+}
+
+// Map DOM ids <-> profile field names
+const FIELD_MAP = {
+  'a-itf-singles':  'itf_junior_rank_singles',
+  'a-itf-doubles':  'itf_junior_rank_doubles',
+  'a-itf-titles':   'itf_junior_titles',
+  'a-pro-singles':  'atp_wta_rank_singles',
+  'a-pro-doubles':  'atp_wta_rank_doubles',
+  'a-total-titles': 'total_titles',
+  'a-best-wins':    'best_wins',
+  'a-national':     'national_achievements',
+};
+
+async function load() {
+  try {
+    const { user } = await api('/api/auth/me');
+    if (!user) { window.location.href = '/login'; return; }
+    const pd = await api('/api/athlete/profile');
+    const profile = pd.profile;
+    if (!profile) return;  // nothing saved yet — leave fields blank
+    Object.entries(FIELD_MAP).forEach(([id, field]) => {
+      const el = document.getElementById(id);
+      if (el && profile[field] != null) el.value = profile[field];
+    });
+  } catch (e) {
+    window.location.href = '/login';
+  }
+}
+
+document.getElementById('achievementsForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('saveBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Saving…';
+
+  // Send ALL fields, blanks included, so clearing a field clears it (backend treats '' as null).
+  const numIds = ['a-itf-singles','a-itf-doubles','a-itf-titles','a-pro-singles','a-pro-doubles','a-total-titles'];
+  const body = {};
+  Object.entries(FIELD_MAP).forEach(([id, field]) => {
+    const v = document.getElementById(id).value;
+    if (v === '' || v === null || v === undefined) {
+      body[field] = '';
+    } else if (numIds.includes(id)) {
+      body[field] = parseInt(v);
+    } else {
+      body[field] = v;
+    }
+  });
+
+  try {
+    await api('/api/athlete/profile', { method: 'PUT', body: JSON.stringify(body) });
+    toast('Athletic résumé saved! 🏅', 'success');
+  } catch (e) {
+    toast('Could not save. Please try again.', 'error');
+  }
+  btn.disabled = false; btn.textContent = 'Save Résumé';
+});
+
+load();
+</script>
+</body>
+</html>

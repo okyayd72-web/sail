@@ -21,6 +21,10 @@ def advisor():
 def schools():
     return render_template('schools.html')
 
+@pages_bp.get('/achievements')
+def achievements():
+    return render_template('achievements.html')
+
 @pages_bp.get('/pricing')
 def pricing():
     return render_template('pricing.html')
