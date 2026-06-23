@@ -235,6 +235,14 @@ class AthleteProfile(db.Model):
     nationality            = db.Column(db.String(100))
     state_province         = db.Column(db.String(100))
     highlights_url         = db.Column(db.Text)
+    itf_junior_rank_singles = db.Column(db.Integer)
+    itf_junior_rank_doubles = db.Column(db.Integer)
+    itf_junior_titles       = db.Column(db.Integer)
+    atp_wta_rank_singles    = db.Column(db.Integer)
+    atp_wta_rank_doubles    = db.Column(db.Integer)
+    total_titles            = db.Column(db.Integer)
+    best_wins               = db.Column(db.Text)
+    national_achievements   = db.Column(db.Text)
     profile_complete       = db.Column(db.Boolean, default=False)
 
     def completion_pct(self):
@@ -258,6 +266,14 @@ class AthleteProfile(db.Model):
             'act_score': self.act_score, 'nationality': self.nationality,
             'state_province': self.state_province,
             'highlights_url': self.highlights_url,
+            'itf_junior_rank_singles': self.itf_junior_rank_singles,
+            'itf_junior_rank_doubles': self.itf_junior_rank_doubles,
+            'itf_junior_titles': self.itf_junior_titles,
+            'atp_wta_rank_singles': self.atp_wta_rank_singles,
+            'atp_wta_rank_doubles': self.atp_wta_rank_doubles,
+            'total_titles': self.total_titles,
+            'best_wins': self.best_wins,
+            'national_achievements': self.national_achievements,
             'profile_complete': self.profile_complete,
             'completion_pct': self.completion_pct(),
         }
@@ -281,7 +297,9 @@ def update_profile():
     data = request.get_json() or {}
 
     # Fields that must be stored as numbers (or NULL), never empty strings.
-    int_fields   = {'graduation_year', 'sat_score', 'act_score'}
+    int_fields   = {'graduation_year', 'sat_score', 'act_score',
+                    'itf_junior_rank_singles', 'itf_junior_rank_doubles', 'itf_junior_titles',
+                    'atp_wta_rank_singles', 'atp_wta_rank_doubles', 'total_titles'}
     float_fields = {'utr_rating', 'gpa'}
 
     for key, val in data.items():
