@@ -95,54 +95,49 @@ def get_avg_utrs(school):
 
 @tennis_bp.route('/api/tennis/preview', methods=['GET'])
 def get_preview():
-    """Public landing-page teaser. Returns up to 6 schools that fit the entered UTR,
-    ranked by SCHOLARSHIP-TO-TUITION RATIO (best value first) so the teaser shows
-    compelling deals and visibly changes as the user moves the slider.
+    """Public landing-page teaser. Uses ACTUAL roster data: a school's "level" is its
+    Power 6 average (power6_utr / 6). Shows schools whose level is within +/-1.0 of the
+    player's UTR, ranked by scholarship-to-tuition ratio (capped at 100%), with UTR
+    closeness as the tiebreaker. Because the window slides with the player's UTR, the
+    schools genuinely change across UTR levels. Only schools with roster data appear.
     Separate from get_schools so the main Find Schools page is untouched."""
     schools = load_schools()
 
     gender = request.args.get('gender', 'male')
     utr    = request.args.get('utr', type=float)
+    WINDOW = 1.0
 
     if utr is not None:
         utr = min(utr, 13.0 if gender == 'female' else 16.0)
 
-    # All divisions present in the data, with the UTR band each sits in.
-    # (The small/2-year associations were missing before, which caused them to
-    # appear at the wrong UTR levels.)
-    preview_ranges = {
-        'NCAA I':   (9.0, 16.0),
-        'NCAA II':  (7.0, 12.0),
-        'NCAA III': (5.0, 10.0),
-        'NAIA':     (5.0, 11.0),
-        'JUCO':     (3.0, 9.0),
-        'CCCAA':    (3.0, 9.0),
-        'USCAA':    (3.0, 9.0),
-        'NWAC':     (3.0, 9.0),
-        'NCCAA':    (4.0, 10.0),
-    }
+    power6_f = 'power6_utr_men'   if gender == 'male' else 'power6_utr_women'
+    schol_f  = 'mens_scholarship' if gender == 'male' else 'womens_scholarship'
 
     matches = []
     for s in schools:
         if not s.get('school'):
             continue
-        rng = preview_ranges.get(s.get('division', ''))
-        if not rng:
-            continue  # unknown division -> skip
-        if utr is not None and not (rng[0] <= utr <= rng[1]):
-            continue  # outside this UTR band -> skip
+        power6 = s.get(power6_f)
+        if not power6:
+            continue  # no roster data -> can't place player -> skip
+        level = power6 / 6.0
 
-        schol = s.get('mens_scholarship') if gender == 'male' else s.get('womens_scholarship')
+        # Fit: school's average roster level within +/-WINDOW of the player's UTR.
+        if utr is not None and abs(level - utr) > WINDOW:
+            continue
+
+        schol = s.get(schol_f)
         tuition = s.get('outstate_tuition') or s.get('instate_tuition')
         if not schol or not tuition or tuition <= 0:
             continue  # need both to compute a value ratio
 
-        ratio = schol / tuition          # higher = more of tuition covered
-        matches.append((ratio, s))
+        ratio     = min(schol / tuition, 1.0)               # cap at 100%
+        closeness = abs(level - utr) if utr is not None else 0.0
+        # Rank: best value first (-ratio), ties broken by closeness to player's UTR.
+        matches.append((-ratio, closeness, s))
 
-    # Best value first; ratio is near-unique per school so the list genuinely varies.
-    matches.sort(key=lambda x: x[0], reverse=True)
-    top6 = [s for _, s in matches[:6]]
+    matches.sort(key=lambda x: (x[0], x[1]))
+    top6 = [s for _, _, s in matches[:6]]
 
     return jsonify({
         'schools': top6,
