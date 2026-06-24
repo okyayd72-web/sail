@@ -95,38 +95,54 @@ def get_avg_utrs(school):
 
 @tennis_bp.route('/api/tennis/preview', methods=['GET'])
 def get_preview():
-    """Public landing-page teaser. Returns up to 6 schools that genuinely fit the
-    entered UTR, so the list visibly changes as the user moves the slider.
+    """Public landing-page teaser. Returns up to 6 schools that fit the entered UTR,
+    ranked by SCHOLARSHIP-TO-TUITION RATIO (best value first) so the teaser shows
+    compelling deals and visibly changes as the user moves the slider.
     Separate from get_schools so the main Find Schools page is untouched."""
     schools = load_schools()
 
     gender = request.args.get('gender', 'male')
     utr    = request.args.get('utr', type=float)
 
-    # Female UTR tops out lower; clamp so matching behaves sensibly.
     if utr is not None:
         utr = min(utr, 13.0 if gender == 'female' else 16.0)
+
+    # All divisions present in the data, with the UTR band each sits in.
+    # (The small/2-year associations were missing before, which caused them to
+    # appear at the wrong UTR levels.)
+    preview_ranges = {
+        'NCAA I':   (9.0, 16.0),
+        'NCAA II':  (7.0, 12.0),
+        'NCAA III': (5.0, 10.0),
+        'NAIA':     (5.0, 11.0),
+        'JUCO':     (3.0, 9.0),
+        'CCCAA':    (3.0, 9.0),
+        'USCAA':    (3.0, 9.0),
+        'NWAC':     (3.0, 9.0),
+        'NCCAA':    (4.0, 10.0),
+    }
 
     matches = []
     for s in schools:
         if not s.get('school'):
             continue
-        div = s.get('division', '')
-        rng = UTR_RANGES.get(div)
+        rng = preview_ranges.get(s.get('division', ''))
         if not rng:
-            continue
-        # Only schools whose division range CONTAINS the athlete's UTR (this is the
-        # filter that makes the list change as UTR moves).
-        if utr is None or (rng[0] <= utr <= rng[1]):
-            # distance from the middle of the division's range = how central a fit
-            center = (rng[0] + rng[1]) / 2
-            fit = abs((utr if utr is not None else center) - center)
-            has_schol = s.get('mens_scholarship') if gender == 'male' else s.get('womens_scholarship')
-            # prefer central fit, then schools that actually have scholarship data
-            matches.append((round(fit, 3), 0 if has_schol else 1, s))
+            continue  # unknown division -> skip
+        if utr is not None and not (rng[0] <= utr <= rng[1]):
+            continue  # outside this UTR band -> skip
 
-    matches.sort(key=lambda x: (x[0], x[1]))
-    top6 = [s for _, _, s in matches[:6]]
+        schol = s.get('mens_scholarship') if gender == 'male' else s.get('womens_scholarship')
+        tuition = s.get('outstate_tuition') or s.get('instate_tuition')
+        if not schol or not tuition or tuition <= 0:
+            continue  # need both to compute a value ratio
+
+        ratio = schol / tuition          # higher = more of tuition covered
+        matches.append((ratio, s))
+
+    # Best value first; ratio is near-unique per school so the list genuinely varies.
+    matches.sort(key=lambda x: x[0], reverse=True)
+    top6 = [s for _, s in matches[:6]]
 
     return jsonify({
         'schools': top6,

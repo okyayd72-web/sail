@@ -547,7 +547,7 @@ async function heroSearch() {
   document.getElementById('hero-results').innerHTML = '<div class="search-empty"><span class="spinner"></span></div>';
 
   try {
-    const res  = await fetch(`/api/tennis/schools?${params}`);
+    const res  = await fetch(`/api/tennis/preview?${params}`);
     const data = await res.json();
 
     if (!data.schools || !data.schools.length) {
