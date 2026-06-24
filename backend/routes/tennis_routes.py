@@ -79,7 +79,7 @@ def utr_fit_score(division, utr_val):
     else:
         return 0.5
 
-def get_avg_utrs(school):         
+def get_avg_utrs(school):
     """Convert Power 6 totals to averages"""
     power6_men   = school.get('power6_utr_men')
     power6_women = school.get('power6_utr_women')
@@ -87,6 +87,51 @@ def get_avg_utrs(school):
         'avg_utr_men':   round(power6_men   / 6, 2) if power6_men   else None,
         'avg_utr_women': round(power6_women / 6, 2) if power6_women else None,
     }
+
+
+# ─────────────────────────────────────────────────────────────
+# LANDING-PAGE PREVIEW (public teaser)
+# ─────────────────────────────────────────────────────────────
+
+@tennis_bp.route('/api/tennis/preview', methods=['GET'])
+def get_preview():
+    """Public landing-page teaser. Returns up to 6 schools that genuinely fit the
+    entered UTR, so the list visibly changes as the user moves the slider.
+    Separate from get_schools so the main Find Schools page is untouched."""
+    schools = load_schools()
+
+    gender = request.args.get('gender', 'male')
+    utr    = request.args.get('utr', type=float)
+
+    # Female UTR tops out lower; clamp so matching behaves sensibly.
+    if utr is not None:
+        utr = min(utr, 13.0 if gender == 'female' else 16.0)
+
+    matches = []
+    for s in schools:
+        if not s.get('school'):
+            continue
+        div = s.get('division', '')
+        rng = UTR_RANGES.get(div)
+        if not rng:
+            continue
+        # Only schools whose division range CONTAINS the athlete's UTR (this is the
+        # filter that makes the list change as UTR moves).
+        if utr is None or (rng[0] <= utr <= rng[1]):
+            # distance from the middle of the division's range = how central a fit
+            center = (rng[0] + rng[1]) / 2
+            fit = abs((utr if utr is not None else center) - center)
+            has_schol = s.get('mens_scholarship') if gender == 'male' else s.get('womens_scholarship')
+            # prefer central fit, then schools that actually have scholarship data
+            matches.append((round(fit, 3), 0 if has_schol else 1, s))
+
+    matches.sort(key=lambda x: (x[0], x[1]))
+    top6 = [s for _, _, s in matches[:6]]
+
+    return jsonify({
+        'schools': top6,
+        'total':   len(matches),
+    })
 
 
 # ─────────────────────────────────────────────────────────────
@@ -287,7 +332,7 @@ def get_schools():
         else:
             visible      = filtered[:FREE_LIMIT]
             locked_count = max(0, total - FREE_LIMIT)
-    
+
     for s in visible:
         utrs = get_avg_utrs(s)
         s['avg_utr_men']   = utrs['avg_utr_men']
