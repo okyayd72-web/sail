@@ -53,6 +53,10 @@ UTR_RANGES = {
     'NCAA III': (5.0, 10.0),
     'NAIA':     (5.0, 11.0),
     'JUCO':     (3.0, 9.0),
+    'CCCAA':    (3.0, 9.0),
+    'USCAA':    (3.0, 9.0),
+    'NWAC':     (3.0, 9.0),
+    'NCCAA':    (4.0, 10.0),
 }
 
 # Niche letter grades ranked best → worst, for the "minimum grade" filter.
@@ -67,17 +71,24 @@ GRADE_RANK = {
 
 
 def utr_fit_score(division, utr_val):
-    """Returns 0 for perfect fit, higher = worse fit"""
+    """Returns 0 for perfect fit, higher = worse fit.
+    - In-range schools score 0 to ~0.5 (closer to the middle = better).
+    - Below range (a reach school for the player) scores 1+.
+    - Above range (player is overqualified) scales with how far above, so schools
+      the player has clearly outgrown sink down the list instead of mixing in.
+    - Unknown divisions sink to the bottom."""
     if not utr_val:
         return 0
-    r = UTR_RANGES.get(division, (0, 16))
+    r = UTR_RANGES.get(division)
+    if r is None:
+        return 5.0  # division we don't have a range for -> rank last
     if r[0] <= utr_val <= r[1]:
         center = (r[0] + r[1]) / 2
         return abs(utr_val - center) / (r[1] - r[0])
     elif utr_val < r[0]:
         return 1 + (r[0] - utr_val)
     else:
-        return 0.5
+        return 1 + (utr_val - r[1])
 
 def get_avg_utrs(school):
     """Convert Power 6 totals to averages"""
