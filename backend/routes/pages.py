@@ -43,6 +43,11 @@ def terms():
 def about():
     return render_template('about.html')
 
+@pages_bp.get('/compare')
+@login_required
+def compare():
+    return render_template('compare.html')
+
 @pages_bp.get('/admin')
 @login_required
 def admin_page():

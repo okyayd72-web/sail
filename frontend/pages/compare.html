@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>Compare Schools — SAIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:     #050d1a;
+      --navy-2:   #0c1829;
+      --navy-3:   #112236;
+      --teal:     #00c9a7;
+      --teal-dim: #009e84;
+      --teal-g:   rgba(0,201,167,0.12);
+      --gold:     #e8b84b;
+      --text-1:   #f0eee8;
+      --text-2:   #8fa0b8;
+      --text-3:   #4d6278;
+      --border:   rgba(0,201,167,0.12);
+      --border-s: rgba(255,255,255,0.07);
+      --card:     rgba(12,24,41,0.9);
+      --ease:     cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Lora',Georgia,serif;
+      background:var(--navy); color:var(--text-1);
+      min-height:100vh; overflow-x:hidden;
+    }
+    body::before {
+      content:''; position:fixed; top:0; left:0; right:0; bottom:0; z-index:0; pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,201,167,0.06) 0%, transparent 55%);
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.85rem 2rem;
+      background:rgba(5,13,26,0.95);
+      -webkit-backdrop-filter:blur(20px);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);
+    }
+    .hamburger {
+      display:none; align-items:center; justify-content:center;
+      background:none; border:none; color:var(--text-1);
+      font-size:1.5rem; cursor:pointer; padding:0 .5rem 0 0; line-height:1;
+    }
+    .brand {
+      display:flex; align-items:center; gap:.55rem;
+      font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800;
+      color:var(--text-1); text-decoration:none;
+    }
+    .brand span { color:var(--teal); }
+    .btn {
+      display:inline-flex; align-items:center; gap:.4rem;
+      font-family:'Syne',sans-serif; font-weight:600; font-size:.82rem;
+      padding:.55rem 1.1rem; border-radius:8px; border:none; cursor:pointer;
+      transition:all .2s var(--ease); text-decoration:none;
+    }
+    .btn-primary { background:var(--teal); color:var(--navy); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,201,167,0.3); }
+    .btn-primary:disabled { opacity:.45; cursor:not-allowed; transform:none !important; }
+    .btn-ghost { background:transparent; color:var(--text-2); }
+    .btn-ghost:hover { color:var(--teal); background:var(--teal-g); }
+
+    /* ── LAYOUT ── */
+    .layout { display:grid; grid-template-columns:220px 1fr; min-height:100vh; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background:var(--navy-2); border-right:1px solid var(--border-s);
+      padding:1.5rem .75rem; position:sticky; top:61px;
+      height:calc(100vh - 61px); overflow-y:auto; z-index:10;
+    }
+    .sidebar-label {
+      font-family:'Syne',sans-serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.15em; text-transform:uppercase;
+      color:var(--text-3); padding:.4rem .75rem; margin-top:1rem;
+    }
+    .sidebar-link {
+      display:flex; align-items:center; gap:.65rem;
+      padding:.65rem .75rem; border-radius:8px;
+      color:var(--text-2); font-family:'Syne',sans-serif;
+      font-size:.82rem; font-weight:600;
+      text-decoration:none; cursor:pointer;
+      border:none; background:none; width:100%; text-align:left;
+      transition:all .15s;
+    }
+    .sidebar-link:hover  { color:var(--text-1); background:rgba(255,255,255,0.05); }
+    .sidebar-link.active { color:var(--teal); background:var(--teal-g); }
+    .sidebar-link .icon  { font-size:1rem; width:18px; text-align:center; flex-shrink:0; }
+
+    /* ── MAIN ── */
+    .main { padding:calc(61px + 2rem) 2rem 3rem; position:relative; z-index:1; }
+    .main-inner { max-width:900px; margin:0 auto; }
+
+    .page-title {
+      font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800;
+      color:var(--text-1); margin-bottom:.35rem;
+    }
+    .page-sub { color:var(--text-2); font-size:.9rem; margin-bottom:2rem; }
+
+    /* ── CARD ── */
+    .card {
+      background:var(--card); border:1px solid var(--border-s);
+      border-radius:16px; padding:1.5rem; margin-bottom:1.5rem;
+      backdrop-filter:blur(10px);
+    }
+    .card-title {
+      font-family:'Syne',sans-serif; font-size:.85rem; font-weight:700;
+      color:var(--text-2); text-transform:uppercase; letter-spacing:.08em;
+      margin-bottom:1rem;
+    }
+
+    /* ── INPUT FORM ── */
+    .compare-form {
+      display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;
+    }
+    .school-col { display:flex; flex-direction:column; gap:.75rem; }
+    .school-col h3 {
+      font-family:'Syne',sans-serif; font-size:.9rem; font-weight:700;
+      color:var(--teal); border-bottom:1px solid var(--border); padding-bottom:.5rem;
+    }
+    .field { display:flex; flex-direction:column; gap:.35rem; }
+    .field label {
+      font-family:'Syne',sans-serif; font-size:.72rem; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);
+    }
+    .field input {
+      background:var(--navy-3); border:1px solid var(--border-s);
+      border-radius:8px; padding:.65rem .9rem;
+      color:var(--text-1); font-family:'Lora',serif; font-size:.9rem;
+      outline:none; transition:border-color .15s;
+      width:100%;
+    }
+    .field input:focus { border-color:var(--teal); }
+    .field input::placeholder { color:var(--text-3); }
+
+    /* autocomplete dropdown */
+    .autocomplete-wrap { position:relative; }
+    .ac-dropdown {
+      display:none; position:absolute; top:100%; left:0; right:0; z-index:200;
+      background:var(--navy-2); border:1px solid var(--border-s); border-top:none;
+      border-radius:0 0 8px 8px; max-height:200px; overflow-y:auto;
+    }
+    .ac-dropdown.open { display:block; }
+    .ac-item {
+      padding:.55rem .9rem; font-size:.85rem; color:var(--text-2);
+      cursor:pointer; transition:background .1s;
+    }
+    .ac-item:hover, .ac-item.selected { background:var(--teal-g); color:var(--text-1); }
+
+    .form-footer {
+      grid-column:1/-1; display:flex; justify-content:center; padding-top:.5rem;
+    }
+
+    /* ── GENDER ROW ── */
+    .gender-row {
+      display:flex; gap:.5rem; margin-bottom:1.25rem;
+    }
+    .gender-btn {
+      flex:1; padding:.5rem; border-radius:8px; border:1px solid var(--border-s);
+      background:transparent; color:var(--text-2);
+      font-family:'Syne',sans-serif; font-size:.8rem; font-weight:600;
+      cursor:pointer; transition:all .15s;
+    }
+    .gender-btn.active { background:var(--teal-g); border-color:var(--teal); color:var(--teal); }
+
+    /* ── RESULTS ── */
+    #results { display:none; }
+    .results-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;
+    }
+    .result-card {
+      background:var(--card); border:1px solid var(--border-s);
+      border-radius:16px; padding:1.5rem;
+      display:flex; flex-direction:column; gap:1rem;
+    }
+    .result-name {
+      font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:800;
+      color:var(--text-1); line-height:1.3;
+    }
+    .result-div {
+      display:inline-block; font-family:'Syne',sans-serif; font-size:.68rem;
+      font-weight:700; padding:.2rem .55rem; border-radius:5px;
+      background:var(--teal-g); color:var(--teal); margin-top:.25rem;
+    }
+    .result-loc { font-size:.82rem; color:var(--text-3); margin-top:.1rem; }
+
+    .stat-block { display:flex; flex-direction:column; gap:.6rem; }
+    .stat-row {
+      display:flex; flex-direction:column; gap:.2rem;
+      padding:.75rem; background:rgba(255,255,255,0.03);
+      border:1px solid var(--border-s); border-radius:10px;
+    }
+    .stat-row-label {
+      font-family:'Syne',sans-serif; font-size:.65rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase; color:var(--text-3);
+    }
+    .stat-row-val { font-size:.92rem; color:var(--text-1); }
+    .stat-row-val.teal  { color:var(--teal); font-weight:600; }
+    .stat-row-val.gold  { color:var(--gold); font-weight:600; }
+    .stat-row-val.muted { color:var(--text-3); font-style:italic; }
+
+    .coverage-bar-wrap { margin-top:.3rem; }
+    .coverage-bar-bg {
+      background:var(--navy-3); border-radius:4px; height:6px; overflow:hidden;
+    }
+    .coverage-bar-fill {
+      height:100%; border-radius:4px;
+      background:linear-gradient(90deg, var(--teal), var(--teal-dim));
+      transition:width .6s var(--ease);
+    }
+    .coverage-label { font-size:.75rem; color:var(--text-3); margin-top:.3rem; }
+
+    .lineup-pos-badge {
+      display:inline-block; font-family:'Syne',sans-serif; font-size:.7rem;
+      font-weight:700; padding:.2rem .55rem; border-radius:5px; margin-top:.3rem;
+    }
+    .pos-top   { background:rgba(0,201,167,.15); color:var(--teal); }
+    .pos-upper { background:rgba(0,201,167,.09); color:var(--teal-dim); }
+    .pos-lower { background:rgba(232,184,75,.09); color:var(--gold); }
+    .pos-below { background:rgba(255,255,255,.04); color:var(--text-3); }
+
+    /* ── UTR NOTICE ── */
+    .utr-notice {
+      background:rgba(232,184,75,0.08); border:1px solid rgba(232,184,75,0.2);
+      border-radius:10px; padding:.75rem 1rem; font-size:.82rem; color:var(--gold);
+      margin-bottom:1.25rem;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position:fixed; bottom:1.5rem; right:1.5rem; z-index:999;
+      padding:.75rem 1.25rem; border-radius:10px; font-family:'Syne',sans-serif;
+      font-size:.82rem; font-weight:600; opacity:0; transform:translateY(8px);
+      transition:all .3s; pointer-events:none;
+    }
+    .toast.show { opacity:1; transform:translateY(0); }
+    .toast.error { background:#c0392b; color:#fff; }
+
+    /* ── SPINNER ── */
+    .spinner {
+      display:inline-block; width:14px; height:14px; border-radius:50%;
+      border:2px solid rgba(5,13,26,.3); border-top-color:var(--navy);
+      animation:spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* ── MOBILE ── */
+    @media (max-width:768px) {
+      .layout { grid-template-columns:1fr; }
+      .sidebar {
+        position:fixed; top:0; left:0; height:100vh; width:240px; z-index:90;
+        transform:translateX(-100%); transition:transform .3s var(--ease);
+        padding-top:calc(61px + 1rem);
+      }
+      .sidebar.open { transform:translateX(0); box-shadow:4px 0 24px rgba(0,0,0,.5); }
+      #sidebarOverlay {
+        display:none; position:fixed; inset:0; z-index:80;
+        background:rgba(0,0,0,.5);
+      }
+      #sidebarOverlay.open { display:block; }
+      .hamburger { display:flex; }
+      .main { padding:calc(61px + 1.25rem) 1rem 2rem; }
+      .compare-form { grid-template-columns:1fr; }
+      .results-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:.75rem;">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <a href="/dashboard" class="brand">SAIL<span>.</span></a>
+  </div>
+  <div style="display:flex;align-items:center;gap:.75rem;">
+    <a href="/dashboard" class="btn btn-ghost">← Dashboard</a>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-label">Main</div>
+    <a class="sidebar-link" href="/dashboard"><span class="icon">🏠</span> Dashboard</a>
+    <a class="sidebar-link" href="/advisor"><span class="icon">🤖</span> AI Advisor</a>
+    <a class="sidebar-link" href="/schools"><span class="icon">🎾</span> Find Schools</a>
+    <a class="sidebar-link active" href="/compare"><span class="icon">⚖️</span> Compare Schools</a>
+
+    <div class="sidebar-label">Profile</div>
+    <a class="sidebar-link" href="/achievements"><span class="icon">🏅</span> Athletic Résumé</a>
+
+    <div class="sidebar-label">Account</div>
+    <a class="sidebar-link" href="/logout"><span class="icon">↩️</span> Log Out</a>
+  </aside>
+
+  <main class="main">
+    <div class="main-inner">
+      <h1 class="page-title">⚖️ Compare Schools</h1>
+      <p class="page-sub">Enter two schools and your offers to see a side-by-side breakdown of value, lineup fit, and location.</p>
+
+      <!-- Input card -->
+      <div class="card">
+        <div class="card-title">Your details</div>
+
+        <div class="gender-row">
+          <button class="gender-btn active" id="gBtn-male"   onclick="setGender('male')">♂ Men's</button>
+          <button class="gender-btn"        id="gBtn-female" onclick="setGender('female')">♀ Women's</button>
+        </div>
+
+        <div class="compare-form">
+          <!-- School 1 -->
+          <div class="school-col">
+            <h3>School A</h3>
+            <div class="field">
+              <label>School name</label>
+              <div class="autocomplete-wrap">
+                <input id="school1" type="text" placeholder="Start typing a school…"
+                       autocomplete="off" oninput="onAcInput(this,'ac1')" onblur="closeAc('ac1',300)">
+                <div class="ac-dropdown" id="ac1"></div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Scholarship offer ($)</label>
+              <input id="offer1" type="number" min="0" placeholder="e.g. 18000">
+            </div>
+          </div>
+
+          <!-- School 2 -->
+          <div class="school-col">
+            <h3>School B</h3>
+            <div class="field">
+              <label>School name</label>
+              <div class="autocomplete-wrap">
+                <input id="school2" type="text" placeholder="Start typing a school…"
+                       autocomplete="off" oninput="onAcInput(this,'ac2')" onblur="closeAc('ac2',300)">
+                <div class="ac-dropdown" id="ac2"></div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Scholarship offer ($)</label>
+              <input id="offer2" type="number" min="0" placeholder="e.g. 24000">
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button class="btn btn-primary" id="compareBtn" onclick="runCompare()">Compare Schools</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="results">
+        <div id="utrNotice" class="utr-notice" style="display:none;">
+          ⚠️ No UTR saved in your profile — lineup position estimates are unavailable.
+          <a href="/dashboard" style="color:var(--gold);text-decoration:underline;">Update your profile</a> to see lineup fit.
+        </div>
+        <div class="results-grid" id="resultsGrid"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  let allNames = [];
+  let selectedGender = 'male';
+
+  async function api(url, opts) {
+    const r = await fetch(url, {
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'same-origin',
+      ...opts,
+    });
+    const data = await r.json();
+    if (!r.ok) throw Object.assign(new Error(data.error || 'Error'), {data});
+    return data;
+  }
+
+  function showToast(msg, type='error') {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.className = `toast ${type} show`;
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  function setGender(g) {
+    selectedGender = g;
+    document.getElementById('gBtn-male').classList.toggle('active', g === 'male');
+    document.getElementById('gBtn-female').classList.toggle('active', g === 'female');
+  }
+
+  // ── Autocomplete ──
+  async function loadNames() {
+    try {
+      const d = await api('/api/tennis/school-names');
+      allNames = d.names || [];
+    } catch(e) { allNames = []; }
+  }
+
+  function onAcInput(input, dropId) {
+    const q = input.value.trim().toLowerCase();
+    const drop = document.getElementById(dropId);
+    if (q.length < 2) { drop.classList.remove('open'); return; }
+    const hits = allNames.filter(n => n.toLowerCase().includes(q)).slice(0, 8);
+    if (!hits.length) { drop.classList.remove('open'); return; }
+    drop.innerHTML = hits.map(n =>
+      `<div class="ac-item" onmousedown="pickAc(event,'${dropId}',this)">${n}</div>`
+    ).join('');
+    drop.classList.add('open');
+  }
+
+  function pickAc(e, dropId, el) {
+    e.preventDefault();
+    const inputId = dropId === 'ac1' ? 'school1' : 'school2';
+    document.getElementById(inputId).value = el.textContent;
+    document.getElementById(dropId).classList.remove('open');
+  }
+
+  function closeAc(dropId, delay) {
+    setTimeout(() => document.getElementById(dropId).classList.remove('open'), delay);
+  }
+
+  // ── Compare ──
+  async function runCompare() {
+    const btn  = document.getElementById('compareBtn');
+    const s1   = document.getElementById('school1').value.trim();
+    const s2   = document.getElementById('school2').value.trim();
+    const o1   = parseFloat(document.getElementById('offer1').value) || 0;
+    const o2   = parseFloat(document.getElementById('offer2').value) || 0;
+
+    if (!s1 || !s2) { showToast('Please enter both school names.'); return; }
+    if (s1.toLowerCase() === s2.toLowerCase()) { showToast('Please choose two different schools.'); return; }
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Comparing…';
+
+    try {
+      const data = await api('/api/tennis/compare', {
+        method:'POST',
+        body: JSON.stringify({ school1:s1, school2:s2, offer1:o1, offer2:o2, gender:selectedGender }),
+      });
+
+      document.getElementById('utrNotice').style.display = data.player_utr ? 'none' : 'block';
+      document.getElementById('resultsGrid').innerHTML =
+        buildResultCard(data.school1, data.player_utr) +
+        buildResultCard(data.school2, data.player_utr);
+      document.getElementById('results').style.display = 'block';
+      document.getElementById('results').scrollIntoView({ behavior:'smooth', block:'start' });
+    } catch(e) {
+      showToast(e.data?.error || 'Something went wrong. Check the school names and try again.');
+    }
+    btn.disabled = false;
+    btn.innerHTML = 'Compare Schools';
+  }
+
+  function fmt(n) {
+    if (n == null) return '—';
+    return '$' + Number(n).toLocaleString();
+  }
+
+  function buildResultCard(s, playerUtr) {
+    const posBadge = {
+      top:   `<span class="lineup-pos-badge pos-top">⭐ Above lineup — impact recruit</span>`,
+      upper: `<span class="lineup-pos-badge pos-upper">↑ Top half of lineup (~#1–3)</span>`,
+      lower: `<span class="lineup-pos-badge pos-lower">→ Bottom half of lineup (~#4–6)</span>`,
+      below: `<span class="lineup-pos-badge pos-below">↓ Below current lineup</span>`,
+    };
+
+    const coverageBar = s.coverage_pct != null ? `
+      <div class="coverage-bar-wrap">
+        <div class="coverage-bar-bg">
+          <div class="coverage-bar-fill" style="width:${s.coverage_pct}%"></div>
+        </div>
+        <div class="coverage-label">${s.coverage_pct}% of tuition covered</div>
+      </div>` : '';
+
+    const lineupSection = s.has_lineup ? `
+      <div class="stat-row">
+        <div class="stat-row-label">Lineup UTR range</div>
+        <div class="stat-row-val teal">${s.lineup_range}</div>
+        ${s.lineup_pos ? posBadge[s.lineup_pos] || '' : `<div class="stat-row-val muted">${s.lineup_label}</div>`}
+      </div>` : `
+      <div class="stat-row">
+        <div class="stat-row-label">Lineup fit</div>
+        <div class="stat-row-val muted">${s.lineup_label}</div>
+      </div>`;
+
+    return `
+    <div class="result-card">
+      <div>
+        <div class="result-name">${s.name}</div>
+        <div class="result-div">${s.division || '—'}</div>
+        <div class="result-loc">📍 ${[s.city, s.state].filter(Boolean).join(', ') || '—'}</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-row">
+          <div class="stat-row-label">Your offer</div>
+          <div class="stat-row-val teal">${fmt(s.offer)}</div>
+          ${s.tuition ? `<div class="stat-row-val" style="font-size:.8rem;color:var(--text-3)">Out-of-state tuition: ${fmt(s.tuition)}</div>` : ''}
+          ${coverageBar}
+        </div>
+        <div class="stat-row">
+          <div class="stat-row-label">Team avg scholarship</div>
+          <div class="stat-row-val ${s.avg_scholarship ? '' : 'muted'}">${s.avg_scholarship ? fmt(s.avg_scholarship) : 'No data'}</div>
+        </div>
+        ${lineupSection}
+        ${s.niche_grade ? `
+        <div class="stat-row">
+          <div class="stat-row-label">Niche grade</div>
+          <div class="stat-row-val gold">${s.niche_grade}</div>
+        </div>` : ''}
+      </div>
+    </div>`;
+  }
+
+  // ── Mobile sidebar ──
+  function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('open');
+  }
+  document.querySelectorAll('.sidebar-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.remove('open');
+      document.getElementById('sidebarOverlay').classList.remove('open');
+    });
+  });
+
+  loadNames();
+</script>
+</body>
+</html>

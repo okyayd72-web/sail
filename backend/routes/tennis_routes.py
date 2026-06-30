@@ -422,6 +422,113 @@ def get_school_detail(school_name):
     return jsonify({'school': school})
 
 
+@tennis_bp.route('/api/tennis/school-names', methods=['GET'])
+@login_required
+def get_school_names():
+    schools = load_schools()
+    names   = sorted(s['school'] for s in schools if s.get('school'))
+    return jsonify({'names': names})
+
+
+@tennis_bp.route('/api/tennis/compare', methods=['POST'])
+@login_required
+def compare_schools():
+    data   = request.get_json() or {}
+    name1  = data.get('school1', '').strip()
+    name2  = data.get('school2', '').strip()
+    offer1 = data.get('offer1', 0)
+    offer2 = data.get('offer2', 0)
+    gender = data.get('gender', 'male')
+
+    if not name1 or not name2:
+        return jsonify({'error': 'Two school names are required.'}), 400
+
+    try:
+        from backend.routes.athlete import AthleteProfile
+        profile    = AthleteProfile.query.filter_by(user_id=current_user.id).first()
+        player_utr = profile.utr_rating if profile else None
+        if not gender and profile:
+            gender = profile.gender or 'male'
+    except Exception:
+        player_utr = None
+
+    schools = load_schools()
+    lookup  = {s['school'].lower(): s for s in schools}
+    s1      = lookup.get(name1.lower())
+    s2      = lookup.get(name2.lower())
+
+    if not s1:
+        return jsonify({'error': f'School not found: {name1}'}), 404
+    if not s2:
+        return jsonify({'error': f'School not found: {name2}'}), 404
+
+    def build_side(school, offer_amount):
+        offer   = float(offer_amount) if offer_amount else 0
+        tuition = school.get('outstate_tuition') or school.get('instate_tuition')
+
+        if tuition and tuition > 0:
+            coverage_pct = min(100, round(offer / tuition * 100))
+            coverage_str = f"${offer:,.0f} covers {coverage_pct}% of ${tuition:,} tuition"
+        else:
+            coverage_pct = None
+            coverage_str = "Tuition data not available"
+
+        top_key    = 'top_lineup_utr_men'    if gender == 'male' else 'top_lineup_utr_women'
+        bottom_key = 'bottom_lineup_utr_men' if gender == 'male' else 'bottom_lineup_utr_women'
+        top_utr    = school.get(top_key)
+        bot_utr    = school.get(bottom_key)
+
+        if top_utr and bot_utr:
+            lineup_range = f"{bot_utr:.1f}–{top_utr:.1f}"
+            if player_utr:
+                mid = (top_utr + bot_utr) / 2
+                if player_utr >= top_utr:
+                    lineup_label = "Above current lineup — impact recruit"
+                    lineup_pos   = "top"
+                elif player_utr >= mid:
+                    lineup_label = "Top half of lineup (~positions 1–3)"
+                    lineup_pos   = "upper"
+                elif player_utr >= bot_utr - 0.3:
+                    lineup_label = "Bottom half of lineup (~positions 4–6)"
+                    lineup_pos   = "lower"
+                else:
+                    lineup_label = "Below current lineup"
+                    lineup_pos   = "below"
+            else:
+                lineup_label = "Set your UTR in your profile to see lineup fit"
+                lineup_pos   = None
+        else:
+            lineup_range = None
+            lineup_label = "Lineup data not yet available for this school"
+            lineup_pos   = None
+
+        avg_schol = school.get('mens_scholarship') if gender == 'male' else school.get('womens_scholarship')
+
+        return {
+            'name':          school.get('school'),
+            'division':      school.get('division'),
+            'city':          school.get('city'),
+            'state':         school.get('state'),
+            'offer':         offer,
+            'tuition':       tuition,
+            'coverage_pct':  coverage_pct,
+            'coverage_str':  coverage_str,
+            'lineup_range':  lineup_range,
+            'lineup_label':  lineup_label,
+            'lineup_pos':    lineup_pos,
+            'has_lineup':    bool(top_utr and bot_utr),
+            'avg_scholarship': avg_schol,
+            'niche_grade':   school.get('niche_grade'),
+        }
+
+    return jsonify({
+        'player_utr': player_utr,
+        'gender':     gender,
+        'school1':    build_side(s1, offer1),
+        'school2':    build_side(s2, offer2),
+    })
+
+
 @tennis_bp.route('/api/tennis/divisions', methods=['GET'])
 def get_divisions():
     schools = load_schools()
