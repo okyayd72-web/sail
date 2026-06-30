@@ -164,13 +164,36 @@ def smart_filter(schools, utr, gpa, division_pref, gender,
             if utr_range[0] <= utr <= utr_range[1]:
                 score += 20
 
+        # ── UTR fit: continuous score (0-35) based on roster lineup when available,
+        #    falling back to distance from division-range midpoint otherwise. ──
         utr_range = utr_ranges.get(div, (0, 16))
-        if utr_range[0] <= utr <= utr_range[1]:
-            score += 30
-        elif utr > utr_range[1]:
-            score += 20
+        top_key    = 'top_lineup_utr_men'    if gender == 'male' else 'top_lineup_utr_women'
+        bottom_key = 'bottom_lineup_utr_men' if gender == 'male' else 'bottom_lineup_utr_women'
+        top_utr    = s.get(top_key)
+        bot_utr    = s.get(bottom_key)
+
+        if top_utr and bot_utr and top_utr > bot_utr:
+            # Lineup-based fit: score peaks when player sits in the top half of the roster
+            floor = bot_utr - 0.3
+            if utr < floor:
+                score -= 20  # below recruitable range
+            else:
+                span     = top_utr - floor
+                position = min(1.0, (utr - floor) / span)   # 0=floor, 1=at/above top
+                # Peak at position ~0.6 (solid #2-3 player); both extremes score lower
+                from_peak = abs(position - 0.6) / 0.6
+                score    += round(35 * max(0.0, 1 - from_peak * 0.5))
         else:
-            score -= 20
+            # Division-range midpoint: continuous proximity bonus
+            lo, hi  = utr_range
+            center  = (lo + hi) / 2
+            if lo <= utr <= hi:
+                proximity = 1.0 - abs(utr - center) / (hi - lo)
+                score    += round(30 * max(0.1, proximity))
+            elif utr > hi:
+                score += 20
+            else:
+                score -= 20
 
         scholarship = s.get('mens_scholarship') if gender == 'male' else s.get('womens_scholarship')
         if scholarship and scholarship > 0:
@@ -391,15 +414,32 @@ def refresh_matches():
         return jsonify({'error': 'No schools found matching your preferences. Try a different division.'}), 400
 
     school_lines = []
+    top_key    = 'top_lineup_utr_men'    if gender == 'male' else 'top_lineup_utr_women'
+    bottom_key = 'bottom_lineup_utr_men' if gender == 'male' else 'bottom_lineup_utr_women'
     for s in candidates:
         scholarship = s.get('mens_scholarship') if gender == 'male' else s.get('womens_scholarship')
         avg_sat = s.get('avg_sat_total') or '?'
         coach = s.get('coach') or 'Unknown'
         loc = f"{s.get('city','')}, {s.get('state','')}".strip(', ')
         schol_str = f"${scholarship:,.0f}" if scholarship else "No data"
+        top_utr = s.get(top_key)
+        bot_utr = s.get(bottom_key)
+        if top_utr and bot_utr:
+            lineup_str = f"Lineup UTR: {bot_utr:.1f}–{top_utr:.1f}"
+            floor = bot_utr - 0.3
+            if utr >= top_utr:
+                lineup_str += " (player above lineup — impact recruit)"
+            elif utr >= (bot_utr + top_utr) / 2:
+                lineup_str += " (player in top half of lineup)"
+            elif utr >= floor:
+                lineup_str += " (player at bottom of lineup)"
+            else:
+                lineup_str += " (player below lineup)"
+        else:
+            lineup_str = "Lineup UTR: no data"
         school_lines.append(
             f"- {s['school']} | {s.get('division','')} | {loc} | "
-            f"Avg Scholarship: {schol_str} | Avg SAT: {avg_sat} | Coach: {coach}"
+            f"Avg Scholarship: {schol_str} | {lineup_str} | Avg SAT: {avg_sat} | Coach: {coach}"
         )
 
     schools_text = '\n'.join(school_lines)
