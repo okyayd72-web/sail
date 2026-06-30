@@ -21,7 +21,8 @@
     "power6_utr_women": 34.68,
     "enrollment": 1307,
     "latitude": 30.793247,
-    "longitude": -88.128934
+    "longitude": -88.128934,
+    "avg_sat_total": 1220
   },
   {
     "school": "University of South Alabama",
@@ -46,7 +47,8 @@
     "enrollment": 8879,
     "latitude": 30.696033,
     "longitude": -88.178711,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1147
   },
   {
     "school": "University of North Alabama",
@@ -96,7 +98,8 @@
     "niche_grade": "B+",
     "enrollment": 9805,
     "latitude": 31.799583,
-    "longitude": -85.95802
+    "longitude": -85.95802,
+    "avg_sat_total": 1088
   },
   {
     "school": "University of Arkansas-Fort Smith",
@@ -120,7 +123,8 @@
     "power6_utr_women": 33.06,
     "enrollment": 4091,
     "latitude": 35.384184,
-    "longitude": -94.373729
+    "longitude": -94.373729,
+    "avg_sat_total": 1050
   },
   {
     "school": "John Brown University",
@@ -144,7 +148,8 @@
     "power6_utr_women": null,
     "enrollment": 1471,
     "latitude": 36.189812,
-    "longitude": -94.560283
+    "longitude": -94.560283,
+    "avg_sat_total": 1195
   },
   {
     "school": "Southern Arkansas University",
@@ -168,7 +173,8 @@
     "power6_utr_women": 46.26,
     "enrollment": 2708,
     "latitude": 33.291618,
-    "longitude": -93.235922
+    "longitude": -93.235922,
+    "avg_sat_total": 1047
   },
   {
     "school": "Grand Canyon University",
@@ -193,7 +199,8 @@
     "enrollment": 73371,
     "latitude": 33.513231,
     "longitude": -112.129929,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1077
   },
   {
     "school": "Concordia University-Irvine",
@@ -217,7 +224,8 @@
     "power6_utr_women": 32.98,
     "enrollment": 1536,
     "latitude": 33.653665,
-    "longitude": -117.812305
+    "longitude": -117.812305,
+    "avg_sat_total": 1145
   },
   {
     "school": "Sacramento State",
@@ -263,7 +271,8 @@
     "power6_utr_women": null,
     "enrollment": 1544,
     "latitude": 36.726831,
-    "longitude": -119.735199
+    "longitude": -119.735199,
+    "avg_sat_total": 1105
   },
   {
     "school": "University of Denver",
@@ -288,7 +297,8 @@
     "enrollment": 6025,
     "latitude": 39.678005,
     "longitude": -104.963259,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1355
   },
   {
     "school": "Colorado Mesa University",
@@ -312,7 +322,8 @@
     "power6_utr_women": 44.31,
     "enrollment": 8143,
     "latitude": 39.080643,
-    "longitude": -108.553275
+    "longitude": -108.553275,
+    "avg_sat_total": 1055
   },
   {
     "school": "Sacred Heart University",
@@ -362,7 +373,8 @@
     "enrollment": 5373,
     "latitude": 41.157673,
     "longitude": -73.255903,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1335
   },
   {
     "school": "Quinnipiac University",
@@ -387,7 +399,8 @@
     "enrollment": 6531,
     "latitude": 41.418915,
     "longitude": -72.894117,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1242
   },
   {
     "school": "Univ of the District of Columbia",
@@ -433,7 +446,8 @@
     "enrollment": 10108,
     "latitude": 38.922392,
     "longitude": -77.018966,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1213
   },
   {
     "school": "Barry University",
@@ -482,7 +496,8 @@
     "enrollment": 13874,
     "latitude": 26.463638,
     "longitude": -81.7726,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1114
   },
   {
     "school": "University of Central Florida",
@@ -507,7 +522,8 @@
     "enrollment": 59146,
     "latitude": 28.602159,
     "longitude": -81.200889,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1269
   },
   {
     "school": "University of West Florida",
@@ -531,7 +547,8 @@
     "power6_utr_women": 52.83,
     "enrollment": 9330,
     "latitude": 30.549076,
-    "longitude": -87.218511
+    "longitude": -87.218511,
+    "avg_sat_total": 1138
   },
   {
     "school": "University of North Florida",
@@ -556,7 +573,8 @@
     "enrollment": 13359,
     "latitude": 30.27194,
     "longitude": -81.509144,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1153
   },
   {
     "school": "Embry-Riddle Aeronautical Univ",
@@ -601,7 +619,8 @@
     "power6_utr_women": 48.72,
     "enrollment": 4813,
     "latitude": 28.029733,
-    "longitude": -81.918382
+    "longitude": -81.918382,
+    "avg_sat_total": 1072
   },
   {
     "school": "Georgia Institute of Technology",
@@ -626,7 +645,8 @@
     "enrollment": 18785,
     "latitude": 33.77242,
     "longitude": -84.394832,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1480
   },
   {
     "school": "Georgia State University",
@@ -651,7 +671,8 @@
     "enrollment": 26623,
     "latitude": 33.7527,
     "longitude": -84.38667,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1076
   },
   {
     "school": "Columbus State University",
@@ -675,7 +696,8 @@
     "power6_utr_women": null,
     "enrollment": 5625,
     "latitude": 32.50096,
-    "longitude": -84.94106
+    "longitude": -84.94106,
+    "avg_sat_total": 977
   },
   {
     "school": "Augusta University",
@@ -699,7 +721,8 @@
     "power6_utr_women": null,
     "enrollment": 5613,
     "latitude": 33.47037,
-    "longitude": -81.989071
+    "longitude": -81.989071,
+    "avg_sat_total": 1070
   },
   {
     "school": "Kennesaw State University",
@@ -724,7 +747,8 @@
     "enrollment": 41254,
     "latitude": 34.038807,
     "longitude": -84.583052,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1113
   },
   {
     "school": "University of North Georgia",
@@ -748,7 +772,8 @@
     "power6_utr_women": null,
     "enrollment": 16146,
     "latitude": 34.530219,
-    "longitude": -83.985694
+    "longitude": -83.985694,
+    "avg_sat_total": 1106
   },
   {
     "school": "Drake University",
@@ -768,12 +793,13 @@
     "bottom_lineup_utr_men": 10.81,
     "top_lineup_utr_women": 8.52,
     "bottom_lineup_utr_women": 7.87,
-    "power6_utr_men": 69.30,
+    "power6_utr_men": 69.3,
     "power6_utr_women": 48.82,
     "enrollment": 2543,
     "latitude": 41.60129,
     "longitude": -93.652163,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1292
   },
   {
     "school": "Idaho State University",
@@ -823,7 +849,8 @@
     "enrollment": 14090,
     "latitude": 41.877618,
     "longitude": -87.62724,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1262
   },
   {
     "school": "Northern Illinois University",
@@ -873,7 +900,8 @@
     "enrollment": 4188,
     "latitude": 39.479843,
     "longitude": -88.175658,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1000
   },
   {
     "school": "Illinois State University",
@@ -898,7 +926,8 @@
     "enrollment": 19057,
     "latitude": 40.509403,
     "longitude": -88.990058,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1113
   },
   {
     "school": "University of Illinois at Springfield",
@@ -918,8 +947,9 @@
     "bottom_lineup_utr_men": 9.08,
     "top_lineup_utr_women": 7.1,
     "bottom_lineup_utr_women": 5.6,
-    "power6_utr_men": 60.00,
-    "power6_utr_women": 37.85
+    "power6_utr_men": 60.0,
+    "power6_utr_women": 37.85,
+    "avg_sat_total": 1102
   },
   {
     "school": "Lewis University",
@@ -943,7 +973,8 @@
     "power6_utr_women": null,
     "enrollment": 4015,
     "latitude": 41.605432,
-    "longitude": -88.079032
+    "longitude": -88.079032,
+    "avg_sat_total": 1096
   },
   {
     "school": "Chicago State University",
@@ -957,7 +988,7 @@
     "instate_tuition": 12754,
     "outstate_tuition": 12754,
     "coach": "Keiran President",
-    "phone":  "kpreside@csu.edu",
+    "phone": "kpreside@csu.edu",
     "usnews_ranking": null,
     "top_lineup_utr_men": 11.43,
     "bottom_lineup_utr_men": 9,
@@ -993,7 +1024,8 @@
     "enrollment": 44503,
     "latitude": 40.428206,
     "longitude": -86.914435,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1364
   },
   {
     "school": "Indiana University",
@@ -1064,7 +1096,8 @@
     "enrollment": 5292,
     "latitude": 37.962374,
     "longitude": -87.677214,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1141
   },
   {
     "school": "Ball State University",
@@ -1089,7 +1122,8 @@
     "enrollment": 13988,
     "latitude": 40.203431,
     "longitude": -85.409043,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1160
   },
   {
     "school": "Indiana-Purdue Univ- Indianapolis",
@@ -1135,7 +1169,8 @@
     "power6_utr_women": null,
     "enrollment": 5671,
     "latitude": 41.584324,
-    "longitude": -87.474236
+    "longitude": -87.474236,
+    "avg_sat_total": 1024
   },
   {
     "school": "Indiana Wesleyan University",
@@ -1156,7 +1191,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1082
   },
   {
     "school": "University of Indianapolis",
@@ -1205,7 +1241,8 @@
     "enrollment": 10780,
     "latitude": 37.718882,
     "longitude": -97.292361,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1092
   },
   {
     "school": "Ottawa University",
@@ -1250,7 +1287,8 @@
     "power6_utr_women": null,
     "enrollment": 2239,
     "latitude": 38.414784,
-    "longitude": -96.179021
+    "longitude": -96.179021,
+    "avg_sat_total": 1120
   },
   {
     "school": "Eastern Kentucky University",
@@ -1275,7 +1313,8 @@
     "enrollment": 12318,
     "latitude": 37.740845,
     "longitude": -84.300796,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1149
   },
   {
     "school": "Northern Kentucky University",
@@ -1300,7 +1339,8 @@
     "enrollment": 8246,
     "latitude": 39.029714,
     "longitude": -84.463483,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1087
   },
   {
     "school": "Bellarmine University",
@@ -1325,7 +1365,8 @@
     "enrollment": 2161,
     "latitude": 38.219279,
     "longitude": -85.704997,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1210
   },
   {
     "school": "University of Louisiana at Lafayette",
@@ -1350,7 +1391,8 @@
     "enrollment": 12428,
     "latitude": 30.212191,
     "longitude": -92.020165,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1219
   },
   {
     "school": "University of New Orleans",
@@ -1369,13 +1411,14 @@
     "top_lineup_utr_men": 11.91,
     "bottom_lineup_utr_men": 10.55,
     "top_lineup_utr_women": 7.76,
-    "bottom_lineup_utr_women": 6.80,
-    "power6_utr_men": 67.50,
+    "bottom_lineup_utr_women": 6.8,
+    "power6_utr_men": 67.5,
     "power6_utr_women": 29.44,
     "enrollment": 4638,
     "latitude": 30.027704,
     "longitude": -90.067142,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1052
   },
   {
     "school": "Xavier University of Louisiana",
@@ -1399,7 +1442,8 @@
     "power6_utr_women": null,
     "enrollment": 2628,
     "latitude": 29.964162,
-    "longitude": -90.107307
+    "longitude": -90.107307,
+    "avg_sat_total": 1080
   },
   {
     "school": "Coppin State University",
@@ -1424,7 +1468,8 @@
     "enrollment": 1844,
     "latitude": 39.311258,
     "longitude": -76.658687,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 975
   },
   {
     "school": "Morgan State University",
@@ -1449,7 +1494,8 @@
     "enrollment": 9019,
     "latitude": 39.344161,
     "longitude": -76.585565,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 971
   },
   {
     "school": "Davenport University",
@@ -1493,12 +1539,13 @@
     "bottom_lineup_utr_men": 12.9,
     "top_lineup_utr_women": 10.3,
     "bottom_lineup_utr_women": 8.85,
-    "power6_utr_men": 79.60,
+    "power6_utr_men": 79.6,
     "power6_utr_women": 57.08,
     "enrollment": 40922,
     "latitude": 42.73212,
     "longitude": -84.476111,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1269
   },
   {
     "school": "Michigan Technological University",
@@ -1522,7 +1569,8 @@
     "power6_utr_women": null,
     "enrollment": 5955,
     "latitude": 47.11866,
-    "longitude": -88.548092
+    "longitude": -88.548092,
+    "avg_sat_total": 1258
   },
   {
     "school": "Grand Valley State University",
@@ -1546,7 +1594,8 @@
     "power6_utr_women": 51.15,
     "enrollment": 18854,
     "latitude": 42.963001,
-    "longitude": -85.889826
+    "longitude": -85.889826,
+    "avg_sat_total": 1074
   },
   {
     "school": "Lawrence Technological University",
@@ -1594,7 +1643,8 @@
     "power6_utr_women": null,
     "enrollment": 1325,
     "latitude": 46.492849,
-    "longitude": -84.365573
+    "longitude": -84.365573,
+    "avg_sat_total": 1055
   },
   {
     "school": "Drury University",
@@ -1618,7 +1668,8 @@
     "power6_utr_women": null,
     "enrollment": 1383,
     "latitude": 37.219681,
-    "longitude": -93.286192
+    "longitude": -93.286192,
+    "avg_sat_total": 1218
   },
   {
     "school": "University of Missouri-St Louis",
@@ -1642,7 +1693,8 @@
     "power6_utr_women": null,
     "enrollment": 5024,
     "latitude": 38.710312,
-    "longitude": -90.311091
+    "longitude": -90.311091,
+    "avg_sat_total": 1199
   },
   {
     "school": "William Woods University",
@@ -1687,7 +1739,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1119
   },
   {
     "school": "University of Southern Mississippi",
@@ -1712,7 +1765,8 @@
     "enrollment": 10075,
     "latitude": 31.32661,
     "longitude": -89.331236,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1190
   },
   {
     "school": "Delta State University",
@@ -1736,7 +1790,8 @@
     "power6_utr_women": null,
     "enrollment": 1620,
     "latitude": 33.744745,
-    "longitude": -90.735365
+    "longitude": -90.735365,
+    "avg_sat_total": 1050
   },
   {
     "school": "Jackson State University",
@@ -1753,7 +1808,7 @@
     "phone": "601-979-2291",
     "usnews_ranking": 363,
     "top_lineup_utr_men": 11.03,
-    "bottom_lineup_utr_men": 9.80,
+    "bottom_lineup_utr_men": 9.8,
     "top_lineup_utr_women": 8.66,
     "bottom_lineup_utr_women": 7.45,
     "power6_utr_men": 31.94,
@@ -1761,7 +1816,8 @@
     "enrollment": 4600,
     "latitude": 32.296105,
     "longitude": -90.207405,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 965
   },
   {
     "school": "Montana State University",
@@ -1778,15 +1834,16 @@
     "phone": "mateus.loschiceolin@msubobcats.com",
     "usnews_ranking": 318,
     "top_lineup_utr_men": 12.22,
-    "bottom_lineup_utr_men": 11.70,
+    "bottom_lineup_utr_men": 11.7,
     "top_lineup_utr_women": 8.97,
     "bottom_lineup_utr_women": 6.29,
-    "power6_utr_men": 71.80,
+    "power6_utr_men": 71.8,
     "power6_utr_women": 49.29,
     "enrollment": 14451,
     "latitude": 45.666726,
     "longitude": -111.048812,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1183
   },
   {
     "school": "University of Montana",
@@ -1811,7 +1868,8 @@
     "enrollment": 7488,
     "latitude": 46.859312,
     "longitude": -113.982912,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1190
   },
   {
     "school": "Campbell University",
@@ -1836,7 +1894,8 @@
     "enrollment": 2680,
     "latitude": 35.409149,
     "longitude": -78.738238,
-    "niche_grade": "C+"
+    "niche_grade": "C+",
+    "avg_sat_total": 1130
   },
   {
     "school": "Univ of North Carolina at Asheville",
@@ -1855,7 +1914,7 @@
     "top_lineup_utr_men": null,
     "bottom_lineup_utr_men": null,
     "top_lineup_utr_women": 8.55,
-    "bottom_lineup_utr_women": 7.20,
+    "bottom_lineup_utr_women": 7.2,
     "power6_utr_men": null,
     "power6_utr_women": 32.37,
     "niche_grade": "B-"
@@ -1874,13 +1933,14 @@
     "coach": "Jeff Trivette",
     "phone": "336-209-7429",
     "usnews_ranking": 198,
-    "top_lineup_utr_men": 11.40,
+    "top_lineup_utr_men": 11.4,
     "bottom_lineup_utr_men": 9.68,
     "top_lineup_utr_women": 8.95,
     "bottom_lineup_utr_women": 8.03,
     "power6_utr_men": 64.25,
     "power6_utr_women": 50.49,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1193
   },
   {
     "school": "Univ of North Carolina Wilmington",
@@ -1902,7 +1962,8 @@
     "bottom_lineup_utr_women": 7.74,
     "power6_utr_men": 74.56,
     "power6_utr_women": 50.13,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1287
   },
   {
     "school": "North Carolina Central University",
@@ -1920,14 +1981,15 @@
     "usnews_ranking": null,
     "top_lineup_utr_men": 11.92,
     "bottom_lineup_utr_men": 10.78,
-    "top_lineup_utr_women": 8.70,
+    "top_lineup_utr_women": 8.7,
     "bottom_lineup_utr_women": 7.62,
     "power6_utr_men": 67.82,
     "power6_utr_women": 49.21,
     "enrollment": 6081,
     "latitude": 35.974237,
     "longitude": -78.898602,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1050
   },
   {
     "school": "North Carolina A & T State University",
@@ -1946,13 +2008,14 @@
     "top_lineup_utr_men": 11.93,
     "bottom_lineup_utr_men": 10.46,
     "top_lineup_utr_women": 7.97,
-    "bottom_lineup_utr_women": 6.70,
+    "bottom_lineup_utr_women": 6.7,
     "power6_utr_men": 66.37,
     "power6_utr_women": 30.04,
     "enrollment": 12182,
     "latitude": 36.07282,
     "longitude": -79.773375,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1074
   },
   {
     "school": "Elon University",
@@ -1972,12 +2035,13 @@
     "bottom_lineup_utr_men": 11.41,
     "top_lineup_utr_women": 9.85,
     "bottom_lineup_utr_women": 9.06,
-    "power6_utr_men": 71.80,
+    "power6_utr_men": 71.8,
     "power6_utr_women": 56.68,
     "enrollment": 6452,
     "latitude": 36.104148,
     "longitude": -79.50344,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1208
   },
   {
     "school": "Shaw University",
@@ -2026,7 +2090,8 @@
     "enrollment": 5485,
     "latitude": 36.133609,
     "longitude": -80.277446,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1475
   },
   {
     "school": "University of North Dakota",
@@ -2051,7 +2116,8 @@
     "enrollment": 9981,
     "latitude": 47.921654,
     "longitude": -97.071738,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1200
   },
   {
     "school": "University of Nebraska",
@@ -2093,12 +2159,13 @@
     "bottom_lineup_utr_men": 11.12,
     "top_lineup_utr_women": 9.08,
     "bottom_lineup_utr_women": 7.42,
-    "power6_utr_men": 70.80,
+    "power6_utr_men": 70.8,
     "power6_utr_women": 50.54,
     "enrollment": 11488,
     "latitude": 41.258769,
     "longitude": -96.008516,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1120
   },
   {
     "school": "Creighton University",
@@ -2123,7 +2190,8 @@
     "enrollment": 4348,
     "latitude": 41.265361,
     "longitude": -95.947811,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1321
   },
   {
     "school": "New Jersey Institute of Technology",
@@ -2148,7 +2216,8 @@
     "enrollment": 9019,
     "latitude": 40.741997,
     "longitude": -74.177113,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1337
   },
   {
     "school": "Western New Mexico University",
@@ -2197,7 +2266,8 @@
     "enrollment": 11946,
     "latitude": 32.281568,
     "longitude": -106.752069,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1011
   },
   {
     "school": "Niagara University",
@@ -2222,7 +2292,8 @@
     "enrollment": 2653,
     "latitude": 43.137279,
     "longitude": -79.036689,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1168
   },
   {
     "school": "University of Toledo",
@@ -2239,7 +2310,7 @@
     "phone": "419-530-4374",
     "usnews_ranking": 293,
     "top_lineup_utr_men": 12.25,
-    "bottom_lineup_utr_men": 11.20,
+    "bottom_lineup_utr_men": 11.2,
     "top_lineup_utr_women": 9.4,
     "bottom_lineup_utr_women": 8.51,
     "power6_utr_men": 71.75,
@@ -2247,7 +2318,8 @@
     "enrollment": 9770,
     "latitude": 41.660572,
     "longitude": -83.614714,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1235
   },
   {
     "school": "Xavier University",
@@ -2272,7 +2344,8 @@
     "enrollment": 4207,
     "latitude": 39.149547,
     "longitude": -84.47465,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1217
   },
   {
     "school": "Southeastern Oklahoma State Univ",
@@ -2293,7 +2366,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1087
   },
   {
     "school": "Portland State University",
@@ -2313,12 +2387,13 @@
     "bottom_lineup_utr_men": 11.25,
     "top_lineup_utr_women": 9.03,
     "bottom_lineup_utr_women": 8.38,
-    "power6_utr_men": 69.80,
+    "power6_utr_men": 69.8,
     "power6_utr_women": 50.57,
     "enrollment": 13182,
     "latitude": 45.511601,
     "longitude": -122.686289,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1125
   },
   {
     "school": "Pennsylvania State University",
@@ -2343,7 +2418,8 @@
     "enrollment": 42284,
     "latitude": 40.7965,
     "longitude": -77.862848,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1337
   },
   {
     "school": "Duquesne University",
@@ -2363,12 +2439,13 @@
     "bottom_lineup_utr_men": 8.03,
     "top_lineup_utr_women": 11.78,
     "bottom_lineup_utr_women": 10.37,
-    "power6_utr_men": 66.90,
+    "power6_utr_men": 66.9,
     "power6_utr_women": 48.99,
     "enrollment": 5350,
     "latitude": 40.43589,
     "longitude": -79.993123,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1276
   },
   {
     "school": "Coastal Carolina University",
@@ -2393,7 +2470,8 @@
     "enrollment": 10377,
     "latitude": 33.794995,
     "longitude": -79.011767,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1143
   },
   {
     "school": "Francis Marion University",
@@ -2417,7 +2495,8 @@
     "power6_utr_women": null,
     "enrollment": 2628,
     "latitude": 34.189777,
-    "longitude": -79.652854
+    "longitude": -79.652854,
+    "avg_sat_total": 1015
   },
   {
     "school": "Augustana University",
@@ -2441,7 +2520,8 @@
     "power6_utr_women": null,
     "enrollment": 1965,
     "latitude": 43.525148,
-    "longitude": -96.736975
+    "longitude": -96.736975,
+    "avg_sat_total": 1195
   },
   {
     "school": "Cumberland University",
@@ -2489,7 +2569,8 @@
     "power6_utr_women": null,
     "enrollment": 2617,
     "latitude": 35.166019,
-    "longitude": -84.871399
+    "longitude": -84.871399,
+    "avg_sat_total": 1145
   },
   {
     "school": "East Tennessee State University",
@@ -2514,7 +2595,8 @@
     "enrollment": 10004,
     "latitude": 36.301643,
     "longitude": -82.366954,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1144
   },
   {
     "school": "Austin Peay State University",
@@ -2539,7 +2621,8 @@
     "enrollment": 7560,
     "latitude": 36.533319,
     "longitude": -87.354081,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1088
   },
   {
     "school": "Tennessee Tech University",
@@ -2561,7 +2644,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": 72.35,
     "power6_utr_women": null,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1000
   },
   {
     "school": "Lincoln Memorial University",
@@ -2585,7 +2669,8 @@
     "power6_utr_women": null,
     "enrollment": 1572,
     "latitude": 36.578508,
-    "longitude": -83.660198
+    "longitude": -83.660198,
+    "avg_sat_total": 1092
   },
   {
     "school": "University of Tennessee-Chattanooga",
@@ -2610,7 +2695,8 @@
     "enrollment": 10074,
     "latitude": 35.047519,
     "longitude": -85.300247,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1147
   },
   {
     "school": "Bethel University",
@@ -2634,7 +2720,8 @@
     "power6_utr_women": null,
     "enrollment": 1547,
     "latitude": 36.137848,
-    "longitude": -88.516762
+    "longitude": -88.516762,
+    "avg_sat_total": 972
   },
   {
     "school": "Tennessee State University",
@@ -2659,7 +2746,8 @@
     "enrollment": 4848,
     "latitude": 36.166321,
     "longitude": -86.828275,
-    "niche_grade": "C"
+    "niche_grade": "C",
+    "avg_sat_total": 1000
   },
   {
     "school": "Midwestern State University",
@@ -2708,7 +2796,8 @@
     "enrollment": 8150,
     "latitude": 30.042738,
     "longitude": -94.072244,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1061
   },
   {
     "school": "St Mary's University",
@@ -2732,7 +2821,8 @@
     "power6_utr_women": null,
     "enrollment": 1951,
     "latitude": 29.453244,
-    "longitude": -98.562778
+    "longitude": -98.562778,
+    "avg_sat_total": 1089
   },
   {
     "school": "Texas Tech University",
@@ -2752,12 +2842,13 @@
     "bottom_lineup_utr_men": 12.64,
     "top_lineup_utr_women": 10,
     "bottom_lineup_utr_women": 9.48,
-    "power6_utr_men": 76.50,
+    "power6_utr_men": 76.5,
     "power6_utr_women": 60.3,
     "enrollment": 32394,
     "latitude": 33.583448,
     "longitude": -101.874783,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1190
   },
   {
     "school": "Rice University",
@@ -2782,7 +2873,8 @@
     "enrollment": 4776,
     "latitude": 29.717897,
     "longitude": -95.402035,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1553
   },
   {
     "school": "University of Texas at San Antonio",
@@ -2807,7 +2899,8 @@
     "enrollment": 30580,
     "latitude": 29.583709,
     "longitude": -98.620657,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1105
   },
   {
     "school": "University of Texas Rio Grande Valley",
@@ -2832,7 +2925,8 @@
     "enrollment": 28666,
     "latitude": 26.306759,
     "longitude": -98.173567,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 985
   },
   {
     "school": "University of Texas at Tyler",
@@ -2856,7 +2950,8 @@
     "power6_utr_women": 50.27,
     "enrollment": 7440,
     "latitude": 32.315772,
-    "longitude": -95.254337
+    "longitude": -95.254337,
+    "avg_sat_total": 1114
   },
   {
     "school": "Weber State University",
@@ -2931,7 +3026,8 @@
     "enrollment": 5392,
     "latitude": 36.848429,
     "longitude": -76.261375,
-    "niche_grade": "C+"
+    "niche_grade": "C+",
+    "avg_sat_total": 927
   },
   {
     "school": "George Mason University",
@@ -2956,7 +3052,8 @@
     "enrollment": 27752,
     "latitude": 38.83195,
     "longitude": -77.307063,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1274
   },
   {
     "school": "Eastern Washington University",
@@ -3006,7 +3103,8 @@
     "enrollment": 4062,
     "latitude": 47.608859,
     "longitude": -122.318851,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1307
   },
   {
     "school": "Fairmont State University",
@@ -3030,7 +3128,8 @@
     "power6_utr_women": null,
     "enrollment": 2590,
     "latitude": 39.483079,
-    "longitude": -80.162433
+    "longitude": -80.162433,
+    "avg_sat_total": 996
   },
   {
     "school": "Salem International University",
@@ -3099,7 +3198,8 @@
     "power6_utr_women": null,
     "enrollment": 1366,
     "latitude": 42.642255,
-    "longitude": -95.208529
+    "longitude": -95.208529,
+    "avg_sat_total": 1120
   },
   {
     "school": "Central College",
@@ -3123,7 +3223,8 @@
     "power6_utr_women": null,
     "enrollment": 1070,
     "latitude": 41.401539,
-    "longitude": -92.922199
+    "longitude": -92.922199,
+    "avg_sat_total": 1147
   },
   {
     "school": "Coe College",
@@ -3147,7 +3248,8 @@
     "power6_utr_women": null,
     "enrollment": 1164,
     "latitude": 41.988263,
-    "longitude": -91.658192
+    "longitude": -91.658192,
+    "avg_sat_total": 1223
   },
   {
     "school": "Cornell College",
@@ -3171,7 +3273,8 @@
     "power6_utr_women": null,
     "enrollment": 1086,
     "latitude": 41.924554,
-    "longitude": -91.423741
+    "longitude": -91.423741,
+    "avg_sat_total": 1234
   },
   {
     "school": "Grand View University",
@@ -3195,7 +3298,8 @@
     "power6_utr_women": null,
     "enrollment": 1486,
     "latitude": 41.620039,
-    "longitude": -93.600954
+    "longitude": -93.600954,
+    "avg_sat_total": 1000
   },
   {
     "school": "Grinnell College",
@@ -3219,7 +3323,8 @@
     "power6_utr_women": null,
     "enrollment": 1729,
     "latitude": 41.747952,
-    "longitude": -92.722094
+    "longitude": -92.722094,
+    "avg_sat_total": 1486
   },
   {
     "school": "Iowa Central CC",
@@ -3265,7 +3370,8 @@
     "enrollment": 25367,
     "latitude": 42.026212,
     "longitude": -93.648504,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1204
   },
   {
     "school": "Loras College",
@@ -3313,7 +3419,8 @@
     "power6_utr_women": null,
     "enrollment": 1379,
     "latitude": 43.312304,
-    "longitude": -91.802809
+    "longitude": -91.802809,
+    "avg_sat_total": 1218
   },
   {
     "school": "Morningside College",
@@ -3358,7 +3465,8 @@
     "power6_utr_women": null,
     "enrollment": 1175,
     "latitude": 42.999007,
-    "longitude": -96.058772
+    "longitude": -96.058772,
+    "avg_sat_total": 1090
   },
   {
     "school": "Saint Ambrose University",
@@ -3382,7 +3490,8 @@
     "power6_utr_women": null,
     "enrollment": 1916,
     "latitude": 41.54065,
-    "longitude": -90.579854
+    "longitude": -90.579854,
+    "avg_sat_total": 1093
   },
   {
     "school": "Simpson College",
@@ -3406,7 +3515,8 @@
     "power6_utr_women": null,
     "enrollment": 1227,
     "latitude": 41.365503,
-    "longitude": -93.563471
+    "longitude": -93.563471,
+    "avg_sat_total": 1440
   },
   {
     "school": "University of Dubuque",
@@ -3430,7 +3540,8 @@
     "power6_utr_women": null,
     "enrollment": 1440,
     "latitude": 42.49726,
-    "longitude": -90.693428
+    "longitude": -90.693428,
+    "avg_sat_total": 1110
   },
   {
     "school": "University of Iowa",
@@ -3455,7 +3566,8 @@
     "enrollment": 22264,
     "latitude": 41.661935,
     "longitude": -91.536425,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1200
   },
   {
     "school": "University of Northern Iowa",
@@ -3480,7 +3592,8 @@
     "enrollment": 7529,
     "latitude": 42.514923,
     "longitude": -92.459703,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1122
   },
   {
     "school": "Upper Iowa University",
@@ -3504,7 +3617,8 @@
     "power6_utr_women": null,
     "enrollment": 1994,
     "latitude": 42.838283,
-    "longitude": -91.799543
+    "longitude": -91.799543,
+    "avg_sat_total": 1090
   },
   {
     "school": "Wartburg College",
@@ -3528,7 +3642,8 @@
     "power6_utr_women": null,
     "enrollment": 1452,
     "latitude": 42.7277,
-    "longitude": -92.483387
+    "longitude": -92.483387,
+    "avg_sat_total": 1136
   },
   {
     "school": "Augustana College",
@@ -3552,7 +3667,8 @@
     "power6_utr_women": null,
     "enrollment": 2490,
     "latitude": 41.502365,
-    "longitude": -90.55057
+    "longitude": -90.55057,
+    "avg_sat_total": 1165
   },
   {
     "school": "Blackburn College",
@@ -3576,7 +3692,8 @@
     "power6_utr_women": null,
     "enrollment": 471,
     "latitude": 39.287896,
-    "longitude": -89.870241
+    "longitude": -89.870241,
+    "avg_sat_total": 1007
   },
   {
     "school": "Bradley University",
@@ -3601,7 +3718,8 @@
     "enrollment": 3574,
     "latitude": 40.696896,
     "longitude": -89.616786,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1170
   },
   {
     "school": "College of DuPage",
@@ -3697,7 +3815,8 @@
     "power6_utr_women": null,
     "enrollment": 2561,
     "latitude": 41.902678,
-    "longitude": -87.823003
+    "longitude": -87.823003,
+    "avg_sat_total": 1002
   },
   {
     "school": "Elgin CC",
@@ -3763,7 +3882,8 @@
     "power6_utr_women": null,
     "enrollment": 955,
     "latitude": 38.894162,
-    "longitude": -89.40824
+    "longitude": -89.40824,
+    "avg_sat_total": 1038
   },
   {
     "school": "Illinois College",
@@ -3787,7 +3907,8 @@
     "power6_utr_women": null,
     "enrollment": 930,
     "latitude": 39.7313,
-    "longitude": -90.246171
+    "longitude": -90.246171,
+    "avg_sat_total": 1064
   },
   {
     "school": "Illinois Institute of Technology",
@@ -3811,7 +3932,8 @@
     "power6_utr_women": null,
     "enrollment": 2833,
     "latitude": 41.8313,
-    "longitude": -87.627321
+    "longitude": -87.627321,
+    "avg_sat_total": 1311
   },
   {
     "school": "Illinois Valley CC",
@@ -3856,7 +3978,8 @@
     "power6_utr_women": null,
     "enrollment": 1582,
     "latitude": 40.489901,
-    "longitude": -88.992014
+    "longitude": -88.992014,
+    "avg_sat_total": 1275
   },
   {
     "school": "Judson University",
@@ -3880,7 +4003,8 @@
     "power6_utr_women": null,
     "enrollment": 708,
     "latitude": 42.061754,
-    "longitude": -88.291336
+    "longitude": -88.291336,
+    "avg_sat_total": 1039
   },
   {
     "school": "Kaskaskia College",
@@ -3928,7 +4052,8 @@
     "power6_utr_women": null,
     "enrollment": 1127,
     "latitude": 40.943064,
-    "longitude": -90.373165
+    "longitude": -90.373165,
+    "avg_sat_total": 1326
   },
   {
     "school": "Lake Forest College",
@@ -3952,7 +4077,8 @@
     "power6_utr_women": null,
     "enrollment": 1813,
     "latitude": 42.249574,
-    "longitude": -87.827454
+    "longitude": -87.827454,
+    "avg_sat_total": 1343
   },
   {
     "school": "Lewis and Clark CC",
@@ -4045,7 +4171,8 @@
     "power6_utr_women": null,
     "enrollment": 1382,
     "latitude": 39.842612,
-    "longitude": -88.976298
+    "longitude": -88.976298,
+    "avg_sat_total": 1034
   },
   {
     "school": "Monmouth College",
@@ -4069,7 +4196,8 @@
     "power6_utr_women": null,
     "enrollment": 702,
     "latitude": 40.914824,
-    "longitude": -90.63731
+    "longitude": -90.63731,
+    "avg_sat_total": 1128
   },
   {
     "school": "Moraine Valley CC",
@@ -4114,7 +4242,8 @@
     "power6_utr_women": null,
     "enrollment": 2428,
     "latitude": 41.77576,
-    "longitude": -88.14279
+    "longitude": -88.14279,
+    "avg_sat_total": 1213
   },
   {
     "school": "North Park University",
@@ -4138,7 +4267,8 @@
     "power6_utr_women": null,
     "enrollment": 1818,
     "latitude": 41.975268,
-    "longitude": -87.709948
+    "longitude": -87.709948,
+    "avg_sat_total": 1026
   },
   {
     "school": "Northwestern University",
@@ -4163,7 +4293,8 @@
     "enrollment": 9201,
     "latitude": 42.050356,
     "longitude": -87.679858,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1533
   },
   {
     "school": "Oakton CC",
@@ -4208,7 +4339,8 @@
     "power6_utr_women": null,
     "enrollment": 2603,
     "latitude": 41.155237,
-    "longitude": -87.875165
+    "longitude": -87.875165,
+    "avg_sat_total": 1117
   },
   {
     "school": "Prairie State College",
@@ -4256,7 +4388,8 @@
     "power6_utr_women": null,
     "enrollment": 339,
     "latitude": 38.948835,
-    "longitude": -90.350285
+    "longitude": -90.350285,
+    "avg_sat_total": 1111
   },
   {
     "school": "Quincy University",
@@ -4280,7 +4413,8 @@
     "power6_utr_women": null,
     "enrollment": 1010,
     "latitude": 39.938898,
-    "longitude": -91.385975
+    "longitude": -91.385975,
+    "avg_sat_total": 1098
   },
   {
     "school": "Roosevelt University",
@@ -4304,7 +4438,8 @@
     "power6_utr_women": null,
     "enrollment": 2849,
     "latitude": 41.876055,
-    "longitude": -87.624952
+    "longitude": -87.624952,
+    "avg_sat_total": 1011
   },
   {
     "school": "Sauk Valley CC",
@@ -4347,7 +4482,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1100
   },
   {
     "school": "University of Chicago",
@@ -4371,7 +4507,8 @@
     "power6_utr_women": null,
     "enrollment": 7569,
     "latitude": 41.787994,
-    "longitude": -87.599539
+    "longitude": -87.599539,
+    "avg_sat_total": 1554
   },
   {
     "school": "University of Illinois",
@@ -4415,7 +4552,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1250
   },
   {
     "school": "University of St Francis",
@@ -4439,7 +4577,8 @@
     "power6_utr_women": null,
     "enrollment": 1223,
     "latitude": 41.532225,
-    "longitude": -88.096057
+    "longitude": -88.096057,
+    "avg_sat_total": 1141
   },
   {
     "school": "Waubonsee CC",
@@ -4509,7 +4648,8 @@
     "power6_utr_women": null,
     "enrollment": 2121,
     "latitude": 41.870176,
-    "longitude": -88.099643
+    "longitude": -88.099643,
+    "avg_sat_total": 1380
   },
   {
     "school": "Anderson University",
@@ -4533,7 +4673,8 @@
     "power6_utr_women": null,
     "enrollment": 1057,
     "latitude": 40.112768,
-    "longitude": -85.664315
+    "longitude": -85.664315,
+    "avg_sat_total": 1035
   },
   {
     "school": "Bethel College",
@@ -4579,7 +4720,8 @@
     "enrollment": 4317,
     "latitude": 39.8374,
     "longitude": -86.172167,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1274
   },
   {
     "school": "DePauw University",
@@ -4603,7 +4745,8 @@
     "power6_utr_women": null,
     "enrollment": 1905,
     "latitude": 39.640904,
-    "longitude": -86.860363
+    "longitude": -86.860363,
+    "avg_sat_total": 1340
   },
   {
     "school": "Earlham College",
@@ -4627,7 +4770,8 @@
     "power6_utr_women": null,
     "enrollment": 670,
     "latitude": 39.823431,
-    "longitude": -84.915037
+    "longitude": -84.915037,
+    "avg_sat_total": 1219
   },
   {
     "school": "Franklin College",
@@ -4651,7 +4795,8 @@
     "power6_utr_women": null,
     "enrollment": 900,
     "latitude": 39.478298,
-    "longitude": -86.047182
+    "longitude": -86.047182,
+    "avg_sat_total": 1145
   },
   {
     "school": "Goshen College",
@@ -4675,7 +4820,8 @@
     "power6_utr_women": null,
     "enrollment": 773,
     "latitude": 41.563582,
-    "longitude": -85.827795
+    "longitude": -85.827795,
+    "avg_sat_total": 950
   },
   {
     "school": "Grace College",
@@ -4720,7 +4866,8 @@
     "power6_utr_women": null,
     "enrollment": 1031,
     "latitude": 38.715642,
-    "longitude": -85.460051
+    "longitude": -85.460051,
+    "avg_sat_total": 1201
   },
   {
     "school": "Holy Cross College",
@@ -4744,7 +4891,8 @@
     "power6_utr_women": null,
     "enrollment": 639,
     "latitude": 41.698996,
-    "longitude": -86.253822
+    "longitude": -86.253822,
+    "avg_sat_total": 1215
   },
   {
     "school": "Huntington University",
@@ -4768,7 +4916,8 @@
     "power6_utr_women": null,
     "enrollment": 1082,
     "latitude": 40.898152,
-    "longitude": -85.497317
+    "longitude": -85.497317,
+    "avg_sat_total": 1052
   },
   {
     "school": "Indiana University-East",
@@ -4792,7 +4941,8 @@
     "power6_utr_women": null,
     "enrollment": 2589,
     "latitude": 39.868707,
-    "longitude": -84.881923
+    "longitude": -84.881923,
+    "avg_sat_total": 1061
   },
   {
     "school": "Indiana University-Kokomo",
@@ -4816,7 +4966,8 @@
     "power6_utr_women": null,
     "enrollment": 2352,
     "latitude": 40.460062,
-    "longitude": -86.132048
+    "longitude": -86.132048,
+    "avg_sat_total": 1065
   },
   {
     "school": "Indiana University-Northwest",
@@ -4840,7 +4991,8 @@
     "power6_utr_women": null,
     "enrollment": 2661,
     "latitude": 41.557324,
-    "longitude": -87.337249
+    "longitude": -87.337249,
+    "avg_sat_total": 1055
   },
   {
     "school": "Indiana University-South Bend",
@@ -4864,7 +5016,8 @@
     "power6_utr_women": null,
     "enrollment": 3933,
     "latitude": 41.665324,
-    "longitude": -86.221991
+    "longitude": -86.221991,
+    "avg_sat_total": 1081
   },
   {
     "school": "Indiana University-Southeast",
@@ -4888,7 +5041,8 @@
     "power6_utr_women": null,
     "enrollment": 3170,
     "latitude": 38.345191,
-    "longitude": -85.819985
+    "longitude": -85.819985,
+    "avg_sat_total": 1072
   },
   {
     "school": "Manchester University",
@@ -4960,7 +5114,8 @@
     "power6_utr_women": null,
     "enrollment": 499,
     "latitude": 38.340891,
-    "longitude": -87.35144
+    "longitude": -87.35144,
+    "avg_sat_total": 1070
   },
   {
     "school": "Rose-Hulman Institute of Technology",
@@ -4984,7 +5139,8 @@
     "power6_utr_women": null,
     "enrollment": 2309,
     "latitude": 39.483602,
-    "longitude": -87.326749
+    "longitude": -87.326749,
+    "avg_sat_total": 1427
   },
   {
     "school": "Saint Mary's College",
@@ -5008,7 +5164,8 @@
     "power6_utr_women": null,
     "enrollment": 1458,
     "latitude": 41.707274,
-    "longitude": -86.256947
+    "longitude": -86.256947,
+    "avg_sat_total": 1246
   },
   {
     "school": "Trine University",
@@ -5032,7 +5189,8 @@
     "power6_utr_women": null,
     "enrollment": 2324,
     "latitude": 41.632502,
-    "longitude": -85.008009
+    "longitude": -85.008009,
+    "avg_sat_total": 1135
   },
   {
     "school": "University of Notre Dame",
@@ -5057,7 +5215,8 @@
     "enrollment": 8818,
     "latitude": 41.703058,
     "longitude": -86.238959,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1520
   },
   {
     "school": "University of Saint Francis",
@@ -5103,7 +5262,8 @@
     "enrollment": 2083,
     "latitude": 41.462239,
     "longitude": -87.040172,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1178
   },
   {
     "school": "Wabash College",
@@ -5127,7 +5287,8 @@
     "power6_utr_women": null,
     "enrollment": 866,
     "latitude": 40.037588,
-    "longitude": -86.906
+    "longitude": -86.906,
+    "avg_sat_total": 1180
   },
   {
     "school": "Baker University",
@@ -5151,7 +5312,8 @@
     "power6_utr_women": null,
     "enrollment": 1100,
     "latitude": 38.778712,
-    "longitude": -95.187346
+    "longitude": -95.187346,
+    "avg_sat_total": 1050
   },
   {
     "school": "Barton County CC",
@@ -5196,7 +5358,8 @@
     "power6_utr_women": null,
     "enrollment": 569,
     "latitude": 38.580598,
-    "longitude": -97.67367
+    "longitude": -97.67367,
+    "avg_sat_total": 913
   },
   {
     "school": "Cowley College",
@@ -5241,7 +5404,8 @@
     "power6_utr_women": null,
     "enrollment": 9733,
     "latitude": 38.872156,
-    "longitude": -99.342503
+    "longitude": -99.342503,
+    "avg_sat_total": 1089
   },
   {
     "school": "Friends University",
@@ -5265,7 +5429,8 @@
     "power6_utr_women": null,
     "enrollment": 1048,
     "latitude": 37.678459,
-    "longitude": -97.367048
+    "longitude": -97.367048,
+    "avg_sat_total": 1080
   },
   {
     "school": "Kansas State University",
@@ -5290,7 +5455,8 @@
     "enrollment": 15142,
     "latitude": 39.188648,
     "longitude": -96.581077,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1151
   },
   {
     "school": "Kansas Wesleyan University",
@@ -5338,7 +5504,8 @@
     "power6_utr_women": null,
     "enrollment": 872,
     "latitude": 38.371422,
-    "longitude": -97.642996
+    "longitude": -97.642996,
+    "avg_sat_total": 1058
   },
   {
     "school": "Newman University",
@@ -5407,7 +5574,8 @@
     "power6_utr_women": null,
     "enrollment": 924,
     "latitude": 37.248608,
-    "longitude": -96.975405
+    "longitude": -96.975405,
+    "avg_sat_total": 1015
   },
   {
     "school": "Sterling College",
@@ -5431,7 +5599,8 @@
     "power6_utr_women": null,
     "enrollment": 538,
     "latitude": 38.219937,
-    "longitude": -98.208644
+    "longitude": -98.208644,
+    "avg_sat_total": 1082
   },
   {
     "school": "Tabor College",
@@ -5480,7 +5649,8 @@
     "enrollment": 21217,
     "latitude": 38.958549,
     "longitude": -95.247567,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1190
   },
   {
     "school": "Washburn University",
@@ -5552,7 +5722,8 @@
     "power6_utr_women": null,
     "enrollment": 1513,
     "latitude": 37.57202,
-    "longitude": -84.292893
+    "longitude": -84.292893,
+    "avg_sat_total": 1249
   },
   {
     "school": "Brescia University",
@@ -5576,7 +5747,8 @@
     "power6_utr_women": null,
     "enrollment": 545,
     "latitude": 37.769041,
-    "longitude": -87.111639
+    "longitude": -87.111639,
+    "avg_sat_total": 1055
   },
   {
     "school": "Campbellsville University",
@@ -5624,7 +5796,8 @@
     "power6_utr_women": null,
     "enrollment": 1400,
     "latitude": 37.645709,
-    "longitude": -84.779392
+    "longitude": -84.779392,
+    "avg_sat_total": 1352
   },
   {
     "school": "Georgetown College",
@@ -5648,7 +5821,8 @@
     "power6_utr_women": null,
     "enrollment": 1097,
     "latitude": 38.207615,
-    "longitude": -84.553767
+    "longitude": -84.553767,
+    "avg_sat_total": 1138
   },
   {
     "school": "Kentucky Wesleyan College",
@@ -5672,7 +5846,8 @@
     "power6_utr_women": null,
     "enrollment": 842,
     "latitude": 37.744489,
-    "longitude": -87.119658
+    "longitude": -87.119658,
+    "avg_sat_total": 1044
   },
   {
     "school": "Lindsey Wilson College",
@@ -5717,7 +5892,8 @@
     "power6_utr_women": null,
     "enrollment": 1262,
     "latitude": 38.146126,
-    "longitude": -84.678142
+    "longitude": -84.678142,
+    "avg_sat_total": 1122
   },
   {
     "school": "Murray State University",
@@ -5742,7 +5918,8 @@
     "enrollment": 6688,
     "latitude": 36.612419,
     "longitude": -88.323629,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1133
   },
   {
     "school": "Thomas More College",
@@ -5787,7 +5964,8 @@
     "power6_utr_women": null,
     "enrollment": 1005,
     "latitude": 38.052983,
-    "longitude": -84.493202
+    "longitude": -84.493202,
+    "avg_sat_total": 1287
   },
   {
     "school": "Union College",
@@ -5833,7 +6011,8 @@
     "enrollment": 24763,
     "latitude": 38.038911,
     "longitude": -84.504747,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1215
   },
   {
     "school": "University of Louisville",
@@ -5858,7 +6037,8 @@
     "enrollment": 14727,
     "latitude": 38.216862,
     "longitude": -85.760412,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1150
   },
   {
     "school": "University of Pikeville",
@@ -5906,7 +6086,8 @@
     "power6_utr_women": null,
     "enrollment": 6941,
     "latitude": 36.737048,
-    "longitude": -84.161646
+    "longitude": -84.161646,
+    "avg_sat_total": 1070
   },
   {
     "school": "Western Kentucky University",
@@ -5931,7 +6112,8 @@
     "enrollment": 12155,
     "latitude": 36.985035,
     "longitude": -86.456828,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 971
   },
   {
     "school": "Adrian College",
@@ -5955,7 +6137,8 @@
     "power6_utr_women": null,
     "enrollment": 1604,
     "latitude": 41.898591,
-    "longitude": -84.061481
+    "longitude": -84.061481,
+    "avg_sat_total": 1034
   },
   {
     "school": "Albion College",
@@ -6027,7 +6210,8 @@
     "power6_utr_women": null,
     "enrollment": 1083,
     "latitude": 42.96019,
-    "longitude": -85.628785
+    "longitude": -85.628785,
+    "avg_sat_total": 1025
   },
   {
     "school": "Calvin College",
@@ -6096,7 +6280,8 @@
     "power6_utr_women": null,
     "enrollment": 1298,
     "latitude": 42.979966,
-    "longitude": -85.595328
+    "longitude": -85.595328,
+    "avg_sat_total": 1095
   },
   {
     "school": "Eastern Michigan University",
@@ -6121,7 +6306,8 @@
     "enrollment": 10055,
     "latitude": 42.251675,
     "longitude": -83.627443,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1066
   },
   {
     "school": "Ferris State University",
@@ -6145,7 +6331,8 @@
     "power6_utr_women": 45.91,
     "enrollment": 8106,
     "latitude": 43.687724,
-    "longitude": -85.481925
+    "longitude": -85.481925,
+    "avg_sat_total": 1012
   },
   {
     "school": "Grace Christian University",
@@ -6193,7 +6380,8 @@
     "power6_utr_women": null,
     "enrollment": 1573,
     "latitude": 41.933682,
-    "longitude": -84.633195
+    "longitude": -84.633195,
+    "avg_sat_total": 1415
   },
   {
     "school": "Hope College",
@@ -6217,7 +6405,8 @@
     "power6_utr_women": null,
     "enrollment": 3288,
     "latitude": 42.787247,
-    "longitude": -86.100971
+    "longitude": -86.100971,
+    "avg_sat_total": 1249
   },
   {
     "school": "Kalamazoo College",
@@ -6241,7 +6430,8 @@
     "power6_utr_women": null,
     "enrollment": 1149,
     "latitude": 42.290789,
-    "longitude": -85.601857
+    "longitude": -85.601857,
+    "avg_sat_total": 1280
   },
   {
     "school": "Northwood University",
@@ -6290,7 +6480,8 @@
     "enrollment": 12351,
     "latitude": 42.674573,
     "longitude": -83.216418,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1120
   },
   {
     "school": "Olivet College",
@@ -6335,7 +6526,8 @@
     "power6_utr_women": null,
     "enrollment": 5989,
     "latitude": 43.51176,
-    "longitude": -83.964273
+    "longitude": -83.964273,
+    "avg_sat_total": 1052
   },
   {
     "school": "Spring Arbor University",
@@ -6359,7 +6551,8 @@
     "power6_utr_women": null,
     "enrollment": 1010,
     "latitude": 42.206568,
-    "longitude": -84.556074
+    "longitude": -84.556074,
+    "avg_sat_total": 1170
   },
   {
     "school": "University of Michigan",
@@ -6381,7 +6574,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1102
   },
   {
     "school": "Wayne State University",
@@ -6405,7 +6599,8 @@
     "power6_utr_women": null,
     "enrollment": 15587,
     "latitude": 42.358994,
-    "longitude": -83.068998
+    "longitude": -83.068998,
+    "avg_sat_total": 1156
   },
   {
     "school": "Western Michigan University",
@@ -6430,7 +6625,8 @@
     "enrollment": 12568,
     "latitude": 42.282194,
     "longitude": -85.613759,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1110
   },
   {
     "school": "Bemidji State University",
@@ -6454,7 +6650,8 @@
     "power6_utr_women": null,
     "enrollment": 3139,
     "latitude": 47.482341,
-    "longitude": -94.874119
+    "longitude": -94.874119,
+    "avg_sat_total": 1090
   },
   {
     "school": "Bethany Lutheran College",
@@ -6478,7 +6675,8 @@
     "power6_utr_women": null,
     "enrollment": 669,
     "latitude": 44.166649,
-    "longitude": -93.990805
+    "longitude": -93.990805,
+    "avg_sat_total": 1150
   },
   {
     "school": "Carleton College",
@@ -6502,7 +6700,8 @@
     "power6_utr_women": null,
     "enrollment": 2086,
     "latitude": 44.462318,
-    "longitude": -93.154666
+    "longitude": -93.154666,
+    "avg_sat_total": 1517
   },
   {
     "school": "College of Saint Benedict",
@@ -6526,7 +6725,8 @@
     "power6_utr_women": null,
     "enrollment": 1370,
     "latitude": 45.561792,
-    "longitude": -94.319888
+    "longitude": -94.319888,
+    "avg_sat_total": 1151
   },
   {
     "school": "College of Saint Scholastica",
@@ -6550,7 +6750,8 @@
     "power6_utr_women": null,
     "enrollment": 1765,
     "latitude": 46.816082,
-    "longitude": -92.106134
+    "longitude": -92.106134,
+    "avg_sat_total": 1120
   },
   {
     "school": "Concordia College at Moorhead",
@@ -6574,7 +6775,8 @@
     "power6_utr_women": null,
     "enrollment": 1829,
     "latitude": 46.862482,
-    "longitude": -96.76749
+    "longitude": -96.76749,
+    "avg_sat_total": 1190
   },
   {
     "school": "Crown College",
@@ -6622,7 +6824,8 @@
     "power6_utr_women": null,
     "enrollment": 1878,
     "latitude": 44.323626,
-    "longitude": -93.972196
+    "longitude": -93.972196,
+    "avg_sat_total": 1290
   },
   {
     "school": "Hamline University",
@@ -6646,7 +6849,8 @@
     "power6_utr_women": null,
     "enrollment": 1776,
     "latitude": 44.966246,
-    "longitude": -93.164479
+    "longitude": -93.164479,
+    "avg_sat_total": 1160
   },
   {
     "school": "Macalester College",
@@ -6670,7 +6874,8 @@
     "power6_utr_women": null,
     "enrollment": 2131,
     "latitude": 44.938565,
-    "longitude": -93.168053
+    "longitude": -93.168053,
+    "avg_sat_total": 1440
   },
   {
     "school": "Martin Luther College",
@@ -6694,7 +6899,8 @@
     "power6_utr_women": null,
     "enrollment": 725,
     "latitude": 44.30526,
-    "longitude": -94.472326
+    "longitude": -94.472326,
+    "avg_sat_total": 1090
   },
   {
     "school": "Minnesota State University Moorhead",
@@ -6718,7 +6924,8 @@
     "power6_utr_women": null,
     "enrollment": 3072,
     "latitude": 46.867153,
-    "longitude": -96.759532
+    "longitude": -96.759532,
+    "avg_sat_total": 1090
   },
   {
     "school": "Minnesota State University-Mankato",
@@ -6742,7 +6949,8 @@
     "power6_utr_women": null,
     "enrollment": 11703,
     "latitude": 44.146712,
-    "longitude": -93.99945
+    "longitude": -93.99945,
+    "avg_sat_total": 1150
   },
   {
     "school": "North Central University",
@@ -6790,7 +6998,8 @@
     "power6_utr_women": null,
     "enrollment": 5088,
     "latitude": 45.553227,
-    "longitude": -94.152657
+    "longitude": -94.152657,
+    "avg_sat_total": 1092
   },
   {
     "school": "Saint John's University",
@@ -6811,7 +7020,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1183
   },
   {
     "school": "Saint Mary's University of Minnesota",
@@ -6856,7 +7066,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1050
   },
   {
     "school": "St Catherine University",
@@ -6880,7 +7091,8 @@
     "power6_utr_women": null,
     "enrollment": 2473,
     "latitude": 44.924926,
-    "longitude": -93.183761
+    "longitude": -93.183761,
+    "avg_sat_total": 1147
   },
   {
     "school": "St Olaf College",
@@ -6904,7 +7116,8 @@
     "power6_utr_women": null,
     "enrollment": 3093,
     "latitude": 44.461529,
-    "longitude": -93.182039
+    "longitude": -93.182039,
+    "avg_sat_total": 1380
   },
   {
     "school": "University of Minnesota",
@@ -6974,7 +7187,8 @@
     "power6_utr_women": null,
     "enrollment": 7336,
     "latitude": 46.817126,
-    "longitude": -92.084385
+    "longitude": -92.084385,
+    "avg_sat_total": 1251
   },
   {
     "school": "University of Minnesota-Morris",
@@ -6998,7 +7212,8 @@
     "power6_utr_women": null,
     "enrollment": 936,
     "latitude": 45.589775,
-    "longitude": -95.899729
+    "longitude": -95.899729,
+    "avg_sat_total": 1150
   },
   {
     "school": "University of Northwestern",
@@ -7043,7 +7258,8 @@
     "power6_utr_women": null,
     "enrollment": 6245,
     "latitude": 44.943439,
-    "longitude": -93.188986
+    "longitude": -93.188986,
+    "avg_sat_total": 1296
   },
   {
     "school": "Winona State University",
@@ -7067,7 +7283,8 @@
     "power6_utr_women": null,
     "enrollment": 5144,
     "latitude": 44.046159,
-    "longitude": -91.643723
+    "longitude": -91.643723,
+    "avg_sat_total": 1125
   },
   {
     "school": "Evangel University",
@@ -7091,7 +7308,8 @@
     "power6_utr_women": null,
     "enrollment": 1229,
     "latitude": 37.220956,
-    "longitude": -93.262614
+    "longitude": -93.262614,
+    "avg_sat_total": 1188
   },
   {
     "school": "Fontbonne University",
@@ -7136,7 +7354,8 @@
     "power6_utr_women": null,
     "enrollment": 4624,
     "latitude": 38.785425,
-    "longitude": -90.501286
+    "longitude": -90.501286,
+    "avg_sat_total": 1190
   },
   {
     "school": "Maryville University of Saint Louis",
@@ -7160,7 +7379,8 @@
     "power6_utr_women": null,
     "enrollment": 5658,
     "latitude": 38.644774,
-    "longitude": -90.505998
+    "longitude": -90.505998,
+    "avg_sat_total": 1115
   },
   {
     "school": "Missouri Baptist University",
@@ -7184,7 +7404,8 @@
     "power6_utr_women": null,
     "enrollment": 1488,
     "latitude": 38.641526,
-    "longitude": -90.462586
+    "longitude": -90.462586,
+    "avg_sat_total": 910
   },
   {
     "school": "Missouri State University",
@@ -7230,7 +7451,8 @@
     "power6_utr_women": null,
     "enrollment": 1443,
     "latitude": 39.108522,
-    "longitude": -93.190654
+    "longitude": -93.190654,
+    "avg_sat_total": 974
   },
   {
     "school": "Missouri Western State University",
@@ -7278,7 +7500,8 @@
     "power6_utr_women": null,
     "enrollment": 1580,
     "latitude": 39.032318,
-    "longitude": -94.573003
+    "longitude": -94.573003,
+    "avg_sat_total": 1120
   },
   {
     "school": "Saint Louis University",
@@ -7303,7 +7526,8 @@
     "enrollment": 7267,
     "latitude": 38.636801,
     "longitude": -90.2351,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1317
   },
   {
     "school": "Southeast Missouri State University",
@@ -7328,7 +7552,8 @@
     "enrollment": 6373,
     "latitude": 37.311107,
     "longitude": -89.531187,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 950
   },
   {
     "school": "Southwest Baptist University",
@@ -7352,7 +7577,8 @@
     "power6_utr_women": null,
     "enrollment": 1341,
     "latitude": 37.602425,
-    "longitude": -93.407056
+    "longitude": -93.407056,
+    "avg_sat_total": 1088
   },
   {
     "school": "St Louis College of Pharmacy",
@@ -7397,7 +7623,8 @@
     "power6_utr_women": null,
     "enrollment": 2513,
     "latitude": 40.188267,
-    "longitude": -92.581658
+    "longitude": -92.581658,
+    "avg_sat_total": 1320
   },
   {
     "school": "University of Missouri",
@@ -7444,7 +7671,8 @@
     "enrollment": 6817,
     "latitude": 39.034179,
     "longitude": -94.582141,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1204
   },
   {
     "school": "Washington University in St Louis",
@@ -7468,7 +7696,8 @@
     "power6_utr_women": null,
     "enrollment": 7857,
     "latitude": 38.647929,
-    "longitude": -90.310604
+    "longitude": -90.310604,
+    "avg_sat_total": 1530
   },
   {
     "school": "Webster University",
@@ -7492,7 +7721,8 @@
     "power6_utr_women": null,
     "enrollment": 2304,
     "latitude": 38.588875,
-    "longitude": -90.345151
+    "longitude": -90.345151,
+    "avg_sat_total": 1102
   },
   {
     "school": "Westminster College",
@@ -7516,7 +7746,8 @@
     "power6_utr_women": null,
     "enrollment": 638,
     "latitude": 38.849354,
-    "longitude": -91.955273
+    "longitude": -91.955273,
+    "avg_sat_total": 1118
   },
   {
     "school": "William Jewell College",
@@ -7540,7 +7771,8 @@
     "power6_utr_women": null,
     "enrollment": 924,
     "latitude": 39.247844,
-    "longitude": -94.413126
+    "longitude": -94.413126,
+    "avg_sat_total": 1095
   },
   {
     "school": "University of Mary",
@@ -7564,7 +7796,8 @@
     "power6_utr_women": null,
     "enrollment": 2416,
     "latitude": 46.723767,
-    "longitude": -100.75274
+    "longitude": -100.75274,
+    "avg_sat_total": 1159
   },
   {
     "school": "College of Saint Mary",
@@ -7588,7 +7821,8 @@
     "power6_utr_women": null,
     "enrollment": 445,
     "latitude": 41.240028,
-    "longitude": -96.021425
+    "longitude": -96.021425,
+    "avg_sat_total": 1150
   },
   {
     "school": "Concordia University-Nebraska",
@@ -7612,7 +7846,8 @@
     "power6_utr_women": null,
     "enrollment": 1283,
     "latitude": 40.914853,
-    "longitude": -97.089054
+    "longitude": -97.089054,
+    "avg_sat_total": 1125
   },
   {
     "school": "Doane University",
@@ -7660,7 +7895,8 @@
     "power6_utr_women": null,
     "enrollment": 891,
     "latitude": 40.59025,
-    "longitude": -98.374403
+    "longitude": -98.374403,
+    "avg_sat_total": 1320
   },
   {
     "school": "Midland University",
@@ -7684,7 +7920,8 @@
     "power6_utr_women": null,
     "enrollment": 1159,
     "latitude": 41.43674,
-    "longitude": -96.488008
+    "longitude": -96.488008,
+    "avg_sat_total": 1086
   },
   {
     "school": "Nebraska Wesleyan University",
@@ -7708,7 +7945,8 @@
     "power6_utr_women": null,
     "enrollment": 1453,
     "latitude": 40.839098,
-    "longitude": -96.64831
+    "longitude": -96.64831,
+    "avg_sat_total": 1189
   },
   {
     "school": "University of Nebraska at Kearney",
@@ -7732,7 +7970,8 @@
     "power6_utr_women": null,
     "enrollment": 4088,
     "latitude": 40.701452,
-    "longitude": -99.098699
+    "longitude": -99.098699,
+    "avg_sat_total": 1118
   },
   {
     "school": "Ashland University",
@@ -7756,7 +7995,8 @@
     "power6_utr_women": null,
     "enrollment": 2199,
     "latitude": 40.861755,
-    "longitude": -82.321061
+    "longitude": -82.321061,
+    "avg_sat_total": 1120
   },
   {
     "school": "Baldwin Wallace University",
@@ -7780,7 +8020,8 @@
     "power6_utr_women": null,
     "enrollment": 2842,
     "latitude": 41.373017,
-    "longitude": -81.851145
+    "longitude": -81.851145,
+    "avg_sat_total": 1194
   },
   {
     "school": "Bowling Green State University",
@@ -7805,7 +8046,8 @@
     "enrollment": 12812,
     "latitude": 41.375513,
     "longitude": -83.640896,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1117
   },
   {
     "school": "Capital University",
@@ -7829,7 +8071,8 @@
     "power6_utr_women": null,
     "enrollment": 1585,
     "latitude": 39.954875,
-    "longitude": -82.937867
+    "longitude": -82.937867,
+    "avg_sat_total": 1068
   },
   {
     "school": "Case Western Reserve University",
@@ -7853,7 +8096,8 @@
     "power6_utr_women": null,
     "enrollment": 6437,
     "latitude": 41.507419,
-    "longitude": -81.609596
+    "longitude": -81.609596,
+    "avg_sat_total": 1513
   },
   {
     "school": "Cedarville University",
@@ -7877,7 +8121,8 @@
     "power6_utr_women": null,
     "enrollment": 4024,
     "latitude": 39.749237,
-    "longitude": -83.814692
+    "longitude": -83.814692,
+    "avg_sat_total": 1241
   },
   {
     "school": "Cleveland State University",
@@ -7902,7 +8147,8 @@
     "enrollment": 8969,
     "latitude": 41.502281,
     "longitude": -81.674355,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1035
   },
   {
     "school": "College of Wooster",
@@ -7926,7 +8172,8 @@
     "power6_utr_women": null,
     "enrollment": 1730,
     "latitude": 40.81046,
-    "longitude": -81.934674
+    "longitude": -81.934674,
+    "avg_sat_total": 1353
   },
   {
     "school": "Defiance College",
@@ -7950,7 +8197,8 @@
     "power6_utr_women": null,
     "enrollment": 499,
     "latitude": 41.296842,
-    "longitude": -84.357075
+    "longitude": -84.357075,
+    "avg_sat_total": 985
   },
   {
     "school": "Denison University",
@@ -7974,7 +8222,8 @@
     "power6_utr_women": null,
     "enrollment": 2380,
     "latitude": 40.071505,
-    "longitude": -82.523272
+    "longitude": -82.523272,
+    "avg_sat_total": 1410
   },
   {
     "school": "Franciscan University of Steubenville",
@@ -7998,7 +8247,8 @@
     "power6_utr_women": null,
     "enrollment": 2901,
     "latitude": 40.376919,
-    "longitude": -80.620524
+    "longitude": -80.620524,
+    "avg_sat_total": 1220
   },
   {
     "school": "Heidelberg University",
@@ -8022,7 +8272,8 @@
     "power6_utr_women": null,
     "enrollment": 915,
     "latitude": 41.114833,
-    "longitude": -83.168387
+    "longitude": -83.168387,
+    "avg_sat_total": 1096
   },
   {
     "school": "John Carroll University",
@@ -8046,7 +8297,8 @@
     "power6_utr_women": null,
     "enrollment": 2274,
     "latitude": 41.490259,
-    "longitude": -81.531224
+    "longitude": -81.531224,
+    "avg_sat_total": 1298
   },
   {
     "school": "Kenyon College",
@@ -8070,7 +8322,8 @@
     "power6_utr_women": null,
     "enrollment": 1732,
     "latitude": 40.374408,
-    "longitude": -82.397977
+    "longitude": -82.397977,
+    "avg_sat_total": 1429
   },
   {
     "school": "Lourdes University",
@@ -8118,7 +8371,8 @@
     "power6_utr_women": null,
     "enrollment": 952,
     "latitude": 39.41668,
-    "longitude": -81.450045
+    "longitude": -81.450045,
+    "avg_sat_total": 1088
   },
   {
     "school": "Miami University",
@@ -8161,7 +8415,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1183
   },
   {
     "school": "Mount Vernon Nazarene University",
@@ -8185,7 +8440,8 @@
     "power6_utr_women": null,
     "enrollment": 1358,
     "latitude": 40.372901,
-    "longitude": -82.471074
+    "longitude": -82.471074,
+    "avg_sat_total": 1131
   },
   {
     "school": "Muskingum University",
@@ -8209,7 +8465,8 @@
     "power6_utr_women": null,
     "enrollment": 1376,
     "latitude": 39.996585,
-    "longitude": -81.737127
+    "longitude": -81.737127,
+    "avg_sat_total": 1017
   },
   {
     "school": "Notre Dame College",
@@ -8254,7 +8511,8 @@
     "power6_utr_women": null,
     "enrollment": 2887,
     "latitude": 41.291992,
-    "longitude": -82.216795
+    "longitude": -82.216795,
+    "avg_sat_total": 1447
   },
   {
     "school": "Ohio Christian University",
@@ -8302,7 +8560,8 @@
     "power6_utr_women": null,
     "enrollment": 2489,
     "latitude": 40.7662,
-    "longitude": -83.827441
+    "longitude": -83.827441,
+    "avg_sat_total": 1252
   },
   {
     "school": "Ohio State University",
@@ -8327,7 +8586,8 @@
     "enrollment": 45638,
     "latitude": 39.999803,
     "longitude": -83.007525,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1387
   },
   {
     "school": "Ohio Wesleyan University",
@@ -8351,7 +8611,8 @@
     "power6_utr_women": null,
     "enrollment": 1516,
     "latitude": 40.295963,
-    "longitude": -83.069757
+    "longitude": -83.069757,
+    "avg_sat_total": 1300
   },
   {
     "school": "Otterbein University",
@@ -8375,7 +8636,8 @@
     "power6_utr_women": null,
     "enrollment": 2157,
     "latitude": 40.125327,
-    "longitude": -82.936444
+    "longitude": -82.936444,
+    "avg_sat_total": 1220
   },
   {
     "school": "Shawnee State University",
@@ -8423,7 +8685,8 @@
     "power6_utr_women": null,
     "enrollment": 2051,
     "latitude": 41.118316,
-    "longitude": -83.184197
+    "longitude": -83.184197,
+    "avg_sat_total": 986
   },
   {
     "school": "Univ of Northwestern Ohio",
@@ -8469,7 +8732,8 @@
     "enrollment": 9052,
     "latitude": 41.075923,
     "longitude": -81.511167,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1081
   },
   {
     "school": "University of Cincinnati",
@@ -8494,7 +8758,8 @@
     "enrollment": 29882,
     "latitude": 39.131159,
     "longitude": -84.51428,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1282
   },
   {
     "school": "University of Dayton",
@@ -8519,7 +8784,8 @@
     "enrollment": 7682,
     "latitude": 39.739547,
     "longitude": -84.176113,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1335
   },
   {
     "school": "University of Findlay",
@@ -8543,7 +8809,8 @@
     "power6_utr_women": null,
     "enrollment": 2223,
     "latitude": 41.053344,
-    "longitude": -83.652313
+    "longitude": -83.652313,
+    "avg_sat_total": 1112
   },
   {
     "school": "University of Mount Union",
@@ -8567,7 +8834,8 @@
     "power6_utr_women": null,
     "enrollment": 1995,
     "latitude": 40.905256,
-    "longitude": -81.111029
+    "longitude": -81.111029,
+    "avg_sat_total": 1088
   },
   {
     "school": "Ursuline College",
@@ -8591,7 +8859,8 @@
     "power6_utr_women": null,
     "enrollment": 670,
     "latitude": 41.497035,
-    "longitude": -81.465118
+    "longitude": -81.465118,
+    "avg_sat_total": 1097
   },
   {
     "school": "Walsh University",
@@ -8615,7 +8884,8 @@
     "power6_utr_women": null,
     "enrollment": 1390,
     "latitude": 40.873908,
-    "longitude": -81.369931
+    "longitude": -81.369931,
+    "avg_sat_total": 1193
   },
   {
     "school": "Wittenberg University",
@@ -8639,7 +8909,8 @@
     "power6_utr_women": null,
     "enrollment": 1215,
     "latitude": 39.934029,
-    "longitude": -83.815445
+    "longitude": -83.815445,
+    "avg_sat_total": 1179
   },
   {
     "school": "Wright State University",
@@ -8664,7 +8935,8 @@
     "enrollment": 6762,
     "latitude": 39.780634,
     "longitude": -84.064881,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1098
   },
   {
     "school": "Youngstown State University",
@@ -8689,7 +8961,8 @@
     "enrollment": 7961,
     "latitude": 41.104928,
     "longitude": -80.64659,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1120
   },
   {
     "school": "Mount Marty College",
@@ -8759,7 +9032,8 @@
     "enrollment": 5439,
     "latitude": 42.786019,
     "longitude": -96.925283,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1125
   },
   {
     "school": "AlvernoCollege",
@@ -8846,7 +9120,8 @@
     "power6_utr_women": null,
     "enrollment": 2523,
     "latitude": 43.004527,
-    "longitude": -88.228114
+    "longitude": -88.228114,
+    "avg_sat_total": 1190
   },
   {
     "school": "Carthage College",
@@ -8870,7 +9145,8 @@
     "power6_utr_women": null,
     "enrollment": 2660,
     "latitude": 42.622969,
-    "longitude": -87.820924
+    "longitude": -87.820924,
+    "avg_sat_total": 1150
   },
   {
     "school": "Concordia University-Wisconsin",
@@ -8894,7 +9170,8 @@
     "power6_utr_women": null,
     "enrollment": 2197,
     "latitude": 43.253387,
-    "longitude": -87.91552
+    "longitude": -87.91552,
+    "avg_sat_total": 1190
   },
   {
     "school": "Edgewood College",
@@ -8963,7 +9240,8 @@
     "power6_utr_women": null,
     "enrollment": 1396,
     "latitude": 44.261323,
-    "longitude": -88.397822
+    "longitude": -88.397822,
+    "avg_sat_total": 1350
   },
   {
     "school": "Marquette University",
@@ -8988,7 +9266,8 @@
     "enrollment": 7660,
     "latitude": 43.03903,
     "longitude": -87.927961,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1310
   },
   {
     "school": "Milwaukee Area Tech College",
@@ -9033,7 +9312,8 @@
     "power6_utr_women": null,
     "enrollment": 2654,
     "latitude": 43.045364,
-    "longitude": -87.907691
+    "longitude": -87.907691,
+    "avg_sat_total": 1283
   },
   {
     "school": "Ripon College",
@@ -9057,7 +9337,8 @@
     "power6_utr_women": null,
     "enrollment": 688,
     "latitude": 43.844135,
-    "longitude": -88.842333
+    "longitude": -88.842333,
+    "avg_sat_total": 1176
   },
   {
     "school": "Saint Norbert College",
@@ -9081,7 +9362,8 @@
     "power6_utr_women": null,
     "enrollment": 1662,
     "latitude": 44.44483,
-    "longitude": -88.067812
+    "longitude": -88.067812,
+    "avg_sat_total": 1182
   },
   {
     "school": "Univ of Wisconsin- Eau Claire",
@@ -9102,7 +9384,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1220
   },
   {
     "school": "Univ of Wisconsin- Whitewater",
@@ -9123,7 +9406,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1050
   },
   {
     "school": "Univ of Wisconsin-La Crosse",
@@ -9144,7 +9428,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1220
   },
   {
     "school": "Univ of Wisconsin-Milwaukee",
@@ -9166,7 +9451,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1090
   },
   {
     "school": "Univ of Wisconsin-Oshkosh",
@@ -9187,7 +9473,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1090
   },
   {
     "school": "Univ of Wisconsin-River Falls",
@@ -9208,7 +9495,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1150
   },
   {
     "school": "Univ of Wisconsin-Stevens Point",
@@ -9229,7 +9517,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1150
   },
   {
     "school": "Univ of Wisconsin-Stout",
@@ -9250,7 +9539,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1150
   },
   {
     "school": "Univ of Wisconsin-Superior",
@@ -9271,7 +9561,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1090
   },
   {
     "school": "University of Wisconsin",
@@ -9293,7 +9584,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1150
   },
   {
     "school": "Wisconsin Lutheran College",
@@ -9317,7 +9609,8 @@
     "power6_utr_women": null,
     "enrollment": 943,
     "latitude": 43.036943,
-    "longitude": -88.022718
+    "longitude": -88.022718,
+    "avg_sat_total": 1239
   },
   {
     "school": "Bluefield State College",
@@ -9362,7 +9655,8 @@
     "power6_utr_women": null,
     "enrollment": 1504,
     "latitude": 37.423723,
-    "longitude": -81.006696
+    "longitude": -81.006696,
+    "avg_sat_total": 977
   },
   {
     "school": "Davis & Elkins College",
@@ -9411,7 +9705,8 @@
     "enrollment": 7266,
     "latitude": 38.422482,
     "longitude": -82.428964,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1061
   },
   {
     "school": "Shepherd University",
@@ -9435,7 +9730,8 @@
     "power6_utr_women": null,
     "enrollment": 2344,
     "latitude": 39.433071,
-    "longitude": -77.804101
+    "longitude": -77.804101,
+    "avg_sat_total": 1034
   },
   {
     "school": "West Liberty University",
@@ -9459,7 +9755,8 @@
     "power6_utr_women": null,
     "enrollment": 1511,
     "latitude": 40.164417,
-    "longitude": -80.602256
+    "longitude": -80.602256,
+    "avg_sat_total": 1045
   },
   {
     "school": "West Virginia State University",
@@ -9483,7 +9780,8 @@
     "power6_utr_women": null,
     "enrollment": 1321,
     "latitude": 38.380541,
-    "longitude": -81.765034
+    "longitude": -81.765034,
+    "avg_sat_total": 955
   },
   {
     "school": "West Virginia University",
@@ -9508,7 +9806,8 @@
     "enrollment": 17385,
     "latitude": 39.634371,
     "longitude": -79.954391,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1122
   },
   {
     "school": "West Virginia Wesleyan College",
@@ -9532,7 +9831,8 @@
     "power6_utr_women": null,
     "enrollment": 954,
     "latitude": 38.990661,
-    "longitude": -80.218969
+    "longitude": -80.218969,
+    "avg_sat_total": 1052
   },
   {
     "school": "Albertus Magnus College",
@@ -9580,7 +9880,8 @@
     "power6_utr_women": null,
     "enrollment": 1937,
     "latitude": 41.379833,
-    "longitude": -72.107321
+    "longitude": -72.107321,
+    "avg_sat_total": 1432
   },
   {
     "school": "Post University",
@@ -9628,7 +9929,8 @@
     "power6_utr_women": null,
     "enrollment": 2146,
     "latitude": 41.747451,
-    "longitude": -72.690882
+    "longitude": -72.690882,
+    "avg_sat_total": 1415
   },
   {
     "school": "U.S. Coast Guard Academy",
@@ -9674,7 +9976,8 @@
     "enrollment": 19835,
     "latitude": 41.809098,
     "longitude": -72.249948,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1348
   },
   {
     "school": "University of New Haven",
@@ -9698,7 +10001,8 @@
     "power6_utr_women": null,
     "enrollment": 4841,
     "latitude": 41.291314,
-    "longitude": -72.961472
+    "longitude": -72.961472,
+    "avg_sat_total": 1160
   },
   {
     "school": "University of Saint Joseph",
@@ -9722,7 +10026,8 @@
     "power6_utr_women": null,
     "enrollment": 838,
     "latitude": 41.781041,
-    "longitude": -72.72965
+    "longitude": -72.72965,
+    "avg_sat_total": 950
   },
   {
     "school": "Wesleyan University",
@@ -9746,7 +10051,8 @@
     "power6_utr_women": null,
     "enrollment": 3067,
     "latitude": 41.554665,
-    "longitude": -72.657146
+    "longitude": -72.657146,
+    "avg_sat_total": 1501
   },
   {
     "school": "Western Connecticut State Univ",
@@ -9767,7 +10073,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1110
   },
   {
     "school": "Yale University",
@@ -9788,11 +10095,12 @@
     "top_lineup_utr_women": 10.13,
     "bottom_lineup_utr_women": 9.61,
     "power6_utr_men": 75.45,
-    "power6_utr_women": 59.10,
+    "power6_utr_women": 59.1,
     "enrollment": 6758,
     "latitude": 41.311158,
     "longitude": -72.926688,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1534
   },
   {
     "school": "Catholic University",
@@ -9838,7 +10146,8 @@
     "enrollment": 11182,
     "latitude": 38.89923,
     "longitude": -77.048363,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1433
   },
   {
     "school": "Georgetown University",
@@ -9863,7 +10172,8 @@
     "enrollment": 7569,
     "latitude": 38.908809,
     "longitude": -77.073463,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1487
   },
   {
     "school": "Trinity Washington University",
@@ -9906,13 +10216,14 @@
     "top_lineup_utr_men": null,
     "bottom_lineup_utr_men": null,
     "top_lineup_utr_women": 7.59,
-    "bottom_lineup_utr_women": 7.00,
+    "bottom_lineup_utr_women": 7.0,
     "power6_utr_men": null,
     "power6_utr_women": 29.21,
     "enrollment": 4398,
     "latitude": 39.187173,
     "longitude": -75.54053,
-    "niche_grade": "C+"
+    "niche_grade": "C+",
+    "avg_sat_total": 940
   },
   {
     "school": "Goldey-Beacom College",
@@ -9961,7 +10272,8 @@
     "enrollment": 19071,
     "latitude": 39.679577,
     "longitude": -75.752822,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1292
   },
   {
     "school": "Wilmington University",
@@ -10009,7 +10321,8 @@
     "power6_utr_women": null,
     "enrollment": 1017,
     "latitude": 42.112346,
-    "longitude": -72.558338
+    "longitude": -72.558338,
+    "avg_sat_total": 1026
   },
   {
     "school": "Amherst College",
@@ -10033,7 +10346,8 @@
     "power6_utr_women": null,
     "enrollment": 1911,
     "latitude": 42.372459,
-    "longitude": -72.518493
+    "longitude": -72.518493,
+    "avg_sat_total": 1533
   },
   {
     "school": "Assumption College",
@@ -10078,7 +10392,8 @@
     "power6_utr_women": null,
     "enrollment": 2728,
     "latitude": 42.297017,
-    "longitude": -71.264057
+    "longitude": -71.264057,
+    "avg_sat_total": 1457
   },
   {
     "school": "Bentley University",
@@ -10102,7 +10417,8 @@
     "power6_utr_women": null,
     "enrollment": 4474,
     "latitude": 42.385995,
-    "longitude": -71.222839
+    "longitude": -71.222839,
+    "avg_sat_total": 1352
   },
   {
     "school": "Boston College",
@@ -10121,13 +10437,14 @@
     "top_lineup_utr_men": 12.12,
     "bottom_lineup_utr_men": 11.54,
     "top_lineup_utr_women": 9.82,
-    "bottom_lineup_utr_women": 9.00,
-    "power6_utr_men": 70.40,
+    "bottom_lineup_utr_women": 9.0,
+    "power6_utr_men": 70.4,
     "power6_utr_women": 56.25,
     "enrollment": 10085,
     "latitude": 42.336213,
     "longitude": -71.169242,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1507
   },
   {
     "school": "Boston University",
@@ -10152,7 +10469,8 @@
     "enrollment": 18248,
     "latitude": 42.351118,
     "longitude": -71.107942,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1480
   },
   {
     "school": "Brandeis University",
@@ -10176,7 +10494,8 @@
     "power6_utr_women": null,
     "enrollment": 3618,
     "latitude": 42.365727,
-    "longitude": -71.260155
+    "longitude": -71.260155,
+    "avg_sat_total": 1462
   },
   {
     "school": "Bridgewater State University",
@@ -10200,7 +10519,8 @@
     "power6_utr_women": null,
     "enrollment": 7829,
     "latitude": 41.98749,
-    "longitude": -70.974553
+    "longitude": -70.974553,
+    "avg_sat_total": 1180
   },
   {
     "school": "Clark University",
@@ -10224,7 +10544,8 @@
     "power6_utr_women": null,
     "enrollment": 2214,
     "latitude": 42.249987,
-    "longitude": -71.823356
+    "longitude": -71.823356,
+    "avg_sat_total": 1370
   },
   {
     "school": "Curry College",
@@ -10248,7 +10569,8 @@
     "power6_utr_women": null,
     "enrollment": 1780,
     "latitude": 42.238061,
-    "longitude": -71.116539
+    "longitude": -71.116539,
+    "avg_sat_total": 1125
   },
   {
     "school": "Eastern Nazarene College",
@@ -10293,7 +10615,8 @@
     "power6_utr_women": null,
     "enrollment": 3870,
     "latitude": 42.352202,
-    "longitude": -71.065384
+    "longitude": -71.065384,
+    "avg_sat_total": 1358
   },
   {
     "school": "Endicott College",
@@ -10317,7 +10640,8 @@
     "power6_utr_women": null,
     "enrollment": 3125,
     "latitude": 42.553296,
-    "longitude": -70.840847
+    "longitude": -70.840847,
+    "avg_sat_total": 1274
   },
   {
     "school": "Gordon College",
@@ -10341,7 +10665,8 @@
     "power6_utr_women": null,
     "enrollment": 1278,
     "latitude": 42.590567,
-    "longitude": -70.82151
+    "longitude": -70.82151,
+    "avg_sat_total": 1265
   },
   {
     "school": "Harvard University",
@@ -10366,7 +10691,8 @@
     "enrollment": 7601,
     "latitude": 42.374471,
     "longitude": -71.118313,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1553
   },
   {
     "school": "Holy Cross",
@@ -10460,7 +10786,8 @@
     "power6_utr_women": null,
     "enrollment": 4535,
     "latitude": 42.359243,
-    "longitude": -71.093226
+    "longitude": -71.093226,
+    "avg_sat_total": 1560
   },
   {
     "school": "Merrimack College",
@@ -10481,7 +10808,7 @@
     "top_lineup_utr_women": 8.5,
     "bottom_lineup_utr_women": 5.13,
     "power6_utr_men": 52.12,
-    "power6_utr_women": 35.20,
+    "power6_utr_women": 35.2,
     "enrollment": 3916,
     "latitude": 42.668344,
     "longitude": -71.124216,
@@ -10506,7 +10833,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1463
   },
   {
     "school": "Nichols College",
@@ -10530,7 +10858,8 @@
     "power6_utr_women": null,
     "enrollment": 1163,
     "latitude": 42.044033,
-    "longitude": -71.930283
+    "longitude": -71.930283,
+    "avg_sat_total": 1140
   },
   {
     "school": "Regis College",
@@ -10620,7 +10949,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1500
   },
   {
     "school": "Springfield College",
@@ -10644,7 +10974,8 @@
     "power6_utr_women": null,
     "enrollment": 1751,
     "latitude": 42.1022,
-    "longitude": -72.556647
+    "longitude": -72.556647,
+    "avg_sat_total": 1275
   },
   {
     "school": "Stonehill College",
@@ -10692,7 +11023,8 @@
     "power6_utr_women": null,
     "enrollment": 4268,
     "latitude": 42.357945,
-    "longitude": -71.060917
+    "longitude": -71.060917,
+    "avg_sat_total": 1216
   },
   {
     "school": "Tufts University",
@@ -10716,7 +11048,8 @@
     "power6_utr_women": null,
     "enrollment": 7061,
     "latitude": 42.40855,
-    "longitude": -71.118293
+    "longitude": -71.118293,
+    "avg_sat_total": 1513
   },
   {
     "school": "Univ of Massachusetts-Boston",
@@ -10737,7 +11070,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1194
   },
   {
     "school": "Univ of Massachusetts-Dartmouth",
@@ -10758,7 +11092,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1182
   },
   {
     "school": "University of Massachusetts",
@@ -10780,7 +11115,8 @@
     "bottom_lineup_utr_women": 8.9,
     "power6_utr_men": null,
     "power6_utr_women": 54.14,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1285
   },
   {
     "school": "WellesleyCollege",
@@ -10801,7 +11137,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1520
   },
   {
     "school": "Wentworth Institute of Technology",
@@ -10825,7 +11162,8 @@
     "power6_utr_women": null,
     "enrollment": 3747,
     "latitude": 42.336632,
-    "longitude": -71.094983
+    "longitude": -71.094983,
+    "avg_sat_total": 1229
   },
   {
     "school": "Western New England University",
@@ -10849,7 +11187,8 @@
     "power6_utr_women": null,
     "enrollment": 2603,
     "latitude": 42.115017,
-    "longitude": -72.520466
+    "longitude": -72.520466,
+    "avg_sat_total": 1192
   },
   {
     "school": "Williams College",
@@ -10873,7 +11212,8 @@
     "power6_utr_women": null,
     "enrollment": 2076,
     "latitude": 42.712725,
-    "longitude": -73.203132
+    "longitude": -73.203132,
+    "avg_sat_total": 1533
   },
   {
     "school": "Worcester State University",
@@ -10897,7 +11237,8 @@
     "power6_utr_women": null,
     "enrollment": 3930,
     "latitude": 42.267526,
-    "longitude": -71.844018
+    "longitude": -71.844018,
+    "avg_sat_total": 1150
   },
   {
     "school": "Bowie State University",
@@ -10921,7 +11262,8 @@
     "power6_utr_women": null,
     "enrollment": 5043,
     "latitude": 39.018185,
-    "longitude": -76.759721
+    "longitude": -76.759721,
+    "avg_sat_total": 930
   },
   {
     "school": "Frostburg State University",
@@ -10945,7 +11287,8 @@
     "power6_utr_women": null,
     "enrollment": 2909,
     "latitude": 39.650918,
-    "longitude": -78.934293
+    "longitude": -78.934293,
+    "avg_sat_total": 1090
   },
   {
     "school": "Goucher College",
@@ -10969,7 +11312,8 @@
     "power6_utr_women": null,
     "enrollment": 964,
     "latitude": 39.410175,
-    "longitude": -76.594843
+    "longitude": -76.594843,
+    "avg_sat_total": 1248
   },
   {
     "school": "Harford CC",
@@ -11038,7 +11382,8 @@
     "power6_utr_women": null,
     "enrollment": 5693,
     "latitude": 39.328977,
-    "longitude": -76.621595
+    "longitude": -76.621595,
+    "avg_sat_total": 1553
   },
   {
     "school": "Loyola University Maryland",
@@ -11063,7 +11408,8 @@
     "enrollment": 3869,
     "latitude": 39.346358,
     "longitude": -76.621872,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1290
   },
   {
     "school": "McDaniel College",
@@ -11112,7 +11458,8 @@
     "enrollment": 1768,
     "latitude": 39.681705,
     "longitude": -77.351887,
-    "niche_grade": "C+"
+    "niche_grade": "C+",
+    "avg_sat_total": 1176
   },
   {
     "school": "Notre Dame of Maryland University",
@@ -11160,7 +11507,8 @@
     "power6_utr_women": null,
     "enrollment": 6057,
     "latitude": 38.34648,
-    "longitude": -75.604815
+    "longitude": -75.604815,
+    "avg_sat_total": 1252
   },
   {
     "school": "St Mary's College of Maryland",
@@ -11184,7 +11532,8 @@
     "power6_utr_women": null,
     "enrollment": 1603,
     "latitude": 38.188047,
-    "longitude": -76.430994
+    "longitude": -76.430994,
+    "avg_sat_total": 1261
   },
   {
     "school": "Stevenson University",
@@ -11233,7 +11582,8 @@
     "enrollment": 16136,
     "latitude": 39.393622,
     "longitude": -76.611164,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1095
   },
   {
     "school": "U.S. Naval Academy",
@@ -11326,7 +11676,8 @@
     "power6_utr_women": null,
     "enrollment": 891,
     "latitude": 39.217329,
-    "longitude": -76.06878
+    "longitude": -76.06878,
+    "avg_sat_total": 1280
   },
   {
     "school": "Bates College",
@@ -11350,7 +11701,8 @@
     "power6_utr_women": null,
     "enrollment": 1760,
     "latitude": 44.105299,
-    "longitude": -70.203333
+    "longitude": -70.203333,
+    "avg_sat_total": 1468
   },
   {
     "school": "Bowdoin College",
@@ -11374,7 +11726,8 @@
     "power6_utr_women": null,
     "enrollment": 1873,
     "latitude": 43.907134,
-    "longitude": -69.963942
+    "longitude": -69.963942,
+    "avg_sat_total": 1520
   },
   {
     "school": "Colby College",
@@ -11398,7 +11751,8 @@
     "power6_utr_women": null,
     "enrollment": 2407,
     "latitude": 44.564211,
-    "longitude": -69.66337
+    "longitude": -69.66337,
+    "avg_sat_total": 1501
   },
   {
     "school": "Husson University",
@@ -11422,7 +11776,8 @@
     "power6_utr_women": null,
     "enrollment": 2618,
     "latitude": 44.829002,
-    "longitude": -68.791476
+    "longitude": -68.791476,
+    "avg_sat_total": 1180
   },
   {
     "school": "Thomas College",
@@ -11470,7 +11825,8 @@
     "power6_utr_women": null,
     "enrollment": 4222,
     "latitude": 43.662863,
-    "longitude": -70.274247
+    "longitude": -70.274247,
+    "avg_sat_total": 1116
   },
   {
     "school": "Colby-Sawyer College",
@@ -11515,11 +11871,12 @@
     "top_lineup_utr_women": 10.12,
     "bottom_lineup_utr_women": 9.27,
     "power6_utr_men": 73.84,
-    "power6_utr_women": 57.90,
+    "power6_utr_women": 57.9,
     "enrollment": 4541,
     "latitude": 43.704115,
     "longitude": -72.289949,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1534
   },
   {
     "school": "Franklin Pierce University",
@@ -11543,7 +11900,8 @@
     "power6_utr_women": null,
     "enrollment": 992,
     "latitude": 42.78014,
-    "longitude": -72.058011
+    "longitude": -72.058011,
+    "avg_sat_total": 1175
   },
   {
     "school": "Plymouth State University",
@@ -11591,7 +11949,8 @@
     "power6_utr_women": null,
     "enrollment": 2087,
     "latitude": 42.986889,
-    "longitude": -71.503622
+    "longitude": -71.503622,
+    "avg_sat_total": 1201
   },
   {
     "school": "Southern New Hampshire Univ",
@@ -11684,7 +12043,8 @@
     "power6_utr_women": null,
     "enrollment": 1575,
     "latitude": 40.832753,
-    "longitude": -74.272571
+    "longitude": -74.272571,
+    "avg_sat_total": 1260
   },
   {
     "school": "Camden County College",
@@ -11732,7 +12092,8 @@
     "power6_utr_women": null,
     "enrollment": 7105,
     "latitude": 40.268651,
-    "longitude": -74.778791
+    "longitude": -74.778791,
+    "avg_sat_total": 1246
   },
   {
     "school": "College of Saint Elizabeth",
@@ -11777,7 +12138,8 @@
     "power6_utr_women": null,
     "enrollment": 1533,
     "latitude": 40.761829,
-    "longitude": -74.424584
+    "longitude": -74.424584,
+    "avg_sat_total": 1227
   },
   {
     "school": "Fairleigh Dickinson Univ - Florham",
@@ -11844,7 +12206,8 @@
     "power6_utr_women": null,
     "enrollment": 11433,
     "latitude": 40.677981,
-    "longitude": -74.233503
+    "longitude": -74.233503,
+    "avg_sat_total": 1040
   },
   {
     "school": "Mercer County CC",
@@ -11890,7 +12253,8 @@
     "enrollment": 3684,
     "latitude": 40.280066,
     "longitude": -74.006447,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1223
   },
   {
     "school": "New Jersey City University",
@@ -11914,7 +12278,8 @@
     "power6_utr_women": null,
     "enrollment": 3681,
     "latitude": 40.709937,
-    "longitude": -74.08727
+    "longitude": -74.08727,
+    "avg_sat_total": 1015
   },
   {
     "school": "Ocean County College",
@@ -11963,7 +12328,8 @@
     "enrollment": 5709,
     "latitude": 40.348732,
     "longitude": -74.659365,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1553
   },
   {
     "school": "Ramapo College",
@@ -12009,7 +12375,8 @@
     "enrollment": 3106,
     "latitude": 40.278796,
     "longitude": -74.737833,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1227
   },
   {
     "school": "Rowan College - Gloucester",
@@ -12076,7 +12443,8 @@
     "power6_utr_women": null,
     "enrollment": 3753,
     "latitude": 39.948064,
-    "longitude": -75.12224
+    "longitude": -75.12224,
+    "avg_sat_total": 1178
   },
   {
     "school": "Rutgers University-Newark",
@@ -12100,7 +12468,8 @@
     "power6_utr_women": null,
     "enrollment": 7709,
     "latitude": 40.739122,
-    "longitude": -74.175809
+    "longitude": -74.175809,
+    "avg_sat_total": 1150
   },
   {
     "school": "Seton Hall University",
@@ -12125,7 +12494,8 @@
     "enrollment": 6036,
     "latitude": 40.742336,
     "longitude": -74.246027,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1322
   },
   {
     "school": "Stevens Institute of Technology",
@@ -12149,7 +12519,8 @@
     "power6_utr_women": null,
     "enrollment": 4222,
     "latitude": 40.744776,
-    "longitude": -74.025334
+    "longitude": -74.025334,
+    "avg_sat_total": 1446
   },
   {
     "school": "Stockton University",
@@ -12173,7 +12544,8 @@
     "power6_utr_women": null,
     "enrollment": 7537,
     "latitude": 39.492036,
-    "longitude": -74.531087
+    "longitude": -74.531087,
+    "avg_sat_total": 1139
   },
   {
     "school": "William Paterson University",
@@ -12218,7 +12590,8 @@
     "power6_utr_women": null,
     "enrollment": 5276,
     "latitude": 40.721439,
-    "longitude": -73.653321
+    "longitude": -73.653321,
+    "avg_sat_total": 1219
   },
   {
     "school": "Alfred University",
@@ -12242,7 +12615,8 @@
     "power6_utr_women": null,
     "enrollment": 1423,
     "latitude": 42.254476,
-    "longitude": -77.788106
+    "longitude": -77.788106,
+    "avg_sat_total": 1279
   },
   {
     "school": "ASA College",
@@ -12263,7 +12637,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1494
   },
   {
     "school": "Bard College",
@@ -12287,7 +12662,8 @@
     "power6_utr_women": null,
     "enrollment": 2414,
     "latitude": 42.020386,
-    "longitude": -73.909927
+    "longitude": -73.909927,
+    "avg_sat_total": 1380
   },
   {
     "school": "Barnard (Columbia Univ)",
@@ -12379,7 +12755,8 @@
     "enrollment": 14655,
     "latitude": 42.087868,
     "longitude": -75.966889,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1415
   },
   {
     "school": "Brooklyn College",
@@ -12425,7 +12802,8 @@
     "enrollment": 3180,
     "latitude": 42.819475,
     "longitude": -75.536346,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1508
   },
   {
     "school": "College of Staten Island",
@@ -12446,7 +12824,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1040
   },
   {
     "school": "Columbia University",
@@ -12514,7 +12893,8 @@
     "enrollment": 15995,
     "latitude": 42.4472,
     "longitude": -76.483084,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1535
   },
   {
     "school": "Culinary Institute of America",
@@ -12538,7 +12918,8 @@
     "power6_utr_women": null,
     "enrollment": 3011,
     "latitude": 41.745806,
-    "longitude": -73.933231
+    "longitude": -73.933231,
+    "avg_sat_total": 1060
   },
   {
     "school": "Daemen College",
@@ -12625,7 +13006,8 @@
     "power6_utr_women": null,
     "enrollment": 708,
     "latitude": 42.0961,
-    "longitude": -76.813459
+    "longitude": -76.813459,
+    "avg_sat_total": 1314
   },
   {
     "school": "Farmingdale State College",
@@ -12649,7 +13031,8 @@
     "power6_utr_women": null,
     "enrollment": 9552,
     "latitude": 40.754224,
-    "longitude": -73.42832
+    "longitude": -73.42832,
+    "avg_sat_total": 1147
   },
   {
     "school": "Fashion Institute of Technology",
@@ -12698,7 +13081,8 @@
     "enrollment": 10512,
     "latitude": 40.859354,
     "longitude": -73.882705,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1418
   },
   {
     "school": "Hamilton College",
@@ -12722,7 +13106,8 @@
     "power6_utr_women": null,
     "enrollment": 2030,
     "latitude": 43.050245,
-    "longitude": -75.408195
+    "longitude": -75.408195,
+    "avg_sat_total": 1506
   },
   {
     "school": "Hartwick College",
@@ -12746,7 +13131,8 @@
     "power6_utr_women": null,
     "enrollment": 1087,
     "latitude": 42.457599,
-    "longitude": -75.071994
+    "longitude": -75.071994,
+    "avg_sat_total": 1200
   },
   {
     "school": "Herkimer College",
@@ -12791,7 +13177,8 @@
     "power6_utr_women": null,
     "enrollment": 1786,
     "latitude": 42.858131,
-    "longitude": -76.985516
+    "longitude": -76.985516,
+    "avg_sat_total": 1319
   },
   {
     "school": "Hofstra University",
@@ -12816,7 +13203,8 @@
     "enrollment": 6488,
     "latitude": 40.715959,
     "longitude": -73.60078,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1319
   },
   {
     "school": "Houghton College",
@@ -12903,7 +13291,8 @@
     "power6_utr_women": null,
     "enrollment": 4242,
     "latitude": 42.422154,
-    "longitude": -76.494136
+    "longitude": -76.494136,
+    "avg_sat_total": 1312
   },
   {
     "school": "John Jay College of Criminal Justice",
@@ -12924,7 +13313,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1080
   },
   {
     "school": "Kingsborough Community College",
@@ -12969,7 +13359,8 @@
     "power6_utr_women": null,
     "enrollment": 2439,
     "latitude": 43.049192,
-    "longitude": -76.090435
+    "longitude": -76.090435,
+    "avg_sat_total": 1255
   },
   {
     "school": "Lehman College",
@@ -13015,7 +13406,8 @@
     "enrollment": 5520,
     "latitude": 40.820714,
     "longitude": -73.593678,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1224
   },
   {
     "school": "Manhattanville College",
@@ -13145,7 +13537,8 @@
     "power6_utr_women": null,
     "enrollment": 1148,
     "latitude": 41.513872,
-    "longitude": -74.012655
+    "longitude": -74.012655,
+    "avg_sat_total": 1150
   },
   {
     "school": "Nassau Community College",
@@ -13214,7 +13607,8 @@
     "power6_utr_women": null,
     "enrollment": 28663,
     "latitude": 40.729452,
-    "longitude": -73.997264
+    "longitude": -73.997264,
+    "avg_sat_total": 1520
   },
   {
     "school": "Onondaga Community College",
@@ -13304,7 +13698,8 @@
     "power6_utr_women": null,
     "enrollment": 5714,
     "latitude": 42.729978,
-    "longitude": -73.676646
+    "longitude": -73.676646,
+    "avg_sat_total": 1456
   },
   {
     "school": "Roberts Wesleyan College",
@@ -13349,7 +13744,8 @@
     "power6_utr_women": null,
     "enrollment": 13215,
     "latitude": 43.084188,
-    "longitude": -77.67386
+    "longitude": -77.67386,
+    "avg_sat_total": 1383
   },
   {
     "school": "Rockland Community College",
@@ -13481,7 +13877,8 @@
     "power6_utr_women": null,
     "enrollment": 1530,
     "latitude": 40.9355,
-    "longitude": -73.843727
+    "longitude": -73.843727,
+    "avg_sat_total": 1366
   },
   {
     "school": "Siena College",
@@ -13527,7 +13924,8 @@
     "power6_utr_women": null,
     "enrollment": 2694,
     "latitude": 43.097035,
-    "longitude": -73.785335
+    "longitude": -73.785335,
+    "avg_sat_total": 1405
   },
   {
     "school": "St Bonaventure University",
@@ -13552,7 +13950,8 @@
     "enrollment": 2012,
     "latitude": 42.080191,
     "longitude": -78.481107,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1197
   },
   {
     "school": "St Francis College",
@@ -13577,7 +13976,8 @@
     "enrollment": 1684,
     "latitude": 40.690233,
     "longitude": -73.986559,
-    "niche_grade": "C+"
+    "niche_grade": "C+",
+    "avg_sat_total": 1115
   },
   {
     "school": "St John's University",
@@ -13599,7 +13999,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1214
   },
   {
     "school": "St Lawrence University",
@@ -13623,7 +14024,8 @@
     "power6_utr_women": null,
     "enrollment": 1918,
     "latitude": 44.589879,
-    "longitude": -75.161343
+    "longitude": -75.161343,
+    "avg_sat_total": 1371
   },
   {
     "school": "St. Thomas Aquinas College",
@@ -13647,7 +14049,8 @@
     "power6_utr_women": null,
     "enrollment": 972,
     "latitude": 41.041576,
-    "longitude": -73.936799
+    "longitude": -73.936799,
+    "avg_sat_total": 1000
   },
   {
     "school": "Stony Brook University",
@@ -13672,7 +14075,8 @@
     "enrollment": 18101,
     "latitude": 40.91476,
     "longitude": -73.12046,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1419
   },
   {
     "school": "Suffolk County CC",
@@ -13717,7 +14121,8 @@
     "power6_utr_women": null,
     "enrollment": 2755,
     "latitude": 42.452236,
-    "longitude": -79.337375
+    "longitude": -79.337375,
+    "avg_sat_total": 1250
   },
   {
     "school": "SUNY at New Paltz",
@@ -13762,7 +14167,8 @@
     "power6_utr_women": null,
     "enrollment": 3197,
     "latitude": 41.047223,
-    "longitude": -73.701955
+    "longitude": -73.701955,
+    "avg_sat_total": 1312
   },
   {
     "school": "SUNY Broome CC",
@@ -13870,7 +14276,8 @@
     "power6_utr_women": null,
     "enrollment": 3869,
     "latitude": 42.796645,
-    "longitude": -77.821894
+    "longitude": -77.821894,
+    "avg_sat_total": 1286
   },
   {
     "school": "SUNY College at Oswego",
@@ -13936,7 +14343,8 @@
     "power6_utr_women": null,
     "enrollment": 4643,
     "latitude": 42.468861,
-    "longitude": -75.063632
+    "longitude": -75.063632,
+    "avg_sat_total": 1230
   },
   {
     "school": "Syracuse University",
@@ -13961,7 +14369,8 @@
     "enrollment": 15477,
     "latitude": 43.036644,
     "longitude": -76.133989,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1375
   },
   {
     "school": "U.S. Military Academy",
@@ -14008,7 +14417,8 @@
     "enrollment": 20112,
     "latitude": 43.000942,
     "longitude": -78.789458,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1295
   },
   {
     "school": "University of Rochester",
@@ -14032,7 +14442,8 @@
     "power6_utr_women": null,
     "enrollment": 6331,
     "latitude": 43.126397,
-    "longitude": -77.631202
+    "longitude": -77.631202,
+    "avg_sat_total": 1488
   },
   {
     "school": "US Merchant Marine Academy",
@@ -14098,7 +14509,8 @@
     "power6_utr_women": null,
     "enrollment": 2444,
     "latitude": 41.686895,
-    "longitude": -73.895088
+    "longitude": -73.895088,
+    "avg_sat_total": 1494
   },
   {
     "school": "Vaughn College of Aeronautics & Tech",
@@ -14144,7 +14556,8 @@
     "enrollment": 1651,
     "latitude": 40.615588,
     "longitude": -74.092913,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1243
   },
   {
     "school": "Webb Institute",
@@ -14168,7 +14581,8 @@
     "power6_utr_women": null,
     "enrollment": 106,
     "latitude": 40.884444,
-    "longitude": -73.644909
+    "longitude": -73.644909,
+    "avg_sat_total": 1496
   },
   {
     "school": "Yeshiva University",
@@ -14192,7 +14606,8 @@
     "power6_utr_women": null,
     "enrollment": 2852,
     "latitude": 40.850605,
-    "longitude": -73.929873
+    "longitude": -73.929873,
+    "avg_sat_total": 1426
   },
   {
     "school": "York College",
@@ -14261,7 +14676,8 @@
     "power6_utr_women": null,
     "enrollment": 1156,
     "latitude": 41.64869,
-    "longitude": -80.147168
+    "longitude": -80.147168,
+    "avg_sat_total": 1275
   },
   {
     "school": "Alvernia University",
@@ -14285,7 +14701,8 @@
     "power6_utr_women": null,
     "enrollment": 2152,
     "latitude": 40.310028,
-    "longitude": -75.936754
+    "longitude": -75.936754,
+    "avg_sat_total": 1170
   },
   {
     "school": "Arcadia University",
@@ -14309,7 +14726,8 @@
     "power6_utr_women": null,
     "enrollment": 1948,
     "latitude": 40.092606,
-    "longitude": -75.163876
+    "longitude": -75.163876,
+    "avg_sat_total": 1190
   },
   {
     "school": "Bloomsburg University",
@@ -14372,7 +14790,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1396
   },
   {
     "school": "Bucknell University",
@@ -14397,7 +14816,8 @@
     "enrollment": 3876,
     "latitude": 40.954317,
     "longitude": -76.882616,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1410
   },
   {
     "school": "Cabrini University",
@@ -14484,7 +14904,8 @@
     "power6_utr_women": null,
     "enrollment": 1348,
     "latitude": 40.439293,
-    "longitude": -79.963448
+    "longitude": -79.963448,
+    "avg_sat_total": 1080
   },
   {
     "school": "Carnegie Mellon University",
@@ -14508,7 +14929,8 @@
     "power6_utr_women": null,
     "enrollment": 7304,
     "latitude": 40.44357,
-    "longitude": -79.941993
+    "longitude": -79.941993,
+    "avg_sat_total": 1546
   },
   {
     "school": "Cedar Crest College",
@@ -14532,7 +14954,8 @@
     "power6_utr_women": null,
     "enrollment": 834,
     "latitude": 40.586318,
-    "longitude": -75.519221
+    "longitude": -75.519221,
+    "avg_sat_total": 1115
   },
   {
     "school": "Chestnut Hill College",
@@ -14556,7 +14979,8 @@
     "power6_utr_women": null,
     "enrollment": 815,
     "latitude": 40.08678,
-    "longitude": -75.228742
+    "longitude": -75.228742,
+    "avg_sat_total": 995
   },
   {
     "school": "Clarion University",
@@ -14622,7 +15046,8 @@
     "power6_utr_women": null,
     "enrollment": 1628,
     "latitude": 40.298659,
-    "longitude": -75.158452
+    "longitude": -75.158452,
+    "avg_sat_total": 1204
   },
   {
     "school": "DeSales University",
@@ -14646,7 +15071,8 @@
     "power6_utr_women": null,
     "enrollment": 2128,
     "latitude": 40.539091,
-    "longitude": -75.375608
+    "longitude": -75.375608,
+    "avg_sat_total": 1186
   },
   {
     "school": "Dickinson College",
@@ -14670,7 +15096,8 @@
     "power6_utr_women": null,
     "enrollment": 2273,
     "latitude": 40.202796,
-    "longitude": -77.197854
+    "longitude": -77.197854,
+    "avg_sat_total": 1391
   },
   {
     "school": "Drexel University",
@@ -14695,7 +15122,8 @@
     "enrollment": 13233,
     "latitude": 39.955217,
     "longitude": -75.190051,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1345
   },
   {
     "school": "East Stroudsburg University",
@@ -14785,7 +15213,8 @@
     "power6_utr_women": null,
     "enrollment": 1868,
     "latitude": 40.149236,
-    "longitude": -76.593224
+    "longitude": -76.593224,
+    "avg_sat_total": 1204
   },
   {
     "school": "Franklin & Marshall College",
@@ -14806,7 +15235,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1392
   },
   {
     "school": "Geneva College",
@@ -14854,7 +15284,8 @@
     "power6_utr_women": null,
     "enrollment": 2099,
     "latitude": 39.836597,
-    "longitude": -77.236792
+    "longitude": -77.236792,
+    "avg_sat_total": 1379
   },
   {
     "school": "Grove City College",
@@ -14878,7 +15309,8 @@
     "power6_utr_women": null,
     "enrollment": 2216,
     "latitude": 41.1558,
-    "longitude": -80.081481
+    "longitude": -80.081481,
+    "avg_sat_total": 1272
   },
   {
     "school": "Gwynedd Mercy University",
@@ -14902,7 +15334,8 @@
     "power6_utr_women": null,
     "enrollment": 1067,
     "latitude": 40.19774,
-    "longitude": -75.237224
+    "longitude": -75.237224,
+    "avg_sat_total": 1090
   },
   {
     "school": "Haverford College",
@@ -14926,7 +15359,8 @@
     "power6_utr_women": null,
     "enrollment": 1430,
     "latitude": 40.007452,
-    "longitude": -75.305207
+    "longitude": -75.305207,
+    "avg_sat_total": 1513
   },
   {
     "school": "Holy Family University",
@@ -14950,7 +15384,8 @@
     "power6_utr_women": null,
     "enrollment": 2464,
     "latitude": 40.060581,
-    "longitude": -74.986451
+    "longitude": -74.986451,
+    "avg_sat_total": 1060
   },
   {
     "school": "Immaculata University",
@@ -14974,7 +15409,8 @@
     "power6_utr_women": null,
     "enrollment": 1320,
     "latitude": 40.027981,
-    "longitude": -75.570711
+    "longitude": -75.570711,
+    "avg_sat_total": 1260
   },
   {
     "school": "Indiana University of Pennsylvania",
@@ -14998,7 +15434,8 @@
     "power6_utr_women": null,
     "enrollment": 6764,
     "latitude": 40.617531,
-    "longitude": -79.159332
+    "longitude": -79.159332,
+    "avg_sat_total": 1082
   },
   {
     "school": "Juniata College",
@@ -15022,7 +15459,8 @@
     "power6_utr_women": null,
     "enrollment": 1191,
     "latitude": 40.500523,
-    "longitude": -78.017292
+    "longitude": -78.017292,
+    "avg_sat_total": 1227
   },
   {
     "school": "King's College",
@@ -15046,7 +15484,8 @@
     "power6_utr_women": null,
     "enrollment": 1484,
     "latitude": 41.250097,
-    "longitude": -75.879822
+    "longitude": -75.879822,
+    "avg_sat_total": 1170
   },
   {
     "school": "Kutztown University",
@@ -15138,7 +15577,8 @@
     "enrollment": 2757,
     "latitude": 40.69956,
     "longitude": -75.209786,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1424
   },
   {
     "school": "Lancaster Bible College",
@@ -15162,7 +15602,8 @@
     "power6_utr_women": null,
     "enrollment": 1569,
     "latitude": 40.075347,
-    "longitude": -76.287761
+    "longitude": -76.287761,
+    "avg_sat_total": 1180
   },
   {
     "school": "Lebanon Valley College",
@@ -15186,7 +15627,8 @@
     "power6_utr_women": null,
     "enrollment": 1684,
     "latitude": 40.330604,
-    "longitude": -76.514431
+    "longitude": -76.514431,
+    "avg_sat_total": 1240
   },
   {
     "school": "Lehigh University",
@@ -15211,7 +15653,8 @@
     "enrollment": 5898,
     "latitude": 40.606822,
     "longitude": -75.380236,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1440
   },
   {
     "school": "Lock Haven University",
@@ -15256,7 +15699,8 @@
     "power6_utr_women": null,
     "enrollment": 996,
     "latitude": 41.24666,
-    "longitude": -77
+    "longitude": -77,
+    "avg_sat_total": 1160
   },
   {
     "school": "Marywood University",
@@ -15280,7 +15724,8 @@
     "power6_utr_women": null,
     "enrollment": 1784,
     "latitude": 41.434587,
-    "longitude": -75.634142
+    "longitude": -75.634142,
+    "avg_sat_total": 1162
   },
   {
     "school": "Mercyhurst University",
@@ -15415,7 +15860,8 @@
     "power6_utr_women": null,
     "enrollment": 1094,
     "latitude": 40.459679,
-    "longitude": -78.600898
+    "longitude": -78.600898,
+    "avg_sat_total": 1070
   },
   {
     "school": "Muhlenberg College",
@@ -15439,7 +15885,8 @@
     "power6_utr_women": null,
     "enrollment": 1727,
     "latitude": 40.596416,
-    "longitude": -75.508502
+    "longitude": -75.508502,
+    "avg_sat_total": 1343
   },
   {
     "school": "Neumann University",
@@ -15463,7 +15910,8 @@
     "power6_utr_women": null,
     "enrollment": 1533,
     "latitude": 39.874876,
-    "longitude": -75.440022
+    "longitude": -75.440022,
+    "avg_sat_total": 996
   },
   {
     "school": "Northampton County CC",
@@ -15658,7 +16106,8 @@
     "power6_utr_women": null,
     "enrollment": 486,
     "latitude": 40.033417,
-    "longitude": -75.32925
+    "longitude": -75.32925,
+    "avg_sat_total": 1090
   },
   {
     "school": "Saint Francis University",
@@ -15683,7 +16132,8 @@
     "enrollment": 1557,
     "latitude": 40.506734,
     "longitude": -78.63904,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1155
   },
   {
     "school": "Saint Joseph's University",
@@ -15729,7 +16179,8 @@
     "power6_utr_women": null,
     "enrollment": 1259,
     "latitude": 40.29265,
-    "longitude": -79.403762
+    "longitude": -79.403762,
+    "avg_sat_total": 1116
   },
   {
     "school": "Seton Hill University",
@@ -15753,7 +16204,8 @@
     "power6_utr_women": null,
     "enrollment": 1492,
     "latitude": 40.309407,
-    "longitude": -79.557433
+    "longitude": -79.557433,
+    "avg_sat_total": 1117
   },
   {
     "school": "Shippensburg University",
@@ -15819,7 +16271,8 @@
     "power6_utr_women": null,
     "enrollment": 2163,
     "latitude": 40.797502,
-    "longitude": -76.875329
+    "longitude": -76.875329,
+    "avg_sat_total": 1232
   },
   {
     "school": "Swarthmore College",
@@ -15843,7 +16296,8 @@
     "power6_utr_women": null,
     "enrollment": 1613,
     "latitude": 39.905159,
-    "longitude": -75.354278
+    "longitude": -75.354278,
+    "avg_sat_total": 1534
   },
   {
     "school": "Temple University",
@@ -15892,7 +16346,8 @@
     "power6_utr_women": null,
     "enrollment": 788,
     "latitude": 41.41354,
-    "longitude": -80.384383
+    "longitude": -80.384383,
+    "avg_sat_total": 1066
   },
   {
     "school": "Thomas Jefferson University",
@@ -15916,7 +16371,8 @@
     "power6_utr_women": null,
     "enrollment": 3755,
     "latitude": 39.948274,
-    "longitude": -75.158266
+    "longitude": -75.158266,
+    "avg_sat_total": 1243
   },
   {
     "school": "University of Pennsylvania",
@@ -15941,7 +16397,8 @@
     "enrollment": 10650,
     "latitude": 39.950929,
     "longitude": -75.19391,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1553
   },
   {
     "school": "University of Pittsburgh-Bradford",
@@ -15965,7 +16422,8 @@
     "power6_utr_women": null,
     "enrollment": 995,
     "latitude": 41.943415,
-    "longitude": -78.673701
+    "longitude": -78.673701,
+    "avg_sat_total": 1125
   },
   {
     "school": "University of Pittsburgh-Greensburg",
@@ -15989,7 +16447,8 @@
     "power6_utr_women": null,
     "enrollment": 1305,
     "latitude": 40.276447,
-    "longitude": -79.532676
+    "longitude": -79.532676,
+    "avg_sat_total": 1160
   },
   {
     "school": "University of Scranton",
@@ -16013,7 +16472,8 @@
     "power6_utr_women": null,
     "enrollment": 3554,
     "latitude": 41.406556,
-    "longitude": -75.656915
+    "longitude": -75.656915,
+    "avg_sat_total": 1237
   },
   {
     "school": "University of the Sciences",
@@ -16058,7 +16518,8 @@
     "power6_utr_women": null,
     "enrollment": 1491,
     "latitude": 40.193023,
-    "longitude": -75.456505
+    "longitude": -75.456505,
+    "avg_sat_total": 1310
   },
   {
     "school": "Villanova University",
@@ -16083,7 +16544,8 @@
     "enrollment": 6938,
     "latitude": 40.036463,
     "longitude": -75.340502,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1460
   },
   {
     "school": "Washington & Jefferson College",
@@ -16107,7 +16569,8 @@
     "power6_utr_women": null,
     "enrollment": 1295,
     "latitude": 40.170622,
-    "longitude": -80.24049
+    "longitude": -80.24049,
+    "avg_sat_total": 1175
   },
   {
     "school": "Waynesburg University",
@@ -16131,7 +16594,8 @@
     "power6_utr_women": null,
     "enrollment": 1009,
     "latitude": 39.899871,
-    "longitude": -80.186205
+    "longitude": -80.186205,
+    "avg_sat_total": 1090
   },
   {
     "school": "West Chester University",
@@ -16176,7 +16640,8 @@
     "power6_utr_women": null,
     "enrollment": 1985,
     "latitude": 41.244199,
-    "longitude": -75.890262
+    "longitude": -75.890262,
+    "avg_sat_total": 1136
   },
   {
     "school": "Williamson College of the Trades",
@@ -16221,7 +16686,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1162
   },
   {
     "school": "Brown University",
@@ -16246,7 +16712,8 @@
     "enrollment": 7226,
     "latitude": 41.82617,
     "longitude": -71.40385,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1546
   },
   {
     "school": "Bryant University",
@@ -16271,7 +16738,8 @@
     "enrollment": 3194,
     "latitude": 41.920092,
     "longitude": -71.539547,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1265
   },
   {
     "school": "Johnson & Wales University",
@@ -16317,7 +16785,8 @@
     "enrollment": 4229,
     "latitude": 41.842742,
     "longitude": -71.437446,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1346
   },
   {
     "school": "Rhode Island College",
@@ -16341,7 +16810,8 @@
     "power6_utr_women": null,
     "enrollment": 5049,
     "latitude": 41.842415,
-    "longitude": -71.46556
+    "longitude": -71.46556,
+    "avg_sat_total": 990
   },
   {
     "school": "Roger Williams University",
@@ -16365,7 +16835,8 @@
     "power6_utr_women": null,
     "enrollment": 3946,
     "latitude": 41.650214,
-    "longitude": -71.260374
+    "longitude": -71.260374,
+    "avg_sat_total": 1223
   },
   {
     "school": "Salve Regina University",
@@ -16389,7 +16860,8 @@
     "power6_utr_women": null,
     "enrollment": 2121,
     "latitude": 41.471545,
-    "longitude": -71.30124
+    "longitude": -71.30124,
+    "avg_sat_total": 1232
   },
   {
     "school": "University of Rhode Island",
@@ -16414,7 +16886,8 @@
     "enrollment": 13381,
     "latitude": 41.484691,
     "longitude": -71.527356,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1160
   },
   {
     "school": "Averett University",
@@ -16438,7 +16911,8 @@
     "power6_utr_women": null,
     "enrollment": 1231,
     "latitude": 36.577287,
-    "longitude": -79.413203
+    "longitude": -79.413203,
+    "avg_sat_total": 1135
   },
   {
     "school": "Bluefield College",
@@ -16483,7 +16957,8 @@
     "power6_utr_women": null,
     "enrollment": 1400,
     "latitude": 38.378484,
-    "longitude": -78.969007
+    "longitude": -78.969007,
+    "avg_sat_total": 1180
   },
   {
     "school": "Christopher Newport University",
@@ -16507,7 +16982,8 @@
     "power6_utr_women": null,
     "enrollment": 4365,
     "latitude": 37.062495,
-    "longitude": -76.494364
+    "longitude": -76.494364,
+    "avg_sat_total": 1180
   },
   {
     "school": "College of William & Mary",
@@ -16574,7 +17050,8 @@
     "power6_utr_women": null,
     "enrollment": 699,
     "latitude": 36.926431,
-    "longitude": -80.020614
+    "longitude": -80.020614,
+    "avg_sat_total": 1050
   },
   {
     "school": "Hampden-Sydney College",
@@ -16598,7 +17075,8 @@
     "power6_utr_women": null,
     "enrollment": 946,
     "latitude": 37.240615,
-    "longitude": -78.464216
+    "longitude": -78.464216,
+    "avg_sat_total": 1207
   },
   {
     "school": "Hampton University",
@@ -16623,7 +17101,8 @@
     "enrollment": 3727,
     "latitude": 37.019944,
     "longitude": -76.339161,
-    "niche_grade": "C"
+    "niche_grade": "C",
+    "avg_sat_total": 969
   },
   {
     "school": "HollinsUniversity",
@@ -16644,7 +17123,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1230
   },
   {
     "school": "James Madison University",
@@ -16669,7 +17149,8 @@
     "enrollment": 20888,
     "latitude": 38.436311,
     "longitude": -78.870484,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1256
   },
   {
     "school": "Longwood University",
@@ -16694,7 +17175,8 @@
     "enrollment": 3015,
     "latitude": 37.297975,
     "longitude": -78.396987,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1120
   },
   {
     "school": "Mary Baldwin University",
@@ -16767,7 +17249,8 @@
     "enrollment": 17514,
     "latitude": 36.886418,
     "longitude": -76.30666,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1197
   },
   {
     "school": "Randolph College",
@@ -16791,7 +17274,8 @@
     "power6_utr_women": null,
     "enrollment": 658,
     "latitude": 37.437315,
-    "longitude": -79.171887
+    "longitude": -79.171887,
+    "avg_sat_total": 1134
   },
   {
     "school": "Randolph-Macon College",
@@ -16815,7 +17299,8 @@
     "power6_utr_women": null,
     "enrollment": 1639,
     "latitude": 37.76043,
-    "longitude": -77.478416
+    "longitude": -77.478416,
+    "avg_sat_total": 1095
   },
   {
     "school": "Roanoke College",
@@ -16839,7 +17324,8 @@
     "power6_utr_women": null,
     "enrollment": 1767,
     "latitude": 37.294861,
-    "longitude": -80.055467
+    "longitude": -80.055467,
+    "avg_sat_total": 1211
   },
   {
     "school": "Shenandoah University",
@@ -16887,7 +17373,8 @@
     "power6_utr_women": null,
     "enrollment": 936,
     "latitude": 37.740368,
-    "longitude": -79.35037
+    "longitude": -79.35037,
+    "avg_sat_total": 1123
   },
   {
     "school": "SweetBriarCollege",
@@ -16908,7 +17395,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1230
   },
   {
     "school": "University of Lynchburg",
@@ -16932,7 +17420,8 @@
     "power6_utr_women": null,
     "enrollment": 1577,
     "latitude": 37.399774,
-    "longitude": -79.181653
+    "longitude": -79.181653,
+    "avg_sat_total": 1125
   },
   {
     "school": "University of Mary Washington",
@@ -16956,7 +17445,8 @@
     "power6_utr_women": null,
     "enrollment": 3566,
     "latitude": 38.302492,
-    "longitude": -77.476055
+    "longitude": -77.476055,
+    "avg_sat_total": 1272
   },
   {
     "school": "University of Richmond",
@@ -16981,7 +17471,8 @@
     "enrollment": 2980,
     "latitude": 37.577393,
     "longitude": -77.538806,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1497
   },
   {
     "school": "University of Virginia",
@@ -17006,7 +17497,8 @@
     "enrollment": 17597,
     "latitude": 38.035665,
     "longitude": -78.503428,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1480
   },
   {
     "school": "University of Virginia - Wise",
@@ -17027,7 +17519,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1480
   },
   {
     "school": "Virginia Commonwealth University",
@@ -17052,7 +17545,8 @@
     "enrollment": 20753,
     "latitude": 37.54962,
     "longitude": -77.452697,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1137
   },
   {
     "school": "Virginia State University",
@@ -17076,7 +17570,8 @@
     "power6_utr_women": null,
     "enrollment": 5074,
     "latitude": 37.234692,
-    "longitude": -77.419026
+    "longitude": -77.419026,
+    "avg_sat_total": 948
   },
   {
     "school": "Virginia Tech",
@@ -17122,7 +17617,8 @@
     "power6_utr_women": null,
     "enrollment": 1203,
     "latitude": 37.562405,
-    "longitude": -77.450903
+    "longitude": -77.450903,
+    "avg_sat_total": 850
   },
   {
     "school": "Virginia Wesleyan College",
@@ -17164,7 +17660,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1498
   },
   {
     "school": "Castleton University",
@@ -17209,7 +17706,8 @@
     "power6_utr_women": null,
     "enrollment": 2738,
     "latitude": 44.009117,
-    "longitude": -73.176068
+    "longitude": -73.176068,
+    "avg_sat_total": 1508
   },
   {
     "school": "Northern Vermont Univ - Johnson",
@@ -17275,7 +17773,8 @@
     "power6_utr_women": null,
     "enrollment": 2428,
     "latitude": 44.140237,
-    "longitude": -72.659783
+    "longitude": -72.659783,
+    "avg_sat_total": 1190
   },
   {
     "school": "Saint Michael's College",
@@ -17299,7 +17798,8 @@
     "power6_utr_women": null,
     "enrollment": 1092,
     "latitude": 44.494558,
-    "longitude": -73.167069
+    "longitude": -73.167069,
+    "avg_sat_total": 1245
   },
   {
     "school": "Alabama A & M University",
@@ -17324,7 +17824,8 @@
     "niche_grade": "C+",
     "enrollment": 6124,
     "latitude": 34.783368,
-    "longitude": -86.568502
+    "longitude": -86.568502,
+    "avg_sat_total": 938
   },
   {
     "school": "Alabama State University",
@@ -17349,7 +17850,8 @@
     "niche_grade": "C",
     "enrollment": 3477,
     "latitude": 32.364317,
-    "longitude": -86.295677
+    "longitude": -86.295677,
+    "avg_sat_total": 976
   },
   {
     "school": "Auburn University",
@@ -17374,7 +17876,8 @@
     "niche_grade": "A",
     "enrollment": 26816,
     "latitude": 32.599378,
-    "longitude": -85.488258
+    "longitude": -85.488258,
+    "avg_sat_total": 1345
   },
   {
     "school": "Auburn University at Montgomery",
@@ -17398,7 +17901,8 @@
     "power6_utr_women": null,
     "enrollment": 2542,
     "latitude": 32.36736,
-    "longitude": -86.177544
+    "longitude": -86.177544,
+    "avg_sat_total": 1093
   },
   {
     "school": "Birmingham Southern College",
@@ -17506,7 +18010,8 @@
     "power6_utr_women": null,
     "enrollment": 879,
     "latitude": 32.351034,
-    "longitude": -86.284366
+    "longitude": -86.284366,
+    "avg_sat_total": 1142
   },
   {
     "school": "Jacksonville State University",
@@ -17531,7 +18036,8 @@
     "niche_grade": "B",
     "enrollment": 7036,
     "latitude": 33.822938,
-    "longitude": -85.765321
+    "longitude": -85.765321,
+    "avg_sat_total": 1059
   },
   {
     "school": "Marion Military Institute",
@@ -17555,7 +18061,8 @@
     "power6_utr_women": null,
     "enrollment": 329,
     "latitude": 32.623734,
-    "longitude": -87.322041
+    "longitude": -87.322041,
+    "avg_sat_total": 1068
   },
   {
     "school": "Samford University",
@@ -17580,7 +18087,8 @@
     "niche_grade": "A-",
     "enrollment": 4206,
     "latitude": 33.464128,
-    "longitude": -86.791799
+    "longitude": -86.791799,
+    "avg_sat_total": 1201
   },
   {
     "school": "Snead State CC",
@@ -17625,7 +18133,8 @@
     "power6_utr_women": null,
     "enrollment": 782,
     "latitude": 30.694751,
-    "longitude": -88.138199
+    "longitude": -88.138199,
+    "avg_sat_total": 1120
   },
   {
     "school": "Tuskegee University",
@@ -17649,7 +18158,8 @@
     "power6_utr_women": null,
     "enrollment": 2630,
     "latitude": 32.4309,
-    "longitude": -85.708492
+    "longitude": -85.708492,
+    "avg_sat_total": 1120
   },
   {
     "school": "University of Alabama",
@@ -17674,7 +18184,8 @@
     "niche_grade": "A",
     "enrollment": 33227,
     "latitude": 33.211875,
-    "longitude": -87.545978
+    "longitude": -87.545978,
+    "avg_sat_total": 1285
   },
   {
     "school": "University of Alabama at Birmingham",
@@ -17699,7 +18210,8 @@
     "niche_grade": "A",
     "enrollment": 11635,
     "latitude": 33.505697,
-    "longitude": -86.799345
+    "longitude": -86.799345,
+    "avg_sat_total": 1258
   },
   {
     "school": "University of Alabama in Huntsville",
@@ -17723,7 +18235,8 @@
     "power6_utr_women": null,
     "enrollment": 6591,
     "latitude": 34.724557,
-    "longitude": -86.640449
+    "longitude": -86.640449,
+    "avg_sat_total": 1319
   },
   {
     "school": "University of Montevallo",
@@ -17747,7 +18260,8 @@
     "power6_utr_women": null,
     "enrollment": 2151,
     "latitude": 33.10625,
-    "longitude": -86.865099
+    "longitude": -86.865099,
+    "avg_sat_total": 1085
   },
   {
     "school": "University of West Alabama",
@@ -17771,7 +18285,8 @@
     "power6_utr_women": null,
     "enrollment": 2974,
     "latitude": 32.588132,
-    "longitude": -88.186329
+    "longitude": -88.186329,
+    "avg_sat_total": 1015
   },
   {
     "school": "Wallace State CC - Hanceville",
@@ -17817,7 +18332,8 @@
     "enrollment": 9110,
     "latitude": 35.842388,
     "longitude": -90.679988,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1090
   },
   {
     "school": "Arkansas Tech University",
@@ -17841,7 +18357,8 @@
     "power6_utr_women": null,
     "enrollment": 5388,
     "latitude": 35.296091,
-    "longitude": -93.137172
+    "longitude": -93.137172,
+    "avg_sat_total": 1049
   },
   {
     "school": "Harding University",
@@ -17865,7 +18382,8 @@
     "power6_utr_women": null,
     "enrollment": 3382,
     "latitude": 35.247386,
-    "longitude": -91.726143
+    "longitude": -91.726143,
+    "avg_sat_total": 1182
   },
   {
     "school": "Henderson State University",
@@ -17889,7 +18407,8 @@
     "power6_utr_women": null,
     "enrollment": 1456,
     "latitude": 34.128155,
-    "longitude": -93.059703
+    "longitude": -93.059703,
+    "avg_sat_total": 1065
   },
   {
     "school": "Hendrix College",
@@ -17913,7 +18432,8 @@
     "power6_utr_women": null,
     "enrollment": 1100,
     "latitude": 35.101565,
-    "longitude": -92.443256
+    "longitude": -92.443256,
+    "avg_sat_total": 1282
   },
   {
     "school": "Ouachita Baptist University",
@@ -17937,7 +18457,8 @@
     "power6_utr_women": null,
     "enrollment": 1602,
     "latitude": 34.126093,
-    "longitude": -93.052471
+    "longitude": -93.052471,
+    "avg_sat_total": 1211
   },
   {
     "school": "University of Arkansas",
@@ -17962,7 +18483,8 @@
     "enrollment": 28677,
     "latitude": 36.070009,
     "longitude": -94.176981,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1169
   },
   {
     "school": "University of Arkansas at Pine Bluff",
@@ -17987,7 +18509,8 @@
     "enrollment": 1807,
     "latitude": 34.244031,
     "longitude": -92.018683,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 922
   },
   {
     "school": "University of Central Arkansas",
@@ -18012,7 +18535,8 @@
     "enrollment": 7762,
     "latitude": 35.077945,
     "longitude": -92.457672,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1118
   },
   {
     "school": "University of the Ozarks",
@@ -18036,7 +18560,8 @@
     "power6_utr_women": null,
     "enrollment": 767,
     "latitude": 35.476278,
-    "longitude": -93.467221
+    "longitude": -93.467221,
+    "avg_sat_total": 1105
   },
   {
     "school": "Ave Maria University",
@@ -18085,7 +18610,8 @@
     "enrollment": 2732,
     "latitude": 29.207195,
     "longitude": -81.032946,
-    "niche_grade": "C"
+    "niche_grade": "C",
+    "avg_sat_total": 880
   },
   {
     "school": "Broward College",
@@ -18154,10 +18680,11 @@
     "top_lineup_utr_women": 9.45,
     "bottom_lineup_utr_women": 6.73,
     "power6_utr_men": 66.35,
-    "power6_utr_women": 45.40,
+    "power6_utr_women": 45.4,
     "enrollment": 1888,
     "latitude": 27.715798,
-    "longitude": -82.687043
+    "longitude": -82.687043,
+    "avg_sat_total": 1250
   },
   {
     "school": "Flagler College",
@@ -18181,7 +18708,8 @@
     "power6_utr_women": null,
     "enrollment": 2391,
     "latitude": 29.892733,
-    "longitude": -81.314887
+    "longitude": -81.314887,
+    "avg_sat_total": 1084
   },
   {
     "school": "Florida A & M University",
@@ -18228,7 +18756,8 @@
     "enrollment": 23757,
     "latitude": 26.372421,
     "longitude": -80.102978,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1127
   },
   {
     "school": "Florida International University",
@@ -18253,7 +18782,8 @@
     "enrollment": 39508,
     "latitude": 25.75732,
     "longitude": -80.373928,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1163
   },
   {
     "school": "Florida National University",
@@ -18301,7 +18831,8 @@
     "power6_utr_women": 50.84,
     "enrollment": 2656,
     "latitude": 28.032443,
-    "longitude": -81.948203
+    "longitude": -81.948203,
+    "avg_sat_total": 1252
   },
   {
     "school": "Florida State University",
@@ -18326,7 +18857,8 @@
     "enrollment": 32212,
     "latitude": 30.443147,
     "longitude": -84.295064,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1361
   },
   {
     "school": "Hillsborough CC",
@@ -18385,14 +18917,15 @@
     "phone": "(561) 237-7241",
     "usnews_ranking": null,
     "top_lineup_utr_men": 12.33,
-    "bottom_lineup_utr_men": 9.50,
+    "bottom_lineup_utr_men": 9.5,
     "top_lineup_utr_women": 8.73,
     "bottom_lineup_utr_women": 5.75,
     "power6_utr_men": 65.79,
     "power6_utr_women": 46.57,
     "enrollment": 2859,
     "latitude": 26.385985,
-    "longitude": -80.122806
+    "longitude": -80.122806,
+    "avg_sat_total": 1134
   },
   {
     "school": "Nova Southeastern University",
@@ -18416,7 +18949,8 @@
     "power6_utr_women": null,
     "enrollment": 7240,
     "latitude": 26.082288,
-    "longitude": -80.249891
+    "longitude": -80.249891,
+    "avg_sat_total": 1157
   },
   {
     "school": "Palm Beach Atlantic University",
@@ -18435,12 +18969,13 @@
     "top_lineup_utr_men": 11.51,
     "bottom_lineup_utr_men": 9.88,
     "top_lineup_utr_women": 7.89,
-    "bottom_lineup_utr_women": 5.30,
+    "bottom_lineup_utr_women": 5.3,
     "power6_utr_men": 63.28,
     "power6_utr_women": 41.59,
     "enrollment": 2603,
     "latitude": 26.7044,
-    "longitude": -80.05247
+    "longitude": -80.05247,
+    "avg_sat_total": 1075
   },
   {
     "school": "Rollins College",
@@ -18459,12 +18994,13 @@
     "top_lineup_utr_men": 12.63,
     "bottom_lineup_utr_men": null,
     "top_lineup_utr_women": 9.61,
-    "bottom_lineup_utr_women": 8.00,
+    "bottom_lineup_utr_women": 8.0,
     "power6_utr_men": null,
     "power6_utr_women": 43.98,
     "enrollment": 2631,
     "latitude": 28.592787,
-    "longitude": -81.349239
+    "longitude": -81.349239,
+    "avg_sat_total": 1271
   },
   {
     "school": "Saint Leo University",
@@ -18481,14 +19017,15 @@
     "phone": "(352) 588-7303",
     "usnews_ranking": 400,
     "top_lineup_utr_men": 12.23,
-    "bottom_lineup_utr_men": 11.20,
+    "bottom_lineup_utr_men": 11.2,
     "top_lineup_utr_women": 8.13,
     "bottom_lineup_utr_women": 5.74,
     "power6_utr_men": 69.47,
     "power6_utr_women": 41.65,
     "enrollment": 6721,
     "latitude": 28.336776,
-    "longitude": -82.257801
+    "longitude": -82.257801,
+    "avg_sat_total": 1040
   },
   {
     "school": "St Petersburg College",
@@ -18536,7 +19073,8 @@
     "power6_utr_women": null,
     "enrollment": 2214,
     "latitude": 25.922071,
-    "longitude": -80.253273
+    "longitude": -80.253273,
+    "avg_sat_total": 960
   },
   {
     "school": "State College of Florida-Manatee",
@@ -18582,7 +19120,8 @@
     "enrollment": 2297,
     "latitude": 29.035475,
     "longitude": -81.300746,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1176
   },
   {
     "school": "University of Florida",
@@ -18599,7 +19138,7 @@
     "phone": "AdamS@gators.ufl.edu",
     "usnews_ranking": 30,
     "top_lineup_utr_men": 13.46,
-    "bottom_lineup_utr_men": 12.50,
+    "bottom_lineup_utr_men": 12.5,
     "top_lineup_utr_women": 10.69,
     "bottom_lineup_utr_women": 10.36,
     "power6_utr_men": 78.76,
@@ -18607,7 +19146,8 @@
     "enrollment": 35629,
     "latitude": 29.64629,
     "longitude": -82.347911,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1403
   },
   {
     "school": "University of Miami",
@@ -18632,7 +19172,8 @@
     "enrollment": 12913,
     "latitude": 25.72126,
     "longitude": -80.278662,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1415
   },
   {
     "school": "University of South Florida",
@@ -18653,11 +19194,12 @@
     "top_lineup_utr_women": 9.67,
     "bottom_lineup_utr_women": 8.78,
     "power6_utr_men": 75.79,
-    "power6_utr_women": 55.20,
+    "power6_utr_women": 55.2,
     "enrollment": 37207,
     "latitude": 28.061458,
     "longitude": -82.413232,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1227
   },
   {
     "school": "University of Tampa",
@@ -18681,7 +19223,8 @@
     "power6_utr_women": 50.02,
     "enrollment": 10572,
     "latitude": 27.948455,
-    "longitude": -82.46483
+    "longitude": -82.46483,
+    "avg_sat_total": 1155
   },
   {
     "school": "Warner University",
@@ -18705,7 +19248,8 @@
     "power6_utr_women": null,
     "enrollment": 756,
     "latitude": 27.825751,
-    "longitude": -81.599972
+    "longitude": -81.599972,
+    "avg_sat_total": 932
   },
   {
     "school": "Webber International University",
@@ -18753,7 +19297,8 @@
     "power6_utr_women": null,
     "enrollment": 3208,
     "latitude": 31.481889,
-    "longitude": -83.528281
+    "longitude": -83.528281,
+    "avg_sat_total": 990
   },
   {
     "school": "AgnesScottCollege",
@@ -18774,7 +19319,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1260
   },
   {
     "school": "Albany State University",
@@ -18822,7 +19368,8 @@
     "power6_utr_women": null,
     "enrollment": 2245,
     "latitude": 34.290414,
-    "longitude": -85.189202
+    "longitude": -85.189202,
+    "avg_sat_total": 1220
   },
   {
     "school": "Brenau University",
@@ -18846,7 +19393,8 @@
     "power6_utr_women": null,
     "enrollment": 1029,
     "latitude": 34.303117,
-    "longitude": -83.821513
+    "longitude": -83.821513,
+    "avg_sat_total": 1079
   },
   {
     "school": "Clark Atlanta University",
@@ -18870,7 +19418,8 @@
     "power6_utr_women": null,
     "enrollment": 3603,
     "latitude": 33.747628,
-    "longitude": -84.412584
+    "longitude": -84.412584,
+    "avg_sat_total": 957
   },
   {
     "school": "College of Coastal Georgia",
@@ -18894,7 +19443,8 @@
     "power6_utr_women": null,
     "enrollment": 2979,
     "latitude": 31.181983,
-    "longitude": -81.486169
+    "longitude": -81.486169,
+    "avg_sat_total": 1000
   },
   {
     "school": "Covenant College",
@@ -18918,7 +19468,8 @@
     "power6_utr_women": null,
     "enrollment": 939,
     "latitude": 34.965161,
-    "longitude": -85.375066
+    "longitude": -85.375066,
+    "avg_sat_total": 1294
   },
   {
     "school": "Emmanuel College",
@@ -18984,7 +19535,8 @@
     "power6_utr_women": null,
     "enrollment": 7298,
     "latitude": 33.790183,
-    "longitude": -84.325512
+    "longitude": -84.325512,
+    "avg_sat_total": 1520
   },
   {
     "school": "Fort Valley State University",
@@ -19008,7 +19560,8 @@
     "power6_utr_women": null,
     "enrollment": 2684,
     "latitude": 32.537595,
-    "longitude": -83.89537
+    "longitude": -83.89537,
+    "avg_sat_total": 994
   },
   {
     "school": "Georgia College",
@@ -19053,7 +19606,8 @@
     "power6_utr_women": null,
     "enrollment": 11344,
     "latitude": 33.979409,
-    "longitude": -84.00459
+    "longitude": -84.00459,
+    "avg_sat_total": 1055
   },
   {
     "school": "Georgia Southern University",
@@ -19078,7 +19632,8 @@
     "enrollment": 21790,
     "latitude": 32.426153,
     "longitude": -81.784045,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1053
   },
   {
     "school": "Georgia Southwestern State Univ",
@@ -19099,7 +19654,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 978
   },
   {
     "school": "LaGrange College",
@@ -19148,7 +19704,8 @@
     "enrollment": 4500,
     "latitude": 32.829134,
     "longitude": -83.649392,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1271
   },
   {
     "school": "Middle Georgia State University",
@@ -19172,7 +19729,8 @@
     "power6_utr_women": null,
     "enrollment": 6574,
     "latitude": 32.808092,
-    "longitude": -83.732058
+    "longitude": -83.732058,
+    "avg_sat_total": 1083
   },
   {
     "school": "Morehouse College",
@@ -19196,7 +19754,8 @@
     "power6_utr_women": null,
     "enrollment": 2844,
     "latitude": 33.745982,
-    "longitude": -84.414917
+    "longitude": -84.414917,
+    "avg_sat_total": 1090
   },
   {
     "school": "Oglethorpe University",
@@ -19220,7 +19779,8 @@
     "power6_utr_women": null,
     "enrollment": 1352,
     "latitude": 33.875441,
-    "longitude": -84.333687
+    "longitude": -84.333687,
+    "avg_sat_total": 1227
   },
   {
     "school": "Piedmont College",
@@ -19265,7 +19825,8 @@
     "power6_utr_women": null,
     "enrollment": 1996,
     "latitude": 32.87912,
-    "longitude": -85.184931
+    "longitude": -85.184931,
+    "avg_sat_total": 1010
   },
   {
     "school": "Reinhardt University",
@@ -19310,7 +19871,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1173
   },
   {
     "school": "Savannah State University",
@@ -19359,7 +19921,8 @@
     "power6_utr_women": null,
     "enrollment": 1028,
     "latitude": 34.257543,
-    "longitude": -85.196529
+    "longitude": -85.196529,
+    "avg_sat_total": 1115
   },
   {
     "school": "University of Georgia",
@@ -19384,7 +19947,8 @@
     "enrollment": 32137,
     "latitude": 33.956262,
     "longitude": -83.374039,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1397
   },
   {
     "school": "University of West Georgia",
@@ -19408,7 +19972,8 @@
     "power6_utr_women": null,
     "enrollment": 7520,
     "latitude": 33.573621,
-    "longitude": -85.097762
+    "longitude": -85.097762,
+    "avg_sat_total": 1032
   },
   {
     "school": "Valdosta State University",
@@ -19427,12 +19992,13 @@
     "top_lineup_utr_men": 12.48,
     "bottom_lineup_utr_men": 10.92,
     "top_lineup_utr_women": 8.64,
-    "bottom_lineup_utr_women": 7.30,
+    "bottom_lineup_utr_women": 7.3,
     "power6_utr_men": 68.74,
     "power6_utr_women": 40.94,
     "enrollment": 6622,
     "latitude": 30.847402,
-    "longitude": -83.289282
+    "longitude": -83.289282,
+    "avg_sat_total": 1013
   },
   {
     "school": "WesleyanCollege",
@@ -19453,7 +20019,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1075
   },
   {
     "school": "Young Harris College",
@@ -19501,7 +20068,8 @@
     "power6_utr_women": null,
     "enrollment": 685,
     "latitude": 32.483335,
-    "longitude": -93.730834
+    "longitude": -93.730834,
+    "avg_sat_total": 1144
   },
   {
     "school": "Grambling State University",
@@ -19526,7 +20094,8 @@
     "enrollment": 4164,
     "latitude": 32.523797,
     "longitude": -92.713245,
-    "niche_grade": "C+"
+    "niche_grade": "C+",
+    "avg_sat_total": 943
   },
   {
     "school": "Louisiana College",
@@ -19589,7 +20158,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1090
   },
   {
     "school": "Louisiana State University",
@@ -19636,7 +20206,8 @@
     "enrollment": 8312,
     "latitude": 32.528297,
     "longitude": -92.649963,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1191
   },
   {
     "school": "Loyola University New Orleans",
@@ -19685,7 +20256,8 @@
     "enrollment": 5005,
     "latitude": 30.178187,
     "longitude": -93.217222,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1087
   },
   {
     "school": "Nicholls State University",
@@ -19710,7 +20282,8 @@
     "enrollment": 4737,
     "latitude": 29.794486,
     "longitude": -90.801571,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1090
   },
   {
     "school": "Northwestern State University",
@@ -19757,7 +20330,8 @@
     "enrollment": 9514,
     "latitude": 30.514652,
     "longitude": -90.468676,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1090
   },
   {
     "school": "Southern University",
@@ -19826,7 +20400,8 @@
     "enrollment": 5022,
     "latitude": 32.527748,
     "longitude": -92.07374,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1116
   },
   {
     "school": "Alcorn State University",
@@ -19851,7 +20426,8 @@
     "enrollment": 2363,
     "latitude": 31.877216,
     "longitude": -91.142854,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 904
   },
   {
     "school": "Belhaven University",
@@ -19875,7 +20451,8 @@
     "power6_utr_women": null,
     "enrollment": 1471,
     "latitude": 32.318415,
-    "longitude": -90.169228
+    "longitude": -90.169228,
+    "avg_sat_total": 1124
   },
   {
     "school": "Blue Mountain College",
@@ -20079,7 +20656,8 @@
     "power6_utr_women": null,
     "enrollment": 549,
     "latitude": 32.322746,
-    "longitude": -90.179957
+    "longitude": -90.179957,
+    "avg_sat_total": 1181
   },
   {
     "school": "Mississippi College",
@@ -20146,7 +20724,8 @@
     "enrollment": 18397,
     "latitude": 33.454852,
     "longitude": -88.790139,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1219
   },
   {
     "school": "Mississippi University for Women",
@@ -20170,7 +20749,8 @@
     "power6_utr_women": null,
     "enrollment": 1605,
     "latitude": 33.493305,
-    "longitude": -88.418601
+    "longitude": -88.418601,
+    "avg_sat_total": 1090
   },
   {
     "school": "Mississippi Valley State University",
@@ -20195,7 +20775,8 @@
     "enrollment": 1439,
     "latitude": 33.514142,
     "longitude": -90.341274,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 870
   },
   {
     "school": "Rust College",
@@ -20264,7 +20845,8 @@
     "power6_utr_women": null,
     "enrollment": 639,
     "latitude": 32.403014,
-    "longitude": -90.16076
+    "longitude": -90.16076,
+    "avg_sat_total": 940
   },
   {
     "school": "University of Mississippi",
@@ -20289,7 +20871,8 @@
     "enrollment": 21473,
     "latitude": 34.365529,
     "longitude": -89.537434,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1184
   },
   {
     "school": "William Carey University",
@@ -20313,7 +20896,8 @@
     "power6_utr_women": null,
     "enrollment": 2201,
     "latitude": 31.305264,
-    "longitude": -89.291815
+    "longitude": -89.291815,
+    "avg_sat_total": 1122
   },
   {
     "school": "Appalachian State University",
@@ -20338,7 +20922,8 @@
     "enrollment": 19444,
     "latitude": 36.215536,
     "longitude": -81.680583,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1214
   },
   {
     "school": "Barton College",
@@ -20362,7 +20947,8 @@
     "power6_utr_women": null,
     "enrollment": 982,
     "latitude": 35.734376,
-    "longitude": -77.913867
+    "longitude": -77.913867,
+    "avg_sat_total": 1060
   },
   {
     "school": "Belmont Abbey College",
@@ -20386,7 +20972,8 @@
     "power6_utr_women": null,
     "enrollment": 1276,
     "latitude": 35.260651,
-    "longitude": -81.041315
+    "longitude": -81.041315,
+    "avg_sat_total": 1099
   },
   {
     "school": "Brevard College",
@@ -20410,7 +20997,8 @@
     "power6_utr_women": null,
     "enrollment": 815,
     "latitude": 35.236763,
-    "longitude": -82.729494
+    "longitude": -82.729494,
+    "avg_sat_total": 1060
   },
   {
     "school": "Catawba College",
@@ -20434,7 +21022,8 @@
     "power6_utr_women": 29.99,
     "enrollment": 1235,
     "latitude": 35.691443,
-    "longitude": -80.482751
+    "longitude": -80.482751,
+    "avg_sat_total": 1096
   },
   {
     "school": "Chowan University",
@@ -20458,7 +21047,8 @@
     "power6_utr_women": null,
     "enrollment": 603,
     "latitude": 36.436258,
-    "longitude": -77.099141
+    "longitude": -77.099141,
+    "avg_sat_total": 978
   },
   {
     "school": "Davidson College",
@@ -20483,7 +21073,8 @@
     "enrollment": 1867,
     "latitude": 35.499767,
     "longitude": -80.843979,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1469
   },
   {
     "school": "Duke University",
@@ -20508,7 +21099,8 @@
     "enrollment": 6442,
     "latitude": 36.001135,
     "longitude": -78.937624,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1548
   },
   {
     "school": "East Carolina University",
@@ -20533,7 +21125,8 @@
     "enrollment": 19896,
     "latitude": 35.607186,
     "longitude": -77.368291,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1180
   },
   {
     "school": "Elizabeth City State University",
@@ -20557,7 +21150,8 @@
     "power6_utr_women": null,
     "enrollment": 1975,
     "latitude": 36.277978,
-    "longitude": -76.214041
+    "longitude": -76.214041,
+    "avg_sat_total": 1019
   },
   {
     "school": "Fayetteville State University",
@@ -20581,7 +21175,8 @@
     "power6_utr_women": null,
     "enrollment": 5762,
     "latitude": 35.073641,
-    "longitude": -78.891696
+    "longitude": -78.891696,
+    "avg_sat_total": 959
   },
   {
     "school": "Gardner-Webb University",
@@ -20606,7 +21201,8 @@
     "enrollment": 1856,
     "latitude": 35.24732,
     "longitude": -81.668141,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1113
   },
   {
     "school": "Greensboro College",
@@ -20654,7 +21250,8 @@
     "power6_utr_women": null,
     "enrollment": 1001,
     "latitude": 36.094233,
-    "longitude": -79.887737
+    "longitude": -79.887737,
+    "avg_sat_total": 1105
   },
   {
     "school": "Johnson C. Smith University",
@@ -20702,7 +21299,8 @@
     "power6_utr_women": null,
     "enrollment": 873,
     "latitude": 36.162477,
-    "longitude": -81.873371
+    "longitude": -81.873371,
+    "avg_sat_total": 1140
   },
   {
     "school": "Lenoir-Rhyne University",
@@ -20750,7 +21348,8 @@
     "power6_utr_women": null,
     "enrollment": 924,
     "latitude": 35.670877,
-    "longitude": -80.483956
+    "longitude": -80.483956,
+    "avg_sat_total": 899
   },
   {
     "school": "Mars Hill University",
@@ -20795,7 +21394,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1204
   },
   {
     "school": "Methodist University",
@@ -20819,7 +21419,8 @@
     "power6_utr_women": null,
     "enrollment": 1448,
     "latitude": 35.135058,
-    "longitude": -78.874426
+    "longitude": -78.874426,
+    "avg_sat_total": 1182
   },
   {
     "school": "Montreat College",
@@ -20843,7 +21444,8 @@
     "power6_utr_women": null,
     "enrollment": 762,
     "latitude": 35.646577,
-    "longitude": -82.2976
+    "longitude": -82.2976,
+    "avg_sat_total": 1125
   },
   {
     "school": "North Carolina State University",
@@ -20865,7 +21467,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1074
   },
   {
     "school": "North Carolina Wesleyan College",
@@ -20910,7 +21513,8 @@
     "power6_utr_women": null,
     "enrollment": 655,
     "latitude": 35.484696,
-    "longitude": -80.283168
+    "longitude": -80.283168,
+    "avg_sat_total": 1028
   },
   {
     "school": "Queens University of Charlotte",
@@ -20934,7 +21538,8 @@
     "power6_utr_women": null,
     "enrollment": 1211,
     "latitude": 35.189051,
-    "longitude": -80.833509
+    "longitude": -80.833509,
+    "avg_sat_total": 1206
   },
   {
     "school": "Salem College",
@@ -20958,7 +21563,8 @@
     "power6_utr_women": null,
     "enrollment": 423,
     "latitude": 36.086271,
-    "longitude": -80.241297
+    "longitude": -80.241297,
+    "avg_sat_total": 1082
   },
   {
     "school": "Univ of North Carolina at Charlotte",
@@ -20980,7 +21586,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1231
   },
   {
     "school": "University of Mount Olive",
@@ -21004,7 +21611,8 @@
     "power6_utr_women": null,
     "enrollment": 1796,
     "latitude": 35.208166,
-    "longitude": -78.069388
+    "longitude": -78.069388,
+    "avg_sat_total": 1050
   },
   {
     "school": "University of North Carolina",
@@ -21050,7 +21658,8 @@
     "power6_utr_women": null,
     "enrollment": 707,
     "latitude": 35.610328,
-    "longitude": -82.442619
+    "longitude": -82.442619,
+    "avg_sat_total": 1350
   },
   {
     "school": "Western Carolina University",
@@ -21075,7 +21684,8 @@
     "enrollment": 10024,
     "latitude": 35.308979,
     "longitude": -83.186258,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1157
   },
   {
     "school": "William Peace University",
@@ -21099,7 +21709,8 @@
     "power6_utr_women": null,
     "enrollment": 666,
     "latitude": 35.789139,
-    "longitude": -78.637697
+    "longitude": -78.637697,
+    "avg_sat_total": 1170
   },
   {
     "school": "Wingate University",
@@ -21123,7 +21734,8 @@
     "power6_utr_women": 45.96,
     "enrollment": 2668,
     "latitude": 34.986064,
-    "longitude": -80.44305
+    "longitude": -80.44305,
+    "avg_sat_total": 1111
   },
   {
     "school": "Winston-Salem State University",
@@ -21147,7 +21759,8 @@
     "power6_utr_women": null,
     "enrollment": 4170,
     "latitude": 36.089554,
-    "longitude": -80.225033
+    "longitude": -80.225033,
+    "avg_sat_total": 945
   },
   {
     "school": "Cameron University",
@@ -21195,7 +21808,8 @@
     "power6_utr_women": null,
     "enrollment": 4772,
     "latitude": 35.919939,
-    "longitude": -94.967229
+    "longitude": -94.967229,
+    "avg_sat_total": 1049
   },
   {
     "school": "Oklahoma Baptist University",
@@ -21219,7 +21833,8 @@
     "power6_utr_women": null,
     "enrollment": 1308,
     "latitude": 35.360492,
-    "longitude": -96.932459
+    "longitude": -96.932459,
+    "avg_sat_total": 1024
   },
   {
     "school": "Oklahoma State University",
@@ -21244,7 +21859,8 @@
     "enrollment": 21773,
     "latitude": 36.123085,
     "longitude": -97.069743,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1150
   },
   {
     "school": "Oklahoma Wesleyan University",
@@ -21268,7 +21884,8 @@
     "power6_utr_women": null,
     "enrollment": 673,
     "latitude": 36.717453,
-    "longitude": -95.95671
+    "longitude": -95.95671,
+    "avg_sat_total": 1005
   },
   {
     "school": "Oral Roberts University",
@@ -21293,7 +21910,8 @@
     "enrollment": 3487,
     "latitude": 36.049129,
     "longitude": -95.952547,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1196
   },
   {
     "school": "Seminole State College",
@@ -21341,7 +21959,8 @@
     "power6_utr_women": null,
     "enrollment": 10170,
     "latitude": 35.6552,
-    "longitude": -97.471508
+    "longitude": -97.471508,
+    "avg_sat_total": 1090
   },
   {
     "school": "University of Oklahoma",
@@ -21362,7 +21981,7 @@
     "top_lineup_utr_women": 11.1,
     "bottom_lineup_utr_women": 10.47,
     "power6_utr_men": 80.55,
-    "power6_utr_women": 65.20,
+    "power6_utr_women": 65.2,
     "niche_grade": "A"
   },
   {
@@ -21388,7 +22007,8 @@
     "enrollment": 2813,
     "latitude": 36.152324,
     "longitude": -95.945941,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1389
   },
   {
     "school": "Benedict College",
@@ -21437,7 +22057,8 @@
     "enrollment": 2893,
     "latitude": 32.983047,
     "longitude": -80.072587,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1059
   },
   {
     "school": "Citadel Military College",
@@ -21480,11 +22101,12 @@
     "top_lineup_utr_women": 10.74,
     "bottom_lineup_utr_women": 9.96,
     "power6_utr_men": 80.57,
-    "power6_utr_women": 61.60,
+    "power6_utr_women": 61.6,
     "enrollment": 23300,
     "latitude": 34.679381,
     "longitude": -82.835114,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1353
   },
   {
     "school": "Coker College",
@@ -21530,7 +22152,8 @@
     "enrollment": 10558,
     "latitude": 32.784225,
     "longitude": -79.939794,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1247
   },
   {
     "school": "Columbia College",
@@ -21599,7 +22222,8 @@
     "power6_utr_women": null,
     "enrollment": 766,
     "latitude": 34.332087,
-    "longitude": -82.39095
+    "longitude": -82.39095,
+    "avg_sat_total": 1035
   },
   {
     "school": "Furman University",
@@ -21624,7 +22248,8 @@
     "enrollment": 2379,
     "latitude": 34.924676,
     "longitude": -82.440458,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1371
   },
   {
     "school": "Lander University",
@@ -21648,7 +22273,8 @@
     "power6_utr_women": 41.05,
     "enrollment": 3397,
     "latitude": 34.199892,
-    "longitude": -82.164736
+    "longitude": -82.164736,
+    "avg_sat_total": 1057
   },
   {
     "school": "Limestone College",
@@ -21693,7 +22319,8 @@
     "power6_utr_women": null,
     "enrollment": 1479,
     "latitude": 34.285868,
-    "longitude": -81.619777
+    "longitude": -81.619777,
+    "avg_sat_total": 1045
   },
   {
     "school": "North Greenville University",
@@ -21717,7 +22344,8 @@
     "power6_utr_women": null,
     "enrollment": 1819,
     "latitude": 35.069758,
-    "longitude": -82.37026
+    "longitude": -82.37026,
+    "avg_sat_total": 1156
   },
   {
     "school": "Presbyterian College",
@@ -21742,7 +22370,8 @@
     "enrollment": 852,
     "latitude": 34.465834,
     "longitude": -81.87448,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1118
   },
   {
     "school": "South Carolina State University",
@@ -21761,13 +22390,14 @@
     "top_lineup_utr_men": 12.45,
     "bottom_lineup_utr_men": 10.98,
     "top_lineup_utr_women": 8.41,
-    "bottom_lineup_utr_women": 7.50,
+    "bottom_lineup_utr_women": 7.5,
     "power6_utr_men": 70.72,
     "power6_utr_women": 38.45,
     "enrollment": 2934,
     "latitude": 33.497968,
     "longitude": -80.848722,
-    "niche_grade": "C"
+    "niche_grade": "C",
+    "avg_sat_total": 925
   },
   {
     "school": "Southern Wesleyan University",
@@ -21791,7 +22421,8 @@
     "power6_utr_women": null,
     "enrollment": 747,
     "latitude": 34.728068,
-    "longitude": -82.761586
+    "longitude": -82.761586,
+    "avg_sat_total": 1140
   },
   {
     "school": "Spartanburg Methodist College",
@@ -21837,7 +22468,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1099
   },
   {
     "school": "Univ of South Carolina-Sumter",
@@ -21905,7 +22537,8 @@
     "enrollment": 3523,
     "latitude": 34.941515,
     "longitude": -81.031404,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1139
   },
   {
     "school": "Wofford College",
@@ -21930,7 +22563,8 @@
     "enrollment": 1816,
     "latitude": 34.959411,
     "longitude": -81.933568,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1296
   },
   {
     "school": "Belmont University",
@@ -21951,11 +22585,12 @@
     "top_lineup_utr_women": 8.62,
     "bottom_lineup_utr_women": 7.27,
     "power6_utr_men": 70.83,
-    "power6_utr_women": 49.50,
+    "power6_utr_women": 49.5,
     "enrollment": 7137,
     "latitude": 36.135589,
     "longitude": -86.794807,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1280
   },
   {
     "school": "Carson-Newman University",
@@ -21979,7 +22614,8 @@
     "power6_utr_women": null,
     "enrollment": 1387,
     "latitude": 36.122934,
-    "longitude": -83.491709
+    "longitude": -83.491709,
+    "avg_sat_total": 1117
   },
   {
     "school": "Christian Brothers University",
@@ -22003,7 +22639,8 @@
     "power6_utr_women": null,
     "enrollment": 905,
     "latitude": 35.127437,
-    "longitude": -89.983241
+    "longitude": -89.983241,
+    "avg_sat_total": 1098
   },
   {
     "school": "Freed-Hardeman University",
@@ -22027,7 +22664,8 @@
     "power6_utr_women": null,
     "enrollment": 1212,
     "latitude": 35.440611,
-    "longitude": -88.637964
+    "longitude": -88.637964,
+    "avg_sat_total": 1109
   },
   {
     "school": "Johnson University",
@@ -22051,7 +22689,8 @@
     "power6_utr_women": null,
     "enrollment": 743,
     "latitude": 35.937193,
-    "longitude": -83.750273
+    "longitude": -83.750273,
+    "avg_sat_total": 1078
   },
   {
     "school": "King University",
@@ -22075,7 +22714,8 @@
     "power6_utr_women": null,
     "enrollment": 908,
     "latitude": 36.585309,
-    "longitude": -82.159421
+    "longitude": -82.159421,
+    "avg_sat_total": 1080
   },
   {
     "school": "Lane College",
@@ -22123,7 +22763,8 @@
     "power6_utr_women": null,
     "enrollment": 581,
     "latitude": 35.118641,
-    "longitude": -90.034101
+    "longitude": -90.034101,
+    "avg_sat_total": 996
   },
   {
     "school": "Lipscomb University",
@@ -22148,7 +22789,8 @@
     "enrollment": 2997,
     "latitude": 36.106253,
     "longitude": -86.799791,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1256
   },
   {
     "school": "Martin Methodist College",
@@ -22193,7 +22835,8 @@
     "power6_utr_women": null,
     "enrollment": 1005,
     "latitude": 35.751505,
-    "longitude": -83.964223
+    "longitude": -83.964223,
+    "avg_sat_total": 1210
   },
   {
     "school": "Middle Tennessee State Univ",
@@ -22215,7 +22858,8 @@
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
     "power6_utr_women": null,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1121
   },
   {
     "school": "Milligan College",
@@ -22260,7 +22904,8 @@
     "power6_utr_women": null,
     "enrollment": 1836,
     "latitude": 35.154405,
-    "longitude": -89.990803
+    "longitude": -89.990803,
+    "avg_sat_total": 1362
   },
   {
     "school": "Sewanee-The University of the South",
@@ -22344,11 +22989,12 @@
     "top_lineup_utr_women": 10.48,
     "bottom_lineup_utr_women": 8.19,
     "power6_utr_men": 76.35,
-    "power6_utr_women": 54.60,
+    "power6_utr_women": 54.6,
     "enrollment": 12701,
     "latitude": 35.118878,
     "longitude": -89.938068,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1088
   },
   {
     "school": "University of Tennessee",
@@ -22395,7 +23041,8 @@
     "enrollment": 4866,
     "latitude": 36.340338,
     "longitude": -88.864211,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1120
   },
   {
     "school": "Vanderbilt University",
@@ -22420,7 +23067,8 @@
     "enrollment": 7208,
     "latitude": 36.14659,
     "longitude": -86.803369,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1549
   },
   {
     "school": "Abilene Christian University",
@@ -22445,7 +23093,8 @@
     "enrollment": 3195,
     "latitude": 32.468943,
     "longitude": -99.709797,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1194
   },
   {
     "school": "Angelo State University",
@@ -22469,7 +23118,8 @@
     "power6_utr_women": null,
     "enrollment": 5643,
     "latitude": 31.440914,
-    "longitude": -100.465051
+    "longitude": -100.465051,
+    "avg_sat_total": 1054
   },
   {
     "school": "Austin College",
@@ -22493,7 +23143,8 @@
     "power6_utr_women": null,
     "enrollment": 1165,
     "latitude": 33.646345,
-    "longitude": -96.596331
+    "longitude": -96.596331,
+    "avg_sat_total": 1212
   },
   {
     "school": "Baylor University",
@@ -22518,7 +23169,8 @@
     "enrollment": 14785,
     "latitude": 31.546872,
     "longitude": -97.121041,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1329
   },
   {
     "school": "Collin College",
@@ -22563,7 +23215,8 @@
     "power6_utr_women": null,
     "enrollment": 1185,
     "latitude": 30.420232,
-    "longitude": -97.835703
+    "longitude": -97.835703,
+    "avg_sat_total": 1018
   },
   {
     "school": "Dallas Baptist University",
@@ -22587,7 +23240,8 @@
     "power6_utr_women": null,
     "enrollment": 2403,
     "latitude": 32.710017,
-    "longitude": -96.947006
+    "longitude": -96.947006,
+    "avg_sat_total": 1120
   },
   {
     "school": "East Texas Baptist University",
@@ -22635,7 +23289,8 @@
     "power6_utr_women": null,
     "enrollment": 1283,
     "latitude": 32.476434,
-    "longitude": -99.73564
+    "longitude": -99.73564,
+    "avg_sat_total": 1108
   },
   {
     "school": "Howard Payne University",
@@ -22659,7 +23314,8 @@
     "power6_utr_women": null,
     "enrollment": 713,
     "latitude": 31.716467,
-    "longitude": -98.985204
+    "longitude": -98.985204,
+    "avg_sat_total": 1026
   },
   {
     "school": "Jacksonville College",
@@ -22731,7 +23387,8 @@
     "power6_utr_women": null,
     "enrollment": 1468,
     "latitude": 32.46632,
-    "longitude": -94.726394
+    "longitude": -94.726394,
+    "avg_sat_total": 1208
   },
   {
     "school": "McMurry University",
@@ -22755,7 +23412,8 @@
     "power6_utr_women": null,
     "enrollment": 1176,
     "latitude": 32.429776,
-    "longitude": -99.748682
+    "longitude": -99.748682,
+    "avg_sat_total": 1043
   },
   {
     "school": "North Central Texas College",
@@ -22803,7 +23461,8 @@
     "power6_utr_women": null,
     "enrollment": 1066,
     "latitude": 29.426194,
-    "longitude": -98.54365
+    "longitude": -98.54365,
+    "avg_sat_total": 980
   },
   {
     "school": "Prairie View A & M University",
@@ -22828,7 +23487,8 @@
     "enrollment": 8877,
     "latitude": 30.092425,
     "longitude": -95.989475,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 980
   },
   {
     "school": "Saint Edward's University",
@@ -22852,7 +23512,8 @@
     "power6_utr_women": null,
     "enrollment": 2493,
     "latitude": 30.229618,
-    "longitude": -97.754998
+    "longitude": -97.754998,
+    "avg_sat_total": 1138
   },
   {
     "school": "Sam Houston State University",
@@ -22877,7 +23538,8 @@
     "enrollment": 17743,
     "latitude": 30.714738,
     "longitude": -95.546205,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1041
   },
   {
     "school": "Schreiner University",
@@ -22901,7 +23563,8 @@
     "power6_utr_women": null,
     "enrollment": 1053,
     "latitude": 30.031458,
-    "longitude": -99.130586
+    "longitude": -99.130586,
+    "avg_sat_total": 1065
   },
   {
     "school": "Southern Methodist University",
@@ -22926,7 +23589,8 @@
     "enrollment": 7277,
     "latitude": 32.843612,
     "longitude": -96.783365,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1428
   },
   {
     "school": "Southwestern University",
@@ -22950,7 +23614,8 @@
     "power6_utr_women": null,
     "enrollment": 1440,
     "latitude": 30.634341,
-    "longitude": -97.665738
+    "longitude": -97.665738,
+    "avg_sat_total": 1241
   },
   {
     "school": "Stephen F Austin State University",
@@ -22975,7 +23640,8 @@
     "enrollment": 8728,
     "latitude": 31.621056,
     "longitude": -94.64908,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1066
   },
   {
     "school": "Sul Ross State University",
@@ -22999,7 +23665,8 @@
     "power6_utr_women": null,
     "enrollment": 1396,
     "latitude": 30.363139,
-    "longitude": -103.651469
+    "longitude": -103.651469,
+    "avg_sat_total": 1024
   },
   {
     "school": "Tarleton State University",
@@ -23024,7 +23691,8 @@
     "enrollment": 12673,
     "latitude": 32.217805,
     "longitude": -98.219039,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1075
   },
   {
     "school": "Texas A & M - Corpus Christi",
@@ -23104,13 +23772,14 @@
     "coach": "Steve Denton",
     "phone": "sdenton@athletics.tamu.edu",
     "usnews_ranking": 51,
-    "top_lineup_utr_men": 13.90,
+    "top_lineup_utr_men": 13.9,
     "bottom_lineup_utr_men": 13.42,
     "top_lineup_utr_women": 11.36,
-    "bottom_lineup_utr_women": 8.90,
+    "bottom_lineup_utr_women": 8.9,
     "power6_utr_men": 81.94,
     "power6_utr_women": 62.45,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1050
   },
   {
     "school": "Texas Christian University",
@@ -23135,7 +23804,8 @@
     "enrollment": 11026,
     "latitude": 32.70961,
     "longitude": -97.364758,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1298
   },
   {
     "school": "Texas Lutheran University",
@@ -23184,7 +23854,8 @@
     "enrollment": 36177,
     "latitude": 29.888885,
     "longitude": -97.943029,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1103
   },
   {
     "school": "Texas Wesleyan University",
@@ -23208,7 +23879,8 @@
     "power6_utr_women": null,
     "enrollment": 1741,
     "latitude": 32.732962,
-    "longitude": -97.279613
+    "longitude": -97.279613,
+    "avg_sat_total": 1070
   },
   {
     "school": "Trinity University",
@@ -23232,7 +23904,8 @@
     "power6_utr_women": null,
     "enrollment": 2505,
     "latitude": 29.462682,
-    "longitude": -98.48186
+    "longitude": -98.48186,
+    "avg_sat_total": 1416
   },
   {
     "school": "Tyler Junior College",
@@ -23281,7 +23954,8 @@
     "enrollment": 38380,
     "latitude": 29.720393,
     "longitude": -95.343537,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1250
   },
   {
     "school": "University of Mary Hardin-Baylor",
@@ -23305,7 +23979,8 @@
     "power6_utr_women": null,
     "enrollment": 2759,
     "latitude": 31.066793,
-    "longitude": -97.463471
+    "longitude": -97.463471,
+    "avg_sat_total": 1099
   },
   {
     "school": "University of North Texas",
@@ -23330,7 +24005,8 @@
     "enrollment": 34341,
     "latitude": 33.211178,
     "longitude": -97.148422,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1109
   },
   {
     "school": "University of Texas",
@@ -23377,7 +24053,8 @@
     "enrollment": 32294,
     "latitude": 32.729718,
     "longitude": -97.11296,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1124
   },
   {
     "school": "University of Texas at Dallas",
@@ -23401,7 +24078,8 @@
     "power6_utr_women": null,
     "enrollment": 21751,
     "latitude": 32.984673,
-    "longitude": -96.749702
+    "longitude": -96.749702,
+    "avg_sat_total": 1286
   },
   {
     "school": "University of Texas at El Paso",
@@ -23426,7 +24104,8 @@
     "enrollment": 21005,
     "latitude": 31.77015,
     "longitude": -106.504098,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 962
   },
   {
     "school": "University of Texas Permian Basin",
@@ -23450,7 +24129,8 @@
     "power6_utr_women": null,
     "enrollment": 3911,
     "latitude": 31.889509,
-    "longitude": -102.329634
+    "longitude": -102.329634,
+    "avg_sat_total": 1033
   },
   {
     "school": "University of the Incarnate Word",
@@ -23475,7 +24155,8 @@
     "enrollment": 4440,
     "latitude": 29.46708,
     "longitude": -98.46583,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1040
   },
   {
     "school": "Arizona Christian University",
@@ -23499,7 +24180,8 @@
     "power6_utr_women": null,
     "enrollment": 1165,
     "latitude": 33.622952,
-    "longitude": -112.181776
+    "longitude": -112.181776,
+    "avg_sat_total": 1065
   },
   {
     "school": "Arizona State University",
@@ -23706,7 +24388,8 @@
     "enrollment": 42537,
     "latitude": 32.232672,
     "longitude": -110.950815,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1246
   },
   {
     "school": "Academy of Art University",
@@ -23799,7 +24482,8 @@
     "power6_utr_women": null,
     "enrollment": 2759,
     "latitude": 34.130047,
-    "longitude": -117.888375
+    "longitude": -117.888375,
+    "avg_sat_total": 1195
   },
   {
     "school": "Bakersfield College",
@@ -23847,7 +24531,8 @@
     "power6_utr_women": null,
     "enrollment": 3474,
     "latitude": 33.906203,
-    "longitude": -118.014374
+    "longitude": -118.014374,
+    "avg_sat_total": 1261
   },
   {
     "school": "Cabrillo College",
@@ -23984,7 +24669,8 @@
     "power6_utr_women": null,
     "enrollment": 2296,
     "latitude": 34.224566,
-    "longitude": -118.878924
+    "longitude": -118.878924,
+    "avg_sat_total": 1266
   },
   {
     "school": "Chabot College",
@@ -24032,7 +24718,8 @@
     "power6_utr_women": null,
     "enrollment": 7478,
     "latitude": 33.79302,
-    "longitude": -117.852518
+    "longitude": -117.852518,
+    "avg_sat_total": 1357
   },
   {
     "school": "City College of San Francisco",
@@ -24269,7 +24956,8 @@
     "power6_utr_women": null,
     "enrollment": 1114,
     "latitude": 37.981279,
-    "longitude": -122.512051
+    "longitude": -122.512051,
+    "avg_sat_total": 1290
   },
   {
     "school": "El Camino College",
@@ -24477,7 +25165,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1545
   },
   {
     "school": "Holy Names University",
@@ -24522,7 +25211,8 @@
     "power6_utr_women": null,
     "enrollment": 564,
     "latitude": 33.87616,
-    "longitude": -117.88573
+    "longitude": -117.88573,
+    "avg_sat_total": 1020
   },
   {
     "school": "Imperial Valley College",
@@ -24589,7 +25279,7 @@
     "top_lineup_utr_men": null,
     "bottom_lineup_utr_men": null,
     "top_lineup_utr_women": 9.67,
-    "bottom_lineup_utr_women": 8.50,
+    "bottom_lineup_utr_women": 8.5,
     "power6_utr_men": null,
     "power6_utr_women": 46.73,
     "niche_grade": "A-"
@@ -24641,7 +25331,8 @@
     "enrollment": 7094,
     "latitude": 33.97085,
     "longitude": -118.415744,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1359
   },
   {
     "school": "Marymount California University",
@@ -24824,7 +25515,8 @@
     "power6_utr_women": null,
     "enrollment": 1877,
     "latitude": 34.127124,
-    "longitude": -118.210908
+    "longitude": -118.210908,
+    "avg_sat_total": 1452
   },
   {
     "school": "Orange Coast College",
@@ -24897,7 +25589,8 @@
     "enrollment": 3553,
     "latitude": 34.037786,
     "longitude": -118.707077,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1384
   },
   {
     "school": "Pitzer College (Pomona-Pitzer)",
@@ -24942,7 +25635,8 @@
     "power6_utr_women": null,
     "enrollment": 3188,
     "latitude": 32.718391,
-    "longitude": -117.250265
+    "longitude": -117.250265,
+    "avg_sat_total": 1287
   },
   {
     "school": "Pomona College Pomona - Pitzer)",
@@ -25278,7 +25972,8 @@
     "enrollment": 6552,
     "latitude": 37.348362,
     "longitude": -121.93784,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1426
   },
   {
     "school": "Santa Monica College",
@@ -25347,7 +26042,8 @@
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": null,
-    "power6_utr_women": null
+    "power6_utr_women": null,
+    "avg_sat_total": 1492
   },
   {
     "school": "Shasta College",
@@ -25464,11 +26160,12 @@
     "top_lineup_utr_women": 11.47,
     "bottom_lineup_utr_women": 8.18,
     "power6_utr_men": 81.53,
-    "power6_utr_women": 59.70,
+    "power6_utr_women": 59.7,
     "enrollment": 7554,
     "latitude": 37.429434,
     "longitude": -122.167359,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1553
   },
   {
     "school": "Stanislaus State (CSU)",
@@ -25506,7 +26203,7 @@
     "phone": "kkwinta@berkeley.edu",
     "usnews_ranking": 15,
     "top_lineup_utr_men": 13.53,
-    "bottom_lineup_utr_men": 12.80,
+    "bottom_lineup_utr_men": 12.8,
     "top_lineup_utr_women": null,
     "bottom_lineup_utr_women": null,
     "power6_utr_men": 79.22,
@@ -25711,7 +26408,8 @@
     "power6_utr_women": null,
     "enrollment": 2049,
     "latitude": 34.064218,
-    "longitude": -117.163218
+    "longitude": -117.163218,
+    "avg_sat_total": 1241
   },
   {
     "school": "University of Saint Katherine",
@@ -25782,7 +26480,8 @@
     "enrollment": 5287,
     "latitude": 37.776618,
     "longitude": -122.450477,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1295
   },
   {
     "school": "University of Southern California",
@@ -25801,13 +26500,14 @@
     "top_lineup_utr_men": 13.63,
     "bottom_lineup_utr_men": 13.06,
     "top_lineup_utr_women": 10.39,
-    "bottom_lineup_utr_women": 9.50,
+    "bottom_lineup_utr_women": 9.5,
     "power6_utr_men": 79.81,
     "power6_utr_women": 50.59,
     "enrollment": 20443,
     "latitude": 34.021281,
     "longitude": -118.284169,
-    "niche_grade": "A+"
+    "niche_grade": "A+",
+    "avg_sat_total": 1495
   },
   {
     "school": "University of the Pacific",
@@ -25832,7 +26532,8 @@
     "enrollment": 3204,
     "latitude": 37.981424,
     "longitude": -121.312301,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1346
   },
   {
     "school": "Ventura College",
@@ -25928,7 +26629,8 @@
     "power6_utr_women": null,
     "enrollment": 1302,
     "latitude": 34.450151,
-    "longitude": -119.662517
+    "longitude": -119.662517,
+    "avg_sat_total": 1328
   },
   {
     "school": "Whittier College",
@@ -25952,7 +26654,8 @@
     "power6_utr_women": null,
     "enrollment": 764,
     "latitude": 33.978773,
-    "longitude": -118.032299
+    "longitude": -118.032299,
+    "avg_sat_total": 1230
   },
   {
     "school": "William Jessup University",
@@ -25976,7 +26679,8 @@
     "power6_utr_women": null,
     "enrollment": 1294,
     "latitude": 38.819728,
-    "longitude": -121.292312
+    "longitude": -121.292312,
+    "avg_sat_total": 1150
   },
   {
     "school": "Colorado College",
@@ -26000,7 +26704,8 @@
     "power6_utr_women": null,
     "enrollment": 2014,
     "latitude": 38.84886,
-    "longitude": -104.822697
+    "longitude": -104.822697,
+    "avg_sat_total": 1365
   },
   {
     "school": "Colorado State University",
@@ -26046,7 +26751,8 @@
     "power6_utr_women": null,
     "enrollment": 3042,
     "latitude": 38.30859,
-    "longitude": -104.579033
+    "longitude": -104.579033,
+    "avg_sat_total": 1120
   },
   {
     "school": "U.S. Air Force Academy",
@@ -26115,7 +26821,8 @@
     "enrollment": 5598,
     "latitude": 40.410855,
     "longitude": -104.692777,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1082
   },
   {
     "school": "Chaminade University",
@@ -26160,7 +26867,8 @@
     "power6_utr_women": null,
     "enrollment": 2392,
     "latitude": 21.310306,
-    "longitude": -157.859645
+    "longitude": -157.859645,
+    "avg_sat_total": 1111
   },
   {
     "school": "University of Hawaii at Hilo",
@@ -26184,7 +26892,8 @@
     "power6_utr_women": null,
     "enrollment": 2160,
     "latitude": 19.701189,
-    "longitude": -155.080847
+    "longitude": -155.080847,
+    "avg_sat_total": 1028
   },
   {
     "school": "University of Hawaii at Manoa",
@@ -26209,7 +26918,8 @@
     "enrollment": 15029,
     "latitude": 21.298598,
     "longitude": -157.818979,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1102
   },
   {
     "school": "Boise State University",
@@ -26258,7 +26968,8 @@
     "power6_utr_women": null,
     "enrollment": 1041,
     "latitude": 43.652284,
-    "longitude": -116.677992
+    "longitude": -116.677992,
+    "avg_sat_total": 1180
   },
   {
     "school": "Lewis-Clark State College",
@@ -26307,7 +27018,8 @@
     "enrollment": 7747,
     "latitude": 46.727406,
     "longitude": -117.014167,
-    "niche_grade": "A-"
+    "niche_grade": "A-",
+    "avg_sat_total": 1116
   },
   {
     "school": "New Mexico Military Institute",
@@ -26356,7 +27068,8 @@
     "enrollment": 17244,
     "latitude": 35.083868,
     "longitude": -106.620155,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1038
   },
   {
     "school": "University of the Southwest",
@@ -26399,10 +27112,11 @@
     "top_lineup_utr_men": 12.43,
     "bottom_lineup_utr_men": 10.5,
     "top_lineup_utr_women": 9.2,
-    "bottom_lineup_utr_women": 8.50,
+    "bottom_lineup_utr_women": 8.5,
     "power6_utr_men": 70.74,
     "power6_utr_women": 26.92,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1132
   },
   {
     "school": "University of Nevada-Las Vegas",
@@ -26427,7 +27141,8 @@
     "enrollment": 24622,
     "latitude": 36.106047,
     "longitude": -115.138462,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1094
   },
   {
     "school": "George Fox University",
@@ -26451,7 +27166,8 @@
     "power6_utr_women": null,
     "enrollment": 2699,
     "latitude": 45.303629,
-    "longitude": -122.967494
+    "longitude": -122.967494,
+    "avg_sat_total": 1197
   },
   {
     "school": "Lewis & Clark College",
@@ -26475,7 +27191,8 @@
     "power6_utr_women": null,
     "enrollment": 2120,
     "latitude": 45.450882,
-    "longitude": -122.669137
+    "longitude": -122.669137,
+    "avg_sat_total": 1330
   },
   {
     "school": "Linfield College",
@@ -26520,7 +27237,8 @@
     "power6_utr_women": null,
     "enrollment": 1516,
     "latitude": 45.521394,
-    "longitude": -123.108777
+    "longitude": -123.108777,
+    "avg_sat_total": 1090
   },
   {
     "school": "Treasure Valley CC",
@@ -26566,7 +27284,8 @@
     "enrollment": 20497,
     "latitude": 44.045146,
     "longitude": -123.075792,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1272
   },
   {
     "school": "University of Portland",
@@ -26591,7 +27310,8 @@
     "enrollment": 2957,
     "latitude": 45.572724,
     "longitude": -122.726691,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1277
   },
   {
     "school": "Willamette University",
@@ -26615,7 +27335,8 @@
     "power6_utr_women": null,
     "enrollment": 1592,
     "latitude": 44.935457,
-    "longitude": -123.030537
+    "longitude": -123.030537,
+    "avg_sat_total": 1377
   },
   {
     "school": "Brigham Young University",
@@ -26640,7 +27361,8 @@
     "enrollment": 32952,
     "latitude": 40.250851,
     "longitude": -111.649281,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1376
   },
   {
     "school": "Dixie State University",
@@ -26686,7 +27408,8 @@
     "enrollment": 9289,
     "latitude": 37.674617,
     "longitude": -113.070146,
-    "niche_grade": "B-"
+    "niche_grade": "B-",
+    "avg_sat_total": 1135
   },
   {
     "school": "University of Utah",
@@ -26711,7 +27434,8 @@
     "enrollment": 27264,
     "latitude": 40.762484,
     "longitude": -111.846044,
-    "niche_grade": "A"
+    "niche_grade": "A",
+    "avg_sat_total": 1257
   },
   {
     "school": "Utah State University",
@@ -26736,7 +27460,8 @@
     "enrollment": 20272,
     "latitude": 41.740748,
     "longitude": -111.81391,
-    "niche_grade": "B+"
+    "niche_grade": "B+",
+    "avg_sat_total": 1187
   },
   {
     "school": "Bellevue College",
@@ -26785,7 +27510,8 @@
     "enrollment": 5198,
     "latitude": 47.666531,
     "longitude": -117.400625,
-    "niche_grade": "B"
+    "niche_grade": "B",
+    "avg_sat_total": 1335
   },
   {
     "school": "Highline College",
@@ -26833,7 +27559,8 @@
     "power6_utr_women": null,
     "enrollment": 2401,
     "latitude": 47.14516,
-    "longitude": -122.440421
+    "longitude": -122.440421,
+    "avg_sat_total": 1168
   },
   {
     "school": "Spokane Community College",
@@ -26881,7 +27608,8 @@
     "power6_utr_women": null,
     "enrollment": 1594,
     "latitude": 47.26308,
-    "longitude": -122.478982
+    "longitude": -122.478982,
+    "avg_sat_total": 1296
   },
   {
     "school": "University of Washington",
@@ -26952,7 +27680,8 @@
     "power6_utr_women": null,
     "enrollment": 1531,
     "latitude": 46.069815,
-    "longitude": -118.331546
+    "longitude": -118.331546,
+    "avg_sat_total": 1410
   },
   {
     "school": "Whitworth University",
@@ -26976,7 +27705,8 @@
     "power6_utr_women": null,
     "enrollment": 1858,
     "latitude": 47.753358,
-    "longitude": -117.416714
+    "longitude": -117.416714,
+    "avg_sat_total": 1220
   },
   {
     "school": "University of Wyoming",

@@ -180,7 +180,7 @@ def smart_filter(schools, utr, gpa, division_pref, gender,
             elif scholarship > 10000:
                 score += 5
 
-        avg_sat = s.get('avg_sat')
+        avg_sat = s.get('avg_sat_total')
         if avg_sat and gpa:
             if avg_sat >= 1200 and gpa >= 3.5:
                 score += 10
@@ -393,13 +393,13 @@ def refresh_matches():
     school_lines = []
     for s in candidates:
         scholarship = s.get('mens_scholarship') if gender == 'male' else s.get('womens_scholarship')
-        avg_sat = s.get('avg_sat') or '?'
+        avg_sat = s.get('avg_sat_total') or '?'
         coach = s.get('coach') or 'Unknown'
         loc = f"{s.get('city','')}, {s.get('state','')}".strip(', ')
         schol_str = f"${scholarship:,.0f}" if scholarship else "No data"
         school_lines.append(
             f"- {s['school']} | {s.get('division','')} | {loc} | "
-            f"Avg Scholarship: {schol_str} | Avg SAT Math: {avg_sat} | Coach: {coach}"
+            f"Avg Scholarship: {schol_str} | Avg SAT: {avg_sat} | Coach: {coach}"
         )
 
     schools_text = '\n'.join(school_lines)
@@ -421,7 +421,7 @@ ATHLETE PROFILE:
 CANDIDATE SCHOOLS:
 {schools_text}
 
-Note: SAT values shown are the school's average SAT Math score. If you mention SAT in a match_reason, call it "SAT Math", not total SAT.
+Note: SAT values shown are the school's average composite SAT score (Math + Critical Reading). Schools showing "?" have no SAT data available.
 
 Pick exactly 8 schools. Return ONLY a valid JSON array, no markdown, no explanation.
 Each object must have:
@@ -457,7 +457,7 @@ Example:
             scholarship = school_data.get('mens_scholarship') if gender == 'male' else school_data.get('womens_scholarship')
             m['location']         = f"{school_data.get('city','')}, {school_data.get('state','')}".strip(', ')
             m['outstate_tuition'] = school_data.get('outstate_tuition')
-            m['avg_sat']          = school_data.get('avg_sat')
+            m['avg_sat']          = school_data.get('avg_sat_total')
             m['coach']            = school_data.get('coach')
             m['phone']            = school_data.get('phone')
             m['avg_scholarship']  = scholarship
