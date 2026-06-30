@@ -115,6 +115,14 @@ def generate_email():
         school_size    = profile.school_size_preference if profile else None
         state_prov     = profile.state_province if profile else None
         athletic_lvl   = profile.athletic_level if profile else None
+        itf_s   = profile.itf_junior_rank_singles  if profile else None
+        itf_d   = profile.itf_junior_rank_doubles  if profile else None
+        itf_t   = profile.itf_junior_titles        if profile else None
+        atp_s   = profile.atp_wta_rank_singles     if profile else None
+        atp_d   = profile.atp_wta_rank_doubles     if profile else None
+        titles  = profile.total_titles             if profile else None
+        best_w  = profile.best_wins                if profile else None
+        natl_ach = profile.national_achievements   if profile else None
 
     except Exception:
         # If profile fetch fails, still generate a basic email
@@ -124,6 +132,38 @@ def generate_email():
         gender = 'male'
         sat = act = highlights = state_prov = athletic_lvl = None
         intended_major = preferred_city = school_size = None
+        itf_s = itf_d = itf_t = atp_s = atp_d = titles = best_w = natl_ach = None
+
+    # ── Build achievements block ──
+    ach_lines = []
+    if itf_s:
+        ach_lines.append(f"ITF Junior Singles Ranking: #{itf_s}")
+    if itf_d:
+        ach_lines.append(f"ITF Junior Doubles Ranking: #{itf_d}")
+    if itf_t:
+        ach_lines.append(f"ITF Junior titles: {itf_t}")
+    if atp_s:
+        ach_lines.append(f"ATP/WTA Singles Ranking: #{atp_s}")
+    if atp_d:
+        ach_lines.append(f"ATP/WTA Doubles Ranking: #{atp_d}")
+    if titles:
+        ach_lines.append(f"Total career titles: {titles}")
+    if best_w:
+        ach_lines.append(f"Notable wins: {best_w}")
+    if natl_ach:
+        ach_lines.append(f"National achievements: {natl_ach}")
+
+    if ach_lines:
+        achievements_section = "\n".join(f"• {l}" for l in ach_lines)
+        achievements_instruction = (
+            f"Use ONLY these real achievements — do not invent any:\n{achievements_section}"
+        )
+    else:
+        achievements_instruction = (
+            f"Write 3-4 realistic achievements based on the athlete's UTR level "
+            f"({utr}) and athletic level ({athletic_lvl or 'competitive'}). "
+            f"Keep them plausible — do not fabricate specific rankings or results."
+        )
 
     # ── Build coach salutation ──
     if coach:
@@ -201,7 +241,7 @@ Hello {coach_salutation},
 My name is {full_name}, and I am a {grad_year or '[Graduation Year]'} student-athlete from {location}. I am very interested in the opportunity to play for the {school} {team_gender} tennis team while pursuing my academic goals.
 
 I currently have a UTR of {utr or '[UTR Rating]'} and have achieved the following:
-• [Write 3-4 realistic achievements based on the athlete's UTR level and athletic level. For UTR {utr}, these should be appropriate competition results, rankings, or tournament wins.]
+• [{achievements_instruction}]
 
 I am particularly interested in {school} because of its {career_note} and the culture of excellence within the tennis program. {size_note} After researching the university and team, I believe it would be an excellent fit for both my academic and athletic goals.
 
