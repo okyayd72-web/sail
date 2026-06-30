@@ -394,7 +394,10 @@ function renderSchool(s, idx) {
   const hasEst = s.estimated_scholarship_low != null;
   const isFav = favoriteSet.has(s.school);
 
-  const estBanner = hasEst && s.estimated_scholarship_low > 0 ? `
+  const estBanner = s.scholarship_unlikely ? `
+    <div class="est-banner" style="background:rgba(143,160,184,0.08);border-color:var(--border-s);color:var(--text-2);">
+      ⚠️ Your UTR ${currentUTR.toFixed(1)} is below this program's roster level — recruitment unlikely.
+    </div>` : hasEst && s.estimated_scholarship_low > 0 ? `
     <div class="est-banner">
       🎯 Estimated scholarship for UTR ${currentUTR.toFixed(1)}:
       <strong>${fmt(s.estimated_scholarship_low)} – ${fmt(s.estimated_scholarship_high)}</strong>

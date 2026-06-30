@@ -46,6 +46,40 @@ def estimate_scholarship(utr, gender, division, school):
     return round(base * low), round(base * high)
 
 
+def estimate_scholarship_v2(utr, gender, school):
+    """Roster-lineup-based scholarship estimate.
+
+    Returns:
+        ('unlikely', None) — player UTR is below the recruitable floor
+        (None, None)       — school is missing lineup or scholarship data; caller
+                             should fall back to estimate_scholarship()
+        (low, high)        — estimated dollar range
+    """
+    top_key    = 'top_lineup_utr_men'    if gender == 'male' else 'top_lineup_utr_women'
+    bottom_key = 'bottom_lineup_utr_men' if gender == 'male' else 'bottom_lineup_utr_women'
+    avg_key    = 'mens_scholarship'      if gender == 'male' else 'womens_scholarship'
+
+    top    = school.get(top_key)
+    bottom = school.get(bottom_key)
+    avg    = school.get(avg_key)
+
+    if top is None or bottom is None or not avg or avg <= 0:
+        return None, None  # no lineup data — caller falls back to v1
+
+    floor = bottom - 0.3
+    if top <= floor:
+        return None, None  # degenerate data — avoid divide-by-zero
+
+    if utr < floor:
+        return 'unlikely', None  # not recruitable at this school
+
+    position   = (utr - floor) / (top - floor)
+    position   = max(0.0, min(1.0, position))
+    multiplier = 0.5 + 0.9 * position          # 0.5 (bottom of lineup) → 1.4 (top/above)
+    estimate   = avg * multiplier
+    return round(estimate * 0.9), round(estimate * 1.1)
+
+
 # UTR ranges per division — defined at module level so both functions can use it
 UTR_RANGES = {
     'NCAA I':   (9.0, 16.0),
@@ -334,7 +368,16 @@ def get_schools():
     # ── Add scholarship estimates ──
     if utr:
         for s in filtered:
-            low, high = estimate_scholarship(utr, gender, s.get('division', ''), s)
+            low, high = estimate_scholarship_v2(utr, gender, s)
+            if low is None and high is None:
+                # No lineup data — fall back to division-bracket estimate
+                low, high = estimate_scholarship(utr, gender, s.get('division', ''), s)
+                s['scholarship_unlikely']       = False
+            elif low == 'unlikely':
+                low, high                       = None, None
+                s['scholarship_unlikely']       = True
+            else:
+                s['scholarship_unlikely']       = False
             s['estimated_scholarship_low']  = low
             s['estimated_scholarship_high'] = high
 
