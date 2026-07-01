@@ -19,9 +19,10 @@
     body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
       background:radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,201,167,0.06) 0%, transparent 55%);}
 
-    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
       padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
       border-bottom:1px solid var(--border-s);}
+    .hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer;padding:0 .5rem 0 0;line-height:1;}
     .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
     .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
       padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s var(--ease);text-decoration:none;}
@@ -31,7 +32,23 @@
     .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,201,167,0.3);color:var(--navy);}
     .btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;}
 
-    .wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 5rem;position:relative;z-index:1;}
+    /* ── SIDEBAR ── */
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;z-index:200;
+      background:var(--navy-2);border-right:1px solid var(--border-s);
+      padding:calc(61px + 1.5rem) .75rem 1.5rem;
+      transform:translateX(-100%);transition:transform .25s var(--ease);}
+    .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.5);}
+    .sidebar-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-3);padding:.4rem .75rem;margin-top:1rem;}
+    .sidebar-link{display:flex;align-items:center;gap:.65rem;padding:.65rem .75rem;border-radius:8px;color:var(--text-2);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .15s;}
+    .sidebar-link:hover{color:var(--text-1);background:rgba(255,255,255,0.05);}
+    .sidebar-link.active{color:var(--teal);background:rgba(0,201,167,0.12);}
+    #sidebarOverlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);}
+    #sidebarOverlay.open{display:block;}
+
+    .wrap{max-width:760px;margin:0 auto;padding:calc(61px + 2rem) 1.5rem 5rem;position:relative;z-index:1;}
+
+    @media(max-width:860px){.hamburger{display:inline-flex !important;}}
+    @media(max-width:600px){ .form-row{grid-template-columns:1fr;} .wrap{padding:calc(61px + 1.25rem) 1rem 4rem;} }
     .page-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.4rem;}
     .page-sub{color:var(--text-2);font-size:.9rem;margin-bottom:2rem;line-height:1.7;}
 
@@ -61,12 +78,27 @@
     @keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:translateX(0);}}
     @keyframes spin{to{transform:rotate(360deg);}}
 
-    @media(max-width:600px){ .form-row{grid-template-columns:1fr;} .wrap{padding:1.5rem 1rem 4rem;} }
   </style>
 </head>
 <body>
+<div id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="navSidebar">
+  <div class="sidebar-label">Main</div>
+  <a class="sidebar-link" href="/dashboard">🏠 Dashboard</a>
+  <a class="sidebar-link" href="/advisor">🤖 AI Advisor</a>
+  <a class="sidebar-link" href="/schools">🎾 Find Schools</a>
+  <a class="sidebar-link" href="/compare">⚖️ Compare Schools</a>
+  <div class="sidebar-label">Profile</div>
+  <a class="sidebar-link active" href="/achievements">🏅 Athletic Résumé</a>
+  <div class="sidebar-label">Account</div>
+  <a class="sidebar-link" href="/logout">↩️ Log Out</a>
+</aside>
+
 <nav>
-  <a href="/dashboard" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:36px;"></a>
+  <div style="display:flex;align-items:center;gap:.5rem;">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <a href="/dashboard" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:38px;"></a>
+  </div>
   <a href="/dashboard" class="btn btn-ghost">← Dashboard</a>
 </nav>
 
@@ -218,6 +250,17 @@ document.getElementById('achievementsForm').addEventListener('submit', async (e)
 });
 
 load();
+
+function toggleSidebar() {
+  document.getElementById('navSidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+document.querySelectorAll('.sidebar-link').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.getElementById('navSidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  });
+});
 </script>
 </body>
 </html>
