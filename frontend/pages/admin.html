@@ -227,6 +227,12 @@ async function loadStats() {
   btn.innerHTML = '↻ Refresh';
 }
 
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
+}
+
 async function loadUsers() {
   try {
     const res  = await fetch('/admin/api/users', { credentials: 'include' });
@@ -239,9 +245,9 @@ async function loadUsers() {
     const tbody = document.getElementById('user-table-body');
     tbody.innerHTML = data.users.map(u => `
       <tr>
-        <td style="color:var(--text-1);font-weight:500;">${u.name}</td>
-        <td>${u.email}</td>
-        <td>${u.nationality || '—'}</td>
+        <td style="color:var(--text-1);font-weight:500;">${escapeHtml(u.name)}</td>
+        <td>${escapeHtml(u.email)}</td>
+        <td>${u.nationality ? escapeHtml(u.nationality) : '—'}</td>
         <td style="color:var(--teal);font-family:'Syne',sans-serif;font-weight:700;">${u.utr ? u.utr.toFixed(1) : '—'}</td>
         <td>${u.division || '—'}</td>
         <td>
