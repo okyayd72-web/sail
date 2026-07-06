@@ -325,8 +325,20 @@ def update_profile():
                     'atp_wta_rank_singles', 'atp_wta_rank_doubles', 'total_titles'}
     float_fields = {'utr_rating', 'gpa'}
 
+    # Only these fields may be set from the request body — protects columns like
+    # user_id / id / profile_complete from being overwritten via mass assignment.
+    allowed_fields = {
+        'sport', 'utr_rating', 'gender', 'intended_major', 'preferred_city',
+        'school_size_preference', 'graduation_year', 'athletic_level',
+        'division_preference', 'gpa', 'sat_score', 'act_score', 'nationality',
+        'state_province', 'highlights_url',
+        'itf_junior_rank_singles', 'itf_junior_rank_doubles', 'itf_junior_titles',
+        'atp_wta_rank_singles', 'atp_wta_rank_doubles', 'total_titles',
+        'best_wins', 'national_achievements',
+    }
+
     for key, val in data.items():
-        if not hasattr(p, key):
+        if key not in allowed_fields:
             continue
 
         # Treat empty string / blank as "clear this field" -> None
