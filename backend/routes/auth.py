@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, redirect, render_template, session
 from flask_login import login_user, logout_user, login_required, current_user
-from backend.app import db
+from backend.app import db, limiter
 from backend.models.user import User
 import os
 import secrets
@@ -12,6 +12,7 @@ BETA_CODE = os.getenv('BETA_CODE', 'SAIL50')
 
 
 @auth_bp.post('/api/auth/register')
+@limiter.limit("5 per minute")
 def register():
     data = request.get_json()
 
@@ -57,6 +58,7 @@ def register():
 
 
 @auth_bp.post('/api/auth/login')
+@limiter.limit("5 per minute")
 def login():
     data = request.get_json()
 
@@ -88,6 +90,7 @@ def me():
 
 
 @auth_bp.post('/api/auth/forgot-password')
+@limiter.limit("3 per hour")
 def forgot_password():
     data = request.get_json()
     email = data.get('email', '').lower().strip()
@@ -133,6 +136,7 @@ def forgot_password():
 
 
 @auth_bp.post('/api/auth/reset-password')
+@limiter.limit("5 per minute")
 def reset_password():
     data        = request.get_json()
     token       = data.get('token', '').strip()

@@ -2,7 +2,7 @@ import json
 import os
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from backend.app import db
+from backend.app import db, limiter
 import anthropic
 
 athlete_bp = Blueprint('athlete', __name__)
@@ -403,6 +403,7 @@ def get_metros():
 
 @athlete_bp.post('/api/athlete/matches/refresh')
 @login_required
+@limiter.limit("10 per minute")
 def refresh_matches():
     p = AthleteProfile.query.filter_by(user_id=current_user.id).first()
     if not p:
