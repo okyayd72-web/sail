@@ -18,6 +18,9 @@ def register():
 
     if not data or not all(k in data for k in ['email', 'password', 'first_name', 'last_name']):
         return jsonify({'error': 'All fields are required.'}), 400
+
+    if len(data['password']) < 8:
+        return jsonify({'error': 'Password must be at least 8 characters.'}), 400
         # Age confirmation (13+ / parental permission) — required to register
     if not data.get('age_confirm'):
         return jsonify({'error': 'You must confirm you are 13 or older to create an account.'}), 400
