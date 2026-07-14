@@ -167,6 +167,38 @@ def reset_password():
     return jsonify({'message': 'Password reset successfully! You can now log in.'}), 200
 
 
+@auth_bp.delete('/api/auth/account')
+@login_required
+@limiter.limit("5 per minute")
+def delete_account():
+    data     = request.get_json() or {}
+    password = data.get('password', '')
+
+    if not password or not current_user.check_password(password):
+        return jsonify({'error': 'Incorrect password.'}), 401
+
+    user_id = current_user.id
+
+    # Delete every row tied to this user before the user row itself, so no
+    # foreign-key references are left behind.
+    from backend.routes.athlete import AthleteProfile
+    from backend.routes.tennis_routes import FavoriteSchool
+    from backend.routes.analytics import AnalyticsEvent
+
+    AthleteProfile.query.filter_by(user_id=user_id).delete()
+    FavoriteSchool.query.filter_by(user_id=user_id).delete()
+    AnalyticsEvent.query.filter_by(user_id=user_id).delete()
+
+    user = User.query.get(user_id)
+    db.session.delete(user)
+    db.session.commit()
+
+    logout_user()
+    session.clear()
+
+    return jsonify({'message': 'Your account and all associated data have been permanently deleted.'}), 200
+
+
 @auth_bp.get('/login')
 def login_page():
     return render_template('login.html')

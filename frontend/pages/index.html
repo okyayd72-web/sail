@@ -602,6 +602,20 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+
+function toast(msg, type = 'info') {
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.textContent = msg;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(() => { t.style.opacity='0'; t.style.transition='.3s'; setTimeout(()=>t.remove(),300); }, 4000);
+}
+
+// Show a confirmation toast after self-service account deletion, then clean the URL.
+if (new URLSearchParams(window.location.search).get('deleted') === '1') {
+  toast('Your account and all associated data have been permanently deleted.', 'success');
+  window.history.replaceState({}, '', window.location.pathname);
+}
 </script>
 </body>
 </html>
