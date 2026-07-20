@@ -469,10 +469,15 @@ function renderSchool(s, idx) {
     </div>
 
     <div class="school-footer">
-      <div class="coach-info">
-        ${s.coach ? `🎾 <strong>${s.coach}</strong>` : '<span style="color:var(--text-3)">Coach info not available</span>'}
-        ${s.phone ? `<span>📞 ${s.phone}</span>` : ''}
-      </div>
+      <div class="coach-info">${(function(){
+        const cn = gender === 'male' ? s.coach_men       : s.coach_women;
+        const ce = gender === 'male' ? s.coach_men_email : s.coach_women_email;
+        const cp = gender === 'male' ? s.coach_men_phone : s.coach_women_phone;
+        if (!cn) return '';
+        return '🎾 <strong>' + cn + '</strong>'
+          + (ce ? '<span><a href="mailto:' + ce + '" style="color:var(--text-2)">' + ce + '</a></span>' : '')
+          + (cp ? '<span>📞 ' + cp + '</span>' : '');
+      })()}</div>
       ${s.usnews_ranking || s.niche_grade ? `<div class="footer-tags">
         ${s.niche_grade ? `<span class="niche-pill" title="Niche.com overall grade">Niche ${s.niche_grade}</span>` : ''}
         ${s.usnews_ranking ? `<span style="font-family:'Syne',sans-serif;font-size:.72rem;color:var(--text-3)">US News #${s.usnews_ranking}</span>` : ''}
