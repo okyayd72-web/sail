@@ -760,6 +760,8 @@ function renderProfile(user, profile) {
   document.getElementById('profileInitials').textContent = initials;
   document.getElementById('profileName').textContent     = user.full_name || user.first_name;
 
+  userGender = (profile && profile.gender) || '';
+
   if (!profile) {
     document.getElementById('profileWarning').style.display = 'block';
     document.getElementById('statCompletion').textContent = '0%';
@@ -839,7 +841,24 @@ function renderMatches(matches) {
       <div class="match-meta">
         ${m.location ? `<span class="meta-tag">📍 ${m.location}</span>` : ''}
         ${m.avg_scholarship ? `<span class="meta-tag">💰 Avg $${Number(m.avg_scholarship).toLocaleString()}</span>` : ''}
-        ${m.coach ? `<span class="meta-tag">🎾 ${m.coach}</span>` : ''}
+        ${(function(){
+          const g = userGender;
+          // gender known: show matching coach only
+          if (g === 'male' || g === 'female') {
+            const cn = g === 'male' ? m.coach_men : m.coach_women;
+            const ce = g === 'male' ? m.coach_men_email : m.coach_women_email;
+            const cp = g === 'male' ? m.coach_men_phone : m.coach_women_phone;
+            if (!cn) return '';
+            return '<span class="meta-tag">🎾 ' + cn + '</span>'
+              + (ce ? '<span class="meta-tag"><a href="mailto:' + ce + '" style="color:inherit">' + ce + '</a></span>' : '')
+              + (cp ? '<span class="meta-tag">📞 ' + cp + '</span>' : '');
+          }
+          // gender unknown: show whichever coach(es) exist, labeled
+          const parts = [];
+          if (m.coach_men)   parts.push('<span class="meta-tag">🎾 ' + m.coach_men + ' (Men\'s)</span>');
+          if (m.coach_women) parts.push('<span class="meta-tag">🎾 ' + m.coach_women + ' (Women\'s)</span>');
+          return parts.join('');
+        })()}
         ${tags.map(t => `<span class="meta-tag">${t}</span>`).join('')}
       </div>
       <div class="score-row">
@@ -871,6 +890,7 @@ async function refreshMatches() {
 // ─────────────────────────────────────────────
 // CITY AUTOCOMPLETE
 // ─────────────────────────────────────────────
+let userGender = '';       // set from profile on load; used for gender-aware coach display
 let metroList = [];        // all supported "City, ST" strings (from backend)
 let cityActiveIdx = -1;     // keyboard-highlighted item
 

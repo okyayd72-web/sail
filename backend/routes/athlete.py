@@ -511,8 +511,12 @@ Example:
             m['location']         = f"{school_data.get('city','')}, {school_data.get('state','')}".strip(', ')
             m['outstate_tuition'] = school_data.get('outstate_tuition')
             m['avg_sat']          = school_data.get('avg_sat_total')
-            m['coach']            = school_data.get('coach')
-            m['phone']            = school_data.get('phone')
+            m['coach_men']        = school_data.get('coach_men')
+            m['coach_men_email']  = school_data.get('coach_men_email')
+            m['coach_men_phone']  = school_data.get('coach_men_phone')
+            m['coach_women']      = school_data.get('coach_women')
+            m['coach_women_email'] = school_data.get('coach_women_email')
+            m['coach_women_phone'] = school_data.get('coach_women_phone')
             m['avg_scholarship']  = scholarship
 
         # ── Analytics: track match generation ──
