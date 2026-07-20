@@ -572,7 +572,16 @@ async function heroSearch() {
           <div><div class="sc-stat-lbl">Avg Scholarship</div><div class="sc-stat-val">${fmt(scholarship)}</div></div>
           <div><div class="sc-stat-lbl">Tuition</div><div class="sc-stat-val">${fmt(s.outstate_tuition)}</div></div>
         </div>
-        ${s.coach ? `<div class="sc-coach">🎾 ${s.coach}</div>` : ''}
+        ${(function(){
+          const cn = heroGender === 'male' ? s.coach_men       : s.coach_women;
+          const ce = heroGender === 'male' ? s.coach_men_email : s.coach_women_email;
+          const cp = heroGender === 'male' ? s.coach_men_phone : s.coach_women_phone;
+          if (!cn) return '';
+          return '<div class="sc-coach">🎾 ' + cn
+            + (ce ? ' · <a href="mailto:' + ce + '" style="color:var(--text-2)">' + ce + '</a>' : '')
+            + (cp ? ' · 📞 ' + cp : '')
+            + '</div>';
+        })()}
       </div>`;
     }).join('');
     html += `</div>`;
