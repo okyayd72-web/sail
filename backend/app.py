@@ -1,3 +1,4 @@
+import logging
 import os
 from flask import send_from_directory
 from flask import Flask
@@ -67,6 +68,13 @@ def create_app():
 
     with app.app_context():
         db.create_all()
+
+    if os.getenv('COACH_VERIFY_BYPASS_EMAILS', '').strip():
+        logging.warning(
+            "TEST-ONLY: COACH_VERIFY_BYPASS_EMAILS is set — this bypasses coach email "
+            "verification and MUST be unset before public launch (exposes minors' data "
+            "to unverified coaches)."
+        )
 
     @app.route('/favicon.ico')
     def favicon():

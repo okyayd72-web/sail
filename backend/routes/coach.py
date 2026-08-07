@@ -1,7 +1,10 @@
-from datetime import datetime
+import logging
+import os
+import secrets
+from datetime import datetime, timedelta
 from flask import Blueprint, request, jsonify, render_template, redirect
 from flask_login import login_required, current_user
-from backend.app import db
+from backend.app import db, limiter
 from backend.models.user import User
 
 coach_bp = Blueprint('coach', __name__)
@@ -267,3 +270,66 @@ def my_applications():
             .order_by(PostingApplication.created_at.desc())
             .all())
     return render_template('my_applications.html', applications=apps)
+
+
+# ─── COACH VERIFICATION ───────────────────────────────────────────────────────
+
+def _send_coach_verification_email(to_email, token):
+    try:
+        import sendgrid
+        from sendgrid.helpers.mail import Mail
+        verify_url = f"https://sailscholarship.com/coach/verify/{token}"
+        sg = sendgrid.SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
+        message = Mail(
+            from_email='noreply@sailscholarship.com',
+            to_emails=to_email,
+            subject='Verify your SAIL coach account',
+            html_content=f'''
+            <div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;padding:2rem;background:#050d1a;color:#f0eee8;border-radius:16px;">
+              <h2 style="color:#00c9a7;margin-bottom:1rem;">Verify your coach account</h2>
+              <p style="color:#8fa0b8;line-height:1.7;margin-bottom:1.5rem;">
+                Click the button below to verify your SAIL coach account and access student applicants.
+                This link expires in <strong style="color:#f0eee8;">24 hours</strong>.
+              </p>
+              <a href="{verify_url}" style="display:inline-block;background:#00c9a7;color:#050d1a;padding:.85rem 2rem;border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem;">
+                Verify Account →
+              </a>
+              <p style="color:#4d6278;font-size:.8rem;margin-top:1.5rem;">
+                If you didn't create a SAIL coach account, you can safely ignore this email.
+              </p>
+            </div>
+            '''
+        )
+        sg.send(message)
+    except Exception as e:
+        logging.error(f"Coach verification email error: {e}")
+
+
+@coach_bp.get('/coach/verify/<token>')
+def verify_coach_email(token):
+    user = User.query.filter_by(coach_verification_token=token).first()
+    if not user or not user.coach_verification_sent_at:
+        return render_template('coach_verify_error.html')
+    if datetime.utcnow() > user.coach_verification_sent_at + timedelta(hours=24):
+        return render_template('coach_verify_error.html')
+    user.is_verified_coach          = True
+    user.coach_verification_token   = None
+    user.coach_verification_sent_at = None
+    db.session.commit()
+    return render_template('coach_verify_success.html')
+
+
+@coach_bp.post('/coach/resend-verification')
+@login_required
+@limiter.limit("3 per hour")
+def resend_verification():
+    if current_user.role != 'coach':
+        return jsonify({'error': 'Not a coach account.'}), 403
+    if current_user.is_verified_coach:
+        return jsonify({'error': 'Already verified.'}), 400
+    token = secrets.token_urlsafe(32)
+    current_user.coach_verification_token   = token
+    current_user.coach_verification_sent_at = datetime.utcnow()
+    db.session.commit()
+    _send_coach_verification_email(current_user.email, token)
+    return jsonify({'message': 'Verification email sent.'}), 200

@@ -11,6 +11,38 @@ auth_bp = Blueprint('auth', __name__)
 BETA_CODE = os.getenv('BETA_CODE', 'SAIL50')
 
 
+def _send_coach_verification_email(to_email, token):
+    try:
+        import sendgrid
+        from sendgrid.helpers.mail import Mail
+        verify_url = f"https://sailscholarship.com/coach/verify/{token}"
+        sg = sendgrid.SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
+        message = Mail(
+            from_email='noreply@sailscholarship.com',
+            to_emails=to_email,
+            subject='Verify your SAIL coach account',
+            html_content=f'''
+            <div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;padding:2rem;background:#050d1a;color:#f0eee8;border-radius:16px;">
+              <h2 style="color:#00c9a7;margin-bottom:1rem;">Verify your coach account</h2>
+              <p style="color:#8fa0b8;line-height:1.7;margin-bottom:1.5rem;">
+                Click the button below to verify your SAIL coach account and access student applicants.
+                This link expires in <strong style="color:#f0eee8;">24 hours</strong>.
+              </p>
+              <a href="{verify_url}" style="display:inline-block;background:#00c9a7;color:#050d1a;padding:.85rem 2rem;border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem;">
+                Verify Account →
+              </a>
+              <p style="color:#4d6278;font-size:.8rem;margin-top:1.5rem;">
+                If you didn't create a SAIL coach account, you can safely ignore this email.
+              </p>
+            </div>
+            '''
+        )
+        sg.send(message)
+    except Exception as e:
+        import logging
+        logging.error(f"Coach verification email error: {e}")
+
+
 @auth_bp.post('/api/auth/register')
 @limiter.limit("5 per minute")
 def register():
@@ -43,8 +75,35 @@ def register():
         role       = data.get('role', 'athlete')
     )
     user.set_password(data['password'])
+
+    # ── Coach email domain validation + verification token ──
+    coach_verify_token = None
+    if user.role == 'coach':
+        allowed_domains = {'.edu'}
+        for d in os.getenv('COACH_ALLOWED_EMAIL_DOMAINS', '').split(','):
+            d = d.strip().lower()
+            if d:
+                allowed_domains.add(d)
+        if not any(user.email.endswith(dom) for dom in allowed_domains):
+            return jsonify({'error': 'Coach accounts require a school (.edu) email address.'}), 400
+        bypass_emails = {
+            e.strip().lower()
+            for e in os.getenv('COACH_VERIFY_BYPASS_EMAILS', '').split(',')
+            if e.strip()
+        }
+        if user.email in bypass_emails:
+            # TEST ONLY — remove/unset COACH_VERIFY_BYPASS_EMAILS before public launch (exposes minors' data to unverified coaches).
+            user.is_verified_coach = True
+        else:
+            coach_verify_token = secrets.token_urlsafe(32)
+            user.coach_verification_token   = coach_verify_token
+            user.coach_verification_sent_at = datetime.utcnow()
+
     db.session.add(user)
     db.session.commit()
+
+    if coach_verify_token:
+        _send_coach_verification_email(user.email, coach_verify_token)
 
     try:
         from backend.routes.analytics import track
