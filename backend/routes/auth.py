@@ -79,13 +79,6 @@ def register():
     # ── Coach email domain validation + verification token ──
     coach_verify_token = None
     if user.role == 'coach':
-        allowed_domains = {'.edu'}
-        for d in os.getenv('COACH_ALLOWED_EMAIL_DOMAINS', '').split(','):
-            d = d.strip().lower()
-            if d:
-                allowed_domains.add(d)
-        if not any(user.email.endswith(dom) for dom in allowed_domains):
-            return jsonify({'error': 'Coach accounts require a school (.edu) email address.'}), 400
         bypass_emails = {
             e.strip().lower()
             for e in os.getenv('COACH_VERIFY_BYPASS_EMAILS', '').split(',')
@@ -95,6 +88,14 @@ def register():
             # TEST ONLY — remove/unset COACH_VERIFY_BYPASS_EMAILS before public launch (exposes minors' data to unverified coaches).
             user.is_verified_coach = True
         else:
+            # Domain gate only applies to non-bypass addresses
+            allowed_domains = {'.edu'}
+            for d in os.getenv('COACH_ALLOWED_EMAIL_DOMAINS', '').split(','):
+                d = d.strip().lower()
+                if d:
+                    allowed_domains.add(d)
+            if not any(user.email.endswith(dom) for dom in allowed_domains):
+                return jsonify({'error': 'Coach accounts require a school (.edu) email address.'}), 400
             coach_verify_token = secrets.token_urlsafe(32)
             user.coach_verification_token   = coach_verify_token
             user.coach_verification_sent_at = datetime.utcnow()

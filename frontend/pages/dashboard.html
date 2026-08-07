@@ -387,6 +387,11 @@
     <button class="sidebar-link" onclick="openModal('profile-modal')"><span class="icon">✏️</span> Edit Profile</button>
     <a class="sidebar-link" href="/achievements"><span class="icon">🏅</span> Athletic Résumé</a>
 
+    {% if current_user.is_authenticated and current_user.role == 'coach' %}
+    <div class="sidebar-label">Coach</div>
+    <a class="sidebar-link" href="/coach/postings"><span class="icon">📋</span> Coach Dashboard</a>
+    {% endif %}
+
     <div class="sidebar-label">Beta</div>
     <a class="sidebar-link" href="https://forms.gle/FEK1PRrpq1Ns1cmC7" target="_blank">
       <span class="icon">📝</span> Give Feedback
