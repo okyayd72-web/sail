@@ -58,9 +58,9 @@
     "coach_men": "Nick Brochu",
     "coach_men_email": null,
     "coach_men_phone": "251-460-6873",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Dr. Jaco Keyser",
+    "coach_women_email": "jkeyser@southalabama.edu",
+    "coach_women_phone": "251-460-6266"
   },
   {
     "school": "University of North Alabama",
@@ -89,8 +89,8 @@
     "coach_men": "Olaya Garrido Rivas",
     "coach_men_email": null,
     "coach_men_phone": "(256) 765-4617",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Olaya Garrido Rivas",
+    "coach_women_email": "ogarridorivas@una.edu",
     "coach_women_phone": null
   },
   {
@@ -121,9 +121,9 @@
     "coach_men": "Rolando Vargas",
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Rawia Elsisi",
+    "coach_women_email": "relsisi@troy.edu",
+    "coach_women_phone": "334-670-6296"
   },
   {
     "school": "University of Arkansas-Fort Smith",
@@ -152,9 +152,9 @@
     "coach_men": "Ben Anderson",
     "coach_men_email": null,
     "coach_men_phone": "479-788-7513",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Mike Phillips",
+    "coach_women_email": "michael.phillips@uafs.edu",
+    "coach_women_phone": "479-788-7513"
   },
   {
     "school": "John Brown University",
@@ -183,9 +183,9 @@
     "coach_men": "mike Campbell",
     "coach_men_email": null,
     "coach_men_phone": "(479) 524-7214",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Darwin Silva",
+    "coach_women_email": "dsilva@jbu.edu",
+    "coach_women_phone": "(479) 524-7214"
   },
   {
     "school": "Southern Arkansas University",
@@ -368,8 +368,8 @@
     "coach_men": "Drew Eberly",
     "coach_men_email": null,
     "coach_men_phone": "847-254-7001",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Paul Wardlaw",
+    "coach_women_email": "paul.wardlaw@du.edu",
     "coach_women_phone": null
   },
   {
@@ -430,9 +430,9 @@
     "coach_men": "Mike Guastelle",
     "coach_men_email": null,
     "coach_men_phone": "203-371-7885",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Mike Guastelle",
+    "coach_women_email": "guastellem@sacredheart.edu",
+    "coach_women_phone": "203-371-7885"
   },
   {
     "school": "Fairfield University",
@@ -462,9 +462,9 @@
     "coach_men": "Jeff Bricker",
     "coach_men_email": null,
     "coach_men_phone": "203-254-4000",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jeff Bricker",
+    "coach_women_email": "jbricker@fairfield.edu",
+    "coach_women_phone": "203-254-4000 ext. 2344"
   },
   {
     "school": "Quinnipiac University",
@@ -494,9 +494,9 @@
     "coach_men": "Paula Miller",
     "coach_men_email": null,
     "coach_men_phone": "(203) 582-5322",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Paula Miller",
+    "coach_women_email": "paula.miller@qu.edu",
+    "coach_women_phone": "(203) 582-5322"
   },
   {
     "school": "Univ of the District of Columbia",
@@ -3063,8 +3063,8 @@
     "coach_men": "Chris Powers",
     "coach_men_email": null,
     "coach_men_phone": "843-349-2661",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Catherine Hewitt",
+    "coach_women_email": "ehewitt@coastal.edu",
     "coach_women_phone": null
   },
   {
@@ -3094,9 +3094,9 @@
     "coach_men": "Laszlo Leiter",
     "coach_men_email": null,
     "coach_men_phone": "843-661-1185",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Laszlo Leiter",
+    "coach_women_email": "laszlo.leiter@fmarion.edu",
+    "coach_women_phone": "843-661-1185"
   },
   {
     "school": "Augustana University",
@@ -3435,9 +3435,9 @@
     "coach_men": "Luis Diaz",
     "coach_men_email": null,
     "coach_men_phone": "397-4766",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Luis Diaz-Argente",
+    "coach_women_email": "luis.diazargente@msutexas.edu",
+    "coach_women_phone": "(940) 397-4766"
   },
   {
     "school": "Lamar University",
@@ -3467,9 +3467,9 @@
     "coach_men": "Scott Shankles",
     "coach_men_email": null,
     "coach_men_phone": "409-880-8202",
-    "coach_women": null,
+    "coach_women": "Alexandra Starkova",
     "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women_phone": "409-880-8056"
   },
   {
     "school": "St Mary's University",
@@ -3498,9 +3498,9 @@
     "coach_men": "Bill Macom",
     "coach_men_email": null,
     "coach_men_phone": "210-431-4296",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Bill Macom",
+    "coach_women_email": "bmacom@stmarytx.edu",
+    "coach_women_phone": "210-431-4296"
   },
   {
     "school": "Texas Tech University",
@@ -3530,8 +3530,8 @@
     "coach_men": "Parker Wynn",
     "coach_men_email": null,
     "coach_men_phone": "817-505-6967",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Adam Herendeen",
+    "coach_women_email": "adam.herendeen@ttu.edu",
     "coach_women_phone": null
   },
   {
@@ -3562,9 +3562,9 @@
     "coach_men": "Efe Ustundag",
     "coach_men_email": null,
     "coach_men_phone": "713-348-8855",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Elizabeth Schmidt",
+    "coach_women_email": "eschmidt@rice.edu",
+    "coach_women_phone": "713-348-6035"
   },
   {
     "school": "University of Texas at San Antonio",
@@ -3594,9 +3594,9 @@
     "coach_men": "Sergey Avdeyev",
     "coach_men_email": null,
     "coach_men_phone": "(405) 412-9714",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Ki Kroll",
+    "coach_women_email": "ki.kroll@utsa.edu",
+    "coach_women_phone": "(845) 702-6166"
   },
   {
     "school": "University of Texas Rio Grande Valley",
@@ -3626,8 +3626,8 @@
     "coach_men": "Nathan Robinson",
     "coach_men_email": null,
     "coach_men_phone": "956-665-2223",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "West Nott",
+    "coach_women_email": "west.nott@utrgv.edu",
     "coach_women_phone": null
   },
   {
@@ -3657,9 +3657,9 @@
     "coach_men": "Chris Bizot",
     "coach_men_email": null,
     "coach_men_phone": "(903) 566-7499",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Chris Bizot",
+    "coach_women_email": "cbizot@uttyler.edu",
+    "coach_women_phone": "(903) 566-7499"
   },
   {
     "school": "Weber State University",
@@ -3719,8 +3719,8 @@
     "coach_men": "Nathan Thompson",
     "coach_men_email": null,
     "coach_men_phone": "443-570-4262",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Dash Connell",
+    "coach_women_email": "jconnell16@liberty.edu",
     "coach_women_phone": null
   },
   {
@@ -3751,9 +3751,9 @@
     "coach_men": "Peter Banas",
     "coach_men_email": null,
     "coach_men_phone": "281-848-8817",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Peter Banas",
+    "coach_women_email": "psbanas@nsu.edu",
+    "coach_women_phone": "(757) 823-2910"
   },
   {
     "school": "George Mason University",
@@ -3783,8 +3783,8 @@
     "coach_men": "James Davis",
     "coach_men_email": null,
     "coach_men_phone": "703-994-9761",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Stephen Curtis",
+    "coach_women_email": "scurtis2@gmu.edu",
     "coach_women_phone": null
   },
   {
@@ -12417,8 +12417,8 @@
     "coach_men": "Glenn Marshall ",
     "coach_men_email": "glenn.marshall@uconn.edu",
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Laura Glitz",
+    "coach_women_email": "laura.glitz@uconn.edu",
     "coach_women_phone": null
   },
   {
@@ -21073,8 +21073,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Jonas Brobeck",
+    "coach_women_email": "jonas.brobeck@uri.edu",
     "coach_women_phone": null
   },
   {
@@ -21104,9 +21104,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Bert Poole",
+    "coach_women_email": "bpoole@averett.edu",
+    "coach_women_phone": "434-791-4992"
   },
   {
     "school": "Bluefield College",
@@ -21162,9 +21162,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Noah Hughes",
+    "coach_women_email": "nhughes2@bridgewater.edu",
+    "coach_women_phone": "540-828-8173"
   },
   {
     "school": "Christopher Newport University",
@@ -21193,9 +21193,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "David Weiner",
+    "coach_women_email": "david.weiner@cnu.edu",
+    "coach_women_phone": "757-594-8254"
   },
   {
     "school": "College of William & Mary",
@@ -21221,9 +21221,9 @@
     "coach_men": "Jeff Kader",
     "coach_men_email": null,
     "coach_men_phone": "(757) 221-3383",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jessica Giuggioli",
+    "coach_women_email": "jgiuggioli@wm.edu",
+    "coach_women_phone": "(757) 221-3384"
   },
   {
     "school": "Emory & Henry College",
@@ -21248,9 +21248,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jacob Marshall",
+    "coach_women_email": "jamarshall@emoryhenry.edu",
+    "coach_women_phone": "276-944-6845"
   },
   {
     "school": "Ferrum College",
@@ -21279,9 +21279,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jose M. Rincon",
+    "coach_women_email": "jrincon@ferrum.edu",
+    "coach_women_phone": "(540) 365-4470"
   },
   {
     "school": "Hampden-Sydney College",
@@ -21342,8 +21342,8 @@
     "coach_men": "Alfredo Rodriguez Marquez",
     "coach_men_email": "alfredo.rodriguezmarquez@hamptonu.edu",
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Alfredo Rodriguez Marquez",
+    "coach_women_email": "alfredo.rodriguezmarquez@hamptonu.edu",
     "coach_women_phone": null
   },
   {
@@ -21402,9 +21402,9 @@
     "coach_men": "Steve Secord",
     "coach_men_email": null,
     "coach_men_phone": "540-568-3950",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Tyson Thomas",
+    "coach_women_email": "thoma3tm@jmu.edu",
+    "coach_women_phone": "540-568-8036"
   },
   {
     "school": "Longwood University",
@@ -21434,9 +21434,9 @@
     "coach_men": "Charlotte Clarke",
     "coach_men_email": null,
     "coach_men_phone": "828-218-5917",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Charlotte Clarke",
+    "coach_women_email": "clarkec@longwood.edu",
+    "coach_women_phone": "828-218-5917"
   },
   {
     "school": "Mary Baldwin University",
@@ -21464,8 +21464,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Tim Martin",
+    "coach_women_email": "tmartin@marybaldwin.edu",
     "coach_women_phone": null
   },
   {
@@ -21494,9 +21494,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "David Carroll",
+    "coach_women_email": "dcarroll@marymount.edu",
+    "coach_women_phone": "(703) 908-7819"
   },
   {
     "school": "Old Dominion University",
@@ -21526,9 +21526,9 @@
     "coach_men": "Dominik Mueller",
     "coach_men_email": null,
     "coach_men_phone": "(757) 683-3129",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Dominic Manilla",
+    "coach_women_email": "djmanill@odu.edu",
+    "coach_women_phone": "(757) 683-3135"
   },
   {
     "school": "Randolph College",
@@ -21557,9 +21557,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Sam Martinez",
+    "coach_women_email": "sammartinez@randolphcollege.edu",
+    "coach_women_phone": "434-947-8363"
   },
   {
     "school": "Randolph-Macon College",
@@ -21588,9 +21588,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Sam Varner",
+    "coach_women_email": "SamVarner@rmc.edu",
+    "coach_women_phone": "804-752-3613"
   },
   {
     "school": "Roanoke College",
@@ -21619,9 +21619,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jack Fishwick",
+    "coach_women_email": "jfishwick@roanoke.edu",
+    "coach_women_phone": "540-375-2495"
   },
   {
     "school": "Shenandoah University",
@@ -21649,9 +21649,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jason Cole",
+    "coach_women_email": "jcole1@su.edu",
+    "coach_women_phone": "540-545-7360"
   },
   {
     "school": "Southern Virginia University",
@@ -21680,8 +21680,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Tom Snelson",
+    "coach_women_email": "thomas.snelson@svu.edu",
     "coach_women_phone": null
   },
   {
@@ -21739,9 +21739,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Chris Johnson",
+    "coach_women_email": "johnson_cw1@lynchburg.edu",
+    "coach_women_phone": "434-544-8914"
   },
   {
     "school": "University of Mary Washington",
@@ -21770,9 +21770,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Alexandra Covington",
+    "coach_women_email": "mcoving2@umw.edu",
+    "coach_women_phone": "540-654-5970"
   },
   {
     "school": "University of Richmond",
@@ -21802,9 +21802,9 @@
     "coach_men": "Houston Barrick",
     "coach_men_email": "hbarrick@richmond.edu",
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Houston Barrick",
+    "coach_women_email": "hbarrick@richmond.edu",
+    "coach_women_phone": "804-289-8915"
   },
   {
     "school": "University of Virginia",
@@ -21834,9 +21834,9 @@
     "coach_men": "Andres Pedroso",
     "coach_men_email": null,
     "coach_men_phone": "434-982-5732",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Sara O'Leary",
+    "coach_women_email": "oleary@virginia.edu",
+    "coach_women_phone": "434-982-5734"
   },
   {
     "school": "University of Virginia - Wise",
@@ -21862,9 +21862,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Alex Hunt",
+    "coach_women_email": "bkm4uq@uvawise.edu",
+    "coach_women_phone": "276-376-4693"
   },
   {
     "school": "Virginia Commonwealth University",
@@ -21894,8 +21894,8 @@
     "coach_men": "Dimi Kutrovsky",
     "coach_men_email": "kutrovskyd@vcu.edu",
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Rifanty Kahfiani",
+    "coach_women_email": "kahfianir@vcu.edu",
     "coach_women_phone": null
   },
   {
@@ -21925,9 +21925,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Chavez Mabry",
+    "coach_women_email": "cmabry@vsu.edu",
+    "coach_women_phone": "804-524-5030"
   },
   {
     "school": "Virginia Tech",
@@ -21953,8 +21953,8 @@
     "coach_men": "Jim Thompson",
     "coach_men_email": "jthomp@vt.edu",
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Terry Ann Zawacki-Holdren",
+    "coach_women_email": "tzawacki@vt.edu",
     "coach_women_phone": null
   },
   {
@@ -21984,8 +21984,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Gabriel Kotto",
+    "coach_women_email": "gabrielkotto@gmail.com",
     "coach_women_phone": null
   },
   {
@@ -22039,9 +22039,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Erin Ness",
+    "coach_women_email": "nesse@wlu.edu",
+    "coach_women_phone": "540-458-8115"
   },
   {
     "school": "Castleton University",
@@ -27490,9 +27490,9 @@
     "coach_men": "Gary Taylor",
     "coach_men_email": null,
     "coach_men_phone": "803-705-4734",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Gary Taylor",
+    "coach_women_email": "Gary.Taylor@benedict.edu",
+    "coach_women_phone": "803-705-4734"
   },
   {
     "school": "Charleston Southern University",
@@ -27522,9 +27522,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Anca Dumitrescu",
+    "coach_women_email": "adumitrescu@csuniv.edu",
+    "coach_women_phone": "(843) 863-7145"
   },
   {
     "school": "Citadel Military College",
@@ -27582,7 +27582,7 @@
     "coach_men": "Brandon Wagner",
     "coach_men_email": null,
     "coach_men_phone": "813-545-4066",
-    "coach_women": null,
+    "coach_women": "Boomer Saia",
     "coach_women_email": null,
     "coach_women_phone": null
   },
@@ -27609,8 +27609,8 @@
     "coach_men": "Derek Roehner",
     "coach_men_email": "derek.roehner@coker.edu",
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Derek Roehner",
+    "coach_women_email": "derek.roehner@coker.edu",
     "coach_women_phone": null
   },
   {
@@ -27641,9 +27641,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Doug Matthews",
+    "coach_women_email": "matthewsdd@cofc.edu",
+    "coach_women_phone": "(843) 953-5466"
   },
   {
     "school": "Columbia College",
@@ -27671,9 +27671,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Mark Carnes",
+    "coach_women_email": "Mcarnes@columbiasc.edu",
+    "coach_women_phone": "803-786-3375"
   },
   {
     "school": "ConverseCollege",
@@ -27729,9 +27729,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Calhoun Parr",
+    "coach_women_email": "parr@erskine.edu",
+    "coach_women_phone": "864-379-8776"
   },
   {
     "school": "Furman University",
@@ -27761,9 +27761,9 @@
     "coach_men": "J.J. Whitlinger",
     "coach_men_email": null,
     "coach_men_phone": "864-294-2256",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Michelle Dasso",
+    "coach_women_email": "Michelle.Dasso@Furman.edu",
+    "coach_women_phone": "864-294-3428"
   },
   {
     "school": "Lander University",
@@ -27792,8 +27792,8 @@
     "coach_men": "Brett Simpson",
     "coach_men_email": null,
     "coach_men_phone": "864-388-8773",
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Alan Ferguson",
+    "coach_women_email": "aferguson@lander.edu",
     "coach_women_phone": null
   },
   {
@@ -27850,8 +27850,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Aletta Macheli",
+    "coach_women_email": "aletta.macheli@newberry.edu",
     "coach_women_phone": null
   },
   {
@@ -27881,9 +27881,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Michelle Tease",
+    "coach_women_email": "Michelle.Tease@ngu.edu",
+    "coach_women_phone": "(864) 593-1068"
   },
   {
     "school": "Presbyterian College",
@@ -27945,9 +27945,9 @@
     "coach_men": "Hardeep Judge",
     "coach_men_email": null,
     "coach_men_phone": " (803) 536-8898",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Hardeep Judge",
+    "coach_women_email": "hjudge@scsu.edu",
+    "coach_women_phone": "(803) 536-8898"
   },
   {
     "school": "Southern Wesleyan University",
@@ -28035,7 +28035,7 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
+    "coach_women": "Kyle Campbell",
     "coach_women_email": null,
     "coach_women_phone": null
   },
@@ -28816,8 +28816,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Bryan Rainwater",
+    "coach_women_email": "bcr04a@acu.edu",
     "coach_women_phone": null
   },
   {
@@ -28847,9 +28847,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jason Potthoff",
+    "coach_women_email": "jason.potthoff@angelo.edu",
+    "coach_women_phone": "325-486-6519"
   },
   {
     "school": "Austin College",
@@ -28878,9 +28878,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Syvoney Ybarra",
+    "coach_women_email": "sybarra@austincollege.edu",
+    "coach_women_phone": "903-813-2400"
   },
   {
     "school": "Baylor University",
@@ -28910,9 +28910,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Joey Scrivano",
+    "coach_women_email": "Joey_Scrivano@Baylor.edu",
+    "coach_women_phone": "254-710-1323"
   },
   {
     "school": "Collin College",
@@ -28937,8 +28937,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Jamie Nanez",
+    "coach_women_email": "snanez@collin.edu",
     "coach_women_phone": null
   },
   {
@@ -28968,9 +28968,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Tim Stallard",
+    "coach_women_email": "Tim.Stallard@concordia.edu",
+    "coach_women_phone": "(512) 313-4515"
   },
   {
     "school": "Dallas Baptist University",
@@ -28999,9 +28999,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Wade Morgan",
+    "coach_women_email": "wadem@dbu.edu",
+    "coach_women_phone": "214-333-6827"
   },
   {
     "school": "East Texas Baptist University",
@@ -29029,9 +29029,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Tommy Heim",
+    "coach_women_email": "theim@etbu.edu",
+    "coach_women_phone": "903-923-2243"
   },
   {
     "school": "Hardin-Simmons University",
@@ -29060,9 +29060,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Shane Williford",
+    "coach_women_email": "swilliford@hsutx.edu",
+    "coach_women_phone": "(325) 280-1634"
   },
   {
     "school": "Howard Payne University",
@@ -29091,9 +29091,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Josh Lopez",
+    "coach_women_email": "jlopez@hputx.edu",
+    "coach_women_phone": "325-649-8827"
   },
   {
     "school": "Jacksonville College",
@@ -29121,8 +29121,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Louis Remondet",
+    "coach_women_email": "lremondet@jacksonvillecollege.edu",
     "coach_women_phone": null
   },
   {
@@ -29151,7 +29151,7 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
+    "coach_women": "Jaime Donjuan",
     "coach_women_email": null,
     "coach_women_phone": null
   },
@@ -29182,9 +29182,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Suzanne Merritt",
+    "coach_women_email": "suzannemerritt@letu.edu",
+    "coach_women_phone": "903.233.3729"
   },
   {
     "school": "McMurry University",
@@ -29213,9 +29213,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Chris Breaux",
+    "coach_women_email": "breaux.chris@mcm.edu",
+    "coach_women_phone": "(325) 793-4657"
   },
   {
     "school": "North Central Texas College",
@@ -29243,8 +29243,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Brian Waddell",
+    "coach_women_email": "bwaddell@nctc.edu",
     "coach_women_phone": null
   },
   {
@@ -29274,9 +29274,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Ross Marzetti",
+    "coach_women_email": "rdmarzetti@ollusa.edu",
+    "coach_women_phone": "210-434-6711"
   },
   {
     "school": "Prairie View A & M University",
@@ -29337,9 +29337,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Brenda Niemeyer",
+    "coach_women_email": "brendan@stedwards.edu",
+    "coach_women_phone": "(512) 637-5617"
   },
   {
     "school": "Sam Houston State University",
@@ -29369,9 +29369,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Rob Hubbard",
+    "coach_women_email": "rxh043@shsu.edu",
+    "coach_women_phone": "936-294-1744"
   },
   {
     "school": "Schreiner University",
@@ -29400,9 +29400,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Jacob Carrillo",
+    "coach_women_email": "jcarrillo@schreiner.edu",
+    "coach_women_phone": "(830) 792-7291"
   },
   {
     "school": "Southern Methodist University",
@@ -29432,8 +29432,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Kelcy McKenna",
+    "coach_women_email": "kelcym@smu.edu",
     "coach_women_phone": null
   },
   {
@@ -29463,9 +29463,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Maggie Dabadie",
+    "coach_women_email": "dabadiem@southwestern.edu",
+    "coach_women_phone": "512-863-1381"
   },
   {
     "school": "Stephen F Austin State University",
@@ -29495,8 +29495,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Drew Lambert",
+    "coach_women_email": "Drew.Lambert@sfasu.edu",
     "coach_women_phone": null
   },
   {
@@ -29526,8 +29526,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Jake Lopez",
+    "coach_women_email": "jake.lopez@sulross.edu",
     "coach_women_phone": null
   },
   {
@@ -29558,9 +29558,9 @@
     "coach_men": "Elianne Douglas-Miron",
     "coach_men_email": null,
     "coach_men_phone": "254-968-9370",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Elianne Douglas-Miron",
+    "coach_women_email": "miron@tarleton.edu",
+    "coach_women_phone": "254-968-9370"
   },
   {
     "school": "Texas A & M - Corpus Christi",
@@ -29586,9 +29586,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Steve Moore",
+    "coach_women_email": "Steve.Moore@tamucc.edu",
+    "coach_women_phone": "(361) 825-3212"
   },
   {
     "school": "Texas A & M - Kingsville",
@@ -29613,9 +29613,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Autumn Wollenzien",
+    "coach_women_email": "autumn.wollenzien@tamuk.edu",
+    "coach_women_phone": "361-593-4873"
   },
   {
     "school": "Texas A & M - Texarkana",
@@ -29640,9 +29640,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Brian Nelson",
+    "coach_women_email": "bnelson@tamut.edu",
+    "coach_women_phone": "(903) 334-6772"
   },
   {
     "school": "Texas A & M University",
@@ -29669,8 +29669,8 @@
     "coach_men": "Steve Denton",
     "coach_men_email": "sdenton@athletics.tamu.edu",
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Mark Weaver",
+    "coach_women_email": "mweaver@athletics.tamu.edu",
     "coach_women_phone": null
   },
   {
@@ -29701,9 +29701,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Lee Taylor Walker",
+    "coach_women_email": "l.t.walker@tcu.edu",
+    "coach_women_phone": "(817) 257-7639"
   },
   {
     "school": "Texas Lutheran University",
@@ -29731,9 +29731,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "David Mueller",
+    "coach_women_email": "dmueller@tlu.edu",
+    "coach_women_phone": "830-372-8128"
   },
   {
     "school": "Texas State University",
@@ -29763,9 +29763,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Kendall Brooks",
+    "coach_women_email": "kbrooks@txstate.edu",
+    "coach_women_phone": "512-245-2965"
   },
   {
     "school": "Texas Wesleyan University",
@@ -29794,8 +29794,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Wade Morgan",
+    "coach_women_email": "wlmorgan@txwes.edu",
     "coach_women_phone": null
   },
   {
@@ -29825,8 +29825,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Drew Cohn",
+    "coach_women_email": "acohn@trinity.edu",
     "coach_women_phone": null
   },
   {
@@ -29855,9 +29855,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Micah Avance",
+    "coach_women_email": "micah.avance@tjc.edu",
+    "coach_women_phone": "903-510-3523"
   },
   {
     "school": "University of Houston",
@@ -29887,8 +29887,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Valeriya Zeleva",
+    "coach_women_email": "vzeleva@central.uh.edu",
     "coach_women_phone": null
   },
   {
@@ -29918,9 +29918,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Daniel White",
+    "coach_women_email": "daniel.white@umhb.edu",
+    "coach_women_phone": "254-295-4617"
   },
   {
     "school": "University of North Texas",
@@ -29950,8 +29950,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Amanda Stone",
+    "coach_women_email": "amanda.stone2@unt.edu",
     "coach_women_phone": null
   },
   {
@@ -29978,8 +29978,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Howard Joffe",
+    "coach_women_email": "howard.joffe@athletics.utexas.edu",
     "coach_women_phone": null
   },
   {
@@ -30010,9 +30010,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Diego Benitez",
+    "coach_women_email": "dbenitez@uta.edu",
+    "coach_women_phone": "(817) 272-2232"
   },
   {
     "school": "University of Texas at Dallas",
@@ -30041,9 +30041,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Bryan Whitt",
+    "coach_women_email": "bwhitt@utdallas.edu",
+    "coach_women_phone": "972-883-6060"
   },
   {
     "school": "University of Texas at El Paso",
@@ -30073,7 +30073,7 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
+    "coach_women": "Ivan Fernandez",
     "coach_women_email": null,
     "coach_women_phone": null
   },
@@ -30104,9 +30104,9 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Chris Tolson",
+    "coach_women_email": "tolson_c@utpb.edu",
+    "coach_women_phone": "480-658-6036"
   },
   {
     "school": "University of the Incarnate Word",
@@ -30136,8 +30136,8 @@
     "coach_men": null,
     "coach_men_email": null,
     "coach_men_phone": null,
-    "coach_women": null,
-    "coach_women_email": null,
+    "coach_women": "Courtney Steinbock",
+    "coach_women_email": "steinboc@uiwtx.edu",
     "coach_women_phone": null
   },
   {
@@ -33355,7 +33355,7 @@
     "coach_men": "Mai-Ly Tran",
     "coach_men_email": null,
     "coach_men_phone": "(970) 632-4934",
-    "coach_women": null,
+    "coach_women": "Blake Mosley",
     "coach_women_email": null,
     "coach_women_phone": null
   },
@@ -33442,9 +33442,9 @@
     "coach_men": "Anthony Pham",
     "coach_men_email": null,
     "coach_men_phone": "720-768-2901",
-    "coach_women": null,
-    "coach_women_email": null,
-    "coach_women_phone": null
+    "coach_women": "Anthony Pham",
+    "coach_women_email": "anthony.pham-1@colorado.edu",
+    "coach_women_phone": "720-768-2901"
   },
   {
     "school": "University of Northern Colorado",
