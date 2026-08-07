@@ -387,6 +387,12 @@
     <button class="sidebar-link" onclick="openModal('profile-modal')"><span class="icon">✏️</span> Edit Profile</button>
     <a class="sidebar-link" href="/achievements"><span class="icon">🏅</span> Athletic Résumé</a>
 
+    {% if current_user.is_authenticated and current_user.role == 'athlete' %}
+    <div class="sidebar-label">Recruiting</div>
+    <a class="sidebar-link" href="/opportunities"><span class="icon">🔍</span> Opportunities</a>
+    <a class="sidebar-link" href="/my-applications"><span class="icon">📋</span> My Applications</a>
+    {% endif %}
+
     {% if current_user.is_authenticated and current_user.role == 'coach' %}
     <div class="sidebar-label">Coach</div>
     <a class="sidebar-link" href="/coach/postings"><span class="icon">📋</span> Coach Dashboard</a>

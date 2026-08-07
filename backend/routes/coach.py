@@ -182,6 +182,9 @@ def coach_applicants(posting_id):
 @coach_bp.get('/opportunities')
 @login_required
 def opportunities():
+    if current_user.role == 'coach':
+        return redirect('/coach/postings')
+
     division     = request.args.get('division', '').strip()
     recruit_type = request.args.get('recruit_type', '').strip()
     gender       = request.args.get('gender', '').strip()
