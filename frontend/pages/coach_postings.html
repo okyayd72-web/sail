@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>My Postings — SAIL Coach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-dim:#009e84;
+      --teal-g:rgba(0,201,167,0.12); --gold:#e8b84b;
+      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
+      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
+      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);}
+    .hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer;padding:0 .5rem 0 0;line-height:1;}
+    .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+      padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s var(--ease);text-decoration:none;}
+    .btn-ghost{background:transparent;color:var(--text-2);}
+    .btn-ghost:hover{color:var(--teal);background:var(--teal-g);}
+    .btn-primary{background:var(--teal);color:var(--navy);}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,201,167,0.3);color:var(--navy);}
+    .btn-sm{padding:.4rem .8rem;font-size:.75rem;}
+
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;z-index:200;
+      background:var(--navy-2);border-right:1px solid var(--border-s);
+      padding:calc(61px + 1.5rem) .75rem 1.5rem;
+      transform:translateX(-100%);transition:transform .25s var(--ease);}
+    .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.5);}
+    .sidebar-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-3);padding:.4rem .75rem;margin-top:1rem;}
+    .sidebar-link{display:flex;align-items:center;gap:.65rem;padding:.65rem .75rem;border-radius:8px;color:var(--text-2);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .15s;}
+    .sidebar-link:hover{color:var(--text-1);background:rgba(255,255,255,0.05);}
+    .sidebar-link.active{color:var(--teal);background:rgba(0,201,167,0.12);}
+    #sidebarOverlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);}
+    #sidebarOverlay.open{display:block;}
+
+    .wrap{max-width:920px;margin:0 auto;padding:calc(61px + 2rem) 1.5rem 5rem;position:relative;z-index:1;}
+    .page-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.4rem;}
+    .page-sub{color:var(--text-2);font-size:.9rem;margin-bottom:2rem;line-height:1.7;}
+    .section-divider{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);padding-bottom:.5rem;border-bottom:1px solid var(--border);margin-bottom:1.25rem;}
+
+    .card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:1.5rem;margin-bottom:1rem;}
+    .posting-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.75rem;flex-wrap:wrap;}
+    .posting-school{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;}
+    .posting-pos{font-size:.85rem;color:var(--text-2);margin-top:.15rem;}
+    .badges{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;}
+    .badge{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:99px;}
+    .badge-active{background:rgba(0,201,167,0.12);color:var(--teal);border:1px solid rgba(0,201,167,0.25);}
+    .badge-paused{background:rgba(77,98,120,0.2);color:var(--text-3);border:1px solid var(--border-s);}
+    .badge-div{background:rgba(232,184,75,0.1);color:var(--gold);border:1px solid rgba(232,184,75,0.2);}
+    .posting-meta{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.78rem;color:var(--text-3);margin-bottom:.85rem;}
+    .meta-item{background:rgba(255,255,255,0.04);border-radius:6px;padding:.2rem .6rem;}
+    .posting-actions{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;}
+    .count-pill{font-family:'Syne',sans-serif;font-size:.75rem;color:var(--text-2);}
+
+    .empty{text-align:center;padding:4rem 1rem;color:var(--text-3);}
+    .empty-icon{font-size:2.5rem;margin-bottom:.75rem;opacity:.5;}
+    .empty-title{font-family:'Syne',sans-serif;font-weight:700;color:var(--text-2);font-size:1rem;margin-bottom:.5rem;}
+    .empty-sub{font-size:.85rem;margin-bottom:1.5rem;}
+
+    .top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:.75rem;}
+    @media(max-width:860px){.hamburger{display:inline-flex !important;}}
+    @media(max-width:600px){.wrap{padding:calc(61px + 1.25rem) 1rem 4rem;}}
+  </style>
+</head>
+<body>
+<div id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="navSidebar">
+  <div class="sidebar-label">Coach</div>
+  <a class="sidebar-link active" href="/coach/postings">📋 My Postings</a>
+  <a class="sidebar-link" href="/coach/postings/new">➕ New Posting</a>
+  <div class="sidebar-label">Account</div>
+  <a class="sidebar-link" href="/dashboard">🏠 Dashboard</a>
+  <a class="sidebar-link" href="/logout">↩️ Log Out</a>
+</aside>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:.5rem;">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <a href="/dashboard" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:38px;"></a>
+  </div>
+  <a href="/coach/postings/new" class="btn btn-primary">➕ New Posting</a>
+</nav>
+
+<div class="wrap">
+  <h1 class="page-title">📋 My Postings</h1>
+  <p class="page-sub">Manage your recruiting openings. Students on SAIL can browse and apply to active postings.</p>
+
+  {% if postings %}
+  <div class="top-bar">
+    <span style="font-family:'Syne',sans-serif;font-size:.8rem;color:var(--text-3)">{{ postings|length }} posting{{ 's' if postings|length != 1 else '' }}</span>
+    <a href="/coach/postings/new" class="btn btn-primary btn-sm">➕ New Posting</a>
+  </div>
+
+  {% for p in postings %}
+  <div class="card" id="posting-{{ p.id }}">
+    <div class="posting-header">
+      <div>
+        <div class="posting-school">{{ p.school_name }}</div>
+        <div class="posting-pos">{{ p.position_label }}</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-div">{{ p.division }}</span>
+        <span class="badge {% if p.is_active %}badge-active{% else %}badge-paused{% endif %}" id="status-badge-{{ p.id }}">
+          {% if p.is_active %}Active{% else %}Paused{% endif %}
+        </span>
+      </div>
+    </div>
+
+    <div class="posting-meta">
+      <span class="meta-item">UTR {{ p.utr_min }}–{{ p.utr_max }}</span>
+      <span class="meta-item">{{ p.recruit_type | capitalize }}</span>
+      <span class="meta-item">{{ 'Men\'s' if p.gender == 'male' else 'Women\'s' }}</span>
+      {% if p.target_grad_year %}<span class="meta-item">Class of {{ p.target_grad_year }}</span>{% endif %}
+      <span class="meta-item">Posted {{ p.created_at.strftime('%b %d, %Y') }}</span>
+    </div>
+
+    <div class="posting-actions">
+      <a href="/coach/postings/{{ p.id }}/applicants" class="btn btn-ghost btn-sm">
+        👤 {{ p._applicant_count }} Applicant{{ 's' if p._applicant_count != 1 else '' }}
+      </a>
+      <button class="btn btn-ghost btn-sm" onclick="togglePosting({{ p.id }})" id="toggle-btn-{{ p.id }}">
+        {% if p.is_active %}⏸ Pause{% else %}▶ Activate{% endif %}
+      </button>
+    </div>
+  </div>
+  {% endfor %}
+
+  {% else %}
+  <div class="empty">
+    <div class="empty-icon">📋</div>
+    <div class="empty-title">No postings yet</div>
+    <div class="empty-sub">Create your first recruiting opening and students will be able to apply.</div>
+    <a href="/coach/postings/new" class="btn btn-primary">➕ Create First Posting</a>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById('navSidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+document.querySelectorAll('.sidebar-link').forEach(function(l) {
+  l.addEventListener('click', function() {
+    document.getElementById('navSidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  });
+});
+
+async function togglePosting(id) {
+  const btn   = document.getElementById('toggle-btn-' + id);
+  const badge = document.getElementById('status-badge-' + id);
+  btn.disabled = true;
+  try {
+    const res  = await fetch('/coach/postings/' + id + '/toggle', {
+      method: 'POST', credentials: 'include',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await res.json();
+    if (!res.ok) { alert(data.error || 'Error'); return; }
+    const active = data.is_active;
+    btn.textContent  = active ? '⏸ Pause' : '▶ Activate';
+    badge.textContent = active ? 'Active' : 'Paused';
+    badge.className  = 'badge ' + (active ? 'badge-active' : 'badge-paused');
+  } catch(e) { alert('Network error.'); }
+  btn.disabled = false;
+}
+</script>
+</body>
+</html>

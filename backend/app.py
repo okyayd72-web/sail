@@ -55,6 +55,7 @@ def create_app():
     from backend.routes.ai_routes     import ai_bp
     from backend.routes.tennis_routes import tennis_bp
     from backend.routes.analytics     import analytics_bp
+    from backend.routes.coach         import coach_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(pages_bp)
@@ -62,6 +63,7 @@ def create_app():
     app.register_blueprint(ai_bp)
     app.register_blueprint(tennis_bp)
     app.register_blueprint(analytics_bp)
+    app.register_blueprint(coach_bp)
 
     with app.app_context():
         db.create_all()

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>Applicants — SAIL Coach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-dim:#009e84;
+      --teal-g:rgba(0,201,167,0.12); --gold:#e8b84b;
+      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
+      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
+      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);}
+    .hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer;padding:0 .5rem 0 0;line-height:1;}
+    .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+      padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s var(--ease);text-decoration:none;}
+    .btn-ghost{background:transparent;color:var(--text-2);}
+    .btn-ghost:hover{color:var(--teal);background:var(--teal-g);}
+
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;z-index:200;
+      background:var(--navy-2);border-right:1px solid var(--border-s);
+      padding:calc(61px + 1.5rem) .75rem 1.5rem;
+      transform:translateX(-100%);transition:transform .25s var(--ease);}
+    .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.5);}
+    .sidebar-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-3);padding:.4rem .75rem;margin-top:1rem;}
+    .sidebar-link{display:flex;align-items:center;gap:.65rem;padding:.65rem .75rem;border-radius:8px;color:var(--text-2);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .15s;}
+    .sidebar-link:hover{color:var(--text-1);background:rgba(255,255,255,0.05);}
+    .sidebar-link.active{color:var(--teal);background:rgba(0,201,167,0.12);}
+    #sidebarOverlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);}
+    #sidebarOverlay.open{display:block;}
+
+    .wrap{max-width:860px;margin:0 auto;padding:calc(61px + 2rem) 1.5rem 5rem;position:relative;z-index:1;}
+    .page-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.4rem;}
+
+    .posting-summary{background:var(--card);border:1px solid var(--border-s);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:1.75rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;}
+    .ps-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;}
+    .ps-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.35rem;}
+    .meta-chip{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:99px;background:rgba(255,255,255,0.05);color:var(--text-3);border:1px solid var(--border-s);}
+
+    .warn-box{background:rgba(232,184,75,0.08);border:1px solid rgba(232,184,75,0.25);border-radius:14px;padding:1.5rem;margin-bottom:1.75rem;}
+    .warn-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--gold);margin-bottom:.4rem;}
+    .warn-body{font-size:.85rem;color:var(--text-2);line-height:1.7;}
+    .count-big{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--teal);margin:.5rem 0;}
+
+    .app-card{background:var(--card);border:1px solid var(--border-s);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:.85rem;}
+    .app-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.65rem;flex-wrap:wrap;gap:.5rem;}
+    .app-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;}
+    .app-email{font-size:.8rem;color:var(--text-2);margin-top:.1rem;}
+    .app-date{font-size:.72rem;color:var(--text-3);}
+
+    .status-badge{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;border:1px solid;}
+    .status-submitted{background:rgba(0,201,167,0.1);color:var(--teal);border-color:rgba(0,201,167,0.25);}
+    .status-viewed{background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.25);}
+    .status-shortlisted{background:rgba(232,184,75,0.12);color:var(--gold);border-color:rgba(232,184,75,0.25);}
+    .status-declined{background:rgba(143,160,184,0.1);color:var(--text-3);border-color:var(--border-s);}
+
+    .app-message{font-size:.83rem;color:var(--text-2);line-height:1.6;margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border-s);}
+    .app-message em{color:var(--text-3);font-style:italic;}
+
+    .empty{text-align:center;padding:3rem 1rem;color:var(--text-3);}
+    .empty-icon{font-size:2.5rem;margin-bottom:.75rem;opacity:.5;}
+    .empty-title{font-family:'Syne',sans-serif;font-weight:700;color:var(--text-2);margin-bottom:.4rem;}
+
+    @media(max-width:860px){.hamburger{display:inline-flex !important;}}
+    @media(max-width:600px){.wrap{padding:calc(61px + 1.25rem) 1rem 4rem;}}
+  </style>
+</head>
+<body>
+<div id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="navSidebar">
+  <div class="sidebar-label">Coach</div>
+  <a class="sidebar-link active" href="/coach/postings">📋 My Postings</a>
+  <a class="sidebar-link" href="/coach/postings/new">➕ New Posting</a>
+  <div class="sidebar-label">Account</div>
+  <a class="sidebar-link" href="/dashboard">🏠 Dashboard</a>
+  <a class="sidebar-link" href="/logout">↩️ Log Out</a>
+</aside>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:.5rem;">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <a href="/dashboard" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:38px;"></a>
+  </div>
+  <a href="/coach/postings" class="btn btn-ghost">← My Postings</a>
+</nav>
+
+<div class="wrap">
+  <h1 class="page-title">👤 Applicants</h1>
+
+  <!-- Posting summary -->
+  <div class="posting-summary">
+    <div>
+      <div class="ps-title">{{ posting.school_name }} — {{ posting.position_label }}</div>
+      <div class="ps-meta">
+        <span class="meta-chip">{{ posting.division }}</span>
+        <span class="meta-chip">UTR {{ posting.utr_min }}–{{ posting.utr_max }}</span>
+        <span class="meta-chip">{{ posting.recruit_type | capitalize }}</span>
+        <span class="meta-chip">{{ 'Men\'s' if posting.gender == 'male' else 'Women\'s' }}</span>
+      </div>
+    </div>
+    <span style="font-family:'Syne',sans-serif;font-size:.8rem;color:var(--text-3);">
+      {{ applications | length }} applicant{{ 's' if applications | length != 1 else '' }}
+    </span>
+  </div>
+
+  {% if not verified %}
+  <!-- ── UNVERIFIED GATE ─────────────────────────────────────────────────── -->
+  <div class="warn-box">
+    <div class="warn-title">🔒 Account Verification Required</div>
+    <div class="count-big">{{ applications | length }}</div>
+    <div class="warn-body">
+      You have <strong>{{ applications | length }} applicant{{ 's' if applications | length != 1 else '' }}</strong>
+      for this posting.<br><br>
+      Because applicants may be minors, SAIL requires coaches to be verified before accessing any student name,
+      email address, or personal information. To get verified, please email
+      <a href="mailto:okyayd72@gmail.com" style="color:var(--teal)">the SAIL team</a> with your coaching credentials
+      (school affiliation, USPTA/PTR number, or ITA registration). Verification is free and typically takes 1–2 business days.
+    </div>
+  </div>
+
+  {% elif applications %}
+  <!-- ── VERIFIED: full applicant list ─────────────────────────────────── -->
+  {% for app in applications %}
+  <div class="app-card">
+    <div class="app-header">
+      <div>
+        <div class="app-name">{{ app.student.first_name }} {{ app.student.last_name }}</div>
+        <div class="app-email">
+          <a href="mailto:{{ app.student.email }}" style="color:var(--teal)">{{ app.student.email }}</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.35rem;">
+        <span class="status-badge status-{{ app.status }}">{{ app.status }}</span>
+        <span class="app-date">Applied {{ app.created_at.strftime('%b %d, %Y') }}</span>
+      </div>
+    </div>
+    {% if app.message %}
+    <div class="app-message">{{ app.message }}</div>
+    {% else %}
+    <div class="app-message"><em>No message included.</em></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  {% else %}
+  <!-- ── VERIFIED but no applicants yet ─────────────────────────────────── -->
+  <div class="empty">
+    <div class="empty-icon">📭</div>
+    <div class="empty-title">No applicants yet</div>
+    <p style="font-size:.85rem;">Students matching your criteria will appear here once they apply.</p>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById('navSidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+document.querySelectorAll('.sidebar-link').forEach(function(l) {
+  l.addEventListener('click', function() {
+    document.getElementById('navSidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>

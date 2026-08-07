@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>New Posting — SAIL Coach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-dim:#009e84;
+      --teal-g:rgba(0,201,167,0.12); --gold:#e8b84b;
+      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
+      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
+      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);}
+    .hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer;padding:0 .5rem 0 0;line-height:1;}
+    .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+      padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s var(--ease);text-decoration:none;}
+    .btn-ghost{background:transparent;color:var(--text-2);}
+    .btn-ghost:hover{color:var(--teal);background:var(--teal-g);}
+    .btn-primary{background:var(--teal);color:var(--navy);}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,201,167,0.3);color:var(--navy);}
+
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;z-index:200;
+      background:var(--navy-2);border-right:1px solid var(--border-s);
+      padding:calc(61px + 1.5rem) .75rem 1.5rem;
+      transform:translateX(-100%);transition:transform .25s var(--ease);}
+    .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.5);}
+    .sidebar-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-3);padding:.4rem .75rem;margin-top:1rem;}
+    .sidebar-link{display:flex;align-items:center;gap:.65rem;padding:.65rem .75rem;border-radius:8px;color:var(--text-2);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .15s;}
+    .sidebar-link:hover{color:var(--text-1);background:rgba(255,255,255,0.05);}
+    .sidebar-link.active{color:var(--teal);background:rgba(0,201,167,0.12);}
+    #sidebarOverlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);}
+    #sidebarOverlay.open{display:block;}
+
+    .wrap{max-width:680px;margin:0 auto;padding:calc(61px + 2rem) 1.5rem 5rem;position:relative;z-index:1;}
+    .page-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.4rem;}
+    .page-sub{color:var(--text-2);font-size:.9rem;margin-bottom:2rem;line-height:1.7;}
+
+    .card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;}
+    .section-divider{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);padding-bottom:.5rem;border-bottom:1px solid var(--border);margin-bottom:1.25rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+    .form-group{margin-bottom:1rem;}
+    .form-label{display:block;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-2);margin-bottom:.4rem;}
+    .form-control{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:var(--text-1);padding:.7rem .9rem;font-family:'Lora',serif;font-size:.875rem;outline:none;transition:border-color .15s;-webkit-appearance:none;}
+    .form-control:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,201,167,0.1);}
+    select.form-control option{background:#112236;}
+    textarea.form-control{resize:vertical;min-height:90px;line-height:1.6;}
+    .form-hint{font-size:.68rem;color:var(--text-3);margin-top:.3rem;line-height:1.5;}
+
+    .error-box{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.5rem;font-family:'Syne',sans-serif;font-size:.82rem;color:#fca5a5;}
+    .save-row{display:flex;justify-content:flex-end;gap:.75rem;margin-top:.5rem;}
+
+    @media(max-width:860px){.hamburger{display:inline-flex !important;}}
+    @media(max-width:600px){.form-row{grid-template-columns:1fr;}.wrap{padding:calc(61px + 1.25rem) 1rem 4rem;}}
+  </style>
+</head>
+<body>
+<div id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="navSidebar">
+  <div class="sidebar-label">Coach</div>
+  <a class="sidebar-link" href="/coach/postings">📋 My Postings</a>
+  <a class="sidebar-link active" href="/coach/postings/new">➕ New Posting</a>
+  <div class="sidebar-label">Account</div>
+  <a class="sidebar-link" href="/dashboard">🏠 Dashboard</a>
+  <a class="sidebar-link" href="/logout">↩️ Log Out</a>
+</aside>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:.5rem;">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <a href="/dashboard" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:38px;"></a>
+  </div>
+  <a href="/coach/postings" class="btn btn-ghost">← My Postings</a>
+</nav>
+
+<div class="wrap">
+  <h1 class="page-title">➕ New Posting</h1>
+  <p class="page-sub">Describe the roster opening you're recruiting for. Students matching your criteria will be able to apply.</p>
+
+  {% if error %}
+  <div class="error-box">⚠️ {{ error }}</div>
+  {% endif %}
+
+  <form method="POST" action="/coach/postings/new">
+    <div class="card">
+      <div class="section-divider">🏫 Program</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">School Name *</label>
+          <input class="form-control" type="text" name="school_name" required
+                 value="{{ form.get('school_name', '') }}" placeholder="e.g. University of Florida">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Division *</label>
+          <select class="form-control" name="division" required>
+            <option value="">Select division…</option>
+            {% for d in divisions %}
+            <option value="{{ d }}" {% if form.get('division') == d %}selected{% endif %}>{{ d }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Gender *</label>
+          <select class="form-control" name="gender" required>
+            <option value="">Select…</option>
+            <option value="male"   {% if form.get('gender') == 'male'   %}selected{% endif %}>Men's</option>
+            <option value="female" {% if form.get('gender') == 'female' %}selected{% endif %}>Women's</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Position / Lineup Slot *</label>
+          <input class="form-control" type="text" name="position_label" required
+                 value="{{ form.get('position_label', '') }}" placeholder="e.g. Lineup #3–4">
+          <div class="form-hint">Where in the lineup you're looking to fill.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-divider">🎾 Player Requirements</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">UTR Min *</label>
+          <input class="form-control" type="number" name="utr_min" step="0.1" min="0" max="16" required
+                 value="{{ form.get('utr_min', '') }}" placeholder="e.g. 9.0">
+        </div>
+        <div class="form-group">
+          <label class="form-label">UTR Max *</label>
+          <input class="form-control" type="number" name="utr_max" step="0.1" min="0" max="16" required
+                 value="{{ form.get('utr_max', '') }}" placeholder="e.g. 11.5">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Recruit Type *</label>
+          <select class="form-control" name="recruit_type" required>
+            <option value="">Select…</option>
+            <option value="newcomer" {% if form.get('recruit_type') == 'newcomer' %}selected{% endif %}>Incoming freshman / newcomer</option>
+            <option value="transfer" {% if form.get('recruit_type') == 'transfer' %}selected{% endif %}>Transfer only</option>
+            <option value="either"   {% if form.get('recruit_type') == 'either'   %}selected{% endif %}>Either (transfer or newcomer)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Target Graduation Year</label>
+          <input class="form-control" type="number" name="target_grad_year" min="2025" max="2032"
+                 value="{{ form.get('target_grad_year', '') }}" placeholder="e.g. 2027 (optional)">
+          <div class="form-hint">Leave blank if open to any class year.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-divider">📝 Description</div>
+      <div class="form-group">
+        <label class="form-label">Additional Details (optional)</label>
+        <textarea class="form-control" name="description" rows="4"
+          placeholder="Scholarship availability, academic requirements, training schedule, campus visit info…">{{ form.get('description', '') }}</textarea>
+        <div class="form-hint">Visible to all students browsing opportunities.</div>
+      </div>
+    </div>
+
+    <div class="save-row">
+      <a href="/coach/postings" class="btn btn-ghost">Cancel</a>
+      <button type="submit" class="btn btn-primary">Post Opening →</button>
+    </div>
+  </form>
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById('navSidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+document.querySelectorAll('.sidebar-link').forEach(function(l) {
+  l.addEventListener('click', function() {
+    document.getElementById('navSidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>

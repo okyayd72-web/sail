@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>My Applications — SAIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-dim:#009e84;
+      --teal-g:rgba(0,201,167,0.12); --gold:#e8b84b;
+      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
+      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
+      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);}
+    .hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer;padding:0 .5rem 0 0;line-height:1;}
+    .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+      padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s var(--ease);text-decoration:none;}
+    .btn-ghost{background:transparent;color:var(--text-2);}
+    .btn-ghost:hover{color:var(--teal);background:var(--teal-g);}
+    .btn-primary{background:var(--teal);color:var(--navy);}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,201,167,0.3);color:var(--navy);}
+
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:220px;z-index:200;
+      background:var(--navy-2);border-right:1px solid var(--border-s);
+      padding:calc(61px + 1.5rem) .75rem 1.5rem;
+      transform:translateX(-100%);transition:transform .25s var(--ease);}
+    .sidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.5);}
+    .sidebar-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-3);padding:.4rem .75rem;margin-top:1rem;}
+    .sidebar-link{display:flex;align-items:center;gap:.65rem;padding:.65rem .75rem;border-radius:8px;color:var(--text-2);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .15s;}
+    .sidebar-link:hover{color:var(--text-1);background:rgba(255,255,255,0.05);}
+    .sidebar-link.active{color:var(--teal);background:rgba(0,201,167,0.12);}
+    #sidebarOverlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);}
+    #sidebarOverlay.open{display:block;}
+
+    .wrap{max-width:760px;margin:0 auto;padding:calc(61px + 2rem) 1.5rem 5rem;position:relative;z-index:1;}
+    .page-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.4rem;}
+    .page-sub{color:var(--text-2);font-size:.9rem;margin-bottom:2rem;line-height:1.7;}
+
+    .app-card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:1.35rem 1.5rem;margin-bottom:.85rem;}
+    .app-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.6rem;flex-wrap:wrap;}
+    .app-school{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;}
+    .app-pos{font-size:.82rem;color:var(--text-2);margin-top:.1rem;}
+    .app-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem;}
+    .meta-chip{font-size:.72rem;color:var(--text-3);background:rgba(255,255,255,0.04);padding:.2rem .55rem;border-radius:6px;}
+
+    .status-badge{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .65rem;border-radius:99px;border:1px solid;white-space:nowrap;}
+    .status-submitted  {background:rgba(0,201,167,0.1);  color:var(--teal); border-color:rgba(0,201,167,0.25);}
+    .status-viewed     {background:rgba(59,130,246,0.1);  color:#60a5fa;     border-color:rgba(59,130,246,0.25);}
+    .status-shortlisted{background:rgba(232,184,75,0.12); color:var(--gold); border-color:rgba(232,184,75,0.25);}
+    .status-declined   {background:rgba(143,160,184,0.1); color:var(--text-3);border-color:var(--border-s);}
+
+    .app-message{font-size:.82rem;color:var(--text-2);line-height:1.6;margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border-s);}
+    .app-message em{color:var(--text-3);font-style:italic;}
+    .app-date{font-size:.7rem;color:var(--text-3);margin-top:.5rem;}
+
+    .status-hint{font-family:'Syne',sans-serif;font-size:.68rem;color:var(--text-3);margin-top:.25rem;}
+
+    .empty{text-align:center;padding:4rem 1rem;color:var(--text-3);}
+    .empty-icon{font-size:2.5rem;margin-bottom:.75rem;opacity:.5;}
+    .empty-title{font-family:'Syne',sans-serif;font-weight:700;color:var(--text-2);margin-bottom:.5rem;}
+    .empty-sub{font-size:.85rem;margin-bottom:1.5rem;}
+
+    @media(max-width:860px){.hamburger{display:inline-flex !important;}}
+    @media(max-width:600px){.wrap{padding:calc(61px + 1.25rem) 1rem 4rem;}}
+  </style>
+</head>
+<body>
+<div id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="navSidebar">
+  <div class="sidebar-label">Recruiting</div>
+  <a class="sidebar-link" href="/opportunities">🔍 Opportunities</a>
+  <a class="sidebar-link active" href="/my-applications">📋 My Applications</a>
+  <div class="sidebar-label">Main</div>
+  <a class="sidebar-link" href="/dashboard">🏠 Dashboard</a>
+  <a class="sidebar-link" href="/schools">🎾 Find Schools</a>
+  <div class="sidebar-label">Account</div>
+  <a class="sidebar-link" href="/logout">↩️ Log Out</a>
+</aside>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:.5rem;">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <a href="/dashboard" class="brand"><img src="/static/images/logo.png" alt="SAIL" style="height:38px;"></a>
+  </div>
+  <a href="/opportunities" class="btn btn-ghost">← Opportunities</a>
+</nav>
+
+<div class="wrap">
+  <h1 class="page-title">📋 My Applications</h1>
+  <p class="page-sub">Track the recruiting openings you've applied to. Coaches will update your status as they review applications.</p>
+
+  {% if applications %}
+  <div style="font-family:'Syne',sans-serif;font-size:.8rem;color:var(--text-3);margin-bottom:1rem;">
+    {{ applications | length }} application{{ 's' if applications | length != 1 else '' }}
+  </div>
+
+  {% for app in applications %}
+  <div class="app-card">
+    <div class="app-top">
+      <div>
+        <div class="app-school">{{ app.posting.school_name }}</div>
+        <div class="app-pos">{{ app.posting.position_label }}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;">
+        <span class="status-badge status-{{ app.status }}">{{ app.status }}</span>
+        {% if app.status == 'submitted' %}
+        <span class="status-hint">Awaiting review</span>
+        {% elif app.status == 'viewed' %}
+        <span class="status-hint">Coach has seen your application</span>
+        {% elif app.status == 'shortlisted' %}
+        <span class="status-hint">You're on the shortlist!</span>
+        {% elif app.status == 'declined' %}
+        <span class="status-hint">Not moving forward</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="app-meta">
+      <span class="meta-chip">{{ app.posting.division }}</span>
+      <span class="meta-chip">UTR {{ app.posting.utr_min }}–{{ app.posting.utr_max }}</span>
+      <span class="meta-chip">{{ app.posting.recruit_type | capitalize }}</span>
+      <span class="meta-chip">{{ 'Men\'s' if app.posting.gender == 'male' else 'Women\'s' }}</span>
+      {% if not app.posting.is_active %}
+      <span class="meta-chip" style="color:var(--gold);">Posting closed</span>
+      {% endif %}
+    </div>
+
+    {% if app.message %}
+    <div class="app-message">{{ app.message }}</div>
+    {% else %}
+    <div class="app-message"><em>No message included in your application.</em></div>
+    {% endif %}
+
+    <div class="app-date">Applied {{ app.created_at.strftime('%B %d, %Y') }}</div>
+  </div>
+  {% endfor %}
+
+  {% else %}
+  <div class="empty">
+    <div class="empty-icon">📭</div>
+    <div class="empty-title">No applications yet</div>
+    <div class="empty-sub">Browse open recruiting opportunities and apply to programs that fit your UTR and goals.</div>
+    <a href="/opportunities" class="btn btn-primary">🔍 Browse Opportunities</a>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+function toggleSidebar() {
+  var isOpen = document.getElementById('navSidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+document.querySelectorAll('.sidebar-link').forEach(function(l) {
+  l.addEventListener('click', function() {
+    document.getElementById('navSidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+</script>
+</body>
+</html>

@@ -13,9 +13,10 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
     first_name    = db.Column(db.String(100), nullable=False)
     last_name     = db.Column(db.String(100), nullable=False)
-    role          = db.Column(db.String(20), default='athlete')
-    is_verified   = db.Column(db.Boolean, default=True)
-    is_active     = db.Column(db.Boolean, default=True)
+    role               = db.Column(db.String(20), default='athlete')
+    is_verified        = db.Column(db.Boolean, default=True)
+    is_active          = db.Column(db.Boolean, default=True)
+    is_verified_coach  = db.Column(db.Boolean, default=False)
     created_at    = db.Column(db.DateTime, default=datetime.utcnow)
     reset_token        = db.Column(db.String(100), nullable=True)
     reset_token_expiry = db.Column(db.DateTime,    nullable=True)
@@ -32,12 +33,13 @@ class User(UserMixin, db.Model):
 
     def to_dict(self):
         return {
-            'id':         self.id,
-            'email':      self.email,
-            'first_name': self.first_name,
-            'last_name':  self.last_name,
-            'full_name':  self.full_name,
-            'role':       self.role,
+            'id':                self.id,
+            'email':             self.email,
+            'first_name':        self.first_name,
+            'last_name':         self.last_name,
+            'full_name':         self.full_name,
+            'role':              self.role,
+            'is_verified_coach': self.is_verified_coach,
         }
 
 @login_manager.user_loader
