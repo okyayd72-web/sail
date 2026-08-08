@@ -1,0 +1,180 @@
+/* ═══════════════════════════════════════════════════════════════
+   SAIL — shared light-theme tokens + base styles
+   Loaded via <link> AFTER each page's <style> block so this
+   wins the cascade for same-specificity rules.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Design tokens ──────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --paper:   #FAF8F4;
+  --surface: #FFFFFF;
+
+  /* Text */
+  --ink:   #14212E;
+  --body:  #33414F;
+  --muted: #6B7784;
+
+  /* Brand — navy */
+  --navy:      #0E2C48;
+  --navy-deep: #0A2137;
+  --navy-2:    #EEF2F7;
+  --navy-3:    #E2E8F0;
+
+  /* Brand — teal */
+  --teal:      #0F7C8C;
+  --teal-dim:  #0B6975;
+  --teal-hover:#0B6975;
+  --teal-g:    rgba(15,124,140,0.09);
+  --teal-tint: #E6F2F3;
+
+  /* Accent */
+  --gold:      #D6A24A;
+  --gold-tint: #F6ECD8;
+
+  /* Semantic */
+  --success: #2E7D5B;
+  --warning: #B4791F;
+  --danger:  #B23B3B;
+
+  /* Legacy variables → light-theme equivalents */
+  --text-1:  #14212E;
+  --text-2:  #33414F;
+  --text-3:  #6B7784;
+  --card:    #FFFFFF;
+  --border:  #E9E3D9;
+  --border-s:#E9E3D9;
+
+  /* Typography */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body:    'Lora', Georgia, serif;
+
+  /* Geometry */
+  --radius:    8px;
+  --radius-sm: 6px;
+  --shadow:    0 1px 2px rgba(16,33,48,.04), 0 2px 8px rgba(16,33,48,.05);
+  --shadow-md: 0 4px 6px rgba(16,33,48,.06), 0 8px 24px rgba(16,33,48,.08);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  background:  var(--paper);
+  color:       var(--body);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* Remove dark radial-gradient glow (was designed for dark bg) */
+body::before { display: none; }
+
+/* ─── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color:       var(--ink);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ─── Navigation ─────────────────────────────────────────────── */
+nav {
+  background:    rgba(250,248,244,0.96);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand           { color: var(--ink); }
+.brand span      { color: var(--teal); }
+
+/* ─── Sidebar ────────────────────────────────────────────────── */
+/* Fixed sidebar (auth/coach/student pages) */
+.sidebar {
+  background:   var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar-link:hover {
+  color:      var(--ink);
+  background: var(--navy-3);
+}
+.sidebar-link.active {
+  color:      var(--teal);
+  background: var(--teal-g);
+}
+
+#sidebarOverlay {
+  background: rgba(14,44,72,0.30);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--navy);
+  color:      #fff;
+}
+.btn-primary:hover {
+  background: var(--navy-deep);
+  color:      #fff;
+  box-shadow: var(--shadow-md);
+  transform:  translateY(-1px);
+}
+
+.btn-ghost:hover {
+  color:      var(--teal);
+  background: var(--teal-g);
+}
+
+.btn-outline {
+  border:     1px solid var(--teal);
+  color:      var(--teal);
+  background: transparent;
+}
+.btn-outline:hover {
+  background: var(--teal-tint);
+  color:      var(--teal-hover);
+}
+
+/* ─── Forms ──────────────────────────────────────────────────── */
+.form-control,
+.filter-control {
+  background:    var(--surface);
+  border:        1px solid var(--border);
+  color:         var(--ink);
+  border-radius: var(--radius-sm);
+}
+.form-control:focus,
+.filter-control:focus {
+  border-color: var(--teal);
+  box-shadow:   0 0 0 3px rgba(15,124,140,0.12);
+}
+select.form-control option,
+select.filter-control option {
+  background: var(--surface);
+  color:      var(--ink);
+}
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.card {
+  background:             var(--surface);
+  border:                 1px solid var(--border);
+  -webkit-backdrop-filter:none;
+          backdrop-filter:none;
+}
+
+/* ─── Action / icon buttons (dashboard) ─────────────────────── */
+.action-btn {
+  background: var(--navy-3);
+  border:     1px solid var(--border);
+  color:      var(--body);
+}
+.action-btn:hover {
+  background:   var(--navy-2);
+  border-color: var(--teal);
+  color:        var(--ink);
+}
+
+/* ─── Dashboard sticky sidebar ───────────────────────────────── */
+/* dashboard.html uses a sticky sidebar with class "sidebar" too */
+/* the rules above apply; this just fixes the scrollable bg */
+.dash-sidebar {
+  background: var(--navy-2);
+}
