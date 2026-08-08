@@ -173,8 +173,38 @@ def coach_applicants(posting_id):
             .all())
     # Verification gate: unverified coaches see count only, no PII
     verified = bool(current_user.is_verified_coach)
+
+    # Fetch athlete profiles only for verified coaches, only for applicants to THIS posting.
+    # Withheld pre-contact (minor PII): nationality, location, video — pending privacy-counsel review before any broader exposure.
+    profiles = {}
+    if verified:
+        from backend.routes.athlete import AthleteProfile
+        for app in apps:
+            p = AthleteProfile.query.filter_by(user_id=app.student_user_id).first()
+            if p:
+                profiles[app.student_user_id] = {
+                    'gender':                  p.gender,
+                    'utr_rating':              p.utr_rating,
+                    'intended_major':          p.intended_major,
+                    'athletic_level':          p.athletic_level,
+                    'gpa':                     p.gpa,
+                    'graduation_year':         p.graduation_year,
+                    'sat_score':               p.sat_score,
+                    'act_score':               p.act_score,
+                    'division_preference':     p.division_preference,
+                    'school_size_preference':  p.school_size_preference,
+                    'itf_junior_rank_singles': p.itf_junior_rank_singles,
+                    'itf_junior_rank_doubles': p.itf_junior_rank_doubles,
+                    'itf_junior_titles':       p.itf_junior_titles,
+                    'atp_wta_rank_singles':    p.atp_wta_rank_singles,
+                    'atp_wta_rank_doubles':    p.atp_wta_rank_doubles,
+                    'total_titles':            p.total_titles,
+                    'best_wins':               p.best_wins,
+                    'national_achievements':   p.national_achievements,
+                }
+
     return render_template('coach_applicants.html', posting=posting,
-                           applications=apps, verified=verified)
+                           applications=apps, verified=verified, profiles=profiles)
 
 
 # ─── STUDENT ROUTES ───────────────────────────────────────────────────────────

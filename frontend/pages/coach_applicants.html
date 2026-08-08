@@ -69,6 +69,19 @@
     .app-message{font-size:.83rem;color:var(--text-2);line-height:1.6;margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border-s);}
     .app-message em{color:var(--text-3);font-style:italic;}
 
+    .profile-section{margin-top:.85rem;padding-top:.85rem;border-top:1px solid var(--border-s);}
+    .profile-heading{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;}
+    .profile-grid{display:flex;flex-wrap:wrap;gap:.35rem .9rem;margin-bottom:.4rem;}
+    .profile-item{display:flex;align-items:baseline;gap:.3rem;}
+    .pi-label{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);}
+    .pi-val{font-size:.8rem;color:var(--text-1);}
+    .resume-section{margin-top:.75rem;padding-top:.65rem;border-top:1px dashed rgba(255,255,255,0.07);}
+    .resume-heading{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:.5rem;}
+    .resume-text{margin-top:.5rem;}
+    .resume-text .pi-label{display:block;margin-bottom:.2rem;}
+    .resume-text p{font-size:.8rem;color:var(--text-2);line-height:1.6;white-space:pre-wrap;}
+    .no-profile{font-size:.75rem;color:var(--text-3);font-style:italic;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border-s);}
+
     .empty{text-align:center;padding:3rem 1rem;color:var(--text-3);}
     .empty-icon{font-size:2.5rem;margin-bottom:.75rem;opacity:.5;}
     .empty-title{font-family:'Syne',sans-serif;font-weight:700;color:var(--text-2);margin-bottom:.4rem;}
@@ -150,6 +163,42 @@
     <div class="app-message">{{ app.message }}</div>
     {% else %}
     <div class="app-message"><em>No message included.</em></div>
+    {% endif %}
+
+    {% set prof = profiles.get(app.student_user_id) %}
+    {% if prof %}
+    <div class="profile-section">
+      <div class="profile-heading">🎾 Athlete Profile</div>
+      <div class="profile-grid">
+        {% if prof.gender %}<div class="profile-item"><span class="pi-label">Gender</span><span class="pi-val">{{ prof.gender | capitalize }}</span></div>{% endif %}
+        {% if prof.utr_rating %}<div class="profile-item"><span class="pi-label">UTR</span><span class="pi-val">{{ prof.utr_rating }}</span></div>{% endif %}
+        {% if prof.athletic_level %}<div class="profile-item"><span class="pi-label">Level</span><span class="pi-val">{{ prof.athletic_level }}</span></div>{% endif %}
+        {% if prof.graduation_year %}<div class="profile-item"><span class="pi-label">Grad Year</span><span class="pi-val">{{ prof.graduation_year }}</span></div>{% endif %}
+        {% if prof.division_preference %}<div class="profile-item"><span class="pi-label">Division</span><span class="pi-val">{{ prof.division_preference }}</span></div>{% endif %}
+        {% if prof.intended_major %}<div class="profile-item"><span class="pi-label">Major</span><span class="pi-val">{{ prof.intended_major }}</span></div>{% endif %}
+        {% if prof.gpa %}<div class="profile-item"><span class="pi-label">GPA</span><span class="pi-val">{{ prof.gpa }}</span></div>{% endif %}
+        {% if prof.sat_score %}<div class="profile-item"><span class="pi-label">SAT</span><span class="pi-val">{{ prof.sat_score }}</span></div>{% endif %}
+        {% if prof.act_score %}<div class="profile-item"><span class="pi-label">ACT</span><span class="pi-val">{{ prof.act_score }}</span></div>{% endif %}
+        {% if prof.school_size_preference %}<div class="profile-item"><span class="pi-label">School Size</span><span class="pi-val">{{ prof.school_size_preference }}</span></div>{% endif %}
+      </div>
+      {% if prof.itf_junior_rank_singles or prof.itf_junior_rank_doubles or prof.itf_junior_titles or prof.atp_wta_rank_singles or prof.atp_wta_rank_doubles or prof.total_titles or prof.best_wins or prof.national_achievements %}
+      <div class="resume-section">
+        <div class="resume-heading">Athletic Résumé</div>
+        <div class="profile-grid">
+          {% if prof.itf_junior_rank_singles %}<div class="profile-item"><span class="pi-label">ITF Jr Singles</span><span class="pi-val">#{{ prof.itf_junior_rank_singles }}</span></div>{% endif %}
+          {% if prof.itf_junior_rank_doubles %}<div class="profile-item"><span class="pi-label">ITF Jr Doubles</span><span class="pi-val">#{{ prof.itf_junior_rank_doubles }}</span></div>{% endif %}
+          {% if prof.itf_junior_titles %}<div class="profile-item"><span class="pi-label">ITF Jr Titles</span><span class="pi-val">{{ prof.itf_junior_titles }}</span></div>{% endif %}
+          {% if prof.atp_wta_rank_singles %}<div class="profile-item"><span class="pi-label">ATP/WTA Singles</span><span class="pi-val">#{{ prof.atp_wta_rank_singles }}</span></div>{% endif %}
+          {% if prof.atp_wta_rank_doubles %}<div class="profile-item"><span class="pi-label">ATP/WTA Doubles</span><span class="pi-val">#{{ prof.atp_wta_rank_doubles }}</span></div>{% endif %}
+          {% if prof.total_titles %}<div class="profile-item"><span class="pi-label">Career Titles</span><span class="pi-val">{{ prof.total_titles }}</span></div>{% endif %}
+        </div>
+        {% if prof.best_wins %}<div class="resume-text"><span class="pi-label">Best Wins</span><p>{{ prof.best_wins }}</p></div>{% endif %}
+        {% if prof.national_achievements %}<div class="resume-text"><span class="pi-label">National Achievements</span><p>{{ prof.national_achievements }}</p></div>{% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% else %}
+    <div class="no-profile">No athletic profile on file yet.</div>
     {% endif %}
   </div>
   {% endfor %}
