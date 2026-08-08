@@ -96,11 +96,20 @@ def coach_posting_new():
 
     if request.method == 'GET':
         return render_template('coach_posting_new.html', divisions=DIVISIONS,
-                               recruiting_terms=RECRUITING_TERMS, error=None, form={})
+                               recruiting_terms=RECRUITING_TERMS,
+                               coach_school=current_user.coach_school,
+                               error=None, form={})
 
     # ── POST: validate and create ──
+    # School is always taken from the coach's account — never from the form.
+    if not current_user.coach_school:
+        return render_template('coach_posting_new.html', divisions=DIVISIONS,
+                               recruiting_terms=RECRUITING_TERMS,
+                               coach_school=None,
+                               error=None, form=request.form)
+
+    school_name      = current_user.coach_school          # server-set; form value ignored
     form = request.form
-    school_name      = form.get('school_name', '').strip()
     division         = form.get('division', '').strip()
     position_label   = form.get('position_label', '').strip()
     recruit_type     = form.get('recruit_type', '').strip()
@@ -118,9 +127,7 @@ def coach_posting_new():
         error = 'UTR values must be numbers.'
 
     if not error:
-        if not school_name:
-            error = 'School name is required.'
-        elif division not in DIVISIONS:
+        if division not in DIVISIONS:
             error = 'Select a valid division.'
         elif not position_label:
             error = 'Position label is required (e.g. "Lineup #3-4").'
@@ -135,7 +142,9 @@ def coach_posting_new():
 
     if error:
         return render_template('coach_posting_new.html', divisions=DIVISIONS,
-                               recruiting_terms=RECRUITING_TERMS, error=error, form=form)
+                               recruiting_terms=RECRUITING_TERMS,
+                               coach_school=current_user.coach_school,
+                               error=error, form=form)
 
     target_grad_year = int(raw_year) if raw_year.isdigit() else None
 
@@ -308,6 +317,14 @@ def apply_to_posting(posting_id):
         db.session.rollback()
         return jsonify({'error': 'Could not submit application. Please try again.'}), 500
 
+    # Notify the coach — no student PII; failure must not affect the application record
+    try:
+        coach_user = User.query.get(posting.coach_user_id)
+        if coach_user and coach_user.email:
+            _notify_coach_new_applicant(coach_user.email, posting)
+    except Exception:
+        pass
+
     return jsonify({'success': True}), 201
 
 
@@ -354,6 +371,47 @@ def _send_coach_verification_email(to_email, token):
         sg.send(message)
     except Exception as e:
         logging.error(f"Coach verification email error: {e}")
+
+
+def _notify_coach_new_applicant(to_email, posting):
+    """Email the posting's coach that a new application arrived. Contains NO student PII."""
+    try:
+        import sendgrid
+        from sendgrid.helpers.mail import Mail
+        applicants_url = (
+            f"https://sailscholarship.com/coach/postings/{posting.id}/applicants"
+        )
+        term_str = (
+            f" ({posting.recruiting_term})"
+            if posting.recruiting_term and posting.recruiting_term != 'TBD'
+            else ''
+        )
+        sg = sendgrid.SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
+        message = Mail(
+            from_email='noreply@sailscholarship.com',
+            to_emails=to_email,
+            subject='New applicant for your SAIL posting',
+            html_content=f'''
+            <div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;padding:2rem;background:#050d1a;color:#f0eee8;border-radius:16px;">
+              <h2 style="color:#00c9a7;margin-bottom:1rem;">New applicant 🎾</h2>
+              <p style="color:#8fa0b8;line-height:1.7;margin-bottom:1.5rem;">
+                You have a new applicant for
+                <strong style="color:#f0eee8;">{posting.position_label}{term_str}</strong>
+                at <strong style="color:#f0eee8;">{posting.school_name}</strong>.
+              </p>
+              <a href="{applicants_url}" style="display:inline-block;background:#00c9a7;color:#050d1a;padding:.85rem 2rem;border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem;">
+                View Applicants →
+              </a>
+              <p style="color:#4d6278;font-size:.8rem;margin-top:1.5rem;">
+                Student details are available after logging in, subject to your approval status.
+                No student information is included in this email.
+              </p>
+            </div>
+            '''
+        )
+        sg.send(message)
+    except Exception as e:
+        logging.error(f"Coach applicant notification error: {e}")
 
 
 @coach_bp.get('/coach/verify/<token>')

@@ -91,6 +91,10 @@
   <h1 class="page-title">➕ New Posting</h1>
   <p class="page-sub">Describe the roster opening you're recruiting for. Students matching your criteria will be able to apply.</p>
 
+  {% if not coach_school %}
+  <div class="error-box">🏫 Your account isn't linked to a school yet. Please contact the SAIL team to get set up before creating postings.</div>
+  {% else %}
+
   {% if error %}
   <div class="error-box">⚠️ {{ error }}</div>
   {% endif %}
@@ -100,9 +104,9 @@
       <div class="section-divider">🏫 Program</div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">School Name *</label>
-          <input class="form-control" type="text" name="school_name" required
-                 value="{{ form.get('school_name', '') }}" placeholder="e.g. University of Florida">
+          <label class="form-label">School</label>
+          <div style="font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;padding:.45rem 0;color:var(--text-1);">{{ coach_school }}</div>
+          <div class="form-hint">Locked to your account. Contact SAIL to update it.</div>
         </div>
         <div class="form-group">
           <label class="form-label">Division *</label>
@@ -190,6 +194,7 @@
       <button type="submit" class="btn btn-primary">Post Opening →</button>
     </div>
   </form>
+  {% endif %}
 </div>
 
 <script>
