@@ -130,6 +130,16 @@
           <div class="form-hint">Where in the lineup you're looking to fill.</div>
         </div>
       </div>
+      <div class="form-group">
+        <label class="form-label">Recruiting Term *</label>
+        <select class="form-control" name="recruiting_term" required>
+          <option value="">Select term…</option>
+          {% for t in recruiting_terms %}
+          <option value="{{ t }}" {% if form.get('recruiting_term') == t %}selected{% endif %}>{{ t }}</option>
+          {% endfor %}
+        </select>
+        <div class="form-hint">Which semester or academic year you need this player for.</div>
+      </div>
     </div>
 
     <div class="card">

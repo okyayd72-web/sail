@@ -17,6 +17,7 @@ class User(UserMixin, db.Model):
     is_verified        = db.Column(db.Boolean, default=True)
     is_active          = db.Column(db.Boolean, default=True)
     is_verified_coach          = db.Column(db.Boolean, default=False)
+    coach_manually_approved    = db.Column(db.Boolean, default=False)
     coach_verification_token   = db.Column(db.String(255), nullable=True)
     coach_verification_sent_at = db.Column(db.DateTime,   nullable=True)
     created_at    = db.Column(db.DateTime, default=datetime.utcnow)

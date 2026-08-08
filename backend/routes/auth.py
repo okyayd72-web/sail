@@ -86,7 +86,8 @@ def register():
         }
         if user.email in bypass_emails:
             # TEST ONLY — remove/unset COACH_VERIFY_BYPASS_EMAILS before public launch (exposes minors' data to unverified coaches).
-            user.is_verified_coach = True
+            user.is_verified_coach       = True
+            user.coach_manually_approved = True
         else:
             # Domain gate only applies to non-bypass addresses
             allowed_domains = {'.edu'}

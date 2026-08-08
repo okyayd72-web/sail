@@ -149,6 +149,15 @@
         </select>
       </div>
       <div class="filter-group">
+        <label class="filter-label">Term</label>
+        <select class="filter-control" name="term">
+          <option value="">All terms</option>
+          {% for t in recruiting_terms %}
+          <option value="{{ t }}" {% if filters.term == t %}selected{% endif %}>{{ t }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
         <label class="filter-label">Your UTR</label>
         <input class="filter-control" type="number" name="utr" step="0.1" min="0" max="16"
                value="{{ filters.utr }}" placeholder="e.g. 9.5" style="width:90px;">
@@ -182,6 +191,7 @@
     <div class="post-meta">
       <span class="meta-chip">🎾 UTR {{ p.utr_min }}–{{ p.utr_max }}</span>
       <span class="meta-chip">{{ p.recruit_type | capitalize }}</span>
+      {% if p.recruiting_term and p.recruiting_term != 'TBD' %}<span class="meta-chip">📅 {{ p.recruiting_term }}</span>{% endif %}
       {% if p.target_grad_year %}<span class="meta-chip">Class of {{ p.target_grad_year }}</span>{% endif %}
     </div>
 

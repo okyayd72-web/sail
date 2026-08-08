@@ -11,6 +11,13 @@ coach_bp = Blueprint('coach', __name__)
 
 DIVISIONS = ['NCAA I', 'NCAA II', 'NCAA III', 'NAIA', 'JUCO', 'CCCAA', 'USCAA', 'NWAC', 'NCCAA']
 
+RECRUITING_TERMS = [
+    'Fall 2026', 'Spring 2027',
+    'Fall 2027', 'Spring 2028',
+    'Fall 2028', 'Spring 2029',
+    '2026-27',   '2027-28',    '2028-29',
+]
+
 
 # ─── MODELS ──────────────────────────────────────────────────────────────────
 
@@ -28,6 +35,7 @@ class CoachPosting(db.Model):
     target_grad_year = db.Column(db.Integer,       nullable=True)
     gender           = db.Column(db.String(10),   nullable=False)   # male / female
     description      = db.Column(db.Text,          nullable=True)
+    recruiting_term  = db.Column(db.String(50),    nullable=False, server_default='TBD')
     is_active        = db.Column(db.Boolean,       default=True, nullable=False)
     created_at       = db.Column(db.DateTime,      default=datetime.utcnow)
 
@@ -88,17 +96,18 @@ def coach_posting_new():
 
     if request.method == 'GET':
         return render_template('coach_posting_new.html', divisions=DIVISIONS,
-                               error=None, form={})
+                               recruiting_terms=RECRUITING_TERMS, error=None, form={})
 
     # ── POST: validate and create ──
     form = request.form
-    school_name    = form.get('school_name', '').strip()
-    division       = form.get('division', '').strip()
-    position_label = form.get('position_label', '').strip()
-    recruit_type   = form.get('recruit_type', '').strip()
-    gender         = form.get('gender', '').strip()
-    description    = form.get('description', '').strip()
-    raw_year       = form.get('target_grad_year', '').strip()
+    school_name      = form.get('school_name', '').strip()
+    division         = form.get('division', '').strip()
+    position_label   = form.get('position_label', '').strip()
+    recruit_type     = form.get('recruit_type', '').strip()
+    gender           = form.get('gender', '').strip()
+    description      = form.get('description', '').strip()
+    raw_year         = form.get('target_grad_year', '').strip()
+    recruiting_term  = form.get('recruiting_term', '').strip()
 
     error = None
     utr_min = utr_max = None
@@ -121,10 +130,12 @@ def coach_posting_new():
             error = 'Select a gender.'
         elif utr_max < utr_min:
             error = 'UTR max must be ≥ UTR min.'
+        elif recruiting_term not in RECRUITING_TERMS:
+            error = 'Select a valid recruiting term.'
 
     if error:
         return render_template('coach_posting_new.html', divisions=DIVISIONS,
-                               error=error, form=form)
+                               recruiting_terms=RECRUITING_TERMS, error=error, form=form)
 
     target_grad_year = int(raw_year) if raw_year.isdigit() else None
 
@@ -139,6 +150,7 @@ def coach_posting_new():
         target_grad_year = target_grad_year,
         gender           = gender,
         description      = description or None,
+        recruiting_term  = recruiting_term,
     )
     db.session.add(posting)
     db.session.commit()
@@ -171,8 +183,9 @@ def coach_applicants(posting_id):
             .filter_by(posting_id=posting_id)
             .order_by(PostingApplication.created_at.desc())
             .all())
-    # Verification gate: unverified coaches see count only, no PII
-    verified = bool(current_user.is_verified_coach)
+    # Manual-approval gate: only manually approved coaches may see student PII.
+    # Email verification (is_verified_coach) alone is not sufficient.
+    verified = bool(current_user.coach_manually_approved)
 
     # Fetch athlete profiles only for verified coaches, only for applicants to THIS posting.
     # Withheld pre-contact (minor PII): nationality, location, video — pending privacy-counsel review before any broader exposure.
@@ -215,10 +228,11 @@ def opportunities():
     if current_user.role == 'coach':
         return redirect('/coach/postings')
 
-    division     = request.args.get('division', '').strip()
-    recruit_type = request.args.get('recruit_type', '').strip()
-    gender       = request.args.get('gender', '').strip()
-    utr_str      = request.args.get('utr', '').strip()
+    division         = request.args.get('division', '').strip()
+    recruit_type     = request.args.get('recruit_type', '').strip()
+    gender           = request.args.get('gender', '').strip()
+    utr_str          = request.args.get('utr', '').strip()
+    term_filter      = request.args.get('term', '').strip()
 
     q = CoachPosting.query.filter_by(is_active=True)
     if division:
@@ -233,6 +247,8 @@ def opportunities():
             q = q.filter(CoachPosting.utr_min <= utr, CoachPosting.utr_max >= utr)
         except ValueError:
             pass
+    if term_filter:
+        q = q.filter(CoachPosting.recruiting_term == term_filter)
 
     postings = q.order_by(CoachPosting.created_at.desc()).all()
 
@@ -250,11 +266,13 @@ def opportunities():
         postings=postings,
         applied_ids=applied_ids,
         divisions=DIVISIONS,
+        recruiting_terms=RECRUITING_TERMS,
         filters={
             'division':     division,
             'recruit_type': recruit_type,
             'gender':       gender,
             'utr':          utr_str,
+            'term':         term_filter,
         },
     )
 

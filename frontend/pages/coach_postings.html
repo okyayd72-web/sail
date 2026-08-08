@@ -125,6 +125,7 @@
       <span class="meta-item">{{ p.recruit_type | capitalize }}</span>
       <span class="meta-item">{{ 'Men\'s' if p.gender == 'male' else 'Women\'s' }}</span>
       {% if p.target_grad_year %}<span class="meta-item">Class of {{ p.target_grad_year }}</span>{% endif %}
+      {% if p.recruiting_term and p.recruiting_term != 'TBD' %}<span class="meta-item">📅 {{ p.recruiting_term }}</span>{% endif %}
       <span class="meta-item">Posted {{ p.created_at.strftime('%b %d, %Y') }}</span>
     </div>
 
