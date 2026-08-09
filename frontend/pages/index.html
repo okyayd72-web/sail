@@ -184,7 +184,7 @@
 
 <nav id="navbar">
   <a href="/" class="brand">
-    <img src="/static/images/logo.png" alt="SAIL" style="height:38px;">
+    <img id="nav-logo" src="/static/images/logo-navy.png" alt="SAIL" style="height:38px;">
   </a>
   <div class="nav-links">
     <a href="#search"   class="nav-link">Find Schools</a>
@@ -474,7 +474,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="/static/images/logo.png" alt="SAIL" style="height:38px;margin-bottom:.5rem;">
+        <img src="/static/images/logo-navy.png" alt="SAIL" style="height:38px;margin-bottom:.5rem;">
         <p class="footer-desc">Helping tennis players find college scholarship opportunities in the United States with AI-powered matching.</p>
       </div>
       <div class="footer-col">
@@ -606,7 +606,9 @@ async function heroSearch() {
 
 // Navbar scroll
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  const scrolled = window.scrollY > 20;
+  document.getElementById('navbar').classList.toggle('scrolled', scrolled);
+  document.getElementById('nav-logo').src = scrolled ? '/static/images/logo-white.png' : '/static/images/logo-navy.png';
 }, { passive: true });
 
 // Scroll animations
