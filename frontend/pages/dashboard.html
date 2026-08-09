@@ -492,7 +492,7 @@
 
           <div id="profileWarning" style="display:none;margin-top:1rem;background:rgba(232,184,75,0.08);border:1px solid rgba(232,184,75,0.2);border-radius:10px;padding:1rem">
             <p style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--gold);margin-bottom:.35rem">⚠️ Profile Incomplete</p>
-            <p style="font-size:.78rem;color:var(--text-2);line-height:1.6">Fill in your UTR rating, GPA, gender, and division preference to unlock AI school matching.</p>
+            <p style="font-size:.78rem;color:var(--text-2);line-height:1.6">Fill in your UTR rating, GPA, gender, and division preference to unlock tennis school matching.</p>
             <button class="btn btn-outline" style="margin-top:.75rem;font-size:.75rem" onclick="openModal('profile-modal')">Complete Profile →</button>
           </div>
         </div>
@@ -501,7 +501,7 @@
       <!-- School Matches -->
       <div class="card">
         <div class="matches-header">
-          <div class="matches-title">🎯 AI-Recommended Tennis Schools</div>
+          <div class="matches-title">🎯 Tennis Schools Matching</div>
           <button class="btn btn-primary" id="refreshBtn" onclick="refreshMatches()" style="font-size:.78rem;padding:.5rem 1rem">
             ↻ Refresh Matches
           </button>
@@ -513,7 +513,7 @@
           <div class="empty-state">
             <div class="empty-icon">🎾</div>
             <div class="empty-title">No matches yet</div>
-            <p>Complete your profile and click "Refresh Matches" to get AI-powered tennis school recommendations.</p>
+            <p>Complete your profile and click "Refresh Matches" to get tennis school recommendations.</p>
           </div>
         </div>
       </div>
@@ -834,7 +834,7 @@ function renderMatches(matches) {
       <div class="empty-state">
         <div class="empty-icon">🎾</div>
         <div class="empty-title">No matches yet</div>
-        <p>Click "Refresh Matches" above to get your AI-powered tennis school recommendations.</p>
+        <p>Click "Refresh Matches" above to get your tennis school recommendations.</p>
       </div>`;
     return;
   }

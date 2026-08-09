@@ -333,11 +333,11 @@ def get_schools():
 
     schools = load_schools()
 
-    division = request.args.get('division', '')
-    state    = request.args.get('state', '')
-    gender   = request.args.get('gender', 'male')
-    search   = request.args.get('search', '').lower()
-    utr      = request.args.get('utr', type=float)
+    division  = request.args.get('division', '')
+    state     = request.args.get('state', '')
+    city      = request.args.get('city', '').strip()
+    gender    = request.args.get('gender', 'male')
+    search    = request.args.get('search', '').lower()
     niche_min = request.args.get('niche_min', '').strip()
 
     # ── Filter ──
@@ -346,6 +346,8 @@ def get_schools():
         if division and s.get('division', '') != division:
             continue
         if state and s.get('state', '') != state:
+            continue
+        if city and s.get('city', '') != city:
             continue
         if search and search not in s.get('school', '').lower():
             continue
@@ -357,29 +359,11 @@ def get_schools():
             continue
         filtered.append(s)
 
-    # ── Sort by UTR fit ──
-    def sort_key(s):
-        fit      = utr_fit_score(s.get('division', ''), utr)
-        has_data = 0 if s.get('mens_scholarship') or s.get('womens_scholarship') else 1
-        return (round(fit, 3), has_data)
-
-    filtered.sort(key=sort_key)
-
-    # ── Add scholarship estimates ──
-    if utr:
-        for s in filtered:
-            low, high = estimate_scholarship_v2(utr, gender, s)
-            if low is None and high is None:
-                # No lineup data — fall back to division-bracket estimate
-                low, high = estimate_scholarship(utr, gender, s.get('division', ''), s)
-                s['scholarship_unlikely']       = False
-            elif low == 'unlikely':
-                low, high                       = None, None
-                s['scholarship_unlikely']       = True
-            else:
-                s['scholarship_unlikely']       = False
-            s['estimated_scholarship_low']  = low
-            s['estimated_scholarship_high'] = high
+    # ── Sort: scholarship-data schools first, then alphabetical ──
+    filtered.sort(key=lambda s: (
+        0 if (s.get('mens_scholarship') or s.get('womens_scholarship')) else 1,
+        s.get('school', '').lower()
+    ))
 
     total = len(filtered)
 
@@ -534,4 +518,14 @@ def get_divisions():
     schools = load_schools()
     divs    = sorted(set(s.get('division', '') for s in schools if s.get('division')))
     states  = sorted(set(s.get('state', '')    for s in schools if s.get('state')))
-    return jsonify({'divisions': divs, 'states': states})
+    # Build state → sorted city list for the cascading city filter
+    sc = {}
+    for s in schools:
+        st = s.get('state', '')
+        ct = s.get('city', '')
+        if st and ct:
+            if st not in sc:
+                sc[st] = set()
+            sc[st].add(ct)
+    state_cities = {st: sorted(cities) for st, cities in sc.items()}
+    return jsonify({'divisions': divs, 'states': states, 'state_cities': state_cities})

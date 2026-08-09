@@ -234,13 +234,6 @@
     </div>
 
     <div class="filter-group">
-      <label class="filter-label">Your UTR Rating</label>
-      <input type="range" id="utr-slider" min="1" max="16" step="0.5" value="8" oninput="updateUTR(this.value)">
-      <div class="utr-display" id="utr-display">8.0</div>
-      <div class="utr-desc" id="utr-desc">Strong club level player</div>
-    </div>
-
-    <div class="filter-group">
       <label class="filter-label">Division</label>
       <select class="filter-control" id="filter-div" onchange="applyFilters()">
         <option value="">All Divisions</option>
@@ -254,8 +247,15 @@
 
     <div class="filter-group">
       <label class="filter-label">State</label>
-      <select class="filter-control" id="filter-state" onchange="applyFilters()">
+      <select class="filter-control" id="filter-state" onchange="onStateChange()">
         <option value="">All States</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label class="filter-label">City</label>
+      <select class="filter-control" id="filter-city" onchange="applyFilters()" disabled>
+        <option value="">Select a state first</option>
       </select>
     </div>
 
@@ -321,75 +321,16 @@
 <script>
 let gender = 'male';
 let searchTimeout;
-let currentUTR = 8.0;
 
 // ── Favorites state ──
 let favoriteSet = new Set();   // names of saved schools
 let loadedSchools = [];        // schools currently rendered (search or saved view)
 let viewMode = 'search';       // 'search' | 'saved'
 
-const utrDescriptions = {
-  male: {
-    1:  'Beginner',
-    2:  'Recreational',
-    3:  'Intermediate',
-    4:  'Strong recreational',
-    5:  'Club level',
-    6:  'Strong club level',
-    7:  'High school varsity',
-    8:  'Strong club / JV college level',
-    9:  'College starter level',
-    10: 'Strong college level',
-    11: 'D1 / D2 college level',
-    12: 'Strong D1 level',
-    13: 'Pro / top D1 level',
-    14: 'ATP level',
-    15: 'Top 500 pro',
-    16: 'Top 100 pro'
-  },
-  female: {
-    1:  'Beginner',
-    2:  'Recreational',
-    3:  'Intermediate',
-    4:  'Strong recreational',
-    5:  'Club level',
-    6:  'Strong club level',
-    7:  'High school varsity',
-    8:  'Strong club / JV college level',
-    9:  'College starter level',
-    10: 'Strong D2 / D3 level',
-    10.5: 'Strong D1 level',
-    11: 'Strong D1 level',
-    12: 'Top D1 level',
-    13: 'Top 10 WTA / Elite D1'
-  }
-};
-
-function updateUTR(val) {
-  currentUTR = parseFloat(val);
-  document.getElementById('utr-display').textContent = currentUTR.toFixed(1);
-  const descriptions = utrDescriptions[gender] || utrDescriptions.male;
-  const desc = descriptions[Math.floor(currentUTR)] || descriptions[Math.ceil(currentUTR)] || '';
-  document.getElementById('utr-desc').textContent = desc;
-}
-
 function setGender(g) {
   gender = g;
   document.getElementById('btn-male').classList.toggle('active', g === 'male');
   document.getElementById('btn-female').classList.toggle('active', g === 'female');
-
-  const slider = document.getElementById('utr-slider');
-  const current = parseFloat(slider.value);
-
-  if (g === 'female') {
-    slider.max = 13;
-    const capped = Math.min(current, 13);
-    slider.value = capped;
-    updateUTR(capped);
-  } else {
-    slider.max = 16;
-    updateUTR(parseFloat(slider.value));
-  }
   applyFilters();
 }
 
@@ -425,18 +366,7 @@ function fmt(n, prefix='$') {
 
 function renderSchool(s, idx) {
   const scholarship = gender === 'male' ? s.mens_scholarship : s.womens_scholarship;
-  const hasEst = s.estimated_scholarship_low != null;
   const isFav = favoriteSet.has(s.school);
-
-  const estBanner = s.scholarship_unlikely ? `
-    <div class="est-banner" style="background:rgba(143,160,184,0.08);border-color:var(--border-s);color:var(--text-2);">
-      ⚠️ Your UTR ${currentUTR.toFixed(1)} is below this program's roster level — recruitment unlikely.
-    </div>` : hasEst && s.estimated_scholarship_low > 0 ? `
-    <div class="est-banner">
-      🎯 Estimated scholarship for UTR ${currentUTR.toFixed(1)}:
-      <strong>${fmt(s.estimated_scholarship_low)} – ${fmt(s.estimated_scholarship_high)}</strong>
-      <span style="font-size:.7rem;opacity:.7;margin-left:.5rem">per year</span>
-    </div>` : (hasEst ? `<div class="est-banner" style="background:rgba(143,160,184,0.08);border-color:var(--border-s);color:var(--text-2);">NCAA III schools do not offer athletic scholarships — academic aid only.</div>` : '');
 
   return `
   <div class="school-card" style="animation-delay:${idx*0.04}s">
@@ -450,8 +380,6 @@ function renderSchool(s, idx) {
         ${divBadge(s.division)}
       </div>
     </div>
-
-    ${estBanner}
 
     <div class="school-stats">
       <div class="stat">
@@ -467,8 +395,8 @@ function renderSchool(s, idx) {
         <div class="stat-val">${s.avg_sat_total || '—'}</div>
       </div>
       <div class="stat">
-        <div class="stat-label">Avg ACT</div>
-        <div class="stat-val">${s.avg_act || '—'}</div>
+        <div class="stat-label">School Size</div>
+        <div class="stat-val">${(function(){var e=s.enrollment;if(!e)return'—';if(e<5000)return'Small';if(e<=15000)return'Medium';return'Large';})()}</div>
       </div>
     </div>
 
@@ -621,8 +549,8 @@ function toggleFilters() {
 // Update the little count badge on the Filters button.
 // Gender and UTR always have a value, so they don't count as "active filters";
 // we count the optional refinements the user has chosen.
-function updateFiltersCount(div, state, niche, search) {
-  const n = [div, state, niche, search].filter(v => v && v.trim()).length;
+function updateFiltersCount(div, state, city, niche, search) {
+  const n = [div, state, city, niche, search].filter(v => v && v.trim()).length;
   const badge = document.getElementById('filtersCount');
   if (n > 0) { badge.textContent = n; badge.style.display = 'inline-block'; }
   else { badge.style.display = 'none'; }
@@ -632,18 +560,19 @@ async function applyFilters() {
   viewMode = 'search';
   updateSavedToggleUI();
 
-  const div = document.getElementById('filter-div').value;
+  const div   = document.getElementById('filter-div').value;
   const state = document.getElementById('filter-state').value;
+  const city  = document.getElementById('filter-city').value;
   const niche = document.getElementById('filter-niche').value;
   const search = document.getElementById('search-input').value;
 
-  updateFiltersCount(div, state, niche, search);
+  updateFiltersCount(div, state, city, niche, search);
 
   const params = new URLSearchParams({
     gender,
-    utr: currentUTR,
     ...(div && { division: div }),
     ...(state && { state }),
+    ...(city && { city }),
     ...(niche && { niche_min: niche }),
     ...(search && { search }),
   });
@@ -685,10 +614,13 @@ async function applyFilters() {
   }
 }
 
+let stateCities = {};
+
 async function loadStates() {
   try {
     const res = await fetch('/api/tennis/divisions', { credentials: 'include' });
     const data = await res.json();
+    stateCities = data.state_cities || {};
     const sel = document.getElementById('filter-state');
     data.states.forEach(st => {
       const opt = document.createElement('option');
@@ -696,6 +628,29 @@ async function loadStates() {
       sel.appendChild(opt);
     });
   } catch(e) {}
+}
+
+function onStateChange() {
+  const state   = document.getElementById('filter-state').value;
+  const citySel = document.getElementById('filter-city');
+  citySel.innerHTML = '';
+  if (!state) {
+    citySel.disabled = true;
+    const blank = document.createElement('option');
+    blank.value = ''; blank.textContent = 'Select a state first';
+    citySel.appendChild(blank);
+  } else {
+    citySel.disabled = false;
+    const blank = document.createElement('option');
+    blank.value = ''; blank.textContent = 'All Cities';
+    citySel.appendChild(blank);
+    (stateCities[state] || []).forEach(ct => {
+      const opt = document.createElement('option');
+      opt.value = ct; opt.textContent = ct;
+      citySel.appendChild(opt);
+    });
+  }
+  applyFilters();
 }
 
 // ── Pre-load which schools are already saved, so hearts render filled ──
