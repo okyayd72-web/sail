@@ -254,8 +254,29 @@
 
     <div class="filter-group">
       <label class="filter-label">City</label>
-      <select class="filter-control" id="filter-city" onchange="applyFilters()" disabled>
+      <select class="filter-control" id="filter-city" onchange="onCityChange()" disabled>
         <option value="">Select a state first</option>
+      </select>
+    </div>
+
+    <div class="filter-group" id="radius-group" style="display:none">
+      <label class="filter-label">Radius</label>
+      <select class="filter-control" id="filter-radius" onchange="applyFilters()">
+        <option value="">Exact city only</option>
+        <option value="25">Within 25 mi</option>
+        <option value="50">Within 50 mi</option>
+        <option value="100">Within 100 mi</option>
+      </select>
+      <p style="font-size:.65rem;color:var(--text-3);margin-top:.35rem;">~24% of schools lack coordinates and are excluded when radius is active.</p>
+    </div>
+
+    <div class="filter-group">
+      <label class="filter-label">School Size</label>
+      <select class="filter-control" id="filter-size" onchange="applyFilters()">
+        <option value="">All Sizes</option>
+        <option value="Small">Small (&lt;5,000)</option>
+        <option value="Medium">Medium (5,000–15,000)</option>
+        <option value="Large">Large (&gt;15,000)</option>
       </select>
     </div>
 
@@ -549,8 +570,8 @@ function toggleFilters() {
 // Update the little count badge on the Filters button.
 // Gender and UTR always have a value, so they don't count as "active filters";
 // we count the optional refinements the user has chosen.
-function updateFiltersCount(div, state, city, niche, search) {
-  const n = [div, state, city, niche, search].filter(v => v && v.trim()).length;
+function updateFiltersCount(div, state, city, niche, search, size, radius) {
+  const n = [div, state, city, niche, search, size, radius].filter(v => v && v.trim()).length;
   const badge = document.getElementById('filtersCount');
   if (n > 0) { badge.textContent = n; badge.style.display = 'inline-block'; }
   else { badge.style.display = 'none'; }
@@ -560,21 +581,25 @@ async function applyFilters() {
   viewMode = 'search';
   updateSavedToggleUI();
 
-  const div   = document.getElementById('filter-div').value;
-  const state = document.getElementById('filter-state').value;
-  const city  = document.getElementById('filter-city').value;
-  const niche = document.getElementById('filter-niche').value;
+  const div    = document.getElementById('filter-div').value;
+  const state  = document.getElementById('filter-state').value;
+  const city   = document.getElementById('filter-city').value;
+  const niche  = document.getElementById('filter-niche').value;
   const search = document.getElementById('search-input').value;
+  const size   = document.getElementById('filter-size').value;
+  const radius = document.getElementById('filter-radius').value;
 
-  updateFiltersCount(div, state, city, niche, search);
+  updateFiltersCount(div, state, city, niche, search, size, radius);
 
   const params = new URLSearchParams({
     gender,
-    ...(div && { division: div }),
-    ...(state && { state }),
-    ...(city && { city }),
-    ...(niche && { niche_min: niche }),
+    ...(div    && { division: div }),
+    ...(state  && { state }),
+    ...(city   && { city }),
+    ...(niche  && { niche_min: niche }),
     ...(search && { search }),
+    ...(size   && { size }),
+    ...(radius && city && { radius }),
   });
 
   document.getElementById('schools-container').innerHTML = '<div class="spinner-wrap"><div class="spinner"></div></div>';
@@ -614,13 +639,15 @@ async function applyFilters() {
   }
 }
 
-let stateCities = {};
+let stateCities    = {};
+let cityCentroids  = {};
 
 async function loadStates() {
   try {
     const res = await fetch('/api/tennis/divisions', { credentials: 'include' });
     const data = await res.json();
-    stateCities = data.state_cities || {};
+    stateCities   = data.state_cities   || {};
+    cityCentroids = data.city_centroids || {};
     const sel = document.getElementById('filter-state');
     data.states.forEach(st => {
       const opt = document.createElement('option');
@@ -633,6 +660,9 @@ async function loadStates() {
 function onStateChange() {
   const state   = document.getElementById('filter-state').value;
   const citySel = document.getElementById('filter-city');
+  // Reset radius when state changes
+  document.getElementById('radius-group').style.display = 'none';
+  document.getElementById('filter-radius').value = '';
   citySel.innerHTML = '';
   if (!state) {
     citySel.disabled = true;
@@ -649,6 +679,18 @@ function onStateChange() {
       opt.value = ct; opt.textContent = ct;
       citySel.appendChild(opt);
     });
+  }
+  applyFilters();
+}
+
+function onCityChange() {
+  const city = document.getElementById('filter-city').value;
+  const rg   = document.getElementById('radius-group');
+  if (city) {
+    rg.style.display = 'block';
+  } else {
+    rg.style.display = 'none';
+    document.getElementById('filter-radius').value = '';
   }
   applyFilters();
 }

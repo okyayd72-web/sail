@@ -1,4 +1,5 @@
 import json
+import math
 import os
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
@@ -14,6 +15,16 @@ BETA_MODE = True
 def load_schools():
     with open(SCHOOLS_PATH, 'r') as f:
         return json.load(f)
+
+
+def _haversine_miles(lat1, lon1, lat2, lon2):
+    R = 3958.8
+    dlat = math.radians(lat2 - lat1)
+    dlon = math.radians(lon2 - lon1)
+    a = (math.sin(dlat / 2) ** 2
+         + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2))
+         * math.sin(dlon / 2) ** 2)
+    return R * 2 * math.asin(math.sqrt(a))
 
 
 def estimate_scholarship(utr, gender, division, school):
@@ -339,6 +350,25 @@ def get_schools():
     gender    = request.args.get('gender', 'male')
     search    = request.args.get('search', '').lower()
     niche_min = request.args.get('niche_min', '').strip()
+    size      = request.args.get('size', '').strip()
+    radius    = request.args.get('radius', '').strip()
+
+    # ── Radius centroid (computed from schools with coords in the selected city) ──
+    centroid   = None
+    radius_mi  = None
+    if radius and city and state:
+        try:
+            radius_mi = float(radius)
+            lats = [s['latitude']  for s in schools
+                    if s.get('state') == state and s.get('city') == city
+                    and s.get('latitude') and s.get('longitude')]
+            lngs = [s['longitude'] for s in schools
+                    if s.get('state') == state and s.get('city') == city
+                    and s.get('latitude') and s.get('longitude')]
+            if lats:
+                centroid = (sum(lats) / len(lats), sum(lngs) / len(lngs))
+        except (ValueError, TypeError):
+            pass
 
     # ── Filter ──
     filtered = []
@@ -347,8 +377,26 @@ def get_schools():
             continue
         if state and s.get('state', '') != state:
             continue
-        if city and s.get('city', '') != city:
+        # Radius replaces exact city match; without radius, fall back to exact match
+        if centroid and radius_mi is not None:
+            s_lat = s.get('latitude')
+            s_lng = s.get('longitude')
+            if not s_lat or not s_lng:
+                continue
+            if _haversine_miles(centroid[0], centroid[1], s_lat, s_lng) > radius_mi:
+                continue
+        elif city and s.get('city', '') != city:
             continue
+        if size:
+            enroll = s.get('enrollment')
+            if not enroll:
+                continue
+            if size == 'Small' and enroll >= 5000:
+                continue
+            if size == 'Medium' and (enroll < 5000 or enroll > 15000):
+                continue
+            if size == 'Large' and enroll <= 15000:
+                continue
         if search and search not in s.get('school', '').lower():
             continue
         if niche_min:
@@ -518,14 +566,29 @@ def get_divisions():
     schools = load_schools()
     divs    = sorted(set(s.get('division', '') for s in schools if s.get('division')))
     states  = sorted(set(s.get('state', '')    for s in schools if s.get('state')))
-    # Build state → sorted city list for the cascading city filter
-    sc = {}
+    # Build state → sorted city list and city centroids for cascading filters
+    sc  = {}
+    raw = {}  # (state, city) → {lat_sum, lng_sum, count}
     for s in schools:
-        st = s.get('state', '')
-        ct = s.get('city', '')
+        st  = s.get('state', '')
+        ct  = s.get('city', '')
+        lat = s.get('latitude')
+        lng = s.get('longitude')
         if st and ct:
-            if st not in sc:
-                sc[st] = set()
-            sc[st].add(ct)
+            sc.setdefault(st, set()).add(ct)
+            if lat and lng:
+                key = (st, ct)
+                if key not in raw:
+                    raw[key] = {'lat_sum': 0.0, 'lng_sum': 0.0, 'count': 0}
+                raw[key]['lat_sum'] += lat
+                raw[key]['lng_sum'] += lng
+                raw[key]['count']   += 1
     state_cities = {st: sorted(cities) for st, cities in sc.items()}
-    return jsonify({'divisions': divs, 'states': states, 'state_cities': state_cities})
+    city_centroids = {}
+    for (st, ct), v in raw.items():
+        city_centroids.setdefault(st, {})[ct] = [
+            round(v['lat_sum'] / v['count'], 6),
+            round(v['lng_sum'] / v['count'], 6),
+        ]
+    return jsonify({'divisions': divs, 'states': states,
+                    'state_cities': state_cities, 'city_centroids': city_centroids})

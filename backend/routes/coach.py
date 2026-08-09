@@ -321,7 +321,7 @@ def apply_to_posting(posting_id):
     try:
         coach_user = User.query.get(posting.coach_user_id)
         if coach_user and coach_user.email:
-            _notify_coach_new_applicant(coach_user.email, posting)
+            _notify_coach_new_applicant(coach_user, posting, current_user.id)
     except Exception:
         pass
 
@@ -373,9 +373,11 @@ def _send_coach_verification_email(to_email, token):
         logging.error(f"Coach verification email error: {e}")
 
 
-def _notify_coach_new_applicant(to_email, posting):
-    """Email the posting's coach that a new application arrived. Contains NO student PII."""
+def _notify_coach_new_applicant(coach_user, posting, applicant_user_id):
+    """Email the posting's coach about a new application.
+    PII gate: UTR band included only when coach_manually_approved; otherwise zero student PII."""
     try:
+        import math as _math
         import sendgrid
         from sendgrid.helpers.mail import Mail
         applicants_url = (
@@ -386,26 +388,40 @@ def _notify_coach_new_applicant(to_email, posting):
             if posting.recruiting_term and posting.recruiting_term != 'TBD'
             else ''
         )
+        # UTR band — only for manually approved coaches; never round up
+        utr_part = ''
+        if coach_user.coach_manually_approved:
+            try:
+                from backend.routes.athlete import AthleteProfile
+                p = AthleteProfile.query.filter_by(user_id=applicant_user_id).first()
+                if p and p.utr_rating:
+                    utr_part = f' (UTR {_math.floor(p.utr_rating)}+)'
+            except Exception:
+                pass
+        subject = f'New applicant{utr_part} for your SAIL posting'
+        footer = (
+            'Applicant UTR band shown above. Full profile available after logging in.'
+            if utr_part else
+            'Student details are available after logging in, subject to your approval status. '
+            'No student information is included in this email.'
+        )
         sg = sendgrid.SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
         message = Mail(
             from_email='noreply@sailscholarship.com',
-            to_emails=to_email,
-            subject='New applicant for your SAIL posting',
+            to_emails=coach_user.email,
+            subject=subject,
             html_content=f'''
             <div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;padding:2rem;background:#050d1a;color:#f0eee8;border-radius:16px;">
               <h2 style="color:#00c9a7;margin-bottom:1rem;">New applicant 🎾</h2>
               <p style="color:#8fa0b8;line-height:1.7;margin-bottom:1.5rem;">
-                You have a new applicant for
+                You have a new applicant{utr_part} for
                 <strong style="color:#f0eee8;">{posting.position_label}{term_str}</strong>
                 at <strong style="color:#f0eee8;">{posting.school_name}</strong>.
               </p>
               <a href="{applicants_url}" style="display:inline-block;background:#00c9a7;color:#050d1a;padding:.85rem 2rem;border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem;">
                 View Applicants →
               </a>
-              <p style="color:#4d6278;font-size:.8rem;margin-top:1.5rem;">
-                Student details are available after logging in, subject to your approval status.
-                No student information is included in this email.
-              </p>
+              <p style="color:#4d6278;font-size:.8rem;margin-top:1.5rem;">{footer}</p>
             </div>
             '''
         )
