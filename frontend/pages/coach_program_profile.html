@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <title>Program Profile — SAIL Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-dim:#009e84;
+      --teal-g:rgba(0,201,167,0.12); --gold:#e8b84b;
+      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
+      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
+      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-s);}
+    .hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;color:var(--text-1);font-size:1.5rem;cursor:pointer;padding:0 .5rem 0 0;line-height:1;}
+    .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem;
+      padding:.55rem 1.1rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s var(--ease);text-decoration:none;}
+    .btn-ghost{background:transparent;color:var(--text-2);}
+    .btn-ghost:hover{color:var(--teal);background:var(--teal-g);}
+    .btn-primary{background:var(--teal);color:var(--navy);}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,201,167,0.3);}
+    .btn-outline{background:transparent;border:1px solid var(--border-s);color:var(--text-2);}
+    .btn-outline:hover{border-color:var(--teal);color:var(--teal);}
+    .nav-right{display:flex;align-items:center;gap:.75rem;}
+
+    /* NAV SIDEBAR (mobile) */
+    #navSidebar{position:fixed;top:0;left:0;bottom:0;width:240px;z-index:200;
+      background:var(--navy-2);border-right:1px solid var(--border-s);
+      padding:1.5rem .75rem;transform:translateX(-100%);transition:transform .25s var(--ease);}
+    #navSidebar.open{transform:translateX(0);box-shadow:4px 0 24px rgba(0,0,0,.5);}
+    #sidebarOverlay{display:none;position:fixed;inset:0;z-index:150;background:rgba(0,0,0,.6);}
+    #sidebarOverlay.open{display:block;}
+    .sidebar-link{display:flex;align-items:center;gap:.65rem;padding:.65rem .75rem;border-radius:8px;
+      color:var(--text-2);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;
+      text-decoration:none;transition:all .15s;background:none;border:none;cursor:pointer;width:100%;text-align:left;}
+    .sidebar-link:hover{color:var(--text-1);background:rgba(255,255,255,.05);}
+    .sidebar-link.active{color:var(--teal);background:var(--teal-g);}
+    .sidebar-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;
+      letter-spacing:.15em;text-transform:uppercase;color:var(--text-3);padding:.4rem .75rem;margin-top:1rem;}
+
+    /* MAIN */
+    .main{padding:5rem 2rem 3rem;position:relative;z-index:1;}
+    .main-inner{max-width:680px;margin:0 auto;}
+
+    /* PAGE HEADER */
+    .page-header{margin-bottom:1.75rem;}
+    .school-name{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--teal);}
+    .page-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text-2);margin-top:.2rem;}
+    .page-helper{font-size:.82rem;color:var(--text-3);margin-top:.5rem;line-height:1.6;}
+
+    /* FORM CARD */
+    .form-card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:2rem;}
+    .section-label{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--teal);margin:1.75rem 0 1rem;border-bottom:1px solid var(--border);padding-bottom:.5rem;}
+    .section-label:first-child{margin-top:0;}
+    .form-group{margin-bottom:1.25rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .form-label{display:block;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;
+      letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);margin-bottom:.4rem;}
+    .form-control{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border-s);
+      border-radius:8px;color:var(--text-1);padding:.65rem .85rem;font-family:'Lora',serif;font-size:.88rem;
+      outline:none;transition:border-color .15s;-webkit-appearance:none;}
+    .form-control:focus{border-color:var(--teal);}
+    select.form-control option{background:#112236;}
+    textarea.form-control{resize:vertical;min-height:130px;line-height:1.65;}
+    .form-hint{font-size:.7rem;color:var(--text-3);margin-top:.3rem;line-height:1.5;}
+    .char-count{font-size:.68rem;color:var(--text-3);text-align:right;margin-top:.2rem;}
+
+    /* ACTIONS */
+    .form-actions{display:flex;align-items:center;justify-content:space-between;margin-top:2rem;flex-wrap:wrap;gap:.75rem;}
+    .save-btn{padding:.75rem 2rem;font-size:.9rem;}
+
+    /* SUCCESS BANNER */
+    .success-banner{background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.25);border-radius:10px;
+      padding:.85rem 1.25rem;margin-bottom:1.5rem;font-family:'Syne',sans-serif;font-size:.82rem;
+      font-weight:700;color:var(--teal);}
+
+    @media(max-width:640px){
+      .form-row{grid-template-columns:1fr;}
+      .hamburger{display:inline-flex!important;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+  <a href="/dashboard" class="brand">
+    <img src="/static/images/logo-white.png" alt="SAIL" style="height:38px;">
+  </a>
+  <div class="nav-right">
+    <a href="/coach/postings" class="btn btn-ghost">My Postings</a>
+    <a href="/logout" class="btn btn-ghost">Log out</a>
+  </div>
+</nav>
+
+<div id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<div id="navSidebar">
+  <div class="sidebar-label">Coach</div>
+  <a class="sidebar-link" href="/dashboard">🏠 Dashboard</a>
+  <a class="sidebar-link" href="/coach/postings">📋 My Postings</a>
+  <a class="sidebar-link" href="/coach/postings/new">➕ New Posting</a>
+  <a class="sidebar-link active" href="/coach/program-profile">✏️ Program Profile</a>
+  <div class="sidebar-label">Account</div>
+  <a class="sidebar-link" href="/logout">↩️ Log Out</a>
+</div>
+
+<div class="main">
+  <div class="main-inner">
+
+    <div class="page-header">
+      <div class="school-name">{{ coach_school or 'Your Program' }}</div>
+      <div class="page-title">Program Profile</div>
+      <div class="page-helper">All fields optional — recruits see this to picture life in your program.</div>
+    </div>
+
+    {% if saved %}
+    <div class="success-banner">✅ Profile saved successfully.</div>
+    {% endif %}
+
+    <div class="form-card">
+      <form method="POST" action="/coach/program-profile">
+
+        <div class="section-label">About the Program</div>
+        <div class="form-group">
+          <label class="form-label" for="about_program">About Your Program</label>
+          <textarea class="form-control" id="about_program" name="about_program"
+                    maxlength="2000" rows="6"
+                    placeholder="Describe your program, coaching philosophy, team culture, recent results…"
+                    oninput="updateChar(this,'about-count')"
+          >{{ profile.about_program if profile and profile.about_program else '' }}</textarea>
+          <div class="char-count"><span id="about-count">{{ (profile.about_program|length) if profile and profile.about_program else 0 }}</span> / 2000</div>
+        </div>
+
+        <div class="section-label">Facilities</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="num_courts">Number of Courts</label>
+            <input class="form-control" type="number" id="num_courts" name="num_courts"
+                   min="0" max="50" placeholder="e.g. 8"
+                   value="{{ profile.num_courts if profile and profile.num_courts is not none else '' }}">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="court_type">Court Type</label>
+            <select class="form-control" id="court_type" name="court_type">
+              <option value="">Select…</option>
+              <option value="Indoor"   {% if profile and profile.court_type == 'Indoor'   %}selected{% endif %}>Indoor</option>
+              <option value="Outdoor"  {% if profile and profile.court_type == 'Outdoor'  %}selected{% endif %}>Outdoor</option>
+              <option value="Both"     {% if profile and profile.court_type == 'Both'     %}selected{% endif %}>Both Indoor &amp; Outdoor</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="courts_location">Courts Location</label>
+          <input class="form-control" type="text" id="courts_location" name="courts_location"
+                 maxlength="200" placeholder="e.g. On campus / 10 min from campus"
+                 value="{{ profile.courts_location if profile and profile.courts_location else '' }}">
+        </div>
+
+        <div class="section-label">Schedule &amp; Roster</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="practice_schedule">Practice Schedule</label>
+            <input class="form-control" type="text" id="practice_schedule" name="practice_schedule"
+                   maxlength="200" placeholder="e.g. Mon–Fri, 2–5 pm"
+                   value="{{ profile.practice_schedule if profile and profile.practice_schedule else '' }}">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="roster_size">Roster Size</label>
+            <input class="form-control" type="number" id="roster_size" name="roster_size"
+                   min="0" max="50" placeholder="e.g. 12"
+                   value="{{ profile.roster_size if profile and profile.roster_size is not none else '' }}">
+          </div>
+        </div>
+
+        <div class="section-label">International Recruiting</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="recruits_internationals">Recruits Internationals</label>
+            <select class="form-control" id="recruits_internationals" name="recruits_internationals">
+              <option value="">Select…</option>
+              <option value="Yes"       {% if profile and profile.recruits_internationals == 'Yes'       %}selected{% endif %}>Yes</option>
+              <option value="Sometimes" {% if profile and profile.recruits_internationals == 'Sometimes' %}selected{% endif %}>Sometimes</option>
+              <option value="No"        {% if profile and profile.recruits_internationals == 'No'        %}selected{% endif %}>No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="num_international_players">Current International Players</label>
+            <input class="form-control" type="number" id="num_international_players" name="num_international_players"
+                   min="0" max="30" placeholder="e.g. 4"
+                   value="{{ profile.num_international_players if profile and profile.num_international_players is not none else '' }}">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a href="/coach/postings" class="btn btn-outline">← Back to Postings</a>
+          <button type="submit" class="btn btn-primary save-btn">Save Profile</button>
+        </div>
+
+      </form>
+    </div>
+
+    <p style="text-align:center;font-family:'Syne',sans-serif;font-size:.75rem;color:var(--text-3);padding:1.5rem;margin-top:.5rem;">
+      Questions? <a href="mailto:denizo@sailscholarship.com" style="color:var(--teal);text-decoration:none;">denizo@sailscholarship.com</a>
+    </p>
+
+  </div>
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById('navSidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+document.querySelectorAll('.sidebar-link').forEach(function(l) {
+  l.addEventListener('click', function() {
+    document.getElementById('navSidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  });
+});
+function updateChar(el, countId) {
+  document.getElementById(countId).textContent = el.value.length;
+}
+</script>
+</body>
+</html>

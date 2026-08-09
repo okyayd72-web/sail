@@ -60,6 +60,24 @@ class PostingApplication(db.Model):
     student = db.relationship('User', foreign_keys=[student_user_id])
 
 
+class CoachProgramProfile(db.Model):
+    __tablename__ = 'coach_program_profiles'
+
+    id                        = db.Column(db.Integer,     primary_key=True)
+    coach_user_id             = db.Column(db.String(36),  db.ForeignKey('users.id'),
+                                          unique=True, nullable=False)
+    about_program             = db.Column(db.Text,        nullable=True)
+    practice_schedule         = db.Column(db.String(200), nullable=True)
+    num_courts                = db.Column(db.Integer,     nullable=True)
+    court_type                = db.Column(db.String(20),  nullable=True)
+    courts_location           = db.Column(db.String(200), nullable=True)
+    roster_size               = db.Column(db.Integer,     nullable=True)
+    recruits_internationals   = db.Column(db.String(20),  nullable=True)
+    num_international_players = db.Column(db.Integer,     nullable=True)
+    updated_at                = db.Column(db.DateTime,    default=datetime.utcnow,
+                                          onupdate=datetime.utcnow)
+
+
 # ─── HELPERS ─────────────────────────────────────────────────────────────────
 
 def _gate_coach():
@@ -227,6 +245,54 @@ def coach_applicants(posting_id):
 
     return render_template('coach_applicants.html', posting=posting,
                            applications=apps, verified=verified, profiles=profiles)
+
+
+@coach_bp.get('/coach/program-profile')
+@login_required
+def coach_program_profile():
+    gate = _gate_coach()
+    if gate:
+        return gate
+    profile = CoachProgramProfile.query.filter_by(coach_user_id=current_user.id).first()
+    saved = request.args.get('saved') == '1'
+    return render_template('coach_program_profile.html',
+                           profile=profile,
+                           coach_school=current_user.coach_school or '',
+                           saved=saved)
+
+
+@coach_bp.post('/coach/program-profile')
+@login_required
+def save_program_profile():
+    gate = _gate_coach()
+    if gate:
+        return gate
+    p = CoachProgramProfile.query.filter_by(coach_user_id=current_user.id).first()
+    if not p:
+        p = CoachProgramProfile(coach_user_id=current_user.id)
+        db.session.add(p)
+
+    def _pos_int(val):
+        try:
+            n = int(val)
+            return n if n >= 0 else None
+        except (ValueError, TypeError):
+            return None
+
+    data = request.form
+    about_raw = (data.get('about_program') or '').strip()
+    p.about_program             = about_raw[:2000] if about_raw else None
+    p.practice_schedule         = (data.get('practice_schedule') or '').strip()[:200] or None
+    p.court_type                = (data.get('court_type') or '').strip()[:20] or None
+    p.courts_location           = (data.get('courts_location') or '').strip()[:200] or None
+    p.recruits_internationals   = (data.get('recruits_internationals') or '').strip()[:20] or None
+    p.num_courts                = _pos_int(data.get('num_courts'))
+    p.roster_size               = _pos_int(data.get('roster_size'))
+    p.num_international_players = _pos_int(data.get('num_international_players'))
+    p.updated_at                = datetime.utcnow()
+
+    db.session.commit()
+    return redirect('/coach/program-profile?saved=1')
 
 
 # ─── STUDENT ROUTES ───────────────────────────────────────────────────────────

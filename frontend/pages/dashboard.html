@@ -387,8 +387,10 @@
     <a class="sidebar-link" href="/compare"><span class="icon">⚖️</span> Compare Schools</a>
 
     <div class="sidebar-label">Profile</div>
+    {% if current_user.role != 'coach' %}
     <button class="sidebar-link" onclick="openModal('profile-modal')"><span class="icon">✏️</span> Edit Profile</button>
     <a class="sidebar-link" href="/achievements"><span class="icon">🏅</span> Athletic Résumé</a>
+    {% endif %}
 
     {% if current_user.is_authenticated and current_user.role == 'athlete' %}
     <div class="sidebar-label">Recruiting</div>
@@ -399,6 +401,7 @@
     {% if current_user.is_authenticated and current_user.role == 'coach' %}
     <div class="sidebar-label">Coach</div>
     <a class="sidebar-link" href="/coach/postings"><span class="icon">📋</span> Coach Dashboard</a>
+    <a class="sidebar-link" href="/coach/program-profile"><span class="icon">✏️</span> Program Profile</a>
     {% endif %}
 
     <div class="sidebar-label">Beta</div>
@@ -425,10 +428,11 @@
 
       <div class="page-header">
         <h1 class="page-title">Welcome back, <span id="firstName" style="color:var(--teal)">Athlete</span> 👋</h1>
-        <p class="page-sub">Here's your tennis recruiting overview. Keep your profile updated for better school matches.</p>
+        <p class="page-sub">{% if current_user.role == 'coach' %}Manage your postings and update your program profile.{% else %}Here's your tennis recruiting overview. Keep your profile updated for better school matches.{% endif %}</p>
       </div>
 
       <!-- Stats row -->
+      {% if current_user.role != 'coach' %}
       <div class="stats-row">
         <div class="card stat-card">
           <div class="stat-num" id="statMatches">—</div>
@@ -443,11 +447,44 @@
           <div class="stat-label">Your UTR Rating</div>
         </div>
       </div>
+      {% endif %}
 
       <!-- Top row: Profile + Actions -->
+      {% if current_user.role == 'coach' %}
       <div class="top-row">
 
-        <!-- Profile card -->
+        <!-- Coach: Program Profile card -->
+        <div class="card">
+          <div class="card-title">
+            Program Profile
+            <a href="/coach/program-profile" class="btn btn-outline" style="font-size:.72rem;padding:.35rem .8rem">✏️ Edit</a>
+          </div>
+          <p style="font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--teal);margin-bottom:.5rem;">
+            {{ current_user.coach_school or '—' }}
+          </p>
+          <p style="font-size:.82rem;color:var(--text-2);line-height:1.65;margin-bottom:1.25rem;">
+            Describe your program so international recruits can picture life on your team.
+          </p>
+          <a href="/coach/program-profile" class="btn btn-primary" style="width:100%;justify-content:center;">
+            ✏️ Edit Program Profile
+          </a>
+        </div>
+
+        <!-- Coach: Quick Actions -->
+        <div class="card">
+          <div class="card-title">Quick Actions</div>
+          <div class="actions-grid">
+            <a href="/coach/postings" class="action-btn"><span class="action-icon">📋</span> My Postings</a>
+            <a href="/coach/postings/new" class="action-btn"><span class="action-icon">➕</span> New Posting</a>
+            <a href="/schools" class="action-btn"><span class="action-icon">🔍</span> Find Schools</a>
+            <a href="/coach/program-profile" class="action-btn"><span class="action-icon">✏️</span> Program Profile</a>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="top-row">
+
+        <!-- Athlete: Profile card -->
         <div class="card">
           <div class="card-title">
             My Profile
@@ -480,7 +517,7 @@
           </div>
         </div>
 
-        <!-- Quick actions -->
+        <!-- Athlete: Quick actions -->
         <div class="card">
           <div class="card-title">Quick Actions</div>
           <div class="actions-grid">
@@ -497,7 +534,9 @@
           </div>
         </div>
       </div>
+      {% endif %}
 
+      {% if current_user.role != 'coach' %}
       <!-- School Matches -->
       <div class="card">
         <div class="matches-header">
@@ -517,11 +556,13 @@
           </div>
         </div>
       </div>
+      {% endif %}
 
     </div>
   </main>
 </div>
 
+{% if current_user.role != 'coach' %}
 <!-- ── EDIT PROFILE MODAL ── -->
 <div class="modal-bg" id="profile-modal">
   <div class="modal">
@@ -658,6 +699,7 @@
     </form>
   </div>
 </div>
+{% endif %}
 
 <!-- ── EMAIL GENERATOR MODAL ── -->
 <div class="modal-bg" id="email-modal">
@@ -718,6 +760,8 @@
 <div id="toasts"></div>
 
 <script>
+const IS_COACH = {{ 'true' if current_user.role == 'coach' else 'false' }};
+
 const api = async (path, opts = {}) => {
   const res = await fetch(path, {
     headers: { 'Content-Type': 'application/json' },
@@ -976,6 +1020,7 @@ function initCityAutocomplete() {
   });
 }
 
+if (!IS_COACH) {
 document.getElementById('profileForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('saveProfileBtn');
@@ -1030,6 +1075,7 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
   }
   btn.disabled = false; btn.textContent = 'Save Profile';
 });
+} // end if (!IS_COACH)
 
 async function generateEmail() {
   const school = document.getElementById('email-school').value.trim();
@@ -1063,6 +1109,20 @@ async function init() {
     const { user } = await api('/api/auth/me');
     if (!user) { window.location.href = '/login'; return; }
 
+    if (user.email === 'okyayd72@gmail.com') {
+      document.getElementById('adminLink').style.display = 'block';
+    }
+
+    if (IS_COACH) {
+      // Coach view — set nav identity; skip all athlete API calls and DOM updates
+      const initials = ((user.first_name||'?')[0] + (user.last_name||'?')[0]).toUpperCase();
+      document.getElementById('navInitials').textContent = initials;
+      document.getElementById('navName').textContent     = user.first_name || '';
+      document.getElementById('firstName').textContent   = user.first_name || 'Coach';
+      return;
+    }
+
+    // Athlete view
     let profile = null;
     try {
       const pd = await api('/api/athlete/profile');
@@ -1072,10 +1132,6 @@ async function init() {
     renderProfile(user, profile);
     loadMetros();            // load city list for autocomplete
     initCityAutocomplete();  // wire up the city field
-    // Show admin link only for admin email
-    if (user.email === 'okyayd72@gmail.com') {
-    document.getElementById('adminLink').style.display = 'block';
-    }
 
     try {
       const md = await api('/api/athlete/matches');
