@@ -127,17 +127,18 @@
     }
 
     .chat-header {
-      padding:1rem 1.5rem; border-bottom:1px solid var(--border-s);
+      padding:1rem 1.5rem; border-bottom:1px solid var(--border);
       display:flex; align-items:center; gap:.75rem; flex-shrink:0;
-      background:rgba(5,13,26,0.6);
+      background:var(--surface);
     }
     .ai-avatar {
       width:36px; height:36px; border-radius:10px; flex-shrink:0;
       background:linear-gradient(135deg,var(--teal),#009e84);
       display:flex; align-items:center; justify-content:center; font-size:.9rem;
     }
-    .chat-header-name { font-family:'Syne',sans-serif; font-weight:700; font-size:.9rem; }
-    .chat-header-status { font-size:.72rem; color:var(--teal); display:flex; align-items:center; gap:.3rem; }
+    .chat-header-name { font-family:'Syne',sans-serif; font-weight:700; font-size:.9rem; color:var(--ink); }
+    .chat-header-status { font-size:.72rem; color:var(--muted); display:flex; align-items:center; gap:.3rem; }
+    .chat-header-status::before { color:var(--teal); }
     .chat-header-status::before { content:'●'; font-size:.5rem; animation:pulse 2s infinite; }
 
     /* THE one scrolling region. flex:1 + min-height:0 + overflow-y:auto is the
@@ -182,26 +183,26 @@
 
     .suggestions { display:flex; flex-wrap:wrap; gap:.5rem; padding:0 1.5rem 1rem; }
     .suggestion-btn {
-      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
-      border-radius:99px; padding:.4rem .9rem;
-      font-size:.78rem; color:var(--text-2);
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-sm); padding:.4rem .9rem;
+      font-size:.78rem; color:var(--body);
       font-family:'Syne',sans-serif; font-weight:600;
       cursor:pointer; transition:all .15s; white-space:nowrap;
     }
-    .suggestion-btn:hover { border-color:var(--border); color:var(--teal); background:var(--teal-g); }
+    .suggestion-btn:hover { border-color:var(--teal); color:var(--teal); background:var(--teal-g); }
 
     /* Input bar — fixed at the bottom of the chat column (not inside the scroller) */
     .input-area {
       padding:1rem 1.5rem 1.25rem; flex-shrink:0;
-      border-top:1px solid var(--border-s);
-      background:rgba(5,13,26,0.6);
+      border-top:1px solid var(--border);
+      background:var(--surface);
     }
     .input-row {
       display:flex; gap:.75rem; align-items:flex-end;
-      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
-      border-radius:14px; padding:.75rem 1rem; transition:border-color .15s;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius); padding:.75rem 1rem; transition:border-color .15s,box-shadow .15s;
     }
-    .input-row:focus-within { border-color:var(--border); }
+    .input-row:focus-within { border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-g); }
     .chat-input {
       flex:1; background:transparent; border:none; outline:none;
       color:var(--text-1); font-family:'Lora',serif; font-size:1rem;
@@ -230,18 +231,18 @@
       width:72px; height:72px; border-radius:18px;
       background:linear-gradient(135deg,var(--teal),#009e84);
       display:flex; align-items:center; justify-content:center;
-      font-size:2rem; margin-bottom:1.5rem; box-shadow:0 0 40px rgba(0,201,167,0.2);
+      font-size:2rem; margin-bottom:1rem; box-shadow:0 0 40px rgba(0,201,167,0.2);
     }
-    .welcome h2 { font-family:'Syne',sans-serif; font-size:1.5rem; margin-bottom:.75rem; }
-    .welcome p  { color:var(--text-2); max-width:420px; line-height:1.75; font-size:.9rem; }
-    .welcome-prompts { display:flex; flex-direction:column; gap:.5rem; margin-top:1.75rem; width:100%; max-width:480px; }
+    .welcome h2 { font-family:'Syne',sans-serif; font-size:1.5rem; margin-bottom:.5rem; color:var(--ink); }
+    .welcome p  { color:var(--muted); max-width:420px; line-height:1.75; font-size:.9rem; }
+    .welcome-prompts { display:flex; flex-direction:column; gap:.5rem; margin-top:1.25rem; width:100%; max-width:480px; }
     .welcome-prompt {
-      background:rgba(255,255,255,0.04); border:1px solid var(--border-s);
-      border-radius:10px; padding:.85rem 1rem; text-align:left; cursor:pointer;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-sm); padding:.85rem 1rem; text-align:left; cursor:pointer;
       font-family:'Syne',sans-serif; font-size:.82rem; font-weight:600;
-      color:var(--text-2); transition:all .15s;
+      color:var(--body); transition:all .15s;
     }
-    .welcome-prompt:hover { border-color:var(--border); color:var(--teal); background:var(--teal-g); }
+    .welcome-prompt:hover { border-color:var(--teal); color:var(--teal); background:var(--teal-g); }
     .welcome-prompt .prompt-icon { font-size:1rem; margin-right:.5rem; }
 
     #toasts { position:fixed; bottom:1.5rem; right:1.5rem; z-index:9999; display:flex; flex-direction:column; gap:.5rem; }
