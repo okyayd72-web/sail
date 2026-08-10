@@ -9,17 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy:#050d1a; --navy-2:#0c1829; --teal:#00c9a7; --teal-dim:#009e84;
-      --teal-g:rgba(0,201,167,0.12); --gold:#e8b84b;
-      --text-1:#f0eee8; --text-2:#8fa0b8; --text-3:#4d6278;
-      --border:rgba(0,201,167,0.12); --border-s:rgba(255,255,255,0.07);
-      --card:rgba(12,24,41,0.9); --ease:cubic-bezier(0.16,1,0.3,1);
-    }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Lora',Georgia,serif;background:var(--navy);color:var(--text-1);min-height:100vh;}
-    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-      background:radial-gradient(ellipse 80% 60% at 10% 0%,rgba(0,201,167,0.06) 0%,transparent 55%);}
+    body{font-family:'Lora',Georgia,serif;min-height:100vh;}
 
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
       padding:.85rem 2rem;background:rgba(5,13,26,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
@@ -62,7 +53,7 @@
     .page-helper{font-size:.82rem;color:var(--text-3);margin-top:.5rem;line-height:1.6;}
 
     /* FORM CARD */
-    .form-card{background:var(--card);border:1px solid var(--border-s);border-radius:16px;padding:2rem;}
+    .form-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;}
     .section-label{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;
       text-transform:uppercase;color:var(--teal);margin:1.75rem 0 1rem;border-bottom:1px solid var(--border);padding-bottom:.5rem;}
     .section-label:first-child{margin-top:0;}
@@ -74,7 +65,6 @@
       border-radius:8px;color:var(--text-1);padding:.65rem .85rem;font-family:'Lora',serif;font-size:.88rem;
       outline:none;transition:border-color .15s;-webkit-appearance:none;}
     .form-control:focus{border-color:var(--teal);}
-    select.form-control option{background:#112236;}
     textarea.form-control{resize:vertical;min-height:130px;line-height:1.65;}
     .form-hint{font-size:.7rem;color:var(--text-3);margin-top:.3rem;line-height:1.5;}
     .char-count{font-size:.68rem;color:var(--text-3);text-align:right;margin-top:.2rem;}
@@ -84,7 +74,7 @@
     .save-btn{padding:.75rem 2rem;font-size:.9rem;}
 
     /* SUCCESS BANNER */
-    .success-banner{background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.25);border-radius:10px;
+    .success-banner{background:var(--teal-tint);border:1px solid rgba(15,124,140,.25);border-radius:10px;
       padding:.85rem 1.25rem;margin-bottom:1.5rem;font-family:'Syne',sans-serif;font-size:.82rem;
       font-weight:700;color:var(--teal);}
 
@@ -93,13 +83,14 @@
       .hamburger{display:inline-flex!important;}
     }
   </style>
+  <link rel="stylesheet" href="/static/theme.css">
 </head>
 <body>
 
 <nav>
   <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
   <a href="/dashboard" class="brand">
-    <img src="/static/images/logo-white.png" alt="SAIL" style="height:38px;">
+    <img src="/static/images/logo-navy.png" alt="SAIL" style="height:38px;">
   </a>
   <div class="nav-right">
     <a href="/coach/postings" class="btn btn-ghost">My Postings</a>

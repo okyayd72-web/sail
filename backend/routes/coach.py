@@ -102,7 +102,11 @@ def coach_postings():
     # Attach count as a plain attribute so template doesn't need .count()
     for p in postings:
         p._applicant_count = p.applications.count()
-    return render_template('coach_postings.html', postings=postings)
+    program_profile = CoachProgramProfile.query.filter_by(
+        coach_user_id=current_user.id
+    ).first()
+    return render_template('coach_postings.html', postings=postings,
+                           program_profile=program_profile)
 
 
 @coach_bp.route('/coach/postings/new', methods=['GET', 'POST'])
@@ -336,12 +340,23 @@ def opportunities():
                                        .all()
         }
 
+    coach_ids = {p.coach_user_id for p in postings}
+    program_profiles = {}
+    if coach_ids:
+        program_profiles = {
+            pr.coach_user_id: pr
+            for pr in CoachProgramProfile.query.filter(
+                CoachProgramProfile.coach_user_id.in_(coach_ids)
+            ).all()
+        }
+
     return render_template(
         'opportunities.html',
         postings=postings,
         applied_ids=applied_ids,
         divisions=DIVISIONS,
         recruiting_terms=RECRUITING_TERMS,
+        program_profiles=program_profiles,
         filters={
             'division':     division,
             'recruit_type': recruit_type,

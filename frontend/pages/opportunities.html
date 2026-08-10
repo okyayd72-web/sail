@@ -89,6 +89,13 @@
     .toast.error{background:rgba(239,68,68,0.95);color:#fff;}
     @keyframes slideIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
 
+    /* Program profile panel */
+    .prog-profile{border-top:1px solid var(--border-s);margin-top:.9rem;padding-top:.9rem;}
+    .prog-label{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.55rem;}
+    .prog-about{font-size:.8rem;color:var(--text-2);line-height:1.65;margin-bottom:.55rem;}
+    .prog-details{display:flex;flex-wrap:wrap;gap:.35rem;}
+    .prog-chip{font-size:.7rem;color:var(--text-3);background:rgba(255,255,255,0.04);padding:.2rem .55rem;border-radius:6px;}
+
     @media(max-width:860px){.hamburger{display:inline-flex !important;}.filter-bar{flex-direction:column;}.filter-actions{margin-left:0;width:100%;}}
     @media(max-width:600px){.wrap{padding:calc(61px + 1.25rem) 1rem 4rem;}}
   </style>
@@ -197,6 +204,21 @@
 
     {% if p.description %}
     <div class="post-desc">{{ p.description }}</div>
+    {% endif %}
+
+    {% set prof = program_profiles.get(p.coach_user_id) %}
+    {% if prof and (prof.about_program or prof.practice_schedule or prof.num_courts is not none or prof.courts_location or prof.roster_size is not none or prof.recruits_internationals or prof.num_international_players is not none) %}
+    <div class="prog-profile">
+      <div class="prog-label">Program Info</div>
+      {% if prof.about_program %}<div class="prog-about">{{ prof.about_program }}</div>{% endif %}
+      <div class="prog-details">
+        {% if prof.practice_schedule %}<span class="prog-chip">🕒 {{ prof.practice_schedule }}</span>{% endif %}
+        {% if prof.num_courts is not none %}<span class="prog-chip">🎾 {{ prof.num_courts }} court{{ 's' if prof.num_courts != 1 else '' }}{% if prof.court_type %} · {{ prof.court_type }}{% endif %}</span>{% endif %}
+        {% if prof.courts_location %}<span class="prog-chip">📍 {{ prof.courts_location }}</span>{% endif %}
+        {% if prof.roster_size is not none %}<span class="prog-chip">👥 Roster: {{ prof.roster_size }}</span>{% endif %}
+        {% if prof.recruits_internationals %}<span class="prog-chip">🌍 Internationals: {{ prof.recruits_internationals }}{% if prof.num_international_players is not none %} ({{ prof.num_international_players }} current){% endif %}</span>{% endif %}
+      </div>
+    </div>
     {% endif %}
 
     <div class="post-footer">
