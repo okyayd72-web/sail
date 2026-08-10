@@ -143,6 +143,18 @@
 
   </div>
 
+  <!-- COACH APPROVALS -->
+  <div class="card" style="margin-bottom:1.25rem;">
+    <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">
+      🎾 Coach Approvals
+      <span id="pending-count" style="font-family:'Syne',sans-serif;font-size:.75rem;color:var(--text-3);font-weight:400;"></span>
+    </div>
+    <div id="coach-approvals-body">
+      <div style="color:var(--text-3);font-size:.82rem;text-align:center;padding:1rem;">Loading…</div>
+    </div>
+    <datalist id="school-list"></datalist>
+  </div>
+
   <!-- USER TABLE -->
   <div class="card" style="margin-bottom:1.25rem;">
     <div class="card-title" style="display:flex;justify-content:space-between;align-items:center;">
@@ -266,9 +278,120 @@ async function loadUsers() {
   }
 }
 
+async function loadCoaches() {
+  try {
+    const res  = await fetch('/admin/api/coaches', { credentials: 'include' });
+    const data = await res.json();
+    if (!data.coaches) return;
+
+    // Populate datalist with school names
+    const dl = document.getElementById('school-list');
+    dl.innerHTML = (data.school_names || []).map(n => `<option value="${escapeHtml(n)}">`).join('');
+
+    const pending = data.coaches.filter(c => !c.coach_manually_approved).length;
+    document.getElementById('pending-count').textContent =
+      pending ? `${pending} pending approval` : 'all approved';
+
+    if (!data.coaches.length) {
+      document.getElementById('coach-approvals-body').innerHTML =
+        '<div style="color:var(--text-3);font-size:.82rem;text-align:center;padding:1rem;">No coaches registered yet.</div>';
+      return;
+    }
+
+    // Unapproved first, then by join date desc
+    const coaches = [...data.coaches].sort((a, b) => {
+      if (a.coach_manually_approved !== b.coach_manually_approved)
+        return a.coach_manually_approved ? 1 : -1;
+      return 0;
+    });
+
+    document.getElementById('coach-approvals-body').innerHTML = `
+      <div style="overflow-x:auto;">
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>Name / Email</th>
+              <th>Email Verified</th>
+              <th>Approved</th>
+              <th>School (type to search)</th>
+              <th>Joined</th>
+              <th>Save</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${coaches.map(c => `
+              <tr id="coach-row-${escapeHtml(c.id)}" style="${!c.coach_manually_approved ? 'background:rgba(232,184,75,0.04);' : ''}">
+                <td>
+                  <div style="color:var(--text-1);font-weight:500;">${escapeHtml(c.name)}</div>
+                  <div style="font-size:.72rem;color:var(--text-3);">${escapeHtml(c.email)}</div>
+                </td>
+                <td>
+                  ${c.is_verified_coach
+                    ? '<span class="pill pill-green">Verified</span>'
+                    : '<span class="pill pill-red">Not verified</span>'}
+                </td>
+                <td>
+                  ${c.coach_manually_approved
+                    ? '<span class="pill pill-green">Approved</span>'
+                    : '<span class="pill pill-gold">Pending</span>'}
+                </td>
+                <td>
+                  <input list="school-list"
+                         id="school-${escapeHtml(c.id)}"
+                         value="${escapeHtml(c.coach_school)}"
+                         placeholder="Search school…"
+                         style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
+                                border-radius:6px;color:var(--text-1);padding:.35rem .65rem;font-size:.78rem;
+                                width:230px;font-family:'Lora',serif;outline:none;">
+                </td>
+                <td style="font-size:.7rem;color:var(--text-3);">${c.created_at ? c.created_at.slice(0,10) : '—'}</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+                    <label style="display:flex;align-items:center;gap:.3rem;font-size:.72rem;color:var(--text-2);cursor:pointer;white-space:nowrap;">
+                      <input type="checkbox" id="approve-${escapeHtml(c.id)}" ${c.coach_manually_approved ? 'checked' : ''}>
+                      Approve
+                    </label>
+                    <button class="btn btn-primary"
+                            style="font-size:.72rem;padding:.3rem .75rem;"
+                            onclick="saveCoach('${escapeHtml(c.id)}')">Save</button>
+                  </div>
+                </td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  } catch(e) {
+    console.error('loadCoaches error:', e);
+  }
+}
+
+async function saveCoach(userId) {
+  const schoolInput  = document.getElementById('school-'  + userId);
+  const approveInput = document.getElementById('approve-' + userId);
+  if (!schoolInput || !approveInput) return;
+
+  const schoolVal   = schoolInput.value.trim();
+  const approvedVal = approveInput.checked;
+
+  try {
+    const res  = await fetch('/admin/api/coaches/' + encodeURIComponent(userId) + '/update', {
+      method:      'POST',
+      credentials: 'include',
+      headers:     { 'Content-Type': 'application/json' },
+      body:        JSON.stringify({ coach_school: schoolVal, approved: approvedVal }),
+    });
+    const data = await res.json();
+    if (!res.ok) { alert(data.error || 'Error saving coach.'); return; }
+    await loadCoaches();   // re-render to reflect new state
+  } catch(e) {
+    alert('Network error.');
+  }
+}
+
 // Load on page init
 loadStats();
 loadUsers();
+loadCoaches();
 
 // Auto-refresh every 60 seconds
 setInterval(() => { loadStats(); loadUsers(); }, 60000);

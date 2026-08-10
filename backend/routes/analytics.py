@@ -155,3 +155,76 @@ def admin_users():
         })
 
     return jsonify({'users': result})
+
+
+@analytics_bp.get('/admin/api/coaches')
+@login_required
+def admin_coaches():
+    if not is_admin():
+        return jsonify({'error': 'Unauthorized'}), 403
+
+    import os
+    from backend.routes.auth import User
+
+    coaches = (User.query
+               .filter_by(role='coach')
+               .order_by(User.created_at.desc())
+               .all())
+
+    school_json_path = os.path.join(os.path.dirname(__file__), 'tennis_schools.json')
+    with open(school_json_path, 'r', encoding='utf-8') as f:
+        schools_data = json.load(f)
+    school_names = sorted({s['school'] for s in schools_data if s.get('school')})
+
+    result = []
+    for u in coaches:
+        result.append({
+            'id':                      u.id,
+            'name':                    f"{u.first_name} {u.last_name}",
+            'email':                   u.email,
+            'coach_school':            u.coach_school or '',
+            'is_verified_coach':       bool(u.is_verified_coach),
+            'coach_manually_approved': bool(u.coach_manually_approved),
+            'created_at':              u.created_at.isoformat() if u.created_at else '',
+        })
+
+    return jsonify({'coaches': result, 'school_names': school_names})
+
+
+@analytics_bp.post('/admin/api/coaches/<user_id>/update')
+@login_required
+def update_coach(user_id):
+    if not is_admin():
+        return jsonify({'error': 'Unauthorized'}), 403
+
+    import os
+    from backend.routes.auth import User
+
+    coach = User.query.filter_by(id=user_id, role='coach').first()
+    if not coach:
+        return jsonify({'error': 'Coach not found'}), 404
+
+    body        = request.get_json(silent=True) or {}
+    new_school  = body.get('coach_school', '').strip()
+    new_approved = bool(body.get('approved', False))
+
+    if new_school:
+        school_json_path = os.path.join(os.path.dirname(__file__), 'tennis_schools.json')
+        with open(school_json_path, 'r', encoding='utf-8') as f:
+            schools_data = json.load(f)
+        valid_names = {s['school'] for s in schools_data if s.get('school')}
+        if new_school not in valid_names:
+            return jsonify({'error': f'School not found: {new_school}'}), 400
+
+    coach.coach_school             = new_school or None
+    coach.coach_manually_approved  = new_approved
+    db.session.commit()
+
+    print(f'[ADMIN] {current_user.email} updated coach {coach.email}: '
+          f'school={coach.coach_school!r} approved={coach.coach_manually_approved}')
+
+    return jsonify({
+        'ok':                      True,
+        'coach_school':            coach.coach_school or '',
+        'coach_manually_approved': coach.coach_manually_approved,
+    })
