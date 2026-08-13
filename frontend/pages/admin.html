@@ -168,6 +168,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Nationality</th>
+            <th>Grad Year</th>
             <th>UTR</th>
             <th>Division</th>
             <th>Profile</th>
@@ -263,6 +264,7 @@ async function loadUsers() {
         <td style="color:var(--text-1);font-weight:500;">${escapeHtml(u.name)}</td>
         <td>${escapeHtml(u.email)}</td>
         <td>${u.nationality ? escapeHtml(u.nationality) : '—'}</td>
+        <td style="font-family:'Syne',sans-serif;font-weight:600;">${u.graduation_year || '—'}</td>
         <td style="color:var(--teal);font-family:'Syne',sans-serif;font-weight:700;">${u.utr ? u.utr.toFixed(1) : '—'}</td>
         <td>${u.division || '—'}</td>
         <td>

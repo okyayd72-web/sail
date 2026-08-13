@@ -151,7 +151,8 @@ def admin_users():
             'profile_complete': profile.profile_complete if profile else False,
             'utr':      profile.utr_rating if profile else None,
             'division': profile.division_preference if profile else None,
-            'nationality': profile.nationality if profile else None,
+            'nationality':      profile.nationality if profile else None,
+            'graduation_year':  profile.graduation_year if profile else None,
         })
 
     return jsonify({'users': result})
